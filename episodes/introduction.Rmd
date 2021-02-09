@@ -1,5 +1,5 @@
 ---
-title: "Introduction to the New Lesson Template"
+title: "Introduction to the New Template"
 teaching: 10
 exercises: 2
 ---

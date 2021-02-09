@@ -1,5 +1,5 @@
 ---
-title: "GitHub Branches Used in the New Template"
+title: "GitHub Branches"
 teaching: 10
 exercises: 2
 ---
