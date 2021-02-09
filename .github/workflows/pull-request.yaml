@@ -1,0 +1,103 @@
+name: "Receive Pull Request"
+
+on:
+  pull_request:
+    types:
+      [opened, synchronize, reopened]
+
+jobs:
+  build-md-source:
+    name: "Build Markdown Source Files"
+    runs-on: macOS-latest
+    if: ${{ github.event.action != 'closed' }}
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      CHIVE: ${{ github.workspace }}/site/chive
+      PR: ${{ github.workspace }}/site/pr
+      MD: ${{ github.workspace }}/site/built
+    steps:
+      - name: "Check out main branch"
+        uses: actions/checkout@v2
+
+      - name: "Check out staging branch"
+        uses: actions/checkout@v2
+        with:
+          ref: md-outputs
+          path: ${{ env.MD }}
+
+      - uses: r-lib/actions/setup-r@v1
+      - uses: r-lib/actions/setup-pandoc@v1
+        with:
+          pandoc-version: "2.10"
+
+      - name: setup libgit2
+        run: brew install libgit2
+
+      - name: Query dependencies
+        run: |
+          install.packages('remotes')
+          install.packages('drat')
+          drat:::add('carpentries')
+          saveRDS(remotes::package_deps('sandpaper', dependencies = TRUE), ".github/depends.Rds", version = 2)
+          writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
+        shell: Rscript {0}
+
+      - name: Cache R packages
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
+          restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
+
+      - name: Install dependencies
+        run: |
+          remotes::install_github('carpentries/sandpaper', dependencies = TRUE)
+        shell: Rscript {0}
+
+      - name: Build Site
+        id: build-site
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          Rscript -e 'sandpaper::build_lesson()'
+
+      - name: Generate Commit
+        id: generate-commit
+        run: |
+          mkdir -p ${{ env.CHIVE }}
+          mkdir -p ${{ env.PR }}
+          echo ${{ github.event.number }} > ${{ env.PR }}/NR
+          DIFF=${{ env.CHIVE }}/diff.md
+          cd ${{ env.MD }}
+          git add -A .
+          printf "### Rendered Changes\n\n" > $DIFF
+          printf "\n:mag: Inspect the changes: https://github.com/${{ github.repository }}/compare/md-outputs..md-outputs-PR-${{ github.event.number }}\n" >> ${DIFF}
+          printf "\n---\n" >> $DIFF
+          printf "\nThe following changes were observed in the rendered markdown documents\n" >> $DIFF
+          printf "\n\`\`\`diff\n" >> $DIFF
+          git diff --staged --compact-summary >> $DIFF
+          printf "\n\`\`\`\n" >> $DIFF
+          # removing git repo for the built archive.
+          rm -rf .git
+
+      - name: Upload PR
+        uses: actions/upload-artifact@v2
+        with:
+          name: pr
+          path: ${{ env.PR }}
+
+      - name: Upload Diff
+        uses: actions/upload-artifact@v2
+        with:
+          name: diff
+          path: ${{ env.CHIVE }}
+      
+      - name: Upload Build
+        uses: actions/upload-artifact@v2
+        with:
+          name: built
+          path: ${{ env.MD }}
+
+      - name: Teardown
+        run: sandpaper::reset_site()
+        shell: Rscript {0}
