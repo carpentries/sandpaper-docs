@@ -10,7 +10,7 @@
 carpentry: cp
 
 # Overall title for pages.
-title: Lesson Title
+title: Intruction to the New Lesson Template
 
 # Life cycle stage of the lesson
 # possible values: pre-alpha, alpha, beta, stable
@@ -20,13 +20,13 @@ life_cycle: pre-alpha
 license: CC-BY 4.0
 
 # Link to the source repository for this lesson
-source: https://github.com/carpentries/sandpaper
+source: https://github.com/zkamvar/sandpaper-docs/
 
 # Default branch of your lesson
 branch: main
 
 # Who to contact if there are any issues
-contact: team@carpentries.org
+contact: zkamvar@carpentries.org
 
 # Navigation ------------------------------------------------
 # The menu bar will be in the following order:
@@ -44,13 +44,25 @@ contact: team@carpentries.org
 
 # Order of episodes in your lesson 
 episodes: 
+- introduction.Rmd
+- migration.Rmd
+- engine.Rmd
+- episodes.Rmd
+- template.Rmd
+- validator.Rmd
+- branches.Rmd
+- deployment.Rmd
+- pull-request.Rmd
 
 # Information for Learners
 learners: 
+- setup.md
 
 # Information for Instructors
 instructors: 
 
 # Learner Profiles
 profiles: 
+- maintainer.md
+- instructor.md
 

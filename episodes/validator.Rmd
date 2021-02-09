@@ -1,5 +1,5 @@
 ---
-title: "Using RMarkdown"
+title: "The Validator: {pegboard}"
 teaching: 10
 exercises: 2
 ---
@@ -26,7 +26,8 @@ part of the html page.
 
 :::::::::::::::: questions :::::::::::::::::::::
 
-- How do you write a lesson using RMarkdown and `{sandpaper}`?
+- What features are important for the lesson?
+- What features are important for each episode?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
