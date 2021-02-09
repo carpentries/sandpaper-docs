@@ -1,8 +1,8 @@
 ---
-sandpaper-digest: b4f8e08d1155d885cef0da932e54ad24
+sandpaper-digest: 8197d7f784e3b26ce8c3d7a85a0c4777
 sandpaper-source: /Users/runner/work/sandpaper-docs/sandpaper-docs/episodes/introduction.Rmd
 
-title: "Introduction to the New Lesson Template"
+title: "Introduction to the New Template"
 teaching: 10
 exercises: 2
 ---

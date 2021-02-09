@@ -1,8 +1,8 @@
 ---
-sandpaper-digest: 6e03c100e3675a60632cfaca5635c8fd
+sandpaper-digest: 71d38ff5f249047b872f0e476c0216e9
 sandpaper-source: /Users/runner/work/sandpaper-docs/sandpaper-docs/episodes/branches.Rmd
 
-title: "GitHub Branches Used in the New Template"
+title: "GitHub Branches"
 teaching: 10
 exercises: 2
 ---
