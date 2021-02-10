@@ -20,18 +20,38 @@ exercises: 2
 ::::::::::::::::::::::
 
 
+## Quickstart
+
+The new lesson template is an R package called [{sandpaper}](engine.html), which
+is designed to provide rapid updates to the lessons on the fly. You can explore
+this lesson with the following steps:
+
+1. Follow the [setup instructions](setup.html)
+2. Open RStudio (or your preferred interface to R)
+3. Use the following code:
+
+```r
+library("usethis")
+library("sandpaper")
+
+# Download this repository to your Desktop and move into it
+# (If you are using RStudio, it will open a new session)
+usethis::create_from_github("zkamvar/sandpaper-docs", open = TRUE)
+
+# Render and preview the lesson
+sandpaper::build_lesson()
+```
+
 ## Why make a new template?
 
-New templates are nothing new for The Carpentries[^An incomplete history is
-noted in the 9.1.0 release:
-https://github.com/carpentries/styles/releases/tag/v9.1.0] as we are forever
+New templates are nothing new for The Carpentries[^history] as we are forever
 searching for a balance between using the tools we teach and scaling our
 operations to accomodate the growing number of lessons we have in [The
-Carpentries Incubator]. 
+Carpentries Incubator].
 
 ::::::::::::: discussion
 
-### What's wrong with the current template?
+### What can be improved?
 
 The current template is a lesson template wrapped around a Jekyll blog. It has
 all of the features we want, but it's showing its age in several ways:
@@ -40,16 +60,17 @@ all of the features we want, but it's showing its age in several ways:
    several people have turned to elaborate solutions to preview their lessons
    including [Using a GitHub fork](https://www.youtube.com/watch?v=0XoEdznJARc)
    and [Creating a Docker image](https://github.com/carpentries/lesson-docker/)
-2. All of our R lessons use RMarkdown to combine code and prose into a document
-   that renders the output automatically, which means any updates will get
-   propogated. Because Jekyll sites do not run R in the background, they cannot
-   render these lessons, so a fifth language must be added on and pre-rendered
-   before lessons are built.
+2. All of our R lessons use [RMarkdown][r-markdown] to combine code and prose
+   into a document that renders the output automatically, which means any
+   updates will get propogated. Because [Jekyll][jekyll] sites do not run R in
+   the background, they cannot render these lessons, so a fifth language must
+   be added on and pre-rendered before lessons are built.
 3. Updating the lessons is no small feat. It relies on a trick that we use for
    people creating lessons by importing the carpentries repository (because the
    template button did not yet exist) so that we can create a new branch and 
-   merge the current branch of the styles repository. This creates a pull request
-   with potentially hundreds of commits that you just have to trust works.
+   merge the current branch of the [styles repository][styles]. This creates a
+   pull request with potentially hundreds of commits that you just have to
+   trust works.
 
 ::::::::::::::::::
 
@@ -60,8 +81,8 @@ present to you a template that contains two things you need to worry about:
 content files written in plain markdown and one (1) flat configuration file. All
 the styling templates and tooling have been cast off into their own repositories
 so that these can be updated on the fly without needing to undergo a complex
-pull requests. Moreover, the template will treat RMarkdown documents as 
-first-class citizens without any extra setup or commands.
+pull requests. Moreover, the template will treat [RMarkdown][r-markdown]
+documents as first-class citizens without any extra setup or commands.
 
 ## Template Structure
 
@@ -77,17 +98,19 @@ testing for the front-end of the lesson website.
 The template folder structure will contain markdown files arranged so that they
 match what we expect the menubar for the lesson should be:
 
- - `episodes/` contains the lesson episode documents and all the figures and files associated with them
- - `learners/` contains materials for learners such as the setup document and the glossary
+ - `episodes/` contains the lesson episode documents and all the figures and
+   files associated with them
+ - `learners/` contains materials for learners such as the setup document and
+   the glossary
  - `instructors/` contains materials for instructors such as outline and slides.
  - `profiles/` contains learner profiles for the course
- - `config.yaml` is a flat yaml file where you can arrange the files in the above
- folders in any order and specify the metadata for the lesson.
+ - `config.yaml` is a flat yaml file where you can arrange the files in the
+   above folders in any order and specify the metadata for the lesson.
 
 ## Tools
 
 As described in [the setup document](setup.html), the lesson template now only
-requires R and pandoc to be installed. The tooling from the current lesson
+requires R and [pandoc] to be installed. The tooling from the current lesson
 template has been split up into three R packages:
 
 1. [{varnish}](template.html) contains the HTML, CSS, and JavaScript elements
@@ -96,10 +119,10 @@ template has been split up into three R packages:
 
 ## Processing
 
-The previous Jekyll template used a single step to render markdown to HTML, with
-the new template, we have a two step process that renders (R)Markdown to 
-markdown and then to HTML. Why use two steps? By rendering in two steps, we do
-a couple of things:
+The previous [Jekyll][jekyll] template used a single step to render markdown to
+HTML, with the new template, we have a two step process that renders
+[(R)Markdown][r-markdown] to markdown and then to HTML. Why use two steps? By
+rendering in two steps, we do a couple of things:
 
 1. Any format that can be rendred to markdown can potentially be a source
 2. Markdown provides a much better diff than HTML, so diagnosing output issues
@@ -107,9 +130,24 @@ a couple of things:
 3. The resulting markdown can be used in other contexts without needing to
    rebuild. 
 
+::::::::::::: keypoints
+
+ - There are several usability issues in the current template, creating
+   barriers to contribution
+ - The new template will be built with the maintainers in mind
+ - We are moving away from [kramdown] to [pandoc]-flavored markdown
+ - Tools for the new template will be fully separated from content
+ - Documents that need rendered output (e.g. [RMarkdown][r-markdown]) are
+   treated as first-class citizens
+ - The lessons will be rendered in a two-step process
+
+:::::::::::::::::::::::
+
+
 <!-- Please do not delete anything below this line -->
 
 [The Carpentries Incubator]: https://carpentries.org/community-lessons/
+[^history]: An incomplete history is noted in the 9.1.0 release: https://github.com/carpentries/styles/releases/tag/v9.1.0
 
 ```{r links, child = sandpaper::template_links()}
 ```
