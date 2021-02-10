@@ -4,99 +4,138 @@ teaching: 5
 exercises: 2
 ---
 
-# Introduction
-
-This is the new Carpentries template. It is written in [RMarkdown][r-markdown],
-which is a variant of Markdown that allows you to render code inside the
-lesson. Please refer to the [lesson
-example](https://carpentries.github.io/lesson-example) for full documentation.
-
-What you need to know is that there are three block quotes required for a valid
-Carpentries lesson template:
-
- 1. `questions` These are displayed at the beginning of the episode to prime the
-    learner for the content.
- 2. `objectives` These are the learning objectives for an episode
- 3. `keypoints` These are displayed at the end of the episode to reinforce the
-    objectives.
-
-No matter where these blocks appear, they will always be placed at the right
-part of the html page.
-
-
 :::::::::::::::: questions :::::::::::::::::::::
 
+- Who is responsible for migrating a lesson?
 - What package should I use for migration?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::: objectives ::::::::::::::::::::
 
-- Explain how to use markdown with the new lesson template
-- Demonstrate how to include pieces of code, figures, and nested challenge blocks
+- Understand the challenges involved in migration
+- Identify the shared components between the current and new lesson template
+- Identify the tool needed for migration
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::: keypoints :::::::::::::::::::::
 
-- Use `.Rmd` files for lessons even if you don't need to generate any code
-- Run `sandpaper::check_lesson()` to identify any issues with your lesson
-- Run `sandpaper::build_lesson()` to preview your lesson locally
+## Quick Start
 
-::::::::::::::::::::::::::::::::::::::::::::::::
+Got a lesson you want to convert? The [{pegboard}] package was built to do that!
+The best way to do this is to **ask Zhian to do it for you** since this is a
+process that should ideally only be done once. If you really want to, you can
+also try for yourself:
 
-::::::::::::::: challenge ::::::::::::::::::::::
+1. Install the package using [the setup instructions](setup.html)
+2. Open R
+3. Run `pegboard::jekyll_to_sandpaper()` to transform your lesson.
 
-## Challenge 1: Can you do it?
+## Challenges
 
-What is the output of this command?
+In an ideal world, migration of a lesson would involve moving shared markdown
+documents between folders, but unfortunately, this is not the case. The truth is
+that there are [dozens of markdown
+interpreters](https://github.com/markdown/markdown.github.com/wiki/Implementations)
+that all have a complicated hierarchy of rules.
 
-```{r, eval = FALSE}
-paste("This", "new", "template", "looks", "good")
+### A Question of Syntax
+
+The current template uses a markdown interpreter called [kramdown] because it
+was the default interpreter for [Jekyll][jekyll] at the time. This syntax 
+allowed us to create customized block quotes that served as waypoints in our
+lessons to facilitate active learning. Unfortunately, the syntax diverged far 
+enough from [GitHub Flavoured markdown (GFM)](https://github.github.com/gfm/)
+that even if you were familiar with markdown, you would have to learn a new 
+syntax to write your content.
+
+Enter [pandoc]. This tool is a cross-platform document converter that [uses its
+own flavor of markdown](https://pandoc.org/MANUAL#pandocs-markdown), that is
+more closely related to GFM than [kramdown]. For example, all of the features
+listed in the [extended syntax of the markdown guide](https://www.markdownguide.org/extended-syntax/)
+are present in pandoc.
+
+One of the biggest hurdles for the translation between [kramdown] and [pandoc]
+syntax are two things: 
+
+1. [Liquid templating syntax](https://shopify.github.io/liquid/basics/introduction/) (e.g. `{{ relative_root_path }}/{% link LICENSE.md %}` to link to the license
+2. Trailing styles: https://github.com/swcarpentry/DEPRECATED-lesson-template/issues/279#issuecomment-115491610
+
+To give a succint example, if I wanted to write this code block in markdown:
+
+```python
+import matplotlib
 ```
 
-:::::::::::::::::::::::: solution 
+I would write
 
-## Output
- 
-```{r, echo = FALSE}
-paste("This", "new", "template", "looks", "good")
+````markdown
+```python
+import matplotlib
 ```
+````
 
-:::::::::::::::::::::::::::::::::
+However, [kramdown] specified this syntax:
 
+````markdown
+~~~
+import matplotlib
+~~~
+{: .language-python}
+````
 
-## Challenge 2: how do you nest solutions within challenge blocks?
+While it was possible to use the GFM syntax in Kramdown, the first recommendation
+from the documentation has always been to use the trailing styles, and so that
+pattern stuck with the lessons. 
 
-:::::::::::::::::::::::: solution 
+All this goes to show that switching between these two syntaxes is not a simple
+task of find and replace.
 
-You can add a line with at least three colons and a `solution` tag.
+### Folder structure
 
-:::::::::::::::::::::::::::::::::
-::::::::::::::::::::::::::::::::::::::::::::::::
+The folder structure of the Lesson has evolved sporadically based on need and 
+entropy, which leaves us with "junk drawer" folders like "extras" that contain
+materials for both the learners and instructors. Moreover, the old template had
+separated the data folders from the episodes folders[^1]. On top of that, the 
+lessons that use RMarkdown had episodes embedded in `_episodes_rmd/` where some
+of the files in that folder were artifacts from previous runs.
 
-# Figures
+### Questions, Objectives, and Keypoints
 
-You can also include figures:
+The yaml headers of lessons contained bullet points for the questions, objectives,
+and keypoints, but it became difficult to write markdown in yaml quotation marks,
+so we have decided to migrate them to blocks in the lesson document itself.
 
-```{r pyramid}
-pie(
-  c(Sky = 78, "Sunny side of pyramid" = 17, "Shady side of pyramid" = 5), 
-  init.angle = 315, 
-  col = c("deepskyblue", "yellow", "yellow3"), 
-  border = FALSE
-)
-```
+### Block Quotes
 
+Block quotes are convenient visual aids for writing callouts, but they are 
+challenging to wrangle when you need to write code inside of them, especially
+if you have nested content. Our solution to this is to use [fenced divs](https://zkamvar.github.io/glowing-chainsaw/05-fenced-div-challenge-blocks.html#example-1). 
 
-# Math
+## Solution
 
-One of our episodes contains $\LaTeX$ equations when describing how to create
-dynamic reports with {knitr}, so we now use mathjax to describe this:
+The migration of the lesson template is taken care of via [{pegboard}], which 
+reads in the markdown source files using the commonmark markdown interpreter and
+internally manipulates the kramdown syntax to something it can interpret.
 
-`$\alpha = \dfrac{1}{(1 - \beta)^2}$` becomes: $\alpha = \dfrac{1}{(1 - \beta)^2}$
+The resulting markdown is then written to convert the following:
 
-Cool, right?
+1. block quotes become fenced divs
+2. code blocks are converted to standard markdown
+3. liquid tags are converted to normal, reference-based links
+4. non-metadata yaml items moved to the body of the document. 
+
+::::::::::::::::::::::::::::: keypoints
+
+ - Zhian will help migrate official lessons
+ - use [{pegboard}] for migration
+
+:::::::::::::::::::::::::::::::::::::::
+
+[{pegboard}]: validator.html
+[^1]: This was an explicit design choice to mimic how researchers should set up
+    their analysis projects, but it lead to some confusion when it came to 
+    rendering RMarkdown documents. 
 
 <!-- Please do not delete anything below this line -->
 

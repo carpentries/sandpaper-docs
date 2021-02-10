@@ -129,23 +129,26 @@ match what we expect the menubar for the lesson should be. All folders and files
 with an arrow `<-` are places in the lesson template you will be modifying:
 
 ```
-|-- .gitignore         #  - Ignore everything in the site/ folder
-|-- .github/           #  - Configuration for deployment
+|-- .gitignore         #  | Ignore everything in the site/ folder
+|-- .github/           #  | Configuration for deployment
 |-- episodes/          # <- PUT YOUR EPISODE MARKDOWN FILES IN THIS FOLDER
 |-- instructors/       # <- Information for Instructors (e.g. guide.md)
 |-- learners/          # <- Information for Learners (e.g. reference.md and setup.md)
 |-- profiles/          # <- Learner and/or Instructor Profiles (new)
-|-- site/              #  - This is a "scratch" folder ignored by git and is where the rendered markdown files and static site will live
+|-- site/              #  | This is a "scratch" folder ignored by git and is where the rendered markdown files and static site will live
 |-- config.yaml        # <- Use this to configure lesson metadata
 |-- index.md           # <- The landing page of your site
-|-- CONTRIBUTING.md    #  - Carpentries Rules for Contributions (REQUIRED)
-|-- CODE_OF_CONDUCT.md #  - Carpentries Code of Conduct (REQUIRED)
-|-- LICENSE.md         #  - Carpentries Licenses (REQUIRED)
-`-- README.md          #  - Introduces folks how to use this lesson and where they can find more information.
+|-- CONTRIBUTING.md    #  | Carpentries Rules for Contributions (REQUIRED)
+|-- CODE_OF_CONDUCT.md #  | Carpentries Code of Conduct (REQUIRED)
+|-- LICENSE.md         #  | Carpentries Licenses (REQUIRED)
+`-- README.md          # <- Introduces folks how to use this lesson and where they can find more information.
 ```
 
-Note that we no longer have an `_episodes_rmd` folder for R lessons because
-these are rendered alongside markdown episodes!
+This folder structure is heavily opinionated towards achieving our goals of
+creating a lesson template that is fit for the purpose of delivering lesson
+content for not only Carpentries instructors, but also for learners and
+educators who are browsing the content after a workshop. It is not designed to
+be a blog or commerce website. 
 
 ## Tools
 
@@ -153,9 +156,25 @@ As described in [the setup document](setup.html), the lesson template now only
 requires R and [pandoc] to be installed. The tooling from the current lesson
 template has been split up into three R packages:
 
-1. [{varnish}](template.html) contains the HTML, CSS, and JavaScript elements
-1. [{pegboard}](validator.html) is a validator for the markdown documents
-1. [{sandpaper}](engine.html) is the engine that puts everything together. 
+1. [{varnish}] contains the HTML, CSS, and JavaScript elements
+1. [{pegboard}] is a validator for the markdown documents
+1. [{sandpaper}] is the engine that puts everything together. 
+
+
+:::::::: callout
+
+### Customization
+
+One of the benefits of our [CC-BY 4.0][cc-by-human] template is that anyone can
+take it and customize it for their own purposes. We have found such creative 
+endeavors as using it as a [user guide for the Common Workflow Language](https://www.commonwl.org/user_guide/),
+a [program-specific set of training materials](https://nbisweden.github.io/module-organising-data-dm-practices/),
+and even [a lesson on cross-stitching](https://sgibson91.github.io/cross-stitch-carpentry/).
+
+With the new tempalte, however, the customization would take place in a fork of
+the [{varnish}] repository, where all of the styling elements live.
+
+::::::::::::::
 
 ## Processing
 
@@ -186,6 +205,9 @@ rendering in two steps, we do a couple of things:
 
 <!-- Please do not delete anything below this line -->
 
+[{varnish}]: template.html
+[{pegboard}]: validator.html
+[{sandpaper}]: engine.html
 [The Carpentries Incubator]: https://carpentries.org/community-lessons/
 [^history]: An incomplete history is noted in the 9.1.0 release: https://github.com/carpentries/styles/releases/tag/v9.1.0
 
