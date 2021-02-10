@@ -23,8 +23,21 @@ exercises: 2
 ## Quickstart
 
 The new lesson template is an R package called [{sandpaper}](engine.html), which
-is designed to provide rapid updates to the lessons on the fly. You can explore
-this lesson with the following steps:
+is designed to provide rapid updates to the lessons on the fly. It uses a 
+**two-step process for building lessons**:
+
+1. render all modified source documents (e.g [RMarkdown][r-markdown] or plain
+   Markdown) to [pandoc-flavored markdown][pandoc] to the folder called 
+   `site/built/`
+2. combine metadata with the contents of `site/built/` and convert to HTML to
+   the folder called `site/docs/`
+
+
+::::::::::::::::: challenge
+
+### Try it yourself!
+
+You can explore this lesson with the following steps:
 
 1. Follow the [setup instructions](setup.html)
 2. Open RStudio (or your preferred interface to R)
@@ -41,6 +54,22 @@ usethis::create_from_github("zkamvar/sandpaper-docs", open = TRUE)
 # Render and preview the lesson
 sandpaper::build_lesson()
 ```
+
+::::::::::::::::::::::::
+
+:::::::::::::: callout
+
+### Did everything work?
+
+If everything worked, you should have seen a lot of output in your R console and
+then your browser window open to reveal a page that looks identical to
+https://zkamvar.github.io/sandpaper-docs/.
+
+If this did NOT work for you, please send any errors you encountered to Zhian at
+zkamvar@carpentries.org or you can reach im on Slack. 
+
+:::::::::::::::::::::::
+
 
 ## Why make a new template?
 
