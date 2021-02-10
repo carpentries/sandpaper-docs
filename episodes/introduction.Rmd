@@ -125,16 +125,27 @@ testing for the front-end of the lesson website.
 ::::::::::::::::::::::::
 
 The template folder structure will contain markdown files arranged so that they
-match what we expect the menubar for the lesson should be:
+match what we expect the menubar for the lesson should be. All folders and files
+with an arrow `<-` are places in the lesson template you will be modifying:
 
- - `episodes/` contains the lesson episode documents and all the figures and
-   files associated with them
- - `learners/` contains materials for learners such as the setup document and
-   the glossary
- - `instructors/` contains materials for instructors such as outline and slides.
- - `profiles/` contains learner profiles for the course
- - `config.yaml` is a flat yaml file where you can arrange the files in the
-   above folders in any order and specify the metadata for the lesson.
+```
+|-- .gitignore         #  - Ignore everything in the site/ folder
+|-- .github/           #  - Configuration for deployment
+|-- episodes/          # <- PUT YOUR EPISODE MARKDOWN FILES IN THIS FOLDER
+|-- instructors/       # <- Information for Instructors (e.g. guide.md)
+|-- learners/          # <- Information for Learners (e.g. reference.md and setup.md)
+|-- profiles/          # <- Learner and/or Instructor Profiles (new)
+|-- site/              #  - This is a "scratch" folder ignored by git and is where the rendered markdown files and static site will live
+|-- config.yaml        # <- Use this to configure lesson metadata
+|-- index.md           # <- The landing page of your site
+|-- CONTRIBUTING.md    #  - Carpentries Rules for Contributions (REQUIRED)
+|-- CODE_OF_CONDUCT.md #  - Carpentries Code of Conduct (REQUIRED)
+|-- LICENSE.md         #  - Carpentries Licenses (REQUIRED)
+`-- README.md          #  - Introduces folks how to use this lesson and where they can find more information.
+```
+
+Note that we no longer have an `_episodes_rmd` folder for R lessons because
+these are rendered alongside markdown episodes!
 
 ## Tools
 
