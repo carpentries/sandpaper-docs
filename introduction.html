@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-02-09 23:55:56 +0000">
+<meta http-equiv="last-modified" content="2021-02-10 01:35:48 +0000">
 
 
 
@@ -220,16 +220,6 @@
       <h1>Introduction to the New Template</h1>
     </div>
 
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
-<p>This is the new Carpentries template. It is written in <a href="https://rmarkdown.rstudio.com/">RMarkdown</a>, which is a variant of Markdown that allows you to render code inside the lesson.</p>
-<p>What you need to know is that there are three block quotes required for a valid Carpentries lesson template:</p>
-<ol style="list-style-type: decimal">
-<li><code>questions</code> These are displayed at the beginning of the episode to prime the learner for the content.</li>
-<li><code>objectives</code> These are the learning objectives for an episode</li>
-<li><code>keypoints</code> These are displayed at the end of the episode to reinforce the objectives.</li>
-</ol>
-<p>No matter where these blocks appear, they will always be placed at the right part of the html page.</p>
 <div class="section level2 objectives">
 <h2>Overview</h2>
 <div class="row">
@@ -240,7 +230,8 @@
 <div class="col-md-9">
 <p><strong>Questions</strong></p>
 <ul>
-<li>How does the {sandpaper} model differ from Jekyll?</li>
+<li>Why make a new lesson template?</li>
+<li>How do I get started?</li>
 </ul>
 </div>
 </div>
@@ -251,55 +242,61 @@
 <div class="col-md-9">
 <p><strong>Objectives</strong></p>
 <ul>
-<li>Explain how to use markdown with the new lesson template</li>
-<li>Demonstrate how to include pieces of code, figures, and nested challenge blocks</li>
+<li>Contrast the new template with the old</li>
+<li>Understand the basic structure of the new template</li>
+<li>Identify the main command to preview the template</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="section level2 keypoints">
-<h2>Keypoints</h2>
+<div id="why-make-a-new-template" class="section level2">
+<h2>Why make a new template?</h2>
+<p>New templates are nothing new for The Carpentries[^An incomplete history is noted in the 9.1.0 release: <a href="https://github.com/carpentries/styles/releases/tag/v9.1.0" class="uri">https://github.com/carpentries/styles/releases/tag/v9.1.0</a>] as we are forever searching for a balance between using the tools we teach and scaling our operations to accomodate the growing number of lessons we have in <a href="https://carpentries.org/community-lessons/">The Carpentries Incubator</a>.</p>
+</div>
+<div id="whats-wrong-with-the-current-template" class="section level2 discussion">
+<h2>What’s wrong with the current template?</h2>
+<p>The current template is a lesson template wrapped around a Jekyll blog. It has all of the features we want, but it’s showing its age in several ways:</p>
+<ol style="list-style-type: decimal">
+<li>By requiring four different languages to check and render the lesson, several people have turned to elaborate solutions to preview their lessons including <a href="https://www.youtube.com/watch?v=0XoEdznJARc">Using a GitHub fork</a> and <a href="https://github.com/carpentries/lesson-docker/">Creating a Docker image</a></li>
+<li>All of our R lessons use RMarkdown to combine code and prose into a document that renders the output automatically, which means any updates will get propogated. Because Jekyll sites do not run R in the background, they cannot render these lessons, so a fifth language must be added on and pre-rendered before lessons are built.</li>
+<li>Updating the lessons is no small feat. It relies on a trick that we use for people creating lessons by importing the carpentries repository (because the template button did not yet exist) so that we can create a new branch and merge the current branch of the styles repository. This creates a pull request with potentially hundreds of commits that you just have to trust works.</li>
+</ol>
+</div>
+<p>The new lesson template is fresh start as we look back to our founding principles and think about what is important for the lesson maintainer to focus on: the lesson content. To achieve this, we have stripped away the styling elements and present to you a template that contains two things you need to worry about: content files written in plain markdown and one (1) flat configuration file. All the styling templates and tooling have been cast off into their own repositories so that these can be updated on the fly without needing to undergo a complex pull requests. Moreover, the template will treat RMarkdown documents as first-class citizens without any extra setup or commands.</p>
+<div id="template-structure" class="section level2">
+<h2>Template Structure</h2>
+<aside class="callout">
+<div id="this-may-change" class="section level3">
+<h3><span class="emoji" data-emoji="construction">🚧</span> This May Change <span class="emoji" data-emoji="construction">🚧</span></h3>
+<p>The exact folder structure still has the possibility to change based on user testing for the front-end of the lesson website.</p>
+</div>
+</aside>
+<p>The template folder structure will contain markdown files arranged so that they match what we expect the menubar for the lesson should be:</p>
 <ul>
-<li>Use <code>.Rmd</code> files for lessons even if you don’t need to generate any code</li>
-<li>Run <code>sandpaper::check_lesson()</code> to identify any issues with your lesson</li>
-<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson locally</li>
+<li><code>episodes/</code> contains the lesson episode documents and all the figures and files associated with them</li>
+<li><code>learners/</code> contains materials for learners such as the setup document and the glossary</li>
+<li><code>instructors/</code> contains materials for instructors such as outline and slides.</li>
+<li><code>profiles/</code> contains learner profiles for the course</li>
+<li><code>config.yaml</code> is a flat yaml file where you can arrange the files in the above folders in any order and specify the metadata for the lesson.</li>
 </ul>
 </div>
-<div class="challenge">
-<div id="challenge-1-can-you-do-it" class="section level2">
-<h2>Challenge 1: Can you do it?</h2>
-<p>What is the output of this command?</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">paste</span>(<span class="st">&quot;This&quot;</span>, <span class="st">&quot;new&quot;</span>, <span class="st">&quot;template&quot;</span>, <span class="st">&quot;looks&quot;</span>, <span class="st">&quot;good&quot;</span>)</span></code></pre></div>
+<div id="tools" class="section level2">
+<h2>Tools</h2>
+<p>As described in <a href="setup.html">the setup document</a>, the lesson template now only requires R and pandoc to be installed. The tooling from the current lesson template has been split up into three R packages:</p>
+<ol style="list-style-type: decimal">
+<li><a href="template.html">{varnish}</a> contains the HTML, CSS, and JavaScript elements</li>
+<li><a href="validator.html">{pegboard}</a> is a validator for the markdown documents</li>
+<li><a href="engine.html">{sandpaper}</a> is the engine that puts everything together.</li>
+</ol>
 </div>
-<div id="output" class="section level2 solution">
-<h2>Output</h2>
-<pre class="output"><code>[1] &quot;This new template looks good&quot;</code></pre>
-</div>
-<div id="challenge-2-how-do-you-nest-solutions-within-challenge-blocks" class="section level2">
-<h2>Challenge 2: how do you nest solutions within challenge blocks?</h2>
-</div>
-<div class="section level2 solution">
-<h2>Solution</h2>
-<p>You can add a line with at least three colons and a <code>solution</code> tag.</p>
-</div>
-</div>
-</div>
-<div id="figures" class="section level1">
-<h1>Figures</h1>
-<p>You can also include figures:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="kw">pie</span>(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>  <span class="kw">c</span>(<span class="dt">Sky =</span> <span class="dv">78</span>, <span class="st">&quot;Sunny side of pyramid&quot;</span> =<span class="st"> </span><span class="dv">17</span>, <span class="st">&quot;Shady side of pyramid&quot;</span> =<span class="st"> </span><span class="dv">5</span>), </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>  <span class="dt">init.angle =</span> <span class="dv">315</span>, </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>  <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;deepskyblue&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;yellow3&quot;</span>), </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>  <span class="dt">border =</span> <span class="ot">FALSE</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>)</span></code></pre></div>
-<p><img src="fig/introduction-rendered-pyramid-1.png" title="plot of chunk pyramid" alt="plot of chunk pyramid" style="display: block; margin: auto;" /></p>
-</div>
-<div id="math" class="section level1">
-<h1>Math</h1>
-<p>One of our episodes contains <span class="math inline">\(\LaTeX\)</span> equations when describing how to create dynamic reports with {knitr}, so we now use mathjax to describe this:</p>
-<p><code>$\alpha = \dfrac{1}{(1 - \beta)^2}$</code> becomes: <span class="math inline">\(\alpha = \dfrac{1}{(1 - \beta)^2}\)</span></p>
-<p>Cool, right?</p>
+<div id="processing" class="section level2">
+<h2>Processing</h2>
+<p>The previous Jekyll template used a single step to render markdown to HTML, with the new template, we have a two step process that renders (R)Markdown to markdown and then to HTML. Why use two steps? By rendering in two steps, we do a couple of things:</p>
+<ol style="list-style-type: decimal">
+<li>Any format that can be rendred to markdown can potentially be a source</li>
+<li>Markdown provides a much better diff than HTML, so diagnosing output issues on a lesson is eaiser.</li>
+<li>The resulting markdown can be used in other contexts without needing to rebuild.</li>
+</ol>
 <!-- Please do not delete anything below this line -->
 </div>
 
