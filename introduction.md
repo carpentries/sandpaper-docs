@@ -1,5 +1,5 @@
 ---
-sandpaper-digest: 97fca23d71a77118d4d59acf1fe8839f
+sandpaper-digest: 762eeaf719bde1a07d521377b6551400
 sandpaper-source: /Users/runner/work/sandpaper-docs/sandpaper-docs/episodes/introduction.Rmd
 
 title: "Introduction to the New Template"
@@ -25,15 +25,29 @@ exercises: 2
 
 ## Quickstart
 
-The new lesson template is an R package called [{sandpaper}](engine.html), which
-is designed to provide rapid updates to the lessons on the fly. It uses a 
-**two-step process for building lessons**:
+:::::::::::::::::: callout
 
-1. render all modified source documents (e.g [RMarkdown][r-markdown] or plain
-   Markdown) to [pandoc-flavored markdown][pandoc] to the folder called 
-   `site/built/`
-2. combine metadata with the contents of `site/built/` and convert to HTML to
-   the folder called `site/docs/`
+### Takeaway message
+
+Contributors should only be expected to know basic markdown and *very* minimal
+yaml syntax in order to work on lessons.
+
+:::::::::::::::::::::::::::
+
+The new lesson template is designed to be modular with clear, cross-platform
+system requirements. It will use the R programming language and [pandoc] under
+the hood and will abide bhe the following rules:
+
+1. Lesson contributors do not need to know anything about the toolchain to
+   contribute in a meaningful way.
+2. Elements of the toolchain that evaluates, validates, and stylizes lessons
+   should live in separate repositories to allow for seamless updating.
+3. The procedures should be well-documented and generalizable enough that the
+   toolchain is not entirely dependent on R.
+
+R is beneficial because it already has a mature ecosystem of packages for
+publishing dynamic reports and web content from markdown, it works on all
+platforms, and we teach it as part of our core curriculum.
 
 
 ::::::::::::::::: challenge
@@ -73,6 +87,17 @@ zkamvar@carpentries.org or you can reach im on Slack.
 
 :::::::::::::::::::::::
 
+The new lesson template is an R package called [{sandpaper}](engine.html), which
+is designed to provide rapid updates to the lessons on the fly. It uses a 
+**two-step process for building lessons**:
+
+1. render all modified source documents (e.g [RMarkdown][r-markdown] or plain
+   Markdown) to [pandoc-flavored markdown][pandoc] to the folder called 
+   `site/built/`
+2. combine metadata with the contents of `site/built/` and convert to HTML to
+   the folder called `site/docs/`
+
+
 
 ## Why make a new template?
 
@@ -103,6 +128,8 @@ all of the features we want, but it's showing its age in several ways:
    merge the current branch of the [styles repository][styles]. This creates a
    pull request with potentially hundreds of commits that you just have to
    trust works.
+4. The configuration file contains a lot of information that the maintainer is
+   explicitly expected to NOT change, which is the equivalent of 
 
 ::::::::::::::::::
 
@@ -115,6 +142,30 @@ the styling templates and tooling have been cast off into their own repositories
 so that these can be updated on the fly without needing to undergo a complex
 pull requests. Moreover, the template will treat [RMarkdown][r-markdown]
 documents as first-class citizens without any extra setup or commands.
+
+The new lesson template is **not** designed to mimic aspects of the previous
+template. This template is designed primarily for use in The Carpentries, but
+should theoretically be extensible to other contexts. Most importantly,
+**contributors should only be expected to know `markdown` and *very* minimal
+`yaml` syntax.** in order to contribute to lessons.
+
+Thus, there are a few rules that the new template should follow:
+
+::::::::::::: checklist
+
+### Template Rules
+
+1. The main branch is the source of truth and should be protected
+2. Accessibility is a priority for the lesson [based on the WCAG 2.1
+   guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
+3. The style of the lessons should not live in the template
+4. The only committed content should be content directly by the
+   maintainer/contributor and configuration files
+5. Episodes should not depend on the lesson template to be rendered
+6. The generated lesson web page should exist as a stand-alone directory that
+   can be shared offline
+
+:::::::::::::::::::::
 
 ## Template Structure
 
