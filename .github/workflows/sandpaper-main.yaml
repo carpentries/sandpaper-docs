@@ -22,7 +22,7 @@ jobs:
           pandoc-version: "2.10"
 
       - name: Install Mac Deps
-        run: brew install libgit2
+        run: brew install libgit2 harfbuzz fribidi
 
       - name: Query dependencies
         run: |
