@@ -1,5 +1,5 @@
 ---
-sandpaper-digest: 7e5fb20113acf48b4145ce4ecb9e13da
+sandpaper-digest: 7db879304996a6f8429e726cac494771
 sandpaper-source: /Users/runner/work/sandpaper-docs/sandpaper-docs/episodes/migration.Rmd
 
 title: "Migrating from Jekyll"
@@ -33,6 +33,15 @@ also try for yourself:
 1. Install the package using [the setup instructions](setup.html)
 2. Open R
 3. Run `pegboard::jekyll_to_sandpaper()` to transform your lesson.
+
+
+::::::::::::::: callout
+
+### :caution: THINGS MIGHT CHANGE :caution:
+
+This feature is still in active development and may not yet work as advertised.
+
+::::::::::::::::::::::::
 
 ## Challenges
 
