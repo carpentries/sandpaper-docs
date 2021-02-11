@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-02-10 01:35:48 +0000">
+<meta http-equiv="last-modified" content="2021-02-11 00:56:58 +0000">
 
 
 
@@ -220,16 +220,6 @@
       <h1>Migrating from Jekyll</h1>
     </div>
 
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
-<p>This is the new Carpentries template. It is written in <a href="https://rmarkdown.rstudio.com/">RMarkdown</a>, which is a variant of Markdown that allows you to render code inside the lesson. Please refer to the <a href="https://carpentries.github.io/lesson-example">lesson example</a> for full documentation.</p>
-<p>What you need to know is that there are three block quotes required for a valid Carpentries lesson template:</p>
-<ol style="list-style-type: decimal">
-<li><code>questions</code> These are displayed at the beginning of the episode to prime the learner for the content.</li>
-<li><code>objectives</code> These are the learning objectives for an episode</li>
-<li><code>keypoints</code> These are displayed at the end of the episode to reinforce the objectives.</li>
-</ol>
-<p>No matter where these blocks appear, they will always be placed at the right part of the html page.</p>
 <div class="section level2 objectives">
 <h2>Overview</h2>
 <div class="row">
@@ -240,6 +230,7 @@
 <div class="col-md-9">
 <p><strong>Questions</strong></p>
 <ul>
+<li>Who is responsible for migrating a lesson?</li>
 <li>What package should I use for migration?</li>
 </ul>
 </div>
@@ -251,56 +242,85 @@
 <div class="col-md-9">
 <p><strong>Objectives</strong></p>
 <ul>
-<li>Explain how to use markdown with the new lesson template</li>
-<li>Demonstrate how to include pieces of code, figures, and nested challenge blocks</li>
+<li>Understand the challenges involved in migration</li>
+<li>Identify the shared components between the current and new lesson template</li>
+<li>Identify the tool needed for migration</li>
 </ul>
 </div>
 </div>
+</div>
+<div id="quick-start" class="section level2">
+<h2>Quick Start</h2>
+<p>Got a lesson you want to convert? The <a href="validator.html">{pegboard}</a> package was built to do that! The best way to do this is to <strong>ask Zhian to do it for you</strong> since this is a process that should ideally only be done once. If you really want to, you can also try for yourself:</p>
+<ol style="list-style-type: decimal">
+<li>Install the package using <a href="setup.html">the setup instructions</a></li>
+<li>Open R</li>
+<li>Run <code>pegboard::jekyll_to_sandpaper()</code> to transform your lesson.</li>
+</ol>
+</div>
+<div id="challenges" class="section level2">
+<h2>Challenges</h2>
+<p>In an ideal world, migration of a lesson would involve moving shared markdown documents between folders, but unfortunately, this is not the case. The truth is that there are <a href="https://github.com/markdown/markdown.github.com/wiki/Implementations">dozens of markdown interpreters</a> that all have a complicated hierarchy of rules.</p>
+<div id="a-question-of-syntax" class="section level3">
+<h3>A Question of Syntax</h3>
+<p>The current template uses a markdown interpreter called <a href="https://kramdown.gettalong.org/">kramdown</a> because it was the default interpreter for <a href="https://jekyllrb.com/">Jekyll</a> at the time. This syntax allowed us to create customized block quotes that served as waypoints in our lessons to facilitate active learning. Unfortunately, the syntax diverged far enough from <a href="https://github.github.com/gfm/">GitHub Flavoured markdown (GFM)</a> that even if you were familiar with markdown, you would have to learn a new syntax to write your content.</p>
+<p>Enter <a href="https://pandoc.org/">pandoc</a>. This tool is a cross-platform document converter that <a href="https://pandoc.org/MANUAL#pandocs-markdown">uses its own flavor of markdown</a>, that is more closely related to GFM than <a href="https://kramdown.gettalong.org/">kramdown</a>. For example, all of the features listed in the <a href="https://www.markdownguide.org/extended-syntax/">extended syntax of the markdown guide</a> are present in pandoc.</p>
+<p>One of the biggest hurdles for the translation between <a href="https://kramdown.gettalong.org/">kramdown</a> and <a href="https://pandoc.org/">pandoc</a> syntax are two things:</p>
+<ol style="list-style-type: decimal">
+<li><a href="https://shopify.github.io/liquid/basics/introduction/">Liquid templating syntax</a> (e.g. <code>{{ relative_root_path }}/{% link LICENSE.md %}</code> to link to the license</li>
+<li>Trailing styles: <a href="https://github.com/swcarpentry/DEPRECATED-lesson-template/issues/279#issuecomment-115491610" class="uri">https://github.com/swcarpentry/DEPRECATED-lesson-template/issues/279#issuecomment-115491610</a></li>
+</ol>
+<p>To give a succint example, if I wanted to write this code block in markdown:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="im">import</span> matplotlib</span></code></pre></div>
+<p>I would write</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="in">```python</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="im">import</span> matplotlib</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="in">```</span></span></code></pre></div>
+<p>However, <a href="https://kramdown.gettalong.org/">kramdown</a> specified this syntax:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="in">~~~</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="in">import matplotlib</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="in">~~~</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>{: .language-python}</span></code></pre></div>
+<p>While it was possible to use the GFM syntax in Kramdown, the first recommendation from the documentation has always been to use the trailing styles, and so that pattern stuck with the lessons.</p>
+<p>All this goes to show that switching between these two syntaxes is not a simple task of find and replace.</p>
+</div>
+<div id="folder-structure" class="section level3">
+<h3>Folder structure</h3>
+<p>The folder structure of the Lesson has evolved sporadically based on need and entropy, which leaves us with “junk drawer” folders like “extras” that contain materials for both the learners and instructors. Moreover, the old template had separated the data folders from the episodes folders<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. On top of that, the lessons that use RMarkdown had episodes embedded in <code>_episodes_rmd/</code> where some of the files in that folder were artifacts from previous runs.</p>
+</div>
+<div id="questions-objectives-and-keypoints" class="section level3">
+<h3>Questions, Objectives, and Keypoints</h3>
+<p>The yaml headers of lessons contained bullet points for the questions, objectives, and keypoints, but it became difficult to write markdown in yaml quotation marks, so we have decided to migrate them to blocks in the lesson document itself.</p>
+</div>
+<div id="block-quotes" class="section level3">
+<h3>Block Quotes</h3>
+<p>Block quotes are convenient visual aids for writing callouts, but they are challenging to wrangle when you need to write code inside of them, especially if you have nested content. Our solution to this is to use <a href="https://zkamvar.github.io/glowing-chainsaw/05-fenced-div-challenge-blocks.html#example-1">fenced divs</a>.</p>
+</div>
+</div>
+<div id="solution" class="section level2">
+<h2>Solution</h2>
+<p>The migration of the lesson template is taken care of via <a href="validator.html">{pegboard}</a>, which reads in the markdown source files using the commonmark markdown interpreter and internally manipulates the kramdown syntax to something it can interpret.</p>
+<p>The resulting markdown is then written to convert the following:</p>
+<ol style="list-style-type: decimal">
+<li>block quotes become fenced divs</li>
+<li>code blocks are converted to standard markdown</li>
+<li>liquid tags are converted to normal, reference-based links</li>
+<li>non-metadata yaml items moved to the body of the document.</li>
+</ol>
 </div>
 <div class="section level2 keypoints">
 <h2>Keypoints</h2>
 <ul>
-<li>Use <code>.Rmd</code> files for lessons even if you don’t need to generate any code</li>
-<li>Run <code>sandpaper::check_lesson()</code> to identify any issues with your lesson</li>
-<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson locally</li>
+<li>Zhian will help migrate official lessons</li>
+<li>use <a href="validator.html">{pegboard}</a> for migration</li>
 </ul>
 </div>
-<div class="challenge">
-<div id="challenge-1-can-you-do-it" class="section level2">
-<h2>Challenge 1: Can you do it?</h2>
-<p>What is the output of this command?</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">paste</span>(<span class="st">&quot;This&quot;</span>, <span class="st">&quot;new&quot;</span>, <span class="st">&quot;template&quot;</span>, <span class="st">&quot;looks&quot;</span>, <span class="st">&quot;good&quot;</span>)</span></code></pre></div>
-</div>
-<div id="output" class="section level2 solution">
-<h2>Output</h2>
-<pre class="output"><code>[1] &quot;This new template looks good&quot;</code></pre>
-</div>
-<div id="challenge-2-how-do-you-nest-solutions-within-challenge-blocks" class="section level2">
-<h2>Challenge 2: how do you nest solutions within challenge blocks?</h2>
-</div>
-<div class="section level2 solution">
-<h2>Solution</h2>
-<p>You can add a line with at least three colons and a <code>solution</code> tag.</p>
-</div>
-</div>
-</div>
-<div id="figures" class="section level1">
-<h1>Figures</h1>
-<p>You can also include figures:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="kw">pie</span>(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>  <span class="kw">c</span>(<span class="dt">Sky =</span> <span class="dv">78</span>, <span class="st">&quot;Sunny side of pyramid&quot;</span> =<span class="st"> </span><span class="dv">17</span>, <span class="st">&quot;Shady side of pyramid&quot;</span> =<span class="st"> </span><span class="dv">5</span>), </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>  <span class="dt">init.angle =</span> <span class="dv">315</span>, </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>  <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;deepskyblue&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;yellow3&quot;</span>), </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>  <span class="dt">border =</span> <span class="ot">FALSE</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>)</span></code></pre></div>
-<p><img src="fig/migration-rendered-pyramid-1.png" title="plot of chunk pyramid" alt="plot of chunk pyramid" style="display: block; margin: auto;" /></p>
-</div>
-<div id="math" class="section level1">
-<h1>Math</h1>
-<p>One of our episodes contains <span class="math inline">\(\LaTeX\)</span> equations when describing how to create dynamic reports with {knitr}, so we now use mathjax to describe this:</p>
-<p><code>$\alpha = \dfrac{1}{(1 - \beta)^2}$</code> becomes: <span class="math inline">\(\alpha = \dfrac{1}{(1 - \beta)^2}\)</span></p>
-<p>Cool, right?</p>
 <!-- Please do not delete anything below this line -->
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>This was an explicit design choice to mimic how researchers should set up their analysis projects, but it lead to some confusion when it came to rendering RMarkdown documents.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
 
   </div>

@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-02-10 01:35:48 +0000">
+<meta http-equiv="last-modified" content="2021-02-11 00:56:58 +0000">
 
 
 
@@ -249,20 +249,53 @@
 </div>
 </div>
 </div>
+<div id="quickstart" class="section level2">
+<h2>Quickstart</h2>
+<p>The new lesson template is an R package called <a href="engine.html">{sandpaper}</a>, which is designed to provide rapid updates to the lessons on the fly. It uses a <strong>two-step process for building lessons</strong>:</p>
+<ol style="list-style-type: decimal">
+<li>render all modified source documents (e.g <a href="https://rmarkdown.rstudio.com/">RMarkdown</a> or plain Markdown) to <a href="https://pandoc.org/">pandoc-flavored markdown</a> to the folder called <code>site/built/</code></li>
+<li>combine metadata with the contents of <code>site/built/</code> and convert to HTML to the folder called <code>site/docs/</code></li>
+</ol>
+</div>
+<div id="try-it-yourself" class="section level2 challenge">
+<h2>Try it yourself!</h2>
+<p>You can explore this lesson with the following steps:</p>
+<ol style="list-style-type: decimal">
+<li>Follow the <a href="setup.html">setup instructions</a></li>
+<li>Open RStudio (or your preferred interface to R)</li>
+<li>Use the following code:</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">library</span>(<span class="st">&quot;usethis&quot;</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="kw">library</span>(<span class="st">&quot;sandpaper&quot;</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="co"># Download this repository to your Desktop and move into it</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a><span class="co"># (If you are using RStudio, it will open a new session)</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>usethis<span class="op">::</span><span class="kw">create_from_github</span>(<span class="st">&quot;zkamvar/sandpaper-docs&quot;</span>, <span class="dt">open =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a><span class="co"># Render and preview the lesson</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>sandpaper<span class="op">::</span><span class="kw">build_lesson</span>()</span></code></pre></div>
+</div>
+<aside class="callout">
+<div id="did-everything-work" class="section level3">
+<h3>Did everything work?</h3>
+<p>If everything worked, you should have seen a lot of output in your R console and then your browser window open to reveal a page that looks identical to <a href="https://zkamvar.github.io/sandpaper-docs/" class="uri">https://zkamvar.github.io/sandpaper-docs/</a>.</p>
+<p>If this did NOT work for you, please send any errors you encountered to Zhian at <a href="mailto:zkamvar@carpentries.org" class="email">zkamvar@carpentries.org</a> or you can reach im on Slack.</p>
+</div>
+</aside>
 <div id="why-make-a-new-template" class="section level2">
 <h2>Why make a new template?</h2>
-<p>New templates are nothing new for The Carpentries[^An incomplete history is noted in the 9.1.0 release: <a href="https://github.com/carpentries/styles/releases/tag/v9.1.0" class="uri">https://github.com/carpentries/styles/releases/tag/v9.1.0</a>] as we are forever searching for a balance between using the tools we teach and scaling our operations to accomodate the growing number of lessons we have in <a href="https://carpentries.org/community-lessons/">The Carpentries Incubator</a>.</p>
+<p>New templates are nothing new for The Carpentries<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> as we are forever searching for a balance between using the tools we teach and scaling our operations to accomodate the growing number of lessons we have in <a href="https://carpentries.org/community-lessons/">The Carpentries Incubator</a>.</p>
 </div>
-<div id="whats-wrong-with-the-current-template" class="section level2 discussion">
-<h2>What’s wrong with the current template?</h2>
+<div id="what-can-be-improved" class="section level2 discussion">
+<h2>What can be improved?</h2>
 <p>The current template is a lesson template wrapped around a Jekyll blog. It has all of the features we want, but it’s showing its age in several ways:</p>
 <ol style="list-style-type: decimal">
 <li>By requiring four different languages to check and render the lesson, several people have turned to elaborate solutions to preview their lessons including <a href="https://www.youtube.com/watch?v=0XoEdznJARc">Using a GitHub fork</a> and <a href="https://github.com/carpentries/lesson-docker/">Creating a Docker image</a></li>
-<li>All of our R lessons use RMarkdown to combine code and prose into a document that renders the output automatically, which means any updates will get propogated. Because Jekyll sites do not run R in the background, they cannot render these lessons, so a fifth language must be added on and pre-rendered before lessons are built.</li>
-<li>Updating the lessons is no small feat. It relies on a trick that we use for people creating lessons by importing the carpentries repository (because the template button did not yet exist) so that we can create a new branch and merge the current branch of the styles repository. This creates a pull request with potentially hundreds of commits that you just have to trust works.</li>
+<li>All of our R lessons use <a href="https://rmarkdown.rstudio.com/">RMarkdown</a> to combine code and prose into a document that renders the output automatically, which means any updates will get propogated. Because <a href="https://jekyllrb.com/">Jekyll</a> sites do not run R in the background, they cannot render these lessons, so a fifth language must be added on and pre-rendered before lessons are built.</li>
+<li>Updating the lessons is no small feat. It relies on a trick that we use for people creating lessons by importing the carpentries repository (because the template button did not yet exist) so that we can create a new branch and merge the current branch of the <a href="https://github.com/carpentries/styles/">styles repository</a>. This creates a pull request with potentially hundreds of commits that you just have to trust works.</li>
 </ol>
 </div>
-<p>The new lesson template is fresh start as we look back to our founding principles and think about what is important for the lesson maintainer to focus on: the lesson content. To achieve this, we have stripped away the styling elements and present to you a template that contains two things you need to worry about: content files written in plain markdown and one (1) flat configuration file. All the styling templates and tooling have been cast off into their own repositories so that these can be updated on the fly without needing to undergo a complex pull requests. Moreover, the template will treat RMarkdown documents as first-class citizens without any extra setup or commands.</p>
+<p>The new lesson template is fresh start as we look back to our founding principles and think about what is important for the lesson maintainer to focus on: the lesson content. To achieve this, we have stripped away the styling elements and present to you a template that contains two things you need to worry about: content files written in plain markdown and one (1) flat configuration file. All the styling templates and tooling have been cast off into their own repositories so that these can be updated on the fly without needing to undergo a complex pull requests. Moreover, the template will treat <a href="https://rmarkdown.rstudio.com/">RMarkdown</a> documents as first-class citizens without any extra setup or commands.</p>
 <div id="template-structure" class="section level2">
 <h2>Template Structure</h2>
 <aside class="callout">
@@ -271,33 +304,64 @@
 <p>The exact folder structure still has the possibility to change based on user testing for the front-end of the lesson website.</p>
 </div>
 </aside>
-<p>The template folder structure will contain markdown files arranged so that they match what we expect the menubar for the lesson should be:</p>
-<ul>
-<li><code>episodes/</code> contains the lesson episode documents and all the figures and files associated with them</li>
-<li><code>learners/</code> contains materials for learners such as the setup document and the glossary</li>
-<li><code>instructors/</code> contains materials for instructors such as outline and slides.</li>
-<li><code>profiles/</code> contains learner profiles for the course</li>
-<li><code>config.yaml</code> is a flat yaml file where you can arrange the files in the above folders in any order and specify the metadata for the lesson.</li>
-</ul>
+<p>The template folder structure will contain markdown files arranged so that they match what we expect the menubar for the lesson should be. All folders and files with an arrow <code>&lt;-</code> are places in the lesson template you will be modifying:</p>
+<pre><code>|-- .gitignore         #  | Ignore everything in the site/ folder
+|-- .github/           #  | Configuration for deployment
+|-- episodes/          # &lt;- PUT YOUR EPISODE MARKDOWN FILES IN THIS FOLDER
+|-- instructors/       # &lt;- Information for Instructors (e.g. guide.md)
+|-- learners/          # &lt;- Information for Learners (e.g. reference.md and setup.md)
+|-- profiles/          # &lt;- Learner and/or Instructor Profiles (new)
+|-- site/              #  | This is a &quot;scratch&quot; folder ignored by git and is where the rendered markdown files and static site will live
+|-- config.yaml        # &lt;- Use this to configure lesson metadata
+|-- index.md           # &lt;- The landing page of your site
+|-- CONTRIBUTING.md    #  | Carpentries Rules for Contributions (REQUIRED)
+|-- CODE_OF_CONDUCT.md #  | Carpentries Code of Conduct (REQUIRED)
+|-- LICENSE.md         #  | Carpentries Licenses (REQUIRED)
+`-- README.md          # &lt;- Introduces folks how to use this lesson and where they can find more information.</code></pre>
+<p>This folder structure is heavily opinionated towards achieving our goals of creating a lesson template that is fit for the purpose of delivering lesson content for not only Carpentries instructors, but also for learners and educators who are browsing the content after a workshop. It is not designed to be a blog or commerce website.</p>
 </div>
 <div id="tools" class="section level2">
 <h2>Tools</h2>
-<p>As described in <a href="setup.html">the setup document</a>, the lesson template now only requires R and pandoc to be installed. The tooling from the current lesson template has been split up into three R packages:</p>
+<p>As described in <a href="setup.html">the setup document</a>, the lesson template now only requires R and <a href="https://pandoc.org/">pandoc</a> to be installed. The tooling from the current lesson template has been split up into three R packages:</p>
 <ol style="list-style-type: decimal">
 <li><a href="template.html">{varnish}</a> contains the HTML, CSS, and JavaScript elements</li>
 <li><a href="validator.html">{pegboard}</a> is a validator for the markdown documents</li>
 <li><a href="engine.html">{sandpaper}</a> is the engine that puts everything together.</li>
 </ol>
+<aside class="callout">
+<div id="customization" class="section level3">
+<h3>Customization</h3>
+<p>One of the benefits of our <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a> template is that anyone can take it and customize it for their own purposes. We have found such creative endeavors as using it as a <a href="https://www.commonwl.org/user_guide/">user guide for the Common Workflow Language</a>, a <a href="https://nbisweden.github.io/module-organising-data-dm-practices/">program-specific set of training materials</a>, and even <a href="https://sgibson91.github.io/cross-stitch-carpentry/">a lesson on cross-stitching</a>.</p>
+<p>With the new tempalte, however, the customization would take place in a fork of the <a href="template.html">{varnish}</a> repository, where all of the styling elements live.</p>
+</div>
+</aside>
 </div>
 <div id="processing" class="section level2">
 <h2>Processing</h2>
-<p>The previous Jekyll template used a single step to render markdown to HTML, with the new template, we have a two step process that renders (R)Markdown to markdown and then to HTML. Why use two steps? By rendering in two steps, we do a couple of things:</p>
+<p>The previous <a href="https://jekyllrb.com/">Jekyll</a> template used a single step to render markdown to HTML, with the new template, we have a two step process that renders <a href="https://rmarkdown.rstudio.com/">(R)Markdown</a> to markdown and then to HTML. Why use two steps? By rendering in two steps, we do a couple of things:</p>
 <ol style="list-style-type: decimal">
 <li>Any format that can be rendred to markdown can potentially be a source</li>
 <li>Markdown provides a much better diff than HTML, so diagnosing output issues on a lesson is eaiser.</li>
 <li>The resulting markdown can be used in other contexts without needing to rebuild.</li>
 </ol>
+</div>
+<div class="section level2 keypoints">
+<h2>Keypoints</h2>
+<ul>
+<li>There are several usability issues in the current template, creating barriers to contribution</li>
+<li>The new template will be built with the maintainers in mind</li>
+<li>We are moving away from <a href="https://kramdown.gettalong.org/">kramdown</a> to <a href="https://pandoc.org/">pandoc</a>-flavored markdown</li>
+<li>Tools for the new template will be fully separated from content</li>
+<li>Documents that need rendered output (e.g. <a href="https://rmarkdown.rstudio.com/">RMarkdown</a>) are treated as first-class citizens</li>
+<li>The lessons will be rendered in a two-step process</li>
+</ul>
+</div>
 <!-- Please do not delete anything below this line -->
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>An incomplete history is noted in the 9.1.0 release: <a href="https://github.com/carpentries/styles/releases/tag/v9.1.0" class="uri">https://github.com/carpentries/styles/releases/tag/v9.1.0</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
 
   </div>
