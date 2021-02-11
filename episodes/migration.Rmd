@@ -31,6 +31,15 @@ also try for yourself:
 2. Open R
 3. Run `pegboard::jekyll_to_sandpaper()` to transform your lesson.
 
+
+::::::::::::::: callout
+
+### :caution: THINGS MIGHT CHANGE :caution:
+
+This feature is still in active development and may not yet work as advertised.
+
+::::::::::::::::::::::::
+
 ## Challenges
 
 In an ideal world, migration of a lesson would involve moving shared markdown
