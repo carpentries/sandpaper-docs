@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-02-11 17:05:09 +0000">
+<meta http-equiv="last-modified" content="2021-02-12 01:37:17 +0000">
 
 
 
@@ -287,14 +287,18 @@
 <div id="did-everything-work" class="section level3">
 <h3>Did everything work?</h3>
 <p>If everything worked, you should have seen a lot of output in your R console and then your browser window open to reveal a page that looks identical to <a href="https://zkamvar.github.io/sandpaper-docs/" class="uri">https://zkamvar.github.io/sandpaper-docs/</a>.</p>
-<p>If this did NOT work for you, please send any errors you encountered to Zhian at <a href="mailto:zkamvar@carpentries.org" class="email">zkamvar@carpentries.org</a> or you can reach im on Slack.</p>
+<p>If this did NOT work for you, please send any errors you encountered to Zhian at <a href="mailto:zkamvar@carpentries.org" class="email">zkamvar@carpentries.org</a> or you can reach him on The Carpentries Slack.</p>
 </div>
 </aside>
 <p>The new lesson template is an R package called <a href="engine.html">{sandpaper}</a>, which is designed to provide rapid updates to the lessons on the fly. It uses a <strong>two-step process for building lessons</strong>:</p>
 <ol style="list-style-type: decimal">
-<li>render all modified source documents (e.g <a href="https://rmarkdown.rstudio.com/">RMarkdown</a> or plain Markdown) to <a href="https://pandoc.org/">pandoc-flavored markdown</a> to the folder called <code>site/built/</code></li>
+<li>render all modified source documents (e.g <a href="https://rmarkdown.rstudio.com/">RMarkdown</a> or plain Markdown) to <a href="https://pandoc.org/">pandoc-flavored markdown</a> to a staging folder called <code>site/built/</code>.</li>
 <li>combine metadata with the contents of <code>site/built/</code> and convert to HTML to the folder called <code>site/docs/</code></li>
 </ol>
+<div class="figure">
+<img src="https://zkamvar.github.io/stunning-barnacle/img/broad-flow.dot.svg" alt="" />
+<p class="caption">Diagrammatic representation of the proposed toolchain (excluding GitHub). Lavender rectangles represent R packages, Plum rectangles represent interchangable tools, Powder Blue Ovals represent people.</p>
+</div>
 <div id="why-make-a-new-template" class="section level2">
 <h2>Why make a new template?</h2>
 <p>New templates are nothing new for The Carpentries<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> as we are forever searching for a balance between using the tools we teach and scaling our operations to accomodate the growing number of lessons we have in <a href="https://carpentries.org/community-lessons/">The Carpentries Incubator</a>.</p>

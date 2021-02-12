@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-02-11 17:05:09 +0000">
+<meta http-equiv="last-modified" content="2021-02-12 01:37:17 +0000">
 
 
 
@@ -220,16 +220,6 @@
       <h1>The Template Engine: {sandpaper}</h1>
     </div>
 
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
-<p>This is the new Carpentries template. It is written in <a href="https://rmarkdown.rstudio.com/">RMarkdown</a>, which is a variant of Markdown that allows you to render code inside the lesson. Please refer to the <a href="https://carpentries.github.io/lesson-example">lesson example</a> for full documentation.</p>
-<p>What you need to know is that there are three block quotes required for a valid Carpentries lesson template:</p>
-<ol style="list-style-type: decimal">
-<li><code>questions</code> These are displayed at the beginning of the episode to prime the learner for the content.</li>
-<li><code>objectives</code> These are the learning objectives for an episode</li>
-<li><code>keypoints</code> These are displayed at the end of the episode to reinforce the objectives.</li>
-</ol>
-<p>No matter where these blocks appear, they will always be placed at the right part of the html page.</p>
 <div class="section level2 objectives">
 <h2>Overview</h2>
 <div class="row">
@@ -240,8 +230,10 @@
 <div class="col-md-9">
 <p><strong>Questions</strong></p>
 <ul>
-<li>How does {sandpaper} use the staging area?</li>
-<li>Why is the output not tracked by Git?</li>
+<li>What is {sandpaper}?</li>
+<li>What commands do I need to know?</li>
+<li>How is the lesson preview generated?</li>
+<li>How is the lesson checked?</li>
 </ul>
 </div>
 </div>
@@ -252,56 +244,198 @@
 <div class="col-md-9">
 <p><strong>Objectives</strong></p>
 <ul>
-<li>Explain how to use markdown with the new lesson template</li>
-<li>Demonstrate how to include pieces of code, figures, and nested challenge blocks</li>
+<li>Understand the difference between {sandpaper} and the Jekyll template</li>
+<li>Identify the main function you will use to build the lesson</li>
+<li>Understand the folder organization of the lesson</li>
 </ul>
 </div>
+</div>
+</div>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>In the Jekyll template, the engine driving how lessons were created, checked, and previewed was contained inside the lesson itself. It was necessary to have a configuration file, a Makefile, and several scripts (BASH, Python) live inside the template itself. There were several places in the template where authors were commanded to not touch.</p>
+<p>The new template takes these disparate pieces and liberates them into an external engine called <a href="https://carpentries.github.io/sandpaper/">{sandpaper}</a>.</p>
+<p><a href="https://carpentries.github.io/sandpaper/">{sandpaper}</a> orchestrates the two-step process of creating markdown from RMarkdown and then converting to HTML and applying The Carpentries theme. It also validates the lessons and provides a straightforward method to update the official Carpentries theme.</p>
+<div class="figure">
+<img src="https://zkamvar.github.io/stunning-barnacle/img/broad-flow.dot.svg" alt="" />
+<p class="caption">Diagrammatic representation of the toolchain to build a lesson (excluding GitHub). Lavender rectangles represent R packages, Plum rectangles represent interchangable tools, Powder Blue Ovals represent people.</p>
+</div>
+<aside class="callout">
+<div id="why-two-steps" class="section level3">
+<h3>Why two steps?</h3>
+<p>There are a few reasons why we have added a step in the process:</p>
+<ol style="list-style-type: decimal">
+<li>It allows us to have a staging area between RMarkdown and HTML, which we use in the <a href="pull-requests.html">pull request stage</a> because markdown diffs are much easier to read than HTML diffs</li>
+<li>Having the rendered markdown files means that we can use them as a cache for the source files and we can avoid rebuilding files that don’t need to be rebuilt.</li>
+<li>A cache of rendred markdown files is helpful to have in the future for compiling disparate lessons into a curriculum.</li>
+<li>A two-step process allows us to consider different modes of input AND different backend engines without disrupting the normal workflow for our contributors.</li>
+</ol>
+</div>
+</aside>
+<div id="main-functions" class="section level3">
+<h3>Main Functions</h3>
+<p>The function names in <a href="https://carpentries.github.io/sandpaper/">{sandpaper}</a> are designed to be self-descriptive. Here is a cheat sheet of some of the more common commands you would need:</p>
+<dl>
+<dt><code>build_lesson()</code></dt>
+<dd>Check, build, and preview the lesson website locally. <strong>This is the function you will be using the most</strong>
+</dd>
+<dt><code>check_lesson()</code></dt>
+<dd>Check the lesson without building. This uses <a href="validator.html">{pegboard}</a> to validate the contents of the lesson folders and the configuration file.
+</dd>
+<dt><code>create_lesson()</code></dt>
+<dd>Creates a new lesson repository pre-initialized with Git.
+</dd>
+<dt><code>reset_site()</code></dt>
+<dd>Clear the contents of the <code>site/</code> folder. You will really only want to use this if
+</dd>
+<dt><code>get_episodes()</code></dt>
+<dd>Get the current order of the episodes in the configuration file.
+</dd>
+<dt><code>get_syllabus()</code></dt>
+<dd>Return a table containing the name of the episode, cumulative timings, and path to the episode on your machine.
+</dd>
+</dl>
+</div>
+</div>
+<div id="quickstart" class="section level2">
+<h2>Quickstart</h2>
+<p>To get started, follow the instructions on the <a href="setup.html">setup page</a>. In R, you can install <a href="https://carpentries.github.io/sandpaper/">{sandpaper}</a> with this command:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">install.packages</span>(<span class="st">&quot;sandpaper&quot;</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>  <span class="dt">repos =</span> <span class="st">&quot;https://carpentries.github.io/drat/&quot;</span>, </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>  <span class="dt">dependencies =</span> <span class="ot">TRUE</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>)</span></code></pre></div>
+<p>If that succeeded, load the package from your R library via this command and then continue on with the tutorial:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">library</span>(<span class="st">&quot;sandpaper&quot;</span>)</span></code></pre></div>
+<div id="creating-a-brand-new-lesson" class="section level3">
+<h3>Creating a Brand New Lesson</h3>
+<p>Creating a lesson uses a single command:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="kw">create_lesson</span>(<span class="st">&quot;~/Desktop/intro-to-sandpaper/&quot;</span>)</span></code></pre></div>
+<p>This will create a new git repository on your desktop called <code>intro-to-sandpaper/</code> with the boilerplate files for your lesson (<a href="#anatomy">described in the anatomy section below</a>). To add this lesson to your GitHub account, you can use the <code>use_github()</code> function from the <a href="https://r-lib.github.io/usethis/">{usethis}</a> package:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="kw">library</span>(<span class="st">&quot;usethis&quot;</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="kw">use_github</span>()</span></code></pre></div>
+</div>
+<div id="existing-lesson-on-github" class="section level3">
+<h3>Existing Lesson on GitHub</h3>
+<div id="lesson-not-yet-on-computer" class="section level4">
+<h4>Lesson Not Yet on Computer</h4>
+<p>If you have a lesson on GitHub, you can clone it to your computer using a function called <code>create_from_github()</code> from the <a href="https://r-lib.github.io/usethis/">{usethis}</a> package<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>. You can try out this tutorial:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="kw">library</span>(<span class="st">&quot;usethis&quot;</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a><span class="kw">create_from_github</span>(<span class="st">&quot;zkamvar/sandpaper-docs&quot;</span>, <span class="dt">destdir =</span> <span class="st">&quot;~/Desktop/&quot;</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a><span class="kw">build_lesson</span>()</span></code></pre></div>
+<p>This will fetch the repository from GitHub, download it to your computer in the <code>destdir</code> folder, and move your workspace into that folder.</p>
+</div>
+<div id="lesson-on-computer" class="section level4">
+<h4>Lesson on Computer</h4>
+<p>Navigate to the lesson on your computer and double-click on the “.Rproj” file to open it in RStudio or open it in your favorite editor and run:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="kw">build_lesson</span>()</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="addingrearranging-episodes" class="section level2">
+<h2>Adding/Rearranging Episodes</h2>
+<p>To add an episode in the lesson, you can create a markdown file in the <code>episodes/</code> folder. By default, episodes will be built in alphabetical order in their folder. You should change this by specifying episode order in the <code>config.yaml</code> file at the top of the repository like so:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="fu">episodes</span><span class="kw">:</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a><span class="kw">-</span><span class="at"> first-episode.Rmd</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a><span class="kw">-</span><span class="at"> second-episode.Rmd</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a><span class="kw">-</span><span class="at"> third-episode.Rmd</span></span></code></pre></div>
+<p>The episodes will then be built and appear in the menubar in that order.</p>
+</div>
+<div id="anatomy" class="section level2">
+<h2>Anatomy of a Lesson</h2>
+<p>A <a href="https://carpentries.github.io/sandpaper/">{sandpaper}</a> lesson contains a folder structure that should mimic the navigation structure you see on the resulting website. In the lesson folder, you only need to care about writing markdown (content) and very simple yaml (configuration).</p>
+<div id="content" class="section level3">
+<h3>Content</h3>
+<p>The landing page is called <code>index.md</code>. This is where you introduce the data set and the prerequisites for the lesson. From there, you content lives in one of four folders:</p>
+<dl>
+<dt><code>episodes/</code></dt>
+<dd>Content of the lesson. This folder contains the (R)Markdown source files along with any other content they reference (figures, data, etc).
+</dd>
+<dt><code>learners/</code></dt>
+<dd>Information for the learners. This includes setup instructions, glossary, handouts, etc.
+</dd>
+<dt><code>instructors/</code></dt>
+<dd>Information for the instructors. This includes broad instructor notes and outlines of the episode contents.
+</dd>
+<dt><code>profiles/</code></dt>
+<dd>Learner profiles. This will be a space for contributors to define learner profiles for the lesson that can help learners identify what they can use the lesson for. These can also help the lesson maintainers understand their target audience.
+</dd>
+</dl>
+</div>
+<div id="configuration" class="section level3">
+<h3>Configuration</h3>
+<p>The configuration file is called <code>config.yaml</code>. Unlike the Jekyll template, all of the fields in this configuration file are available for you to modify.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="co"># Which carpentry is this (swc, dc, lc, or cp)?</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a><span class="co"># swc: Software Carpentry</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a><span class="co"># dc: Data Carpentry</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a><span class="co"># lc: Library Carpentry</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a><span class="co"># cp: Carpentries (to use for instructor traning for instance)</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a><span class="fu">carpentry</span><span class="kw">:</span><span class="at"> cp</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true"></a><span class="co"># Overall title for pages.</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> Lesson Title</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true"></a><span class="co"># Life cycle stage of the lesson</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true"></a><span class="co"># possible values: pre-alpha, alpha, beta, stable</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true"></a><span class="fu">life_cycle</span><span class="kw">:</span><span class="at"> pre-alpha</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true"></a><span class="co"># License of the lesson</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true"></a><span class="fu">license</span><span class="kw">:</span><span class="at"> CC-BY 4.0</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true"></a><span class="co"># Link to the source repository for this lesson</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true"></a><span class="fu">source</span><span class="kw">:</span><span class="at"> https://github.com/carpentries/sandpaper/</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true"></a></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true"></a><span class="co"># Default branch of your lesson</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true"></a><span class="fu">branch</span><span class="kw">:</span><span class="at"> main</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true"></a></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true"></a><span class="co"># Who to contact if there are any issues</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true"></a><span class="fu">contact</span><span class="kw">:</span><span class="at"> zkamvar@carpentries.org</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true"></a></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true"></a><span class="co"># Navigation ------------------------------------------------</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true"></a><span class="co"># The menu bar will be in the following order:</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true"></a><span class="co"># </span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true"></a><span class="co"># - Code of Conduct      (CODE_OF_CONDUCT.md)</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true"></a><span class="co"># - Setup                (Setup.md)</span></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true"></a><span class="co"># - Episodes             (episodes/)</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true"></a><span class="co"># - Learner Resources    (learners/)</span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true"></a><span class="co"># - Instructor Resources (instructors/)</span></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true"></a><span class="co"># - Learner Profiles     (profiles/)</span></span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true"></a><span class="co"># - License              (LICENSE.md)</span></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true"></a><span class="co"># </span></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true"></a><span class="co"># Use the following menu items to specify the order of</span></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true"></a><span class="co"># individual pages in each dropdown section</span></span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true"></a></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true"></a><span class="co"># Order of episodes in your lesson </span></span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true"></a><span class="fu">episodes</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true"></a></span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true"></a><span class="co"># Information for Learners</span></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true"></a><span class="fu">learners</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true"></a></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true"></a><span class="co"># Information for Instructors</span></span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true"></a><span class="fu">instructors</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true"></a></span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true"></a><span class="co"># Learner Profiles</span></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true"></a><span class="fu">profiles</span><span class="kw">:</span><span class="at"> </span></span></code></pre></div>
+</div>
+<div id="what-about-the-.github-folder" class="section level3">
+<h3>What about the .github/ folder?</h3>
+<p>Unfortunately, not ALL of the lesson template is up for grabs. This is a folder that contains GitHub workflows that we will talk about in the <a href="deployment.html">deployment section</a> of this tutorial. In the meantime, do not pay any mind to this directory.</p>
 </div>
 </div>
 <div class="section level2 keypoints">
 <h2>Keypoints</h2>
 <ul>
-<li>Use <code>.Rmd</code> files for lessons even if you don’t need to generate any code</li>
-<li>Run <code>sandpaper::check_lesson()</code> to identify any issues with your lesson</li>
-<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson locally</li>
+<li>{sandpaper} separates the build engine from the lesson content</li>
+<li>the two-step process allows for flexibility in website engines</li>
+<li>the site can be built and previewed using <code>build_lesson()</code></li>
+<li>the folder structure is designed to mirror the website navigation</li>
 </ul>
 </div>
-<div class="challenge">
-<div id="challenge-1-can-you-do-it" class="section level2">
-<h2>Challenge 1: Can you do it?</h2>
-<p>What is the output of this command?</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">paste</span>(<span class="st">&quot;This&quot;</span>, <span class="st">&quot;new&quot;</span>, <span class="st">&quot;template&quot;</span>, <span class="st">&quot;looks&quot;</span>, <span class="st">&quot;good&quot;</span>)</span></code></pre></div>
-</div>
-<div id="output" class="section level2 solution">
-<h2>Output</h2>
-<pre class="output"><code>[1] &quot;This new template looks good&quot;</code></pre>
-</div>
-<div id="challenge-2-how-do-you-nest-solutions-within-challenge-blocks" class="section level2">
-<h2>Challenge 2: how do you nest solutions within challenge blocks?</h2>
-</div>
-<div class="section level2 solution">
-<h2>Solution</h2>
-<p>You can add a line with at least three colons and a <code>solution</code> tag.</p>
-</div>
-</div>
-</div>
-<div id="figures" class="section level1">
-<h1>Figures</h1>
-<p>You can also include figures:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="kw">pie</span>(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>  <span class="kw">c</span>(<span class="dt">Sky =</span> <span class="dv">78</span>, <span class="st">&quot;Sunny side of pyramid&quot;</span> =<span class="st"> </span><span class="dv">17</span>, <span class="st">&quot;Shady side of pyramid&quot;</span> =<span class="st"> </span><span class="dv">5</span>), </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>  <span class="dt">init.angle =</span> <span class="dv">315</span>, </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>  <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;deepskyblue&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;yellow3&quot;</span>), </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>  <span class="dt">border =</span> <span class="ot">FALSE</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>)</span></code></pre></div>
-<p><img src="fig/engine-rendered-pyramid-1.png" title="plot of chunk pyramid" alt="plot of chunk pyramid" style="display: block; margin: auto;" /></p>
-</div>
-<div id="math" class="section level1">
-<h1>Math</h1>
-<p>One of our episodes contains <span class="math inline">\(\LaTeX\)</span> equations when describing how to create dynamic reports with {knitr}, so we now use mathjax to describe this:</p>
-<p><code>$\alpha = \dfrac{1}{(1 - \beta)^2}$</code> becomes: <span class="math inline">\(\alpha = \dfrac{1}{(1 - \beta)^2}\)</span></p>
-<p>Cool, right?</p>
 <!-- Please do not delete anything below this line -->
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>The {usethis} package is a dependency of {sandpaper}, so you already have it installed when you install {sandpaper} :)<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
 
   </div>

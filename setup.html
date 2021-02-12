@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-02-11 17:05:09 +0000">
+<meta http-equiv="last-modified" content="2021-02-12 01:37:17 +0000">
 
 
 
@@ -234,6 +234,29 @@
 <h2>What if I don’t want to use RStudio?</h2>
 <p>That’s perfectly okay! If you do not want to use RStudio, you can install pandoc directly to your computer by following the directions on <a href="https://pandoc.org/installing.html" class="uri">https://pandoc.org/installing.html</a>. We recommend using RStudio because it is tightly integrated with pandoc.</p>
 </div>
+<div id="setting-up-your-r-workspace" class="section level2 prereq">
+<h2>Setting up your R workspace</h2>
+<p>When you set up R, it’s important to make sure you set it up to never save your workspace on exit and never load a previously saved workspace on startup.</p>
+<div id="via-rstudio" class="section level4">
+<h4>Via RStudio</h4>
+<p>If you are using RStudio, you can <a href="https://community.rstudio.com/t/first-line-of-every-r-script/799/12?u=zkamvar">follow the instructions in this forum post</a>:</p>
+<ol style="list-style-type: decimal">
+<li>From the menu, select <cmd>Tools<cmd> &gt; <cmd>Global Options</cmd></li>
+<li>Under <strong>Workspace Options</strong>, de-select “Restore .RData into workspace at startup” and set “Save workspace to .RData on exit” to “Never”</li>
+</ol>
+</div>
+<div id="via-command-line-interface" class="section level4">
+<h4>Via Command Line Interface</h4>
+<p>The flags <code>--no-restore</code> and <code>--no-save</code> will set these defaults, so you can create an alias for BASH:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="bu">alias</span> R=<span class="st">&#39;R --no-restore --no-save&#39;</span></span></code></pre></div>
+</div>
+</div>
+<aside class="callout">
+<div id="there-are-many-ways-to-set-up-r-to-work-with-the-lesson-template" class="section level3">
+<h3>There are many ways to set up R to work with the lesson template</h3>
+<p>For example, Zhian Kamvar uses Vim with the NVim-R plugin and <a href="https://github.com/randy3k/radian#readme">radian</a>. There is no one right way!</p>
+</div>
+</aside>
 <div id="lesson-template-modules-r-packages" class="section level2">
 <h2>Lesson Template Modules (R packages)</h2>
 <p>The template is divided into three R pakages, which are designed to be modular and upgradable on the fly. Because these are still in developement, please use the following to install (<em>and update</em>) the packages:</p>
@@ -241,14 +264,14 @@
 </div>
 <div id="macoswindows" class="section level2 solution">
 <h2>MacOS/Windows</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="co"># register the repositories for The Carpentries and CRAN</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="kw">options</span>(<span class="dt">repos =</span> <span class="kw">c</span>(</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>  <span class="dt">carpentries =</span> <span class="st">&quot;https://carpentries.github.io/drat/&quot;</span>,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>  <span class="dt">CRAN =</span> <span class="st">&quot;https://cran.rstudio.com/&quot;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>))</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a><span class="co"># Install the template packages to your R library</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&quot;sandpaper&quot;</span>, <span class="st">&quot;varnish&quot;</span>, <span class="st">&quot;pegboard&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="co"># register the repositories for The Carpentries and CRAN</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="kw">options</span>(<span class="dt">repos =</span> <span class="kw">c</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>  <span class="dt">carpentries =</span> <span class="st">&quot;https://carpentries.github.io/drat/&quot;</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>  <span class="dt">CRAN =</span> <span class="st">&quot;https://cran.rstudio.com/&quot;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a><span class="co"># Install the template packages to your R library</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&quot;sandpaper&quot;</span>, <span class="st">&quot;varnish&quot;</span>, <span class="st">&quot;pegboard&quot;</span>))</span></code></pre></div>
 </div>
 <div id="linux" class="section level2 solution">
 <h2>Linux</h2>
@@ -259,12 +282,12 @@
 <p>If you have a different version of linux, you can visit <a href="https://packagemanager.rstudio.com/client/#/repos/1/overview" class="uri">https://packagemanager.rstudio.com/client/#/repos/1/overview</a>, select your system where it says “Use this URL to work with the latest binary packages for Ubuntu 20.04 (Focal) <strong>change</strong>”, and replace the packagemanager URL below.</p>
 </div>
 </aside>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">options</span>(<span class="dt">repos =</span> <span class="kw">c</span>(</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>  <span class="dt">carpentries =</span> <span class="st">&quot;https://carpentries.github.io/drat/&quot;</span>,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>  <span class="dt">CRAN =</span> <span class="st">&quot;https://packagemanager.rstudio.com/all/__linux__/focal/latest&quot;</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>))</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&quot;sandpaper&quot;</span>, <span class="st">&quot;varnish&quot;</span>, <span class="st">&quot;pegboard&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="kw">options</span>(<span class="dt">repos =</span> <span class="kw">c</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>  <span class="dt">carpentries =</span> <span class="st">&quot;https://carpentries.github.io/drat/&quot;</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>  <span class="dt">CRAN =</span> <span class="st">&quot;https://packagemanager.rstudio.com/all/__linux__/focal/latest&quot;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>))</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a><span class="kw">install.packages</span>(<span class="kw">c</span>(<span class="st">&quot;sandpaper&quot;</span>, <span class="st">&quot;varnish&quot;</span>, <span class="st">&quot;pegboard&quot;</span>))</span></code></pre></div>
 </div>
 
   </div>
