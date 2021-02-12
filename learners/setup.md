@@ -24,6 +24,41 @@ We recommend using RStudio because it is tightly integrated with pandoc.
 
 :::::::::
 
+::::::::: prereq
+
+### Setting up your R workspace
+
+When you set up R, it's important to make sure you set it up to never save your
+workspace on exit and never load a previously saved workspace on startup. 
+
+#### Via RStudio 
+
+If you are using RStudio, you can [follow the instructions in this forum 
+post](https://community.rstudio.com/t/first-line-of-every-r-script/799/12?u=zkamvar):
+
+1. From the menu, select <cmd>Tools<cmd> > <cmd>Global Options</cmd>
+2. Under **Workspace Options**, de-select "Restore .RData into workspace at startup" and set "Save workspace to .RData on exit" to "Never"
+
+#### Via Command Line Interface
+
+The flags `--no-restore` and `--no-save` will set these defaults, so you can 
+create an alias for BASH:
+
+```bash
+alias R='R --no-restore --no-save'
+```
+
+::::::::::::::::::
+
+:::::::::::::::::::::: callout
+
+### There are many ways to set up R to work with the lesson template
+
+For example, Zhian Kamvar uses Vim with the NVim-R plugin and 
+[radian](https://github.com/randy3k/radian#readme). There is no one right way!
+
+:::::::::::::::::::::::::::::::
+
 ## Lesson Template Modules (R packages)
 
 The template is divided into three R pakages, which are designed to be modular
