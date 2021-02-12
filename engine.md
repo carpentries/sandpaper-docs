@@ -1,5 +1,5 @@
 ---
-sandpaper-digest: 77a5fb007a8211ffdcef1515f4796d67
+sandpaper-digest: 17855c2c0906e5bff83fb638ec9fcd9b
 sandpaper-source: /Users/runner/work/sandpaper-docs/sandpaper-docs/episodes/engine.Rmd
 
 title: "The Template Engine: {sandpaper}"
@@ -7,105 +7,293 @@ teaching: 10
 exercises: 2
 ---
 
-# Introduction
+::::::::::::: questions
 
-This is the new Carpentries template. It is written in [RMarkdown][r-markdown],
-which is a variant of Markdown that allows you to render code inside the
-lesson. Please refer to the [lesson
-example](https://carpentries.github.io/lesson-example) for full documentation.
+ - What is {sandpaper}?
+ - What commands do I need to know?
+ - How is the lesson preview generated?
+ - How is the lesson checked?
 
-What you need to know is that there are three block quotes required for a valid
-Carpentries lesson template:
-
- 1. `questions` These are displayed at the beginning of the episode to prime the
-    learner for the content.
- 2. `objectives` These are the learning objectives for an episode
- 3. `keypoints` These are displayed at the end of the episode to reinforce the
-    objectives.
-
-No matter where these blocks appear, they will always be placed at the right
-part of the html page.
+:::::::::::::::::::::::
 
 
-:::::::::::::::: questions :::::::::::::::::::::
+:::::::::::::: objectives
 
-- How does {sandpaper} use the staging area?
-- Why is the output not tracked by Git?
+- Understand the difference between {sandpaper} and the Jekyll template
+- Identify the main function you will use to build the lesson
+- Understand the folder organization of the lesson
 
-::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::
 
-:::::::::::::::: objectives ::::::::::::::::::::
 
-- Explain how to use markdown with the new lesson template
-- Demonstrate how to include pieces of code, figures, and nested challenge blocks
+## Introduction
 
-::::::::::::::::::::::::::::::::::::::::::::::::
+In the Jekyll template, the engine driving how lessons were created, checked,
+and previewed was contained inside the lesson itself. It was necessary to have
+a configuration file, a Makefile, and several scripts (BASH, Python) live inside
+the template itself. There were several places in the template where authors were
+commanded to not touch. 
 
-:::::::::::::::: keypoints :::::::::::::::::::::
+The new template takes these disparate pieces and liberates them into an
+external engine called [{sandpaper}]. 
 
-- Use `.Rmd` files for lessons even if you don't need to generate any code
-- Run `sandpaper::check_lesson()` to identify any issues with your lesson
-- Run `sandpaper::build_lesson()` to preview your lesson locally
+[{sandpaper}] orchestrates the two-step process of creating markdown from
+RMarkdown and then converting to HTML and applying The Carpentries theme. It
+also validates the lessons and provides a straightforward method to update the
+official Carpentries theme. 
 
-::::::::::::::::::::::::::::::::::::::::::::::::
+![
+Diagrammatic representation of the toolchain to build a lesson (excluding GitHub). 
+Lavender rectangles represent R packages, 
+Plum rectangles represent interchangable tools, 
+Powder Blue Ovals represent people.
+](https://zkamvar.github.io/stunning-barnacle/img/broad-flow.dot.svg)
 
-::::::::::::::: challenge ::::::::::::::::::::::
+:::::::::::::::::::::: callout
 
-## Challenge 1: Can you do it?
+### Why two steps?
 
-What is the output of this command?
+There are a few reasons why we have added a step in the process:
 
+1. It allows us to have a staging area between RMarkdown and HTML, which we use
+   in the [pull request stage](pull-requests.html) because markdown diffs are 
+   much easier to read than HTML diffs
+2. Having the rendered markdown files means that we can use them as a cache for
+   the source files and we can avoid rebuilding files that don't need to be 
+   rebuilt.
+3. A cache of rendred markdown files is helpful to have in the future for
+   compiling disparate lessons into a curriculum.
+4. A two-step process allows us to consider different modes of input AND
+   different backend engines without disrupting the normal workflow for our
+   contributors. 
+
+:::::::::::::::::::::::::::::::
+
+### Main Functions
+
+The function names in [{sandpaper}] are designed to be self-descriptive. Here is
+a cheat sheet of some of the more common commands you would need:
+
+`build_lesson()`
+:    Check, build, and preview the lesson website locally. **This is the function you will be using the most**
+
+`check_lesson()`
+:    Check the lesson without building. This uses [{pegboard}] to validate the
+     contents of the lesson folders and the configuration file.
+
+`create_lesson()`
+:    Creates a new lesson repository pre-initialized with Git. 
+
+`reset_site()`
+:    Clear the contents of the `site/` folder. You will really only want to use
+     this if 
+
+`get_episodes()`
+:    Get the current order of the episodes in the configuration file. 
+
+`get_syllabus()`
+:    Return a table containing the name of the episode, cumulative timings, and
+     path to the episode on your machine. 
+
+## Quickstart
+
+To get started, follow the instructions on the [setup page](setup.html). In R,
+you can install [{sandpaper}] with this command:
 
 ```r
-paste("This", "new", "template", "looks", "good")
-```
-
-:::::::::::::::::::::::: solution 
-
-## Output
- 
-
-```{.output}
-[1] "This new template looks good"
-```
-
-:::::::::::::::::::::::::::::::::
-
-
-## Challenge 2: how do you nest solutions within challenge blocks?
-
-:::::::::::::::::::::::: solution 
-
-You can add a line with at least three colons and a `solution` tag.
-
-:::::::::::::::::::::::::::::::::
-::::::::::::::::::::::::::::::::::::::::::::::::
-
-# Figures
-
-You can also include figures:
-
-
-```r
-pie(
-  c(Sky = 78, "Sunny side of pyramid" = 17, "Shady side of pyramid" = 5), 
-  init.angle = 315, 
-  col = c("deepskyblue", "yellow", "yellow3"), 
-  border = FALSE
+install.packages("sandpaper",
+  repos = "https://carpentries.github.io/drat/", 
+  dependencies = TRUE
 )
 ```
 
-<img src="fig/engine-rendered-pyramid-1.png" title="plot of chunk pyramid" alt="plot of chunk pyramid" style="display: block; margin: auto;" />
+If that succeeded, load the package from your R library via this command and 
+then continue on with the tutorial:
+
+```r
+library("sandpaper")
+```
 
 
-# Math
+### Creating a Brand New Lesson
 
-One of our episodes contains $\LaTeX$ equations when describing how to create
-dynamic reports with {knitr}, so we now use mathjax to describe this:
+Creating a lesson uses a single command:
 
-`$\alpha = \dfrac{1}{(1 - \beta)^2}$` becomes: $\alpha = \dfrac{1}{(1 - \beta)^2}$
+```r
+create_lesson("~/Desktop/intro-to-sandpaper/")
+```
 
-Cool, right?
+This will create a new git repository on your desktop called `intro-to-sandpaper/`
+with the boilerplate files for your lesson ([described in the anatomy section
+below](#anatomy)). To add this lesson to your GitHub account, you can use the
+`use_github()` function from the [{usethis}] package:
+
+```r
+library("usethis")
+use_github()
+```
+
+
+### Existing Lesson on GitHub
+
+#### Lesson Not Yet on Computer
+
+If you have a lesson on GitHub, you can clone it to your computer using a
+function called `create_from_github()` from the
+[{usethis}] package[^usethis-dependency]. You
+can try out this tutorial:
+
+```r
+library("usethis")
+create_from_github("zkamvar/sandpaper-docs", destdir = "~/Desktop/")
+build_lesson()
+```
+
+This will fetch the repository from GitHub, download it to your computer in
+the `destdir` folder, and move your workspace into that folder.
+
+#### Lesson on Computer
+
+Navigate to the lesson on your computer and double-click on the ".Rproj" file
+to open it in RStudio or open it in your favorite editor and run:
+
+```r
+build_lesson()
+```
+
+
+## Adding/Rearranging Episodes
+
+To add an episode in the lesson, you can create a markdown file in the 
+`episodes/` folder. By default, episodes will be built in alphabetical order in
+their folder. You should change this by specifying episode order in the 
+`config.yaml` file at the top of the repository like so:
+
+```yaml
+episodes:
+- first-episode.Rmd
+- second-episode.Rmd
+- third-episode.Rmd
+```
+
+The episodes will then be built and appear in the menubar in that order.
+
+## Anatomy of a Lesson {#anatomy}
+
+A [{sandpaper}] lesson contains a folder structure that should mimic the
+navigation structure you see on the resulting website. In the lesson folder,
+you only need to care about writing markdown (content) and very simple 
+yaml (configuration).
+
+### Content
+
+The landing page is called `index.md`. This is where you introduce the data set
+and the prerequisites for the lesson. From there, you content lives in one of
+four folders:
+
+`episodes/`
+:    Content of the lesson. This folder contains the (R)Markdown source files
+     along with any other content they reference (figures, data, etc).
+
+`learners/`
+:    Information for the learners. This includes setup instructions, glossary, 
+     handouts, etc. 
+
+`instructors/`
+:    Information for the instructors. This includes broad instructor notes and
+     outlines of the episode contents.
+
+`profiles/`
+:    Learner profiles. This will be a space for contributors to define learner
+     profiles for the lesson that can help learners identify what they can use
+     the lesson for. These can also help the lesson maintainers understand their
+     target audience. 
+
+### Configuration
+
+The configuration file is called `config.yaml`. Unlike the Jekyll template, all
+of the fields in this configuration file are available for you to modify. 
+
+
+```yaml
+# Which carpentry is this (swc, dc, lc, or cp)?
+# swc: Software Carpentry
+# dc: Data Carpentry
+# lc: Library Carpentry
+# cp: Carpentries (to use for instructor traning for instance)
+carpentry: cp
+
+# Overall title for pages.
+title: Lesson Title
+
+# Life cycle stage of the lesson
+# possible values: pre-alpha, alpha, beta, stable
+life_cycle: pre-alpha
+
+# License of the lesson
+license: CC-BY 4.0
+
+# Link to the source repository for this lesson
+source: https://github.com/carpentries/sandpaper/
+
+# Default branch of your lesson
+branch: main
+
+# Who to contact if there are any issues
+contact: zkamvar@carpentries.org
+
+# Navigation ------------------------------------------------
+# The menu bar will be in the following order:
+# 
+# - Code of Conduct      (CODE_OF_CONDUCT.md)
+# - Setup                (Setup.md)
+# - Episodes             (episodes/)
+# - Learner Resources    (learners/)
+# - Instructor Resources (instructors/)
+# - Learner Profiles     (profiles/)
+# - License              (LICENSE.md)
+# 
+# Use the following menu items to specify the order of
+# individual pages in each dropdown section
+
+# Order of episodes in your lesson 
+episodes: 
+
+# Information for Learners
+learners: 
+
+# Information for Instructors
+instructors: 
+
+# Learner Profiles
+profiles: 
+```
+
+
+
+### What about the .github/ folder?
+
+Unfortunately, not ALL of the lesson template is up for grabs. This is a folder
+that contains GitHub workflows that we will talk about in the [deployment 
+section](deployment.html) of this tutorial. In the meantime, do not pay any mind
+to this directory. 
+
+
+::::::: keypoints
+
+ - {sandpaper} separates the build engine from the lesson content
+ - the two-step process allows for flexibility in website engines
+ - the site can be built and previewed using `build_lesson()`
+ - the folder structure is designed to mirror the website navigation
+
+:::::::::::::::::::
+
+[{sandpaper}]: https://carpentries.github.io/sandpaper/
+[{pegboard}]: validator.html
+[{usethis}]: https://r-lib.github.io/usethis/
+
+[^usethis-dependency]: The {usethis} package is a dependency of {sandpaper}, so
+you already have it installed when you install {sandpaper} :)
 
 <!-- Please do not delete anything below this line -->
 

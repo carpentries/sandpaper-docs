@@ -1,5 +1,5 @@
 ---
-sandpaper-digest: 762eeaf719bde1a07d521377b6551400
+sandpaper-digest: 2d56551ae6c9869b623d931b935443a2
 sandpaper-source: /Users/runner/work/sandpaper-docs/sandpaper-docs/episodes/introduction.Rmd
 
 title: "Introduction to the New Template"
@@ -83,7 +83,7 @@ then your browser window open to reveal a page that looks identical to
 https://zkamvar.github.io/sandpaper-docs/.
 
 If this did NOT work for you, please send any errors you encountered to Zhian at
-zkamvar@carpentries.org or you can reach im on Slack. 
+zkamvar@carpentries.org or you can reach him on The Carpentries Slack. 
 
 :::::::::::::::::::::::
 
@@ -92,12 +92,17 @@ is designed to provide rapid updates to the lessons on the fly. It uses a
 **two-step process for building lessons**:
 
 1. render all modified source documents (e.g [RMarkdown][r-markdown] or plain
-   Markdown) to [pandoc-flavored markdown][pandoc] to the folder called 
-   `site/built/`
+   Markdown) to [pandoc-flavored markdown][pandoc] to a staging folder called 
+   `site/built/`.
 2. combine metadata with the contents of `site/built/` and convert to HTML to
    the folder called `site/docs/`
 
-
+![
+Diagrammatic representation of the proposed toolchain (excluding GitHub). 
+Lavender rectangles represent R packages, 
+Plum rectangles represent interchangable tools, 
+Powder Blue Ovals represent people.
+](https://zkamvar.github.io/stunning-barnacle/img/broad-flow.dot.svg)
 
 ## Why make a new template?
 
