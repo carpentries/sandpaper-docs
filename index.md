@@ -1,3 +1,7 @@
+---
+site: sandpaper::sandpaper_site
+---
+
 Welcome to the documentation for our new Lesson Template. 
 
 :::::: callout
