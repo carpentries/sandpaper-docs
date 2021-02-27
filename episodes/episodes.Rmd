@@ -21,7 +21,7 @@ Carpentries lesson template:
     objectives.
 
 No matter where these blocks appear, they will always be placed at the right
-part of the html page.
+part of the html page. (Note: This is not yet true!)
 
 
 :::::::::::::::: questions :::::::::::::::::::::
