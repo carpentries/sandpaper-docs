@@ -73,6 +73,20 @@ sandpaper::build_lesson()
 
 :::::::::::::: callout
 
+### Keyboard Shortcuts
+
+If you are using RStudio, did you know you can use keyboard shortcuts to render
+the lesson as you are working on the episodes?
+
+Render and preview the whole lesson
+:    <kbd>ctrl + shift + B</kbd>
+
+Render and preview an episode
+:    <kbd>ctrl + shift + K</kbd>
+::::::::::::::::::::::
+
+:::::::::::::: callout
+
 ### Did everything work?
 
 If everything worked, you should have seen a lot of output in your R console and
