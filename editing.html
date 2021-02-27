@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-02-27 00:42:08 +0000">
+<meta http-equiv="last-modified" content="2021-02-27 01:43:24 +0000">
 
 
 
@@ -256,11 +256,42 @@
 </div>
 </div>
 <p>If you want to edit and preview your lesson using {sandpaper}, this is the episode for you. If you want to create a new lesson, head back to the episode for <a href="new-site.html">Creating a New Lesson</a>.</p>
+<div id="create-from-github" class="section level2">
+<h2>Downloading a Lesson</h2>
+<p>If you are comfortable with git, use this command to clone this repository to your working directory</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="bu">cd</span> ~/Documents/Lessons</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="fu">git</span> clone https://github.com/zkamvar/sandpaper-docs.git</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="bu">cd</span> sandpaper-docs</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="ex">R</span></span></code></pre></div>
+<p>If you are NOT comfortable with git, you can download with R. First, open RStudio and think about where on your computer you want to work on lessons (e.g. <code>~/Documents/Lessons</code>). Once you know this, you can open RStudio and type in the R console:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>usethis<span class="op">::</span><span class="kw">create_from_github</span>(<span class="st">&quot;zkamvar/sandpaper-docs&quot;</span>, <span class="dt">destdir =</span> <span class="st">&quot;~/Documents/Lessons&quot;</span>)</span></code></pre></div>
+<p>By default, this will clone the lesson to <code>~/Documents/Lessons/sandpaper-docs</code> and open a new RStudio session inside of the lesson repository.</p>
+</div>
+<div id="build-lesson" class="section level2">
+<h2>Preview Lesson Content</h2>
+<p>To preview the lesson, if you are using RStudio, you can use the keyboard shortcut <kbd>cmd + shift + B</kbd> (short for <strong>B</strong>uild) OR you can use the dropdown menu item <kbd>Build &gt; Build All</kbd>.</p>
+<p>If you want to use the R command line, you can preview the lesson with:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>sandpaper<span class="op">::</span><span class="kw">build_lesson</span>()</span></code></pre></div>
+<p>The first time you run this, there will be A LOT of output to your console as the RMarkdown documents are rendered into markdown and then the <a href="template.html">{varnish} styling template</a> is applied. If you run it again, you will notice that it takes much less time because the RMarkdown documents don’t need to be rebuilt.</p>
+</div>
+<div id="create-episode" class="section level2">
+<h2>Adding a new episode</h2>
+<p>To add a new episode, you can use the function <code>sandpaper::create_episode()</code>. This will template a {sandpaper} episode in the <code>episodes/</code> directory of your lesson and pre-populate it with objectives, questions, and keypoints.</p>
+<p>After you add your draft of the episode, you need to add it to the <code>episodes</code> section of <code>config.yaml</code>. This will be your table of contents. By default, all of the episodes are rendered in alphabetical order, and the <code>config.yaml</code> can allow you to work on episodes that are not yet ready for production.</p>
+<p>To view your current episode order, you can use:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>sandpaper<span class="op">::</span><span class="kw">get_episodes</span>()</span></code></pre></div>
+</div>
+<div id="reset-site" class="section level2">
+<h2>Clearing the cache</h2>
+<p>If you are working on the lesson and you want to make sure that everything renders from scratch, you can reset the site and the markdown cache with one command:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>sandpaper<span class="op">::</span><span class="kw">reset_site</span>()</span></code></pre></div>
+</div>
 <div class="section level2 keypoints">
 <h2>Keypoints</h2>
 <ul>
 <li><code>usethis::create_from_github()</code> will download a github repository to your computer</li>
 <li><code>sandpaper::build_lesson()</code> renders the site and rebuilds any sources that have changed. - RStudio shortcuts are <kbd>cmd + shift + B</kbd> and <kbd>cmd + shift + K</kbd></li>
+<li>New episodes can be added with <code>sandpaper::create_episode()</code></li>
 </ul>
 </div>
 
