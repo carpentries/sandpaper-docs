@@ -1,5 +1,5 @@
 ---
-sandpaper-digest: 83d87fad5434e77180431df7ebc673eb
+sandpaper-digest: 032de33ae73236a65f5addf4a70ad938
 sandpaper-source: /Users/runner/work/sandpaper-docs/sandpaper-docs/episodes/episodes.Rmd
 
 title: "Episode Structure"
@@ -24,7 +24,7 @@ Carpentries lesson template:
     objectives.
 
 No matter where these blocks appear, they will always be placed at the right
-part of the html page.
+part of the html page. (Note: This is not yet true!)
 
 
 :::::::::::::::: questions :::::::::::::::::::::
