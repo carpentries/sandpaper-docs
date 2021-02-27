@@ -1,5 +1,5 @@
 ---
-sandpaper-digest: 2d56551ae6c9869b623d931b935443a2
+sandpaper-digest: 336167a54cf5faac81253aab3b73695c
 sandpaper-source: /Users/runner/work/sandpaper-docs/sandpaper-docs/episodes/introduction.Rmd
 
 title: "Introduction to the New Template"
@@ -73,6 +73,20 @@ sandpaper::build_lesson()
 ```
 
 ::::::::::::::::::::::::
+
+:::::::::::::: callout
+
+### Keyboard Shortcuts
+
+If you are using RStudio, did you know you can use keyboard shortcuts to render
+the lesson as you are working on the episodes?
+
+Render and preview the whole lesson
+:    <kbd>ctrl + shift + B</kbd>
+
+Render and preview an episode
+:    <kbd>ctrl + shift + K</kbd>
+::::::::::::::::::::::
 
 :::::::::::::: callout
 
