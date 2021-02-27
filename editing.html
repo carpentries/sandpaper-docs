@@ -12,7 +12,7 @@
 
 
 
-<title>Intruction to the New Lesson Template: GitHub Branches</title>
+<title>Intruction to the New Lesson Template: Editing a {sandpaper} lesson</title>
 
 <link rel="apple-touch-icon-precomposed" sizes="57x57" href="favicons/cp/apple-touch-icon-57x57.png" />
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="favicons/cp/apple-touch-icon-114x114.png" />
@@ -74,7 +74,7 @@
 
 
 
-<meta property="og:title" content="GitHub Branches" />
+<meta property="og:title" content="Editing a {sandpaper} lesson" />
 
 
 
@@ -223,31 +223,21 @@
 <div class="row">
   <div class="contents col-md-9">
     <div class="page-header">
-      <h1>GitHub Branches</h1>
+      <h1>Editing a {sandpaper} lesson</h1>
     </div>
 
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
-<p>This is the new Carpentries template. It is written in <a href="https://rmarkdown.rstudio.com/">RMarkdown</a>, which is a variant of Markdown that allows you to render code inside the lesson. Please refer to the <a href="https://carpentries.github.io/lesson-example">lesson example</a> for full documentation.</p>
-<p>What you need to know is that there are three block quotes required for a valid Carpentries lesson template:</p>
-<ol style="list-style-type: decimal">
-<li><code>questions</code> These are displayed at the beginning of the episode to prime the learner for the content.</li>
-<li><code>objectives</code> These are the learning objectives for an episode</li>
-<li><code>keypoints</code> These are displayed at the end of the episode to reinforce the objectives.</li>
-</ol>
-<p>No matter where these blocks appear, they will always be placed at the right part of the html page.</p>
 <div class="section level2 objectives">
 <h2>Overview</h2>
 <div class="row">
 <div class="col-md-3">
-<p><strong>Teaching: </strong> 10<br />
-<strong>Exercises: </strong> 2</p>
+<p><strong>Teaching: </strong> 5<br />
+<strong>Exercises: </strong> 0</p>
 </div>
 <div class="col-md-9">
 <p><strong>Questions</strong></p>
 <ul>
-<li>Why do we use three branches?</li>
-<li>Can the branch names be customized?</li>
+<li>How do you download an existing {sandpaper} lesson?</li>
+<li>What command do you use to preview a lesson?</li>
 </ul>
 </div>
 </div>
@@ -258,56 +248,20 @@
 <div class="col-md-9">
 <p><strong>Objectives</strong></p>
 <ul>
-<li>Explain how to use markdown with the new lesson template</li>
-<li>Demonstrate how to include pieces of code, figures, and nested challenge blocks</li>
+<li>Understand the usage of <code>usethis::create_from_github()</code></li>
+<li>Understand the process of <code>sandpaper::build_lesson()</code></li>
+<li>Remember the RStudio keyboard shortcuts and buttons</li>
 </ul>
 </div>
 </div>
 </div>
+<p>If you want to edit and preview your lesson using {sandpaper}, this is the episode for you. If you want to create a new lesson, head back to the episode for <a href="new-site.html">Creating a New Lesson</a>.</p>
 <div class="section level2 keypoints">
 <h2>Keypoints</h2>
 <ul>
-<li>Use <code>.Rmd</code> files for lessons even if you don’t need to generate any code</li>
-<li>Run <code>sandpaper::check_lesson()</code> to identify any issues with your lesson</li>
-<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson locally</li>
+<li><code>usethis::create_from_github()</code> will download a github repository to your computer</li>
+<li><code>sandpaper::build_lesson()</code> renders the site and rebuilds any sources that have changed. - RStudio shortcuts are <kbd>cmd + shift + B</kbd> and <kbd>cmd + shift + K</kbd></li>
 </ul>
-</div>
-<div class="challenge">
-<div id="challenge-1-can-you-do-it" class="section level2">
-<h2>Challenge 1: Can you do it?</h2>
-<p>What is the output of this command?</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">paste</span>(<span class="st">&quot;This&quot;</span>, <span class="st">&quot;new&quot;</span>, <span class="st">&quot;template&quot;</span>, <span class="st">&quot;looks&quot;</span>, <span class="st">&quot;good&quot;</span>)</span></code></pre></div>
-</div>
-<div id="output" class="section level2 solution">
-<h2>Output</h2>
-<pre class="output"><code>[1] &quot;This new template looks good&quot;</code></pre>
-</div>
-<div id="challenge-2-how-do-you-nest-solutions-within-challenge-blocks" class="section level2">
-<h2>Challenge 2: how do you nest solutions within challenge blocks?</h2>
-</div>
-<div class="section level2 solution">
-<h2>Solution</h2>
-<p>You can add a line with at least three colons and a <code>solution</code> tag.</p>
-</div>
-</div>
-</div>
-<div id="figures" class="section level1">
-<h1>Figures</h1>
-<p>You can also include figures:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="kw">pie</span>(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>  <span class="kw">c</span>(<span class="dt">Sky =</span> <span class="dv">78</span>, <span class="st">&quot;Sunny side of pyramid&quot;</span> =<span class="st"> </span><span class="dv">17</span>, <span class="st">&quot;Shady side of pyramid&quot;</span> =<span class="st"> </span><span class="dv">5</span>), </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>  <span class="dt">init.angle =</span> <span class="dv">315</span>, </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>  <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;deepskyblue&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;yellow3&quot;</span>), </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>  <span class="dt">border =</span> <span class="ot">FALSE</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>)</span></code></pre></div>
-<p><img src="fig/branches-rendered-pyramid-1.png" title="plot of chunk pyramid" alt="plot of chunk pyramid" style="display: block; margin: auto;" /></p>
-</div>
-<div id="math" class="section level1">
-<h1>Math</h1>
-<p>One of our episodes contains <span class="math inline">\(\LaTeX\)</span> equations when describing how to create dynamic reports with {knitr}, so we now use mathjax to describe this:</p>
-<p><code>$\alpha = \dfrac{1}{(1 - \beta)^2}$</code> becomes: <span class="math inline">\(\alpha = \dfrac{1}{(1 - \beta)^2}\)</span></p>
-<p>Cool, right?</p>
-<!-- Please do not delete anything below this line -->
 </div>
 
   </div>
@@ -330,7 +284,7 @@
   <div class="row">
     <div class="col-xs-1">
       <h3 class="text-left">
-        <a href="LICENSE.html"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
+        <a href="deployment.html"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
       </h3>
     </div>
     <div class="col-xs-10">
@@ -338,7 +292,7 @@
     </div>
     <div class="col-xs-1">
       <h3 class="text-right">
-        <a href="deployment.html"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
+        <a href="engine.html"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
       </h3>
     </div>
   </div>
@@ -351,7 +305,7 @@
       by <a href="https://softwarecarpentry.org">Software Carpentry Foundation</a>
     </div>
     <div class="col-md-6 help-links pull-right" align="right">
-      <a href="https://github.com/zkamvar/sandpaper-docs//edit/main/episodes/branches.Rmd" data-checker-ignore>Edit on GitHub</a>
+      <a href="https://github.com/zkamvar/sandpaper-docs//edit/main/episodes/editing.Rmd" data-checker-ignore>Edit on GitHub</a>
       /
       <a href="https://github.com/zkamvar/sandpaper-docs//blob/main/CONTRIBUTING.md" data-checker-ignore>Contributing</a>
       /
