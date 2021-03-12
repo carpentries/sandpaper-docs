@@ -1,7 +1,4 @@
 ---
-sandpaper-digest: 032de33ae73236a65f5addf4a70ad938
-sandpaper-source: /Users/runner/work/sandpaper-docs/sandpaper-docs/episodes/episodes.Rmd
-
 title: "Episode Structure"
 teaching: 10
 exercises: 2

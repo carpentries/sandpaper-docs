@@ -1,7 +1,4 @@
 ---
-sandpaper-digest: 221d6c143775462de6e896f29f7cf411
-sandpaper-source: /Users/runner/work/sandpaper-docs/sandpaper-docs/episodes/deployment.Rmd
-
 title: "How We Deploy the New Template"
 teaching: 10
 exercises: 2

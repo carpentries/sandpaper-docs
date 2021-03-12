@@ -1,7 +1,4 @@
 ---
-sandpaper-digest: afaf427b4223952624dcb6d8ded53ec0
-sandpaper-source: /Users/runner/work/sandpaper-docs/sandpaper-docs/LICENSE.md
-
 title: "Licenses"
 ---
 

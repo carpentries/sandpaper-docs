@@ -1,7 +1,4 @@
 ---
-sandpaper-digest: 4b728eb47ffa107c39aa434c43c6cc22
-sandpaper-source: /Users/runner/work/sandpaper-docs/sandpaper-docs/learners/setup.md
-
 title: Setup
 ---
 

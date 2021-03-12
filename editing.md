@@ -1,7 +1,4 @@
 ---
-sandpaper-digest: 8c81e7a19d52477a4a83efc6f4f6aa59
-sandpaper-source: /Users/runner/work/sandpaper-docs/sandpaper-docs/episodes/editing.Rmd
-
 title: "Editing a {sandpaper} lesson"
 teaching: 5
 exercises: 0

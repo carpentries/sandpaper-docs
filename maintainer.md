@@ -1,7 +1,4 @@
 ---
-sandpaper-digest: 2a2b790c0aa8da5fb72e323e4fafabd9
-sandpaper-source: /Users/runner/work/sandpaper-docs/sandpaper-docs/profiles/maintainer.md
-
 title: Maintainer Profiles
 ---
 

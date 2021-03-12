@@ -1,7 +1,4 @@
 ---
-sandpaper-digest: 5eb57a422b27fa0a921549df2c1b62c5
-sandpaper-source: /Users/runner/work/sandpaper-docs/sandpaper-docs/episodes/new-site.Rmd
-
 title: "Creating a New Lesson"
 teaching: 5
 exercises: 0

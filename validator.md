@@ -1,7 +1,4 @@
 ---
-sandpaper-digest: 7db165515a443d363f728a174102706a
-sandpaper-source: /Users/runner/work/sandpaper-docs/sandpaper-docs/episodes/validator.Rmd
-
 title: "The Validator: {pegboard}"
 teaching: 10
 exercises: 2

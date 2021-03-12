@@ -1,7 +1,4 @@
 ---
-sandpaper-digest: 7db879304996a6f8429e726cac494771
-sandpaper-source: /Users/runner/work/sandpaper-docs/sandpaper-docs/episodes/migration.Rmd
-
 title: "Migrating from Jekyll"
 teaching: 5 
 exercises: 2

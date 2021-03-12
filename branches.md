@@ -1,7 +1,4 @@
 ---
-sandpaper-digest: 71d38ff5f249047b872f0e476c0216e9
-sandpaper-source: /Users/runner/work/sandpaper-docs/sandpaper-docs/episodes/branches.Rmd
-
 title: "GitHub Branches"
 teaching: 10
 exercises: 2

@@ -1,7 +1,4 @@
 ---
-sandpaper-digest: 3949eedfdbf21d11184b093d616b9b3d
-sandpaper-source: /Users/runner/work/sandpaper-docs/sandpaper-docs/episodes/template.Rmd
-
 title: "The Website Template: {varnish}"
 teaching: 10
 exercises: 2

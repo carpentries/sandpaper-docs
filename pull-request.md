@@ -1,7 +1,4 @@
 ---
-sandpaper-digest: 68d69dd90a9e87b9de4e293aff898479
-sandpaper-source: /Users/runner/work/sandpaper-docs/sandpaper-docs/episodes/pull-request.Rmd
-
 title: "Pull Request Previews"
 teaching: 10
 exercises: 2

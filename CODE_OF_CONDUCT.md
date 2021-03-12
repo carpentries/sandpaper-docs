@@ -1,7 +1,4 @@
 ---
-sandpaper-digest: 8d9e44dd5c39f241b5e8b47ecfc802d1
-sandpaper-source: /Users/runner/work/sandpaper-docs/sandpaper-docs/CODE_OF_CONDUCT.md
-
 title: "Contributor Code of Conduct"
 ---
 

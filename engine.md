@@ -1,7 +1,4 @@
 ---
-sandpaper-digest: 17855c2c0906e5bff83fb638ec9fcd9b
-sandpaper-source: /Users/runner/work/sandpaper-docs/sandpaper-docs/episodes/engine.Rmd
-
 title: "The Template Engine: {sandpaper}"
 teaching: 10
 exercises: 2
