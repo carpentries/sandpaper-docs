@@ -15,6 +15,3 @@ If you are looking to get started using the template, head over to the
 
 ::::::::::::::::::
 
-For some reason [this link](https://zkamvar.netlify.app/) will not work in 
-Firefox, Chrome, or Safari.
-
