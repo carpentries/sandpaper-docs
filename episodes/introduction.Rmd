@@ -13,6 +13,7 @@ exercises: 2
 
 ::::::::::: objectives
 
+- Create New Lesson from scratch
 - Contrast the new template with the old
 - Understand the basic structure of the new template
 - Identify the main command to preview the template
@@ -31,27 +32,11 @@ yaml syntax in order to work on lessons.
 
 :::::::::::::::::::::::::::
 
-The new lesson template is designed to be modular with clear, cross-platform
-system requirements. It will use the R programming language and [pandoc] under
-the hood and will abide bhe the following rules:
-
-1. Lesson contributors do not need to know anything about the toolchain to
-   contribute in a meaningful way.
-2. Elements of the toolchain that evaluates, validates, and stylizes lessons
-   should live in separate repositories to allow for seamless updating.
-3. The procedures should be well-documented and generalizable enough that the
-   toolchain is not entirely dependent on R.
-
-R is beneficial because it already has a mature ecosystem of packages for
-publishing dynamic reports and web content from markdown, it works on all
-platforms, and we teach it as part of our core curriculum.
-
-
 ::::::::::::::::: challenge
 
 ### Try it yourself!
 
-You can explore this lesson with the following steps:
+Follow these steps to create a brand new lesson and push it to GitHub
 
 1. Follow the [setup instructions](setup.html)
 2. Open RStudio (or your preferred interface to R)
@@ -61,13 +46,31 @@ You can explore this lesson with the following steps:
 library("usethis")
 library("sandpaper")
 
-# Download this repository to your Desktop and move into it
-# (If you are using RStudio, it will open a new session)
-usethis::create_from_github("zkamvar/sandpaper-docs", open = TRUE)
-
-# Render and preview the lesson
-sandpaper::build_lesson()
+# Create a brand new lesson on your desktop called "bouyant-barnacle"
+create_lesson("~/Desktop/bouyant-barnacle")
+# Push the lesson to GitHub
+use_github()
 ```
+
+
+::::::::::: solution
+
+If everything went correctly, you will now have RStudio open to your new project
+called "bouyant-barnacle" on your Desktop and you will have a brand new
+repository on your GitHub account called "bouyant-barnacle". 
+
+In a few minutes, the GitHub workflows would have validated your lesson and 
+created deployment branches. You can track the progress at 
+`https://github.com/<USERNAME>/bouyant-barnacle/actions/`. Once you have a green
+check mark, you can [set up GitHub Pages](https://docs.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site) by 
+choosing `gh-pages` from the dropdown menu.
+
+> **Be patient!** GitHub needs to start up a new virtual machine the first time
+> you use this, so it may take anywhere from 6 to 15 minutes for the workflow
+> to run.
+
+
+::::::::::::::::::::
 
 ::::::::::::::::::::::::
 
@@ -84,6 +87,22 @@ Render and preview the whole lesson
 Render and preview an episode
 :    <kbd>ctrl + shift + K</kbd>
 ::::::::::::::::::::::
+
+The new lesson template is designed to be modular with clear, cross-platform
+system requirements. It will use the R programming language and [pandoc] under
+the hood and will abide bhe the following rules:
+
+1. Lesson contributors do not need to know anything about the toolchain to
+   contribute in a meaningful way.
+2. Elements of the toolchain that evaluates, validates, and stylizes lessons
+   should live in separate repositories to allow for seamless updating.
+3. The procedures should be well-documented and generalizable enough that the
+   toolchain is not entirely dependent on R.
+
+R is beneficial because it already has a mature ecosystem of packages for
+publishing dynamic reports and web content from markdown, it works on all
+platforms, and we teach it as part of our core curriculum.
+
 
 :::::::::::::: callout
 

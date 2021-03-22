@@ -48,13 +48,13 @@ episodes:
 - new-site.Rmd
 - editing.Rmd
 - migration.Rmd
-- engine.Rmd
-- episodes.Rmd
-- template.Rmd
-- validator.Rmd
-- branches.Rmd
-- deployment.Rmd
-- pull-request.Rmd
+# - engine.Rmd
+# - episodes.Rmd
+# - template.Rmd
+# - validator.Rmd
+# - branches.Rmd
+# - deployment.Rmd
+# - pull-request.Rmd
 
 # Information for Learners
 learners: 
