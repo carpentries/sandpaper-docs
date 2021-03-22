@@ -6,23 +6,24 @@ exercises: 0
 
 :::::::::::::::::::: questions
 
+ - What is the folder structure of a lesson?
  - How do you download an existing {sandpaper} lesson?
- - What command do you use to preview a lesson?
  
 :::::::::::::::::::::::::::::
 
 :::::::::::::::::::: objectives
 
- - Understand the usage of `usethis::create_from_github()`
- - Understand the process of `sandpaper::build_lesson()`
- - Remember the RStudio keyboard shortcuts and buttons
+ - Understand how to clone an existing lesson from GitHub
+ - Use `sandpaper::build_lesson()` to preview a lesson
+ - Update the configuration for a lesson
+ - Rearrange the order of episodes
 
 :::::::::::::::::::::::::::::::
 
 
 If you want to edit and preview your lesson using {sandpaper}, this is the
 episode for you. If you want to create a new lesson, head back to the episode
-for [Creating a New Lesson](new-site.html).
+for [Creating a New Lesson](introduction.html).
 
 ## Downloading a Lesson {#create-from-github}
 

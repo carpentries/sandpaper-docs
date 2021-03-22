@@ -45,7 +45,6 @@ contact: zkamvar@carpentries.org
 # Order of episodes in your lesson 
 episodes: 
 - introduction.Rmd
-- new-site.Rmd
 - editing.Rmd
 - migration.Rmd
 # - engine.Rmd

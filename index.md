@@ -2,7 +2,21 @@
 site: sandpaper::sandpaper_site
 ---
 
-Welcome to the documentation for our new Lesson Template. 
+Welcome to the documentation for our new Lesson Template. The new template is 
+a complete redesign that follows the philosophy of keeping content and tools
+separate. The new template will have the following features:
+
+:::::::::::::::::: checklist
+
+- Automatic updates
+- Pandoc markdown syntax
+- Built entirely using R
+- Automatic rendering of R Markdown
+- Pull Request Audits for rendered files
+- Compatible with RStudio
+
+::::::::::::::::::::::::::::
+
 
 :::::: callout
 
