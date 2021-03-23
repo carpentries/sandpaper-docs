@@ -8,12 +8,14 @@ separate. The new template will have the following features:
 
 :::::::::::::::::: checklist
 
-- Automatic updates
-- Pandoc markdown syntax
-- Built entirely using R
-- Automatic rendering of R Markdown
-- Pull Request Audits for rendered files
-- Compatible with RStudio
+## Features of the new lesson template
+
+- [x] Automatic updates
+- [x] Pandoc markdown syntax
+- [x] Built entirely using R
+- [x] Automatic rendering of R Markdown
+- [x] Pull Request Audits for rendered files
+- [x] Compatible with RStudio
 
 ::::::::::::::::::::::::::::
 
