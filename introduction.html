@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-03-22 22:09:48 +0000">
+<meta http-equiv="last-modified" content="2021-03-23 00:56:04 +0000">
 
 
 
@@ -277,7 +277,16 @@
 <div class="section level2 solution">
 <h2>Solution</h2>
 <p>If everything went correctly, you will now have RStudio open to your new project called “bouyant-barnacle” on your Desktop and you will have a brand new repository on your GitHub account called “bouyant-barnacle”.</p>
-<p>In a few minutes, the GitHub workflows would have validated your lesson and created deployment branches. You can track the progress at <code>https://github.com/&lt;USERNAME&gt;/bouyant-barnacle/actions/</code>. Once you have a green check mark, you can <a href="https://docs.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">set up GitHub Pages</a> by choosing <code>gh-pages</code> from the dropdown menu.</p>
+<p>In a few minutes, the GitHub workflows would have validated your lesson and created deployment branches. You can track the progress at <code>https://github.com/&lt;USERNAME&gt;/bouyant-barnacle/actions/</code>. Once you have a green check mark, you can <a href="https://docs.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">set up GitHub Pages</a> by choosing <code>gh-pages</code> from the dropdown menu as shown in the image below:</p>
+<div class="figure">
+<img src="fig/github-pages-none.png" alt="" />
+<p class="caption">screencapture of the initial view of the GitHub Pages section of the settings tab</p>
+</div>
+<p>Click on the “select branch” button and select “gh-pages”:</p>
+<div class="figure">
+<img src="fig/github-pages-gh-pages.png" alt="" />
+<p class="caption">screencapture of expanded “select branch” button with “gh-pages” selected</p>
+</div>
 <blockquote>
 <p><strong>Be patient!</strong> GitHub needs to start up a new virtual machine the first time you use this, so it may take anywhere from 6 to 15 minutes for the workflow to run.</p>
 </blockquote>
@@ -303,30 +312,6 @@
 </aside>
 <p>The first time you run this function, you might see A LOT of output on your screen and then your browser will open the preview. If you run the command again, you will see much less output. If you like to would like to know how everything works under the hood, you can check out the <a href="sandpaper.html">{sandpaper} generator chapter</a>.</p>
 </div>
-<div id="folder-structure" class="section level2">
-<h2>Folder Structure</h2>
-<aside class="callout">
-<div id="this-may-change" class="section level3">
-<h3><span class="emoji" data-emoji="construction">🚧</span> This May Change <span class="emoji" data-emoji="construction">🚧</span></h3>
-<p>The exact folder structure still has the possibility to change based on user testing for the front-end of the lesson website.</p>
-</div>
-</aside>
-<p>The template folder structure will contain markdown files arranged so that they match what we expect the menubar for the lesson should be. All folders and files with an arrow <code>&lt;-</code> are places in the lesson template you will be modifying:</p>
-<pre><code>|-- .gitignore         #  | Ignore everything in the site/ folder
-|-- .github/           #  | Configuration for deployment
-|-- episodes/          # &lt;- PUT YOUR EPISODE MARKDOWN FILES IN THIS FOLDER
-|-- instructors/       # &lt;- Information for Instructors (e.g. guide.md)
-|-- learners/          # &lt;- Information for Learners (e.g. reference.md and setup.md)
-|-- profiles/          # &lt;- Learner and/or Instructor Profiles (new)
-|-- site/              #  | This is a &quot;scratch&quot; folder ignored by git and is where the rendered markdown files and static site will live
-|-- config.yaml        # &lt;- Use this to configure lesson metadata
-|-- index.md           # &lt;- The landing page of your site
-|-- CONTRIBUTING.md    #  | Carpentries Rules for Contributions (REQUIRED)
-|-- CODE_OF_CONDUCT.md #  | Carpentries Code of Conduct (REQUIRED)
-|-- LICENSE.md         #  | Carpentries Licenses (REQUIRED)
-`-- README.md          # &lt;- Introduces folks how to use this lesson and where they can find more information.</code></pre>
-<p>This folder structure is heavily opinionated towards achieving our goals of creating a lesson template that is fit for the purpose of delivering lesson content for not only Carpentries instructors, but also for learners and educators who are browsing the content after a workshop. It is not designed to be a blog or commerce website.</p>
-</div>
 <div id="tools" class="section level2">
 <h2>Tools</h2>
 <p>As described in <a href="setup.html">the setup document</a>, the lesson template now only requires R and <a href="https://pandoc.org/">pandoc</a> to be installed. The tooling from the current lesson template has been split up into three R packages:</p>
@@ -341,8 +326,6 @@
 <ul>
 <li>Lessons can be created with <code>create_lesson()</code></li>
 <li>Preview lessons with <code>build_lesson()</code></li>
-<li>To edit a lesson, you only need to know Markdown and/or R Markdown</li>
-<li>The folder structure is designed with maintainers in mind</li>
 <li>The toolchain is designed to be modular.</li>
 </ul>
 </div>

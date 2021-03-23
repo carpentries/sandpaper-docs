@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-03-22 22:09:48 +0000">
+<meta http-equiv="last-modified" content="2021-03-23 00:56:04 +0000">
 
 
 
@@ -253,33 +253,149 @@
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="ex">R</span></span></code></pre></div>
 <p>If you are NOT comfortable with git, you can download with R. First, open RStudio and think about where on your computer you want to work on lessons (e.g. <code>~/Documents/Lessons</code>). Once you know this, you can open RStudio and type in the R console:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>usethis<span class="op">::</span><span class="kw">create_from_github</span>(<span class="st">&quot;zkamvar/sandpaper-docs&quot;</span>, <span class="dt">destdir =</span> <span class="st">&quot;~/Documents/Lessons&quot;</span>)</span></code></pre></div>
-<p>By default, this will clone the lesson to <code>~/Documents/Lessons/sandpaper-docs</code> and open a new RStudio session inside of the lesson repository.</p>
+<p>By default, this will clone the lesson to <code>~/Documents/Lessons/sandpaper-docs</code> and open a new RStudio session inside of the lesson repository. In the next section, we will explore the folder structure of a lesson.</p>
 </div>
-<div id="build-lesson" class="section level2">
-<h2>Preview Lesson Content</h2>
-<p>To preview the lesson, if you are using RStudio, you can use the keyboard shortcut <kbd>cmd + shift + B</kbd> (short for <strong>B</strong>uild) OR you can use the dropdown menu item <kbd>Build &gt; Build All</kbd>.</p>
-<p>If you want to use the R command line, you can preview the lesson with:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>sandpaper<span class="op">::</span><span class="kw">build_lesson</span>()</span></code></pre></div>
-<p>The first time you run this, there will be A LOT of output to your console as the RMarkdown documents are rendered into markdown and then the <a href="template.html">{varnish} styling template</a> is applied. If you run it again, you will notice that it takes much less time because the RMarkdown documents don’t need to be rebuilt.</p>
+<div class="challenge">
+<div id="preview-the-lesson" class="section level2">
+<h2>Preview the Lesson</h2>
+<ol style="list-style-type: decimal">
+<li>Open RStudio</li>
+<li>Use the keyboard shortcut <kbd>ctrl + shift + b</kbd> (<kbd>cmd + shift + b</kbd> on macOS) to build and preview this lesson.</li>
+<li>Open THIS file (<code>episodes/editing.Rmd</code>) and add step 4: preview the lesson again.</li>
+</ol>
+<p>What do you notice?</p>
 </div>
-<div id="create-episode" class="section level2">
-<h2>Adding a new episode</h2>
-<p>To add a new episode, you can use the function <code>sandpaper::create_episode()</code>. This will template a {sandpaper} episode in the <code>episodes/</code> directory of your lesson and pre-populate it with objectives, questions, and keypoints.</p>
+<div class="section level2 solution">
+<h2>Solution</h2>
+<p>What you should notice is that the only file updated when you re-render the lesson is the file you changed (<code>episodes/editing.Rmd</code>).</p>
+</div>
+</div>
+<div id="folder-structure" class="section level2">
+<h2>Folder Structure</h2>
+<aside class="callout">
+<div id="this-may-change" class="section level3">
+<h3><span class="emoji" data-emoji="construction">🚧</span> This May Change <span class="emoji" data-emoji="construction">🚧</span></h3>
+<p>The exact folder structure still has the possibility to change based on user testing for the front-end of the lesson website.</p>
+</div>
+</aside>
+<p>The template folder structure will contain markdown files arranged so that they match what we expect the menubar for the lesson should be. All folders and files with an arrow <code>&lt;-</code> are places in the lesson template you will be modifying:</p>
+<pre><code>|-- .gitignore         #  | Ignore everything in the site/ folder
+|-- .github/           #  | Configuration for deployment
+|-- episodes/          # &lt;- PUT YOUR EPISODE MARKDOWN FILES IN THIS FOLDER
+|-- instructors/       # &lt;- Information for Instructors (e.g. guide.md)
+|-- learners/          # &lt;- Information for Learners (e.g. reference.md and setup.md)
+|-- profiles/          # &lt;- Learner and/or Instructor Profiles
+|-- site/              #  | This is a &quot;scratch&quot; folder ignored by git and is where the rendered markdown files and static site will live
+|-- config.yaml        # &lt;- Use this to configure lesson metadata
+|-- index.md           # &lt;- The landing page of your site
+|-- CONTRIBUTING.md    #  | Carpentries Rules for Contributions (REQUIRED)
+|-- CODE_OF_CONDUCT.md #  | Carpentries Code of Conduct (REQUIRED)
+|-- LICENSE.md         #  | Carpentries Licenses (REQUIRED)
+`-- README.md          # &lt;- Introduces folks how to use this lesson and where they can find more information.</code></pre>
+<p>This folder structure is heavily opinionated towards achieving our goals of creating a lesson template that is fit for the purpose of delivering lesson content for not only Carpentries instructors, but also for learners and educators who are browsing the content after a workshop. It is not designed to be a blog or commerce website. Read the following sections to understand the files and folders you will interact with most.</p>
+<p>All source files in {sandpaper} are written in [pandoc]-flavored markdown and all require yaml header called <code>title</code>. Beyond that, you can put anything in these markdown files.</p>
+</div>
+<div id="config.yaml" class="section level2">
+<h2><code>config.yaml</code></h2>
+<p>This configuration file contains global information about the lesson. It is purposefully designed to only include information that is editable and relevant to the lesson itself and can be divided into two sections: information and organization</p>
+<div id="information" class="section level3">
+<h3>Information</h3>
+<p>These fields will be simple key-pair values of information used throughout the episode</p>
+<dl>
+<dt>carpentry</dt>
+<dd>The code for the specific carpentry that the lesson belongs to (swc, dc, lc, cp)
+</dd>
+<dt>title</dt>
+<dd>The main title of the lesson
+</dd>
+<dt>life_cycle</dt>
+<dd>What life cycle is the lesson in? (pre-alpha, alpha, beta, stable)
+</dd>
+<dt>license</dt>
+<dd>The license the lesson is registered under (defaults to CC-BY 4.0)
+</dd>
+<dt>source</dt>
+<dd>The github source of the lesson
+</dd>
+<dt>branch</dt>
+<dd>The default branch
+</dd>
+<dt>contact</dt>
+<dd>Who should be contacted if there is a problem with the lesson
+</dd>
+</dl>
+</div>
+<div id="organization" class="section level3">
+<h3>Organization</h3>
+<p>These fields match the folder names in the repository and the values are a list of file names in the order they should be displayed. By default, each of these fields is blank, indicating that the default alphabetical order is used. To list items, add a new line with a hyphen and a space preceding the item name (<code>-</code>). For example, if I wanted to have the episodes called “one.md”, “two.Rmd”, “three.md”, and “four.md” in numerical order, I would use:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="fu">episodes</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="kw">-</span><span class="at"> one.md</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="kw">-</span><span class="at"> two.Rmd</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a><span class="kw">-</span><span class="at"> three.md</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a><span class="kw">-</span><span class="at"> four.md</span></span></code></pre></div>
+<p>Below are the four possible fields {sandpaper} will recognize:</p>
+<dl>
+<dt>episodes</dt>
+<dd>The names of the episodes (main content)
+</dd>
+<dt>instructors</dt>
+<dd>Instructor-specific resources (e.g. outline, etc)
+</dd>
+<dt>learners</dt>
+<dd>Resources for learners (e.g. Glossary terms)
+</dd>
+<dt>profiles</dt>
+<dd>Learner profile pages
+</dd>
+</dl>
+</div>
+</div>
+<div class="challenge">
+<div id="configuring-episode-order" class="section level2">
+<h2>Configuring Episode Order</h2>
+<p>Open <code>config.yaml</code> and change the order of the episodes. Preview the lesson after you save the file. How did the schedule change?</p>
+</div>
+<div class="section level2 solution">
+<h2>Solution</h2>
+<p>The episodes appear in the same order as the configuration file and the timings have rearranged themselves to reflect that.</p>
+</div>
+</div>
+<div id="episodes" class="section level2">
+<h2><code>episodes/</code></h2>
+<p>This is the folder where all the action is. It contains all of the episodes, figures, and data files needed for the lesson. By default, it will contain an episode called 01-introduction.Rmd. You can edit this file to use as your introduction. To create a new episode, use the folowing function:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>sandpaper<span class="op">::</span><span class="kw">create_episode</span>(<span class="st">&quot;episode-name&quot;</span>)</span></code></pre></div>
+<p>This will template a {sandpaper} episode called <code>02-episode-name.Rmd</code> in the <code>episodes/</code> directory of your lesson and pre-populate it with objectives, questions, and keypoints.</p>
 <p>After you add your draft of the episode, you need to add it to the <code>episodes</code> section of <code>config.yaml</code>. This will be your table of contents. By default, all of the episodes are rendered in alphabetical order, and the <code>config.yaml</code> can allow you to work on episodes that are not yet ready for production.</p>
-<p>To view your current episode order, you can use:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>sandpaper<span class="op">::</span><span class="kw">get_episodes</span>()</span></code></pre></div>
 </div>
-<div id="reset-site" class="section level2">
-<h2>Clearing the cache</h2>
-<p>If you are working on the lesson and you want to make sure that everything renders from scratch, you can reset the site and the markdown cache with one command:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>sandpaper<span class="op">::</span><span class="kw">reset_site</span>()</span></code></pre></div>
+<div id="instructors" class="section level2">
+<h2><code>instructors/</code></h2>
+<p>This folder contains information used for instructors only. Downloads of code outlines, aggregated figures, and slides would live in this folder.</p>
+</div>
+<div id="learners" class="section level2">
+<h2><code>learners/</code></h2>
+<p>All the extras the learner would need, mostly a setup guide and glossary would live here.</p>
+</div>
+<div id="profiles" class="section level2">
+<h2><code>profiles/</code></h2>
+<p>Learner profiles would live in this folder and target learners, instructors, and maintainers alike to give a focus on the lesson.</p>
+</div>
+<div id="index.md" class="section level2">
+<h2><code>index.md</code></h2>
+<p>This is the landing page for the lesson. The schedule is appended at the bottom of this page and this will be the first page that anyone sees.</p>
+</div>
+<div id="readme.md" class="section level2">
+<h2><code>README.md</code></h2>
+<p>This page gives information to maintainers about what to expect inside of th repository and how to contribute.</p>
 </div>
 <div class="section level2 keypoints">
 <h2>Keypoints</h2>
 <ul>
-<li><code>usethis::create_from_github()</code> will download a github repository to your computer</li>
-<li><code>sandpaper::build_lesson()</code> renders the site and rebuilds any sources that have changed. - RStudio shortcuts are <kbd>cmd + shift + B</kbd> and <kbd>cmd + shift + K</kbd></li>
-<li>New episodes can be added with <code>sandpaper::create_episode()</code></li>
+<li><p><code>usethis::create_from_github()</code> will download a github repository to your computer</p></li>
+<li><p><code>sandpaper::build_lesson()</code> renders the site and rebuilds any sources that have changed.</p></li>
+<li><p>RStudio shortcuts are <kbd>cmd + shift + B</kbd> and <kbd>cmd + shift + K</kbd></p></li>
+<li><p>To edit a lesson, you only need to know Markdown and/or R Markdown</p></li>
+<li><p>The folder structure is designed with maintainers in mind</p></li>
+<li><p>New episodes can be added with <code>sandpaper::create_episode()</code></p></li>
 </ul>
 </div>
 
