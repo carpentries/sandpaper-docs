@@ -61,7 +61,6 @@ create_lesson("~/Desktop/bouyant-barnacle")
 use_github()
 ```
 
-
 ::::::::::: solution
 
 If everything went correctly, you will now have RStudio open to your new project
@@ -72,7 +71,13 @@ In a few minutes, the GitHub workflows would have validated your lesson and
 created deployment branches. You can track the progress at 
 `https://github.com/<USERNAME>/bouyant-barnacle/actions/`. Once you have a green
 check mark, you can [set up GitHub Pages](https://docs.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site) by 
-choosing `gh-pages` from the dropdown menu.
+choosing `gh-pages` from the dropdown menu as shown in the image below:
+
+![screencapture of the initial view of the GitHub Pages section of the settings tab](fig/github-pages-none.png)
+
+Click on the "select branch" button and select "gh-pages":
+
+![screencapture of expanded "select branch" button with "gh-pages" selected](fig/github-pages-gh-pages.png)
 
 > **Be patient!** GitHub needs to start up a new virtual machine the first time
 > you use this, so it may take anywhere from 6 to 15 minutes for the workflow
@@ -80,6 +85,7 @@ choosing `gh-pages` from the dropdown menu.
 
 ::::::::::::::::::::
 ::::::::::::::::::::::::
+
 
 ## Previewing Your New Lesson
 
@@ -111,43 +117,6 @@ again, you will see much less output. If you like to would like to know how
 everything works under the hood, you can check out the [{sandpaper} generator
 chapter](sandpaper.html).
 
-## Folder Structure
-
-:::::::::::::::: callout
-
-### :construction: This May Change :construction:
-
-The exact folder structure still has the possibility to change based on user
-testing for the front-end of the lesson website.
-
-::::::::::::::::::::::::
-
-The template folder structure will contain markdown files arranged so that they
-match what we expect the menubar for the lesson should be. All folders and files
-with an arrow `<-` are places in the lesson template you will be modifying:
-
-```
-|-- .gitignore         #  | Ignore everything in the site/ folder
-|-- .github/           #  | Configuration for deployment
-|-- episodes/          # <- PUT YOUR EPISODE MARKDOWN FILES IN THIS FOLDER
-|-- instructors/       # <- Information for Instructors (e.g. guide.md)
-|-- learners/          # <- Information for Learners (e.g. reference.md and setup.md)
-|-- profiles/          # <- Learner and/or Instructor Profiles (new)
-|-- site/              #  | This is a "scratch" folder ignored by git and is where the rendered markdown files and static site will live
-|-- config.yaml        # <- Use this to configure lesson metadata
-|-- index.md           # <- The landing page of your site
-|-- CONTRIBUTING.md    #  | Carpentries Rules for Contributions (REQUIRED)
-|-- CODE_OF_CONDUCT.md #  | Carpentries Code of Conduct (REQUIRED)
-|-- LICENSE.md         #  | Carpentries Licenses (REQUIRED)
-`-- README.md          # <- Introduces folks how to use this lesson and where they can find more information.
-```
-
-This folder structure is heavily opinionated towards achieving our goals of
-creating a lesson template that is fit for the purpose of delivering lesson
-content for not only Carpentries instructors, but also for learners and
-educators who are browsing the content after a workshop. It is not designed to
-be a blog or commerce website. 
-
 ## Tools
 
 As described in [the setup document](setup.html), the lesson template now only
@@ -162,8 +131,6 @@ template has been split up into three R packages:
 
 - Lessons can be created with `create_lesson()`
 - Preview lessons with `build_lesson()`
-- To edit a lesson, you only need to know Markdown and/or R Markdown
-- The folder structure is designed with maintainers in mind
 - The toolchain is designed to be modular.
 
 :::::::::::::::::::::::
@@ -174,8 +141,6 @@ template has been split up into three R packages:
 [{varnish}]: template.html
 [{pegboard}]: validator.html
 [{sandpaper}]: engine.html
-[The Carpentries Incubator]: https://carpentries.org/community-lessons/
-[^history]: An incomplete history is noted in the 9.1.0 release: https://github.com/carpentries/styles/releases/tag/v9.1.0
 
 
 [cc-by-human]: https://creativecommons.org/licenses/by/4.0/
