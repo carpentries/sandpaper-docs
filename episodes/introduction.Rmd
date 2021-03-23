@@ -73,11 +73,11 @@ created deployment branches. You can track the progress at
 check mark, you can [set up GitHub Pages](https://docs.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site) by 
 choosing `gh-pages` from the dropdown menu as shown in the image below:
 
-![screencapture of the initial view of the GitHub Pages section of the settings tab](fig/github-pages-none.png)
+![screencapture of the initial view of the GitHub Pages section of the settings tab](fig/github-pages-none.png){.image-with-shadow}
 
 Click on the "select branch" button and select "gh-pages":
 
-![screencapture of expanded "select branch" button with "gh-pages" selected](fig/github-pages-gh-pages.png)
+![screencapture of expanded "select branch" button with "gh-pages" selected](fig/github-pages-gh-pages.png){.image-with-shadow}
 
 > **Be patient!** GitHub needs to start up a new virtual machine the first time
 > you use this, so it may take anywhere from 6 to 15 minutes for the workflow
