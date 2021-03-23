@@ -634,10 +634,28 @@ blockquote {
   font-size: inherit;
 }
 
+a code {
+  color: #006cad;
+}
+
+a:link {
+  color: #196EBD;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #1AA4DA;
+}
+
 code {
   white-space: nowrap;
   padding: 2px 5px;
-  color: #006cad;
+  color: #24292e;
   background-color: #e7e7e7;
 }
 
@@ -687,7 +705,7 @@ article pre {
   text-align: center;
 }
 
-footer .copyright,
+footer .license,
 footer .help-links {
   font-size: inherit;
   margin-top: 10px;
@@ -716,6 +734,11 @@ span.fold-unfold {
   opacity: 0.5;
 }
 
+p.image-with-shadow img,
+img.image-with-shadow {
+  box-shadow: 0 6px 24px 0 #888;
+}
+
 div.life-cycle {
   position: -webkit-sticky;
   /* Safari */
@@ -741,6 +764,10 @@ div.life-cycle {
 .beta {
   color: #31708f;
   background: #d9edf7;
+}
+
+pre.highlight span.err {
+  border: none;
 }
 
 kbd {

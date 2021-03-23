@@ -13,6 +13,7 @@ $color-source:      #360084 !default;
 
 // blockquotes
 $color-callout:     #f4fd9c !default;
+$color-caution:     #cf000e !default;
 $color-challenge:   #eec275 !default;
 $color-checklist:   #dfd2a0 !default;
 $color-discussion:  #eec275 !default;
@@ -179,10 +180,28 @@ blockquote :not(h2) + p {
 
 blockquote { font-size: inherit; }
 
+a code {
+  color: #006cad;
+}
+
+a:link {
+  color: #196EBD;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #1AA4DA;
+}
+
 code {
   white-space: nowrap;
   padding: 2px 5px;
-  color: #006cad;
+  color: #24292e;
   background-color: #e7e7e7;
 }
 
@@ -225,7 +244,7 @@ article pre {
   text-align: center;
 }
 
-footer .copyright,
+footer .license,
 footer .help-links
 {
     font-size: inherit;
@@ -256,6 +275,11 @@ span.fold-unfold {
 }
 
 
+p.image-with-shadow img,
+img.image-with-shadow {
+  box-shadow: 0 6px 24px 0 #888;
+}
+
 //----------------------------------------
 // Life cycle box
 //----------------------------------------
@@ -284,6 +308,12 @@ div.life-cycle {
 .beta {
     color: #31708f;
     background: #d9edf7;
+}
+
+// Remove border around spans of text within code blocks
+// that the highlighter (rouge) failed to recognize.
+pre.highlight span.err {
+    border: none;
 }
 
 
