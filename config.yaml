@@ -47,23 +47,17 @@ episodes:
 - introduction.Rmd
 - editing.Rmd
 - migration.Rmd
-# - engine.Rmd
-# - episodes.Rmd
-# - template.Rmd
-# - validator.Rmd
-# - branches.Rmd
-# - deployment.Rmd
-# - pull-request.Rmd
+- example.Rmd
+
 
 # Information for Learners
-learners: 
-- setup.md
+learners: setup.md
 
 # Information for Instructors
 instructors: 
 
 # Learner Profiles
 profiles: 
-- maintainer.md
-- instructor.md
+ - maintainer.md
+ - instructor.md
 
