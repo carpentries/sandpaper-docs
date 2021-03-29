@@ -55,8 +55,8 @@ Follow these steps to create a brand new lesson and push it to GitHub
 library("usethis")
 library("sandpaper")
 
-# Create a brand new lesson on your desktop called "bouyant-barnacle"
-create_lesson("~/Desktop/bouyant-barnacle")
+# Create a brand new lesson on your desktop called "buoyant-barnacle"
+create_lesson("~/Desktop/buoyant-barnacle")
 # Push the lesson to GitHub
 use_github()
 ```
@@ -64,12 +64,12 @@ use_github()
 ::::::::::: solution
 
 If everything went correctly, you will now have RStudio open to your new project
-called "bouyant-barnacle" on your Desktop and you will have a brand new
-repository on your GitHub account called "bouyant-barnacle". 
+called "buoyant-barnacle" on your Desktop and you will have a brand new
+repository on your GitHub account called "buoyant-barnacle". 
 
 In a few minutes, the GitHub workflows would have validated your lesson and 
 created deployment branches. You can track the progress at 
-`https://github.com/<USERNAME>/bouyant-barnacle/actions/`. Once you have a green
+`https://github.com/<USERNAME>/buoyant-barnacle/actions/`. Once you have a green
 check mark, you can [set up GitHub Pages](https://docs.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site) by 
 choosing `gh-pages` from the dropdown menu as shown in the image below:
 
