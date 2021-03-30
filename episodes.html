@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-03-12 19:14:10 +0000">
+<meta http-equiv="last-modified" content="2021-03-30 01:36:37 +0000">
 
 
 
@@ -131,34 +131,13 @@
       <a href="introduction.html">Introduction to the New Template</a>
     </li>
     <li>
-      <a href="new-site.html">Creating a New Lesson</a>
-    </li>
-    <li>
       <a href="editing.html">Editing a {sandpaper} lesson</a>
-    </li>
-    <li>
-      <a href="migration.html">Migrating from Jekyll</a>
-    </li>
-    <li>
-      <a href="engine.html">The Template Engine: {sandpaper}</a>
     </li>
     <li>
       <a href="episodes.html">Episode Structure</a>
     </li>
     <li>
-      <a href="template.html">The Website Template: {varnish}</a>
-    </li>
-    <li>
-      <a href="validator.html">The Validator: {pegboard}</a>
-    </li>
-    <li>
-      <a href="branches.html">GitHub Branches</a>
-    </li>
-    <li>
-      <a href="deployment.html">How We Deploy the New Template</a>
-    </li>
-    <li>
-      <a href="pull-request.html">Pull Request Previews</a>
+      <a href="example.html">Using RMarkdown</a>
     </li>
   </ul>
 </li>
@@ -237,16 +216,6 @@
       <h1>Episode Structure</h1>
     </div>
 
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
-<p>This is the new Carpentries template. It is written in <a href="https://rmarkdown.rstudio.com/">RMarkdown</a>, which is a variant of Markdown that allows you to render code inside the lesson. Please refer to the <a href="https://carpentries.github.io/lesson-example">lesson example</a> for full documentation.</p>
-<p>What you need to know is that there are three block quotes required for a valid Carpentries lesson template:</p>
-<ol style="list-style-type: decimal">
-<li><code>questions</code> These are displayed at the beginning of the episode to prime the learner for the content.</li>
-<li><code>objectives</code> These are the learning objectives for an episode</li>
-<li><code>keypoints</code> These are displayed at the end of the episode to reinforce the objectives.</li>
-</ol>
-<p>No matter where these blocks appear, they will always be placed at the right part of the html page. (Note: This is not yet true!)</p>
 <div class="section level2 objectives">
 <h2>Overview</h2>
 <div class="row">
@@ -257,9 +226,12 @@
 <div class="col-md-9">
 <p><strong>Questions</strong></p>
 <ul>
+<li>How do you create a new episode?</li>
+<li>What syntax do you need to know to contribute to a lesson with the new template?</li>
 <li>How do you write challenge blocks?</li>
 <li>What syntax do you use to write links?</li>
 <li>How do you include images?</li>
+<li>How do you include math?</li>
 </ul>
 </div>
 </div>
@@ -270,25 +242,139 @@
 <div class="col-md-9">
 <p><strong>Objectives</strong></p>
 <ul>
-<li>Explain how to use markdown with the new lesson template</li>
+<li>Practice creating a new episode with R</li>
+<li>Understand the required elements for each episode</li>
+<li>Understand pandoc-flavored markdown</li>
 <li>Demonstrate how to include pieces of code, figures, and nested challenge blocks</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="section level2 keypoints">
-<h2>Keypoints</h2>
-<ul>
-<li>Use <code>.Rmd</code> files for lessons even if you don’t need to generate any code</li>
-<li>Run <code>sandpaper::check_lesson()</code> to identify any issues with your lesson</li>
-<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson locally</li>
-</ul>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>As outlined in the <a href="editing.html">previous episode</a>, all of the episodes live inside the <code>episodes/</code> directory at the top of the lesson. Their order is dictated by the <code>episodes:</code> element in the <code>config.yaml</code> file (but defaults to alphabetical). The other folders (<code>learners/</code>, <code>instructors/</code>, and <code>profiles/</code>) are similarly configured. This episode will briefly explain how to edit markdown content in the lessons.</p>
+<p>There are three things you should be comfortable with in order to contribute to a lesson [^Do not worry if you aren’t comfortable yet, that’s what we will show you in this episode!]</p>
+<ol style="list-style-type: decimal">
+<li>Writing <a href="https://www.markdownguide.org/basic-syntax">basic</a> and <a href="https://www.markdownguide.org/extended-syntax/">extended</a> markdown syntax</li>
+<li>Writing <a href="https://pandoc.org/MANUAL#divs-and-spans">Fenced div elements</a> to create callouts and exercise blocks</li>
+<li>Writing simple yaml lists</li>
+</ol>
 </div>
+<div id="creating-a-new-episode" class="section level2">
+<h2>Creating A New Episode</h2>
+<p>To create a new episode, you should open your lesson in your favorite editor (we recommend RStudio) and in the R console type:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>sandpaper<span class="op">::</span><span class="kw">create_episode</span>(<span class="st">&quot;next-episode&quot;</span>)</span></code></pre></div>
+<p>This will create a new episode in the episodes folder called “02-next-episode”. If you already have your episode schedule set in <code>config.yaml</code>, then this episode will not be rendered in the template and will remain a draft until you add it to the schedule. Next, we will show how you can add a title and other elements to your episode.</p>
+</div>
+<div id="required-elements" class="section level2">
+<h2>Required Elements</h2>
+<p>To keep with our active learning principals, we want to be mindful about the content we present to the learners. We need to give them a clear title, questions and objectives, and an estimate of how long it will take to navigate the episode (though this latter point has shown to be demoralizing). Finally, at the end of the episode, we should reinforce the learners progress with a summary of key points.</p>
+<div id="yaml-metadata" class="section level3">
+<h3>YAML metadata</h3>
+<p>The YAML syntax of an episode contains three elements of metadata associated with the episode at the very top of the file:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="pp">---</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Using RMarkdown For Automated Reports&quot;</span><span class="co"> # Episode title</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="fu">teaching</span><span class="kw">:</span><span class="at"> </span><span class="dv">5</span><span class="co">   # teaching time in minutes</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a><span class="fu">exercises</span><span class="kw">:</span><span class="at"> </span><span class="dv">10</span><span class="co"> # exercise time in minutes</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="pp">---</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a><span class="co">## First Episode Section</span></span></code></pre></div>
+</div>
+<div id="questions-objectives-keypoints" class="section level3">
+<h3>Questions, Objectives, Keypoints</h3>
+<p>These are three blocks that live at the top and bottom of the episodes.</p>
+<ol style="list-style-type: decimal">
+<li><code>questions</code> are displayed at the beginning of the episode to prime the learner for the content</li>
+<li><code>objectives</code> are the learning objectives for an episode and are displayed along with the questions</li>
+<li><code>keypoints</code> are displayed at the end of the episode to reinforce the objectives</li>
+</ol>
+<p>They are formatted as <a href="https://pandoc.org/MANUAL#divs-and-spans">pandoc fenced div sections</a>, which we will explain in the next section:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="co">---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="an">title:</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="an">teaching:</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a><span class="an">exercises:</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a><span class="co">---</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>:::::: questions</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a><span class="ss"> - </span>question 1</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a><span class="ss"> - </span>question 2</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a>::::::</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a>:::::: objectives</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a><span class="ss"> - </span>objective 1</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true"></a><span class="ss"> - </span>objective 2</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true"></a>::::::</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true"></a><span class="co">&lt;!-- EPISODE CONTENT HERE --&gt;</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true"></a>:::::: keypoints</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true"></a><span class="ss"> - </span>keypoint 1</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true"></a><span class="ss"> - </span>keypoint 2</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true"></a>:::::::</span></code></pre></div>
+</div>
+</div>
+<div id="editing-an-episode-callout-blocks" class="section level2">
+<h2>Editing an episode: Callout blocks</h2>
+<p>One of the key elements of our lessons are our callout blocks that give learners and instructors a bold visual cue to stop and consider a caveat or exercise. To create these blocks, we use <a href="https://pandoc.org/MANUAL#divs-and-spans">pandoc fenced-divs</a>. These are similar to code fences in which they start with at least three colons and end with at least three colons. For example, to create a callout block, we would do this:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>::: callout</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>This is a callout block. It contains three colons</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>:::</span></code></pre></div>
+<aside class="callout">
+<div class="section level3">
+<h3>Callout</h3>
+<p>This is a callout block. It contains three colons</p>
+</div>
+</aside>
+<p>However, it may be difficult sometimes to keep track of a section if it’s only delimited by three colons. To alleviate this, we recommend creating blocks with enough colons that can easily distinguish a section from a heading or code block:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>::::::::::::::::::::::::::::::::::::::::::::::: testimonial</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>I&#39;m **really excited** for the _new template_ when it arrives :grin:.</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>--- Toby Hodges</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</span></code></pre></div>
+</div>
+<div class="section level2 testimonial">
+<h2>Testimonial</h2>
+<p>I’m <strong>really excited</strong> for the <em>new template</em> when it arrives <span class="emoji" data-emoji="grin">😁</span>.</p>
+<p>— Toby Hodges</p>
+</div>
+<aside class="callout">
+<div class="section level3">
+<h3>Callout</h3>
+<p>That’s right, we can use emojis in the new template! <span class="emoji" data-emoji="100">💯</span> <span class="emoji" data-emoji="tada">🎉</span></p>
+</div>
+</aside>
+<div id="exerciseschallenges" class="section level2">
+<h2>Exercises/Challenges</h2>
+<p>the method of creating callout blocks with fences can help us create solution blocks nested within challenge blocks. Much like a <a href="https://en.wikipedia.org/wiki/Toast_sandwich">toast sandwich</a>, we can layer blocks inside blocks by adding more layers. For example, here’s how I would create a single challenge and a single solution:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>::::::::::::::::::::::::::::::::::::: challenge</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a><span class="fu">## Chemistry Joke</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a>Q: If you aren&#39;t part of the solution, then what are you?</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a>:::::::::::::::: solution</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a>A: part of the precipitate</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a>:::::::::::::::::::::::::</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true"></a>:::::::::::::::::::::::::::::::::::::::::::::::</span></code></pre></div>
+</div>
+<div class="challenge">
+<div id="chemistry-joke" class="section level2">
+<h2>Chemistry Joke</h2>
+<p>Q: If you aren’t part of the solution, then what are you?</p>
+</div>
+<div class="section level2 solution">
+<h2>Solution</h2>
+<p>A: part of the precipitate</p>
+</div>
+</div>
+<p>To add more solutions, you close the first solution and add more text:</p>
 <div class="challenge">
 <div id="challenge-1-can-you-do-it" class="section level2">
 <h2>Challenge 1: Can you do it?</h2>
 <p>What is the output of this command?</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">paste</span>(<span class="st">&quot;This&quot;</span>, <span class="st">&quot;new&quot;</span>, <span class="st">&quot;template&quot;</span>, <span class="st">&quot;looks&quot;</span>, <span class="st">&quot;good&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="kw">paste</span>(<span class="st">&quot;This&quot;</span>, <span class="st">&quot;new&quot;</span>, <span class="st">&quot;template&quot;</span>, <span class="st">&quot;looks&quot;</span>, <span class="st">&quot;good&quot;</span>)</span></code></pre></div>
 </div>
 <div id="output" class="section level2 solution">
 <h2>Output</h2>
@@ -302,25 +388,38 @@
 <p>You can add a line with at least three colons and a <code>solution</code> tag.</p>
 </div>
 </div>
+<div id="figures" class="section level2">
+<h2>Figures</h2>
+<p>To include figures, place them in the <code>episodes/fig</code> folder and reference them directly like so:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="al">![Hex sticker for The Carpentries](fig/carpentries-hex-blue.svg)</span></span></code></pre></div>
+<div class="figure">
+<img src="fig/carpentries-hex-blue.svg" alt="" />
+<p class="caption">Hex sticker for The Carpentries</p>
 </div>
-<div id="figures" class="section level1">
-<h1>Figures</h1>
-<p>You can also include figures:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="kw">pie</span>(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>  <span class="kw">c</span>(<span class="dt">Sky =</span> <span class="dv">78</span>, <span class="st">&quot;Sunny side of pyramid&quot;</span> =<span class="st"> </span><span class="dv">17</span>, <span class="st">&quot;Shady side of pyramid&quot;</span> =<span class="st"> </span><span class="dv">5</span>), </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>  <span class="dt">init.angle =</span> <span class="dv">315</span>, </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>  <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;deepskyblue&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;yellow3&quot;</span>), </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>  <span class="dt">border =</span> <span class="ot">FALSE</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>)</span></code></pre></div>
-<p><img src="fig/episodes-rendered-pyramid-1.png" title="plot of chunk pyramid" alt="plot of chunk pyramid" style="display: block; margin: auto;" /></p>
+<p>If your lesson uses R, they will be auto-generated and linked. You can use <code>fig.alt</code> to include alt text</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="kw">pie</span>(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a>  <span class="kw">c</span>(<span class="dt">Sky =</span> <span class="dv">78</span>, <span class="st">&quot;Sunny side of pyramid&quot;</span> =<span class="st"> </span><span class="dv">17</span>, <span class="st">&quot;Shady side of pyramid&quot;</span> =<span class="st"> </span><span class="dv">5</span>), </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a>  <span class="dt">init.angle =</span> <span class="dv">315</span>, </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a>  <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;deepskyblue&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;yellow3&quot;</span>),</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a>  <span class="dt">border =</span> <span class="ot">FALSE</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true"></a>)</span></code></pre></div>
+<p><img src="fig/episodes-rendered-pyramid-1.png" title="pie chart illusion of a pyramid" alt="pie chart illusion of a pyramid" style="display: block; margin: auto;" /></p>
 </div>
-<div id="math" class="section level1">
-<h1>Math</h1>
+<div id="math" class="section level2">
+<h2>Math</h2>
 <p>One of our episodes contains <span class="math inline">\(\LaTeX\)</span> equations when describing how to create dynamic reports with {knitr}, so we now use mathjax to describe this:</p>
 <p><code>$\alpha = \dfrac{1}{(1 - \beta)^2}$</code> becomes: <span class="math inline">\(\alpha = \dfrac{1}{(1 - \beta)^2}\)</span></p>
 <p>Cool, right?</p>
-<!-- Please do not delete anything below this line -->
 </div>
+<div class="section level2 keypoints">
+<h2>Keypoints</h2>
+<ul>
+<li>Use <code>.Rmd</code> files for lessons even if you don’t need to generate any code</li>
+<li>Run <code>sandpaper::check_lesson()</code> to identify any issues with your lesson</li>
+<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson locally</li>
+</ul>
+</div>
+<!-- Please do not delete anything below this line -->
 
   </div>
 
@@ -342,7 +441,7 @@
   <div class="row">
     <div class="col-xs-1">
       <h3 class="text-left">
-        <a href="engine.html"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
+        <a href="editing.html"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
       </h3>
     </div>
     <div class="col-xs-10">
@@ -350,7 +449,7 @@
     </div>
     <div class="col-xs-1">
       <h3 class="text-right">
-        <a href="template.html"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
+        <a href="example.html"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
       </h3>
     </div>
   </div>
