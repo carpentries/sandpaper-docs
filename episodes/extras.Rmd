@@ -48,7 +48,7 @@ Powder Blue Ovals represent people.
 
 New templates are nothing new for The Carpentries[^history] as we are forever
 searching for a balance between using the tools we teach and scaling our
-operations to accomodate the growing number of lessons we have in [The
+operations to accommodate the growing number of lessons we have in [The
 Carpentries Incubator].
 
 ::::::::::::: discussion
