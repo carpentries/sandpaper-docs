@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-03-30 01:36:37 +0000">
+<meta http-equiv="last-modified" content="2021-03-31 18:45:33 +0000">
 
 
 
@@ -250,12 +250,12 @@
 <div id="create-from-github" class="section level2">
 <h2>Downloading a Lesson</h2>
 <p>If you are comfortable with git, use this command to clone this repository to your working directory</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="bu">cd</span> ~/Documents/Lessons</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="fu">git</span> clone https://github.com/zkamvar/sandpaper-docs.git</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="bu">cd</span> sandpaper-docs</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="ex">R</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/Documents/Lessons</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/zkamvar/sandpaper-docs.git</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> sandpaper-docs</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">R</span></span></code></pre></div>
 <p>If you are NOT comfortable with git, you can download with R. First, open RStudio and think about where on your computer you want to work on lessons (e.g. <code>~/Documents/Lessons</code>). Once you know this, you can open RStudio and type in the R console:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>usethis<span class="op">::</span><span class="kw">create_from_github</span>(<span class="st">&quot;zkamvar/sandpaper-docs&quot;</span>, <span class="dt">destdir =</span> <span class="st">&quot;~/Documents/Lessons&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_from_github</span>(<span class="st">&quot;zkamvar/sandpaper-docs&quot;</span>, <span class="at">destdir =</span> <span class="st">&quot;~/Documents/Lessons&quot;</span>)</span></code></pre></div>
 <p>By default, this will clone the lesson to <code>~/Documents/Lessons/sandpaper-docs</code> and open a new RStudio session inside of the lesson repository. In the next section, we will explore the folder structure of a lesson.</p>
 </div>
 <div class="challenge">
@@ -331,11 +331,11 @@
 <div id="organization" class="section level3">
 <h3>Organization</h3>
 <p>These fields match the folder names in the repository and the values are a list of file names in the order they should be displayed. By default, each of these fields is blank, indicating that the default alphabetical order is used. To list items, add a new line with a hyphen and a space preceding the item name (<code>-</code>). For example, if I wanted to have the episodes called “one.md”, “two.Rmd”, “three.md”, and “four.md” in numerical order, I would use:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="fu">episodes</span><span class="kw">:</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="kw">-</span><span class="at"> one.md</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="kw">-</span><span class="at"> two.Rmd</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a><span class="kw">-</span><span class="at"> three.md</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a><span class="kw">-</span><span class="at"> four.md</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">episodes</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> one.md</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> two.Rmd</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> three.md</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> four.md</span></span></code></pre></div>
 <p>Below are the four possible fields {sandpaper} will recognize:</p>
 <dl>
 <dt>episodes</dt>
@@ -366,7 +366,7 @@
 <div id="episodes" class="section level2">
 <h2><code>episodes/</code></h2>
 <p>This is the folder where all the action is. It contains all of the episodes, figures, and data files needed for the lesson. By default, it will contain an episode called 01-introduction.Rmd. You can edit this file to use as your introduction. To create a new episode, use the folowing function:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>sandpaper<span class="op">::</span><span class="kw">create_episode</span>(<span class="st">&quot;episode-name&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sandpaper<span class="sc">::</span><span class="fu">create_episode</span>(<span class="st">&quot;episode-name&quot;</span>)</span></code></pre></div>
 <p>This will template a {sandpaper} episode called <code>02-episode-name.Rmd</code> in the <code>episodes/</code> directory of your lesson and pre-populate it with objectives, questions, and keypoints.</p>
 <p>After you add your draft of the episode, you need to add it to the <code>episodes</code> section of <code>config.yaml</code>. This will be your table of contents. By default, all of the episodes are rendered in alphabetical order, and the <code>config.yaml</code> can allow you to work on episodes that are not yet ready for production.</p>
 </div>
