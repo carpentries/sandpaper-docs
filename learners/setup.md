@@ -113,6 +113,23 @@ install.packages(c("sandpaper", "varnish", "pegboard"))
 ```
 ::::::::::::::::::::
 
+## Connect to GitHub
+
+If you are currently able to interact with GitHub via the command line without
+having to provide your password, then it is very likely that you already have
+your credentials set up. 
+
+To confirm that your Git session is correctly configured, open RStudio, and run
+the following line to check if your credentials are set up properly:
+
+```r
+library("usethis")
+git_sitrep()
+```
+
+There will be a lot of output for this, but you will want to focus on the
+**GitHub** section. If you see errors associated with your GitHub token, then
+you should generate a new token.
 
 
 [R]: https://cran.rstudio.org/
