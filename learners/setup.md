@@ -161,6 +161,13 @@ secure location. Here are the steps briefly via R:
    generate a new token for R](https://github.com/settings/tokens/new?scopes=repo,user,gist,workflow&description=R:GITHUB_PAT).)
 2. Copy and store the token in a password manager (Lastpass, 1Password)
 3. Back in R, use `gitcreds::gitcreds_set()` to register your token with git.
+4. Check your credentials again with `usethis::git_sitrep()`
+
+At this point, you should have things set up properly. If you are still having
+problems, you can try the following two steps (after you have your PAT):
+
+1. in R, use `credentials::git_credentials_forget()` to clear the cache
+2. use `credentials::set_github_pat()` and paste your token. 
 
 
 [R]: https://cran.rstudio.org/
