@@ -127,9 +127,40 @@ library("usethis")
 git_sitrep()
 ```
 
+```output
+Git config (global)
+● Name: 'Zhian N. Kamvar'
+● Email: 'zkamvar@gmail.com'
+● Vaccinated: FALSE
+ℹ See `?git_vaccinate` to learn more
+● Default Git protocol: 'ssh'
+GitHub
+● Default GitHub host: 'https://github.com'
+● Personal access token for 'https://github.com': '<discovered>'
+● GitHub user: 'zkamvar'
+● Token scopes: 'gist, repo, user, workflow'
+● Email(s): 'zkamvar@gmail.com (primary)'
+Git repo for current project
+ℹ No active usethis project
+```
+
 There will be a lot of output for this, but you will want to focus on the
-**GitHub** section. If you see errors associated with your GitHub token, then
-you should generate a new token.
+**GitHub** section. If your output is similar to the one above, then no further
+action nees to be taken.
+
+If you see errors associated with your GitHub token (e.g.
+'Token is invalid' or 'Can't retrieve registered email address(es)'), then you
+should create a new one. Dr. Jenny Bryan wrote [an excellent resource for 
+creating and caching your GitHub credentials on your computer
+](https://happygitwithr.com/credential-caching.html#how-to-manage-a-pat) that
+will walk you through the process of generating a PAT, and storing it in a 
+secure location. Here are the steps briefly via R:
+
+1. Create a GitHub PAT via R with `usethis::create_github_token()` (this will
+   open a page in your browser. If this does not work, [use this link to 
+   generate a new token for R](https://github.com/settings/tokens/new?scopes=repo,user,gist,workflow&description=R:GITHUB_PAT).)
+2. Copy and store the token in a password manager (Lastpass, 1Password)
+3. Back in R, use `gitcreds::gitcreds_set()` to register your token with git.
 
 
 [R]: https://cran.rstudio.org/
