@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-04-01 14:36:25 +0000">
+<meta http-equiv="last-modified" content="2021-04-07 01:02:33 +0000">
 
 
 
@@ -284,6 +284,40 @@
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>))</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;sandpaper&quot;</span>, <span class="st">&quot;varnish&quot;</span>, <span class="st">&quot;pegboard&quot;</span>))</span></code></pre></div>
+</div>
+<div id="connect-to-github" class="section level2">
+<h2>Connect to GitHub</h2>
+<p>If you are currently able to interact with GitHub via the command line without having to provide your password, then it is very likely that you already have your credentials set up.</p>
+<p>To confirm that your Git session is correctly configured, open RStudio, and run the following line to check if your credentials are set up properly:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;usethis&quot;</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git_sitrep</span>()</span></code></pre></div>
+<pre class="output"><code>Git config (global)
+● Name: &#39;Zhian N. Kamvar&#39;
+● Email: &#39;zkamvar@gmail.com&#39;
+● Vaccinated: FALSE
+ℹ See `?git_vaccinate` to learn more
+● Default Git protocol: &#39;ssh&#39;
+GitHub
+● Default GitHub host: &#39;https://github.com&#39;
+● Personal access token for &#39;https://github.com&#39;: &#39;&lt;discovered&gt;&#39;
+● GitHub user: &#39;zkamvar&#39;
+● Token scopes: &#39;gist, repo, user, workflow&#39;
+● Email(s): &#39;zkamvar@gmail.com (primary)&#39;
+Git repo for current project
+ℹ No active usethis project</code></pre>
+<p>There will be a lot of output for this, but you will want to focus on the <strong>GitHub</strong> section. If your output is similar to the one above, then no further action nees to be taken.</p>
+<p>If you see errors associated with your GitHub token (e.g. ‘Token is invalid’ or ‘Can’t retrieve registered email address(es)’), then you should create a new one. Dr. Jenny Bryan wrote <a href="https://happygitwithr.com/credential-caching.html#how-to-manage-a-pat">an excellent resource for creating and caching your GitHub credentials on your computer</a> that will walk you through the process of generating a PAT, and storing it in a secure location. Here are the steps briefly via R:</p>
+<ol style="list-style-type: decimal">
+<li>Create a GitHub PAT via R with <code>usethis::create_github_token()</code> (this will open a page in your browser. If this does not work, <a href="https://github.com/settings/tokens/new?scopes=repo,user,gist,workflow&amp;description=R:GITHUB_PAT">use this link to generate a new token for R</a>.)</li>
+<li>Copy and store the token in a password manager (Lastpass, 1Password)</li>
+<li>Back in R, use <code>gitcreds::gitcreds_set()</code> to register your token with git.</li>
+<li>Check your credentials again with <code>usethis::git_sitrep()</code></li>
+</ol>
+<p>At this point, you should have things set up properly. If you are still having problems, you can try the following two steps (after you have your PAT):</p>
+<ol style="list-style-type: decimal">
+<li>in R, use <code>credentials::git_credentials_forget()</code> to clear the cache</li>
+<li>use <code>credentials::set_github_pat()</code> and paste your token.</li>
+</ol>
 </div>
 
   </div>
