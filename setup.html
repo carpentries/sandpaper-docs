@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-04-07 01:02:33 +0000">
+<meta http-equiv="last-modified" content="2021-04-07 19:13:16 +0000">
 
 
 
@@ -287,10 +287,25 @@
 </div>
 <div id="connect-to-github" class="section level2">
 <h2>Connect to GitHub</h2>
-<p>If you are currently able to interact with GitHub via the command line without having to provide your password, then it is very likely that you already have your credentials set up.</p>
-<p>To confirm that your Git session is correctly configured, open RStudio, and run the following line to check if your credentials are set up properly:</p>
+<p>If you are currently able to interact with GitHub via the command line without having to provide your password, then it is very likely that you already have your credentials set up. <strong>If you feel very comfortable pushing to and pulling from GitHub on the command line, then you may skip this section.</strong> Otherwise, follow along to learn how to connect your git credentials via R (which will be available system-wide).</p>
+<aside class="callout">
+<div id="i-use-ssh-credentials-why-should-i-use-https" class="section level3">
+<h3>I use SSH credentials, why should I use HTTPS?</h3>
+<p>GitHub has announced that <a href="https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/">passwords will no longer be used for authentication from the command line starting in August 2021</a>. While you may be comfortable with SSH, there are three things that may motivate you:</p>
+<ol style="list-style-type: decimal">
+<li>HTTPS is recommended by both GitHub and RStudio for people starting with R, so switching to HTTPS will help you empathize and demonstrate the ropes to learners in the long run.</li>
+<li>HTTPS gives you more fine-grained control over what access each token gives.</li>
+<li><a href="https://rstudio.cloud">RStudio Cloud</a> is a really good platform that can connect to your GitHub account if you need to work on lesson development when you don’t have your computer handy. You cannot use SSH with that service, but it is possible to access it via HTTPS.</li>
+<li>You can connect to the GitHub API with a higher rate limit, which means that you can auto-create remote repositories and analyze GitHub data without a web browser.</li>
+</ol>
+</div>
+</aside>
+<p>To confirm that your Git session is correctly configured, open RStudio, and run the following line to check if your HTTPS credentials are set up properly:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;usethis&quot;</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git_sitrep</span>()</span></code></pre></div>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git_sitrep</span>() <span class="co"># git situation report</span></span></code></pre></div>
+<p>Pay attention to the <strong>GitHub</strong> report. What does it look like?</p>
+<div id="github-connected-via-pat" class="section level3">
+<h3>GitHub connected via PAT</h3>
 <pre class="output"><code>Git config (global)
 ● Name: &#39;Zhian N. Kamvar&#39;
 ● Email: &#39;zkamvar@gmail.com&#39;
@@ -302,13 +317,13 @@ GitHub
 ● Personal access token for &#39;https://github.com&#39;: &#39;&lt;discovered&gt;&#39;
 ● GitHub user: &#39;zkamvar&#39;
 ● Token scopes: &#39;gist, repo, user, workflow&#39;
-● Email(s): &#39;zkamvar@gmail.com (primary)&#39;
+● Email(s): &#39;zkamvar@gmail.com (primary)&#39;, ...
 Git repo for current project
 ℹ No active usethis project</code></pre>
-<p>There will be a lot of output for this, but you will want to focus on the <strong>GitHub</strong> section. If your output is similar to the one above, then no further action nees to be taken.</p>
-<p>If you see errors associated with your GitHub token (e.g. ‘Token is invalid’ or ‘Can’t retrieve registered email address(es)’), then you should create a new one. Dr. Jenny Bryan wrote <a href="https://happygitwithr.com/credential-caching.html#how-to-manage-a-pat">an excellent resource for creating and caching your GitHub credentials on your computer</a> that will walk you through the process of generating a PAT, and storing it in a secure location. Here are the steps briefly via R:</p>
+<p>If your output looks like this, then you are properly set up and you are good to go! If not, read on!</p>
+<p>If you see errors associated with your GitHub token (see below, e.g. ‘Token is invalid’ or ‘Can’t retrieve registered email address(es)’), then you should create a new one. Dr. Jenny Bryan wrote <a href="https://happygitwithr.com/credential-caching.html#how-to-manage-a-pat">an excellent resource for creating and caching your GitHub credentials on your computer</a> that will walk you through the process of generating a PAT, and storing it in a secure location. Here are the steps briefly via R:</p>
 <ol style="list-style-type: decimal">
-<li>Create a GitHub PAT via R with <code>usethis::create_github_token()</code> (this will open a page in your browser. If this does not work, <a href="https://github.com/settings/tokens/new?scopes=repo,user,gist,workflow&amp;description=R:GITHUB_PAT">use this link to generate a new token for R</a>.)</li>
+<li>Create a GitHub PAT via R with <code>usethis::create_github_token()</code> (this will open a page in your browser pre-populated with the appropriate scopes. If this does not work, <a href="https://github.com/settings/tokens/new?scopes=repo,user,gist,workflow&amp;description=R:GITHUB_PAT">use this link to generate a new token for R</a>.)</li>
 <li>Copy and store the token in a password manager (Lastpass, 1Password)</li>
 <li>Back in R, use <code>gitcreds::gitcreds_set()</code> to register your token with git.</li>
 <li>Check your credentials again with <code>usethis::git_sitrep()</code></li>
@@ -318,6 +333,60 @@ Git repo for current project
 <li>in R, use <code>credentials::git_credentials_forget()</code> to clear the cache</li>
 <li>use <code>credentials::set_github_pat()</code> and paste your token.</li>
 </ol>
+</div>
+</div>
+<div id="common-token-errors" class="section level2 discussion">
+<h2>Common Token Errors</h2>
+<p>There are a few possible errors you might see, but the remedy is always the same: get a new token and register it in your credentials keychain.</p>
+<div id="invalid-personal-access-token" class="section level4">
+<h4>Invalid Personal Access Token</h4>
+<p>Invalid tokens can come from old tokens that were deleted from your GitHub account.</p>
+<pre class="output"><code>Git config (global)
+● Name: &#39;Zhian N. Kamvar&#39;
+● Email: &#39;zkamvar@gmail.com&#39;
+● Vaccinated: FALSE
+ℹ See `?git_vaccinate` to learn more
+● Default Git protocol: &#39;ssh&#39;
+GitHub
+● Default GitHub host: &#39;https://github.com&#39;
+● Personal access token for &#39;https://github.com&#39;: &#39;&lt;discovered&gt;&#39;
+✖ Token is invalid
+✖ Can&#39;t retrieve registered email address(es)
+  If you are troubleshooting, check GitHub host, token, and token scopes
+Git repo for current project
+ℹ No active usethis projectw</code></pre>
+</div>
+<div id="password-as-token" class="section level4">
+<h4>Password as Token</h4>
+<p>This error often means that you have your password stored in your keychain instead of your token. This seems like a weird error until you realize that GitHub will stop allowing password authentication from the command line in August 2021.</p>
+<pre class="output"><code>Git config (global)
+● Name: &#39;Zhian N. Kamvar&#39;
+● Email: &#39;zkamvar@gmail.com&#39;
+● Vaccinated: FALSE
+ℹ See `?git_vaccinate` to learn more
+● Default Git protocol: &#39;ssh&#39;
+GitHub
+● Default GitHub host: &#39;https://github.com&#39;
+Error: GitHub PAT must have one of these forms:
+  * 40 hexadecimal digits (older PATs)
+  * A &#39;ghp_&#39; prefix followed by 36 to 251 more characters (newer PATs)
+Type .Last.error.trace to see where the error occured</code></pre>
+</div>
+<div id="no-personal-access-token-detected" class="section level4">
+<h4>No Personal Access Token Detected</h4>
+<p>This means you have not registered a Personal Access Token with git and are good to start fresh!</p>
+<pre class="output"><code>● Name: &#39;Zhian N. Kamvar&#39;
+● Email: &#39;zkamvar@gmail.com&#39;
+● Vaccinated: FALSE
+ℹ See `?git_vaccinate` to learn more
+● Default Git protocol: &#39;ssh&#39;
+GitHub
+● Default GitHub host: &#39;https://github.com&#39;
+● Personal access token for &#39;https://github.com&#39;: &lt;unset&gt;
+✖ Call `gh_token_help()` for help configuring a token
+Git repo for current project
+ℹ No active usethis project</code></pre>
+</div>
 </div>
 
   </div>
