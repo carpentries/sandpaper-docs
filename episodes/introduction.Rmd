@@ -63,9 +63,12 @@ use_github()
 
 ::::::::::: solution
 
-If everything went correctly, you will now have RStudio open to your new project
-called "buoyant-barnacle" on your Desktop and you will have a brand new
-repository on your GitHub account called "buoyant-barnacle". 
+If everything went correctly, you will now have a new RStudio window open to
+your new project called "buoyant-barnacle" on your Desktop. 
+
+Buoyant Barnacle will be an initialized git repository by default and, if you 
+were able to set up your GitHub credentials for your computer, you will have a
+brand new repository on your GitHub account called "buoyant-barnacle". 
 
 In a few minutes, the GitHub workflows would have validated your lesson and 
 created deployment branches. You can track the progress at 
