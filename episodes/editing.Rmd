@@ -27,27 +27,40 @@ for [Creating a New Lesson](introduction.html).
 
 ## Downloading a Lesson {#create-from-github}
 
-If you are comfortable with git, use this command to clone this repository to
-your working directory
+1. think about a place on your computer where you want to work on your fork
+   of the lesson (e.g. `~/Documents/Lessons/`) and make sure that folder exists.
 
-```bash
-cd ~/Documents/Lessons
-git clone https://github.com/zkamvar/sandpaper-docs.git
-cd sandpaper-docs
-R
-```
+### If you have set up your Personal Access Token and want to work in R
 
-If you are NOT comfortable with git, you can download with R. First, open 
+TODO: CHANGE ME
++f you are NOT comfortable with git, you can download with R. First, open 
 RStudio and think about where on your computer you want to work on lessons
-(e.g. `~/Documents/Lessons`). Once you know this, you can open RStudio and type
-in the R console:
+(e.g. `~/Documents/Lessons`). Once you know where this location will be, you can
+open RStudio and type in the R console (replacing `<USERNAME>` with your 
+username:
 
 ```r
-usethis::create_from_github("zkamvar/sandpaper-docs", destdir = "~/Documents/Lessons")
+usethis::create_from_github("<USERNAME>/sandpaper-docs", destdir = "~/Documents/Lessons")
 ```
 
 By default, this will clone the lesson to `~/Documents/Lessons/sandpaper-docs`
-and open a new RStudio session inside of the lesson repository. In the next section, 
+and open a new RStudio session inside of the lesson repository. 
+
+### If you have not set up your Personal Access Token
+
+Go to https://github.com/zkamvar/sandpaper-docs/fork/ to fork the repository 
+to your account.
+
+After that, go to your command line and use this command to clone this
+repository to your working directory, replacing `<USERNAME>` with your username
+
+```bash
+cd ~/Documents/Lessons/
+git clone git@github.com:<USERNAME>/sandpaper-docs.git
+cd sandpaper-docs
+```
+
+In the next section, 
 we will explore the folder structure of a lesson. 
 
 
@@ -55,9 +68,10 @@ we will explore the folder structure of a lesson.
 
 ### Preview the Lesson
 
-1. Open RStudio
+1. Open RStudio (or whatever you use for R)
 2. Use the keyboard shortcut <kbd>ctrl + shift + b</kbd> 
-   (<kbd>cmd + shift + b</kbd> on macOS) to build and preview this lesson. 
+   (<kbd>cmd + shift + b</kbd> on macOS) to build and preview this lesson (or 
+   type `sandpaper::build_lesson()` in the console if you are not using RStudio)
 3. Open THIS file (`episodes/editing.Rmd`) and add step 4: preview the lesson again.
 
 What do you notice?
