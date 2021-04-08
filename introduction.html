@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-04-07 19:13:16 +0000">
+<meta http-equiv="last-modified" content="2021-04-08 00:25:59 +0000">
 
 
 
@@ -263,7 +263,7 @@
 <div class="challenge">
 <div id="try-it-yourself" class="section level2">
 <h2>Try it yourself!</h2>
-<p>Follow these steps to create a brand new lesson and push it to GitHub</p>
+<p>Follow these steps to create a brand new lesson on your Desktop.</p>
 <ol style="list-style-type: decimal">
 <li>Follow the <a href="setup.html">setup instructions</a></li>
 <li>Open RStudio (or your preferred interface to R)</li>
@@ -273,27 +273,12 @@
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;sandpaper&quot;</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a brand new lesson on your desktop called &quot;buoyant-barnacle&quot;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">create_lesson</span>(<span class="st">&quot;~/Desktop/buoyant-barnacle&quot;</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Push the lesson to GitHub</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">use_github</span>()</span></code></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">create_lesson</span>(<span class="st">&quot;~/Desktop/buoyant-barnacle&quot;</span>)</span></code></pre></div>
 </div>
 <div class="section level2 solution">
 <h2>Solution</h2>
 <p>If everything went correctly, you will now have a new RStudio window open to your new project called “buoyant-barnacle” on your Desktop.</p>
-<p>Buoyant Barnacle will be an initialized git repository by default and, if you were able to set up your GitHub credentials for your computer, you will have a brand new repository on your GitHub account called “buoyant-barnacle”.</p>
-<p>In a few minutes, the GitHub workflows would have validated your lesson and created deployment branches. You can track the progress at <code>https://github.com/&lt;USERNAME&gt;/buoyant-barnacle/actions/</code>. Once you have a green check mark, you can <a href="https://docs.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">set up GitHub Pages</a> by choosing <code>gh-pages</code> from the dropdown menu as shown in the image below:</p>
-<div class="figure">
-<img src="fig/github-pages-none.png" class="image-with-shadow" alt="" />
-<p class="caption">screencapture of the initial view of the GitHub Pages section of the settings tab</p>
-</div>
-<p>Click on the “select branch” button and select “gh-pages”:</p>
-<div class="figure">
-<img src="fig/github-pages-gh-pages.png" class="image-with-shadow" alt="" />
-<p class="caption">screencapture of expanded “select branch” button with “gh-pages” selected</p>
-</div>
-<blockquote>
-<p><strong>Be patient!</strong> GitHub needs to start up a new virtual machine the first time you use this, so it may take anywhere from 6 to 15 minutes for the workflow to run.</p>
-</blockquote>
+<p>You will notice that Buoyant Barnacle is initialized with a git repository by default.</p>
 </div>
 </div>
 <div id="previewing-your-new-lesson" class="section level2">
@@ -316,6 +301,39 @@
 </aside>
 <p>The first time you run this function, you might see A LOT of output on your screen and then your browser will open the preview. If you run the command again, you will see much less output. If you like to would like to know how everything works under the hood, you can check out the <a href="sandpaper.html">{sandpaper} generator chapter</a>.</p>
 </div>
+<div id="push-to-github" class="section level2">
+<h2>Push to GitHub</h2>
+<p>The lesson you just created lives local on your computer, but still needs to go to GitHub. There are two ways to do this: via the API (in R, only if you have HTTPS set up) or via the browser + command line. At this point, we assume that you were able to successfully <a href="setup.html#connect-to-github-1">link your computer to GitHub</a>.</p>
+</div>
+<div id="using-the-github-api-with-r-https-only" class="section level2 solution">
+<h2>Using The GitHub API with R (HTTPS only)</h2>
+<p>If you have HTTPS set up, the {usethis} package can set up and push your content to a brand new GitHub repository in a single command. In R, you can type the following command to create a brand new repository.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;usethis&quot;</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">use_github</span>()</span></code></pre></div>
+</div>
+<div id="using-browser-command-line-ssh-or-https" class="section level2 solution">
+<h2>Using Browser + Command Line (SSH or HTTPS)</h2>
+<p>If you do not yet have HTTPS set up, then you have to create a new repository via the browser:</p>
+<ol style="list-style-type: decimal">
+<li>visit <a href="https://github.com/new/" class="uri">https://github.com/new/</a></li>
+<li>enter <code>buoyant-barnacle</code> as the repository name</li>
+<li>Press the green “Create Repository” button at the bottom of the page</li>
+<li>Follow the instructions on the page to push an existing repository from the command line.</li>
+</ol>
+</div>
+<p>A few minutes after you pushed your repository, the GitHub workflows would have validated your lesson and created deployment branches. You can track the progress at <code>https://github.com/&lt;USERNAME&gt;/buoyant-barnacle/actions/</code>. Once you have a green check mark, you can <a href="https://docs.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">set up GitHub Pages</a> by choosing <code>gh-pages</code> from the dropdown menu as shown in the image below:</p>
+<div class="figure">
+<img src="fig/github-pages-none.png" class="image-with-shadow" alt="" />
+<p class="caption">screencapture of the initial view of the GitHub Pages section of the settings tab</p>
+</div>
+<p>Click on the “select branch” button and select “gh-pages”:</p>
+<div class="figure">
+<img src="fig/github-pages-gh-pages.png" class="image-with-shadow" alt="" />
+<p class="caption">screencapture of expanded “select branch” button with “gh-pages” selected</p>
+</div>
+<blockquote>
+<p><strong>Be patient!</strong> GitHub needs to start up a new virtual machine the first time you use this, so it may take anywhere from 6 to 15 minutes for the workflow to run.</p>
+</blockquote>
 <div id="tools" class="section level2">
 <h2>Tools</h2>
 <p>As described in <a href="setup.html">the setup document</a>, the lesson template now only requires R and <a href="https://pandoc.org/">pandoc</a> to be installed. The tooling from the current lesson template has been split up into three R packages:</p>
