@@ -122,7 +122,7 @@ having to provide your password, then it is very likely that you already have
 your credentials set up. **If you feel very comfortable pushing to and pulling
 from GitHub on the command line, then you may skip this section.** Otherwise, 
 follow along to learn how to connect your git credentials via R (which will 
-be available system-wide). 
+be available system-wide).
 
 ::::::::::::::: callout
 

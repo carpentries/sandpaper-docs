@@ -45,7 +45,7 @@ yaml syntax in order to work on lessons.
 
 ### Try it yourself!
 
-Follow these steps to create a brand new lesson and push it to GitHub
+Follow these steps to create a brand new lesson on your Desktop.
 
 1. Follow the [setup instructions](setup.html)
 2. Open RStudio (or your preferred interface to R)
@@ -57,8 +57,6 @@ library("sandpaper")
 
 # Create a brand new lesson on your desktop called "buoyant-barnacle"
 create_lesson("~/Desktop/buoyant-barnacle")
-# Push the lesson to GitHub
-use_github()
 ```
 
 ::::::::::: solution
@@ -66,29 +64,11 @@ use_github()
 If everything went correctly, you will now have a new RStudio window open to
 your new project called "buoyant-barnacle" on your Desktop. 
 
-Buoyant Barnacle will be an initialized git repository by default and, if you 
-were able to set up your GitHub credentials for your computer, you will have a
-brand new repository on your GitHub account called "buoyant-barnacle". 
-
-In a few minutes, the GitHub workflows would have validated your lesson and 
-created deployment branches. You can track the progress at 
-`https://github.com/<USERNAME>/buoyant-barnacle/actions/`. Once you have a green
-check mark, you can [set up GitHub Pages](https://docs.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site) by 
-choosing `gh-pages` from the dropdown menu as shown in the image below:
-
-![screencapture of the initial view of the GitHub Pages section of the settings tab](fig/github-pages-none.png){.image-with-shadow}
-
-Click on the "select branch" button and select "gh-pages":
-
-![screencapture of expanded "select branch" button with "gh-pages" selected](fig/github-pages-gh-pages.png){.image-with-shadow}
-
-> **Be patient!** GitHub needs to start up a new virtual machine the first time
-> you use this, so it may take anywhere from 6 to 15 minutes for the workflow
-> to run.
+You will notice that Buoyant Barnacle is initialized with a git repository by 
+default.
 
 ::::::::::::::::::::
-::::::::::::::::::::::::
-
+:::::::::::::::::::::::::::
 
 ## Previewing Your New Lesson
 
@@ -119,6 +99,64 @@ screen and then your browser will open the preview. If you run the command
 again, you will see much less output. If you like to would like to know how
 everything works under the hood, you can check out the [{sandpaper} generator
 chapter](sandpaper.html).
+
+
+## Push to GitHub
+
+The lesson you just created lives local on your computer, but still needs to go
+to GitHub. There are two ways to do this: via the API (in R, only if you have
+HTTPS set up) or via the browser + command line. At this point, we assume that
+you were able to successfully [link your computer to
+GitHub](setup.html#connect-to-github-1).
+
+:::::::::::: solution
+
+### Using The GitHub API with R (HTTPS only)
+
+If you have HTTPS set up, the {usethis} package can set up and push your content
+to a brand new GitHub repository in a single command. In R, you can type the
+following command to create a brand new repository.
+
+```r
+library("usethis")
+use_github()
+```
+
+:::::::::::::::::::::
+
+::::::::::::::: solution
+
+### Using Browser + Command Line (SSH or HTTPS)
+
+If you do not yet have HTTPS set up, then you have to create a new repository
+via the browser:
+
+1. visit <https://github.com/new/>
+2. enter `buoyant-barnacle` as the repository name
+3. Press the green "Create Repository" button at the bottom of the page
+4. Follow the instructions on the page to push an existing repository from the
+   command line. 
+
+::::::::::::::::::::::::
+
+A few minutes after you pushed your repository, the GitHub workflows would have
+validated your lesson and created deployment branches. You can track the
+progress at `https://github.com/<USERNAME>/buoyant-barnacle/actions/`. Once you
+have a green check mark, you can [set up GitHub
+Pages](https://docs.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+by choosing `gh-pages` from the dropdown menu as shown in the image below:
+
+![screencapture of the initial view of the GitHub Pages section of the settings tab](fig/github-pages-none.png){.image-with-shadow}
+
+Click on the "select branch" button and select "gh-pages":
+
+![screencapture of expanded "select branch" button with "gh-pages" selected](fig/github-pages-gh-pages.png){.image-with-shadow}
+
+> **Be patient!** GitHub needs to start up a new virtual machine the first time
+> you use this, so it may take anywhere from 6 to 15 minutes for the workflow
+> to run.
+
+
 
 ## Tools
 
