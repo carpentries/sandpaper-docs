@@ -10,18 +10,25 @@ which are bundled in the [RStudio] IDE.
 There are three programs that the template works with: Git, RStudio, and pandoc.
 They can be installed from the following resources:
 
- - **Git** https://carpentries.github.io/workshop-template/#git
- - **R** https://carpentries.github.io/workshop-template/#r
- - **pandoc** we recommend installing this by [installing the RStudio IDE][RStudio]
+ - **Git** (>= 2.28) https://carpentries.github.io/workshop-template/#git
+ - **R** (>= 3.6) https://carpentries.github.io/workshop-template/#r
+ - **pandoc** (>= 2.11) we recommend installing this by [installing the RStudio 
+   IDE][RStudio], but you can also install it [via pandoc's website
+   ](https://pandoc.org/installing) or [via anaconda
+   ](https://carpentries.github.io/workshop-template/#python)
 
 ::::: solution
 
 ### What if I don't want to use RStudio?
 
-That's perfectly okay! If you do not want to use RStudio, you can install pandoc
-directly to your computer by following the directions on
-https://pandoc.org/installing.html.  We recommend using RStudio because it is
-tightly integrated with pandoc. 
+That's perfectly okay and expected! 
+
+We recommend using RStudio because it provides a lot of convenience of being
+able to work consistently across platforms and reduces the barrier for entry. 
+
+We want to be able to meet you where you are to work with the new template. If
+you feel comfortable using a different tool (e.g. VSCode), then you should
+install R and pandoc separately and make sure that they are in your path. 
 
 :::::::::
 
@@ -39,12 +46,13 @@ If you are using RStudio, you can [follow the instructions in this forum
 post](https://community.rstudio.com/t/first-line-of-every-r-script/799/12?u=zkamvar):
 
 1. From the menu, select <cmd>Tools<cmd> > <cmd>Global Options</cmd>
-2. Under **Workspace Options**, de-select "Restore .RData into workspace at startup" and set "Save workspace to .RData on exit" to "Never"
+2. Under **Workspace Options**, de-select "Restore .RData into workspace at
+   startup" and set "Save workspace to .RData on exit" to "Never"
 
 #### Via Command Line Interface
 
 The flags `--no-restore` and `--no-save` will set these defaults, so you can 
-create an alias for BASH:
+create an alias for BASH in the `.bashrc` file in your home directory:
 
 ```bash
 alias R='R --no-restore --no-save'
@@ -56,8 +64,9 @@ alias R='R --no-restore --no-save'
 
 ### There are many ways to set up R to work with the lesson template
 
-For example, Zhian Kamvar uses Vim with the NVim-R plugin and 
-[radian](https://github.com/randy3k/radian#readme). There is no one right way!
+For example, Zhian Kamvar uses Vim with the NVim-R plugin  and 
+[radian](https://github.com/randy3k/radian#readme) on macOS and Linux. There is 
+no one right way!
 
 :::::::::::::::::::::::::::::::
 
@@ -92,16 +101,20 @@ install.packages(c("sandpaper", "varnish", "pegboard"))
 
 ### Linux
 
-Note: we are using the RStudio package manager. This is set up for Ubuntu 20.04,
+Linux packages normally need to be compiled by your system, which can take a 
+long time the first time it happens. RStudio provides a package manager that
+pre-compiles Linux binaries. Note that you do not have to be using RStudio to
+take advantage of these binaries. The one we are using is set up for Ubuntu 
+20.04 (focal). 
 
 :::: callout
 
 ### What if I have a different version of Linux?
 
-If you have a different version of linux, you can visit https://packagemanager.rstudio.com/client/#/repos/1/overview, 
-select your system where it says "Use this URL to work with the latest binary
-packages for Ubuntu 20.04 (Focal) **change**", and replace the packagemanager
-URL below.
+If you have a different version of linux, you can visit 
+https://packagemanager.rstudio.com/client/#/repos/1/overview, select your
+system where it says "Use this URL to work with the latest binary packages for
+Ubuntu 20.04 (Focal) **change**", and replace the packagemanager URL below.
 
 ::::
 
@@ -117,166 +130,41 @@ install.packages(c("sandpaper", "varnish", "pegboard"))
 
 ## Connect to GitHub
 
-If you are currently able to interact with GitHub via the command line without
-having to provide your password, then it is very likely that you already have
-your credentials set up. **If you feel very comfortable pushing to and pulling
-from GitHub on the command line, then you may skip this section.** Otherwise, 
-follow along to learn how to connect your git credentials via R (which will 
-be available system-wide).
+You will need to make sure your git session is connected to GitHub. To do so, 
+you will need to use an SSH or HTTPS protocol. If you already know how to push
+and pull from GitHub using the command line, you do not need to worry about 
+setting this up. 
 
-::::::::::::::: callout
+If you do not have this set up, you should [choose a protocol
+](https://docs.github.com/en/github/getting-started-with-github/about-remote-repositories) 
+and then set them up according to the instructions from GitHub. 
 
-### I use SSH credentials, why should I use HTTPS?
+:::::::::::::::: callout
 
-GitHub has announced that [passwords will no longer be used for authentication
-from the command line starting in August 2021](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/).
-While you may be comfortable with SSH, there are three things that may motivate
-you:
+### Is GitHub's Documentation Confusing?
 
-1. HTTPS is recommended by both GitHub and RStudio for people starting with R,
-   so switching to HTTPS will help you empathize and demonstrate the ropes to 
-   learners in the long run.
-2. HTTPS gives you more fine-grained control over what access each token gives.
-3. [RStudio Cloud](https://rstudio.cloud) is a really good platform that can
-   connect to your GitHub account if you need to work on lesson development
-   when you don't have your computer handy. You cannot use SSH with that service,
-   but it is possible to access it via HTTPS. 
-4. You can connect to the GitHub API with a higher rate limit, which means that
-   you can auto-create remote repositories and analyze GitHub data without a
-   web browser.
+If you are like me, you may find GitHub's documentation slightly confusing 
+and/or lacking. I've found the following resources to be extremely helpful for
+setting up authentication credentials for your account:
 
-::::::::::::::::::::::::
+[Remotes in GitHub (Software Carpentry)](http://swcarpentry.github.io/git-novice/07-github)
+: A walkthrough of creating a repository on GitHub and pushing to it via the 
+  command line.
 
-To confirm that your Git session is correctly configured, open RStudio, and run
-the following line to check if your HTTPS credentials are set up properly:
+[Connect to GitHub (Happy Git With R)](https://happygitwithr.com/push-pull-github.html)
+: A walkthrough of creating a throwaway repository that gives you a good idea 
+  for the mechanics of working with GitHub. 
 
-```r
-library("usethis")
-git_sitrep() # git situation report
-```
+[Cache credentials for HTTPS (Happy Git With R)](https://happygitwithr.com/credential-caching.html)
+: Clear explanation on how to set up a Personal Access Token and the benefits of
+  using HTTPS. This explains how to do this in both the shell and R.
 
-Pay attention to the **GitHub** report. What does it look like?
-
-
-### GitHub connected via PAT
-
-```output
-Git config (global)
-● Name: 'Zhian N. Kamvar'
-● Email: 'zkamvar@gmail.com'
-● Vaccinated: FALSE
-ℹ See `?git_vaccinate` to learn more
-● Default Git protocol: 'ssh'
-GitHub
-● Default GitHub host: 'https://github.com'
-● Personal access token for 'https://github.com': '<discovered>'
-● GitHub user: 'zkamvar'
-● Token scopes: 'gist, repo, user, workflow'
-● Email(s): 'zkamvar@gmail.com (primary)', ...
-Git repo for current project
-ℹ No active usethis project
-```
-
-If your output looks like this, then you are properly set up and you are good to
-go! If not, read on!
-
-If you see errors associated with your GitHub token (see below, e.g. 'Token is
-invalid' or 'Can't retrieve registered email address(es)'), then you should
-create a new one. Dr. Jenny Bryan wrote [an excellent resource for creating and
-caching your GitHub credentials on your computer
-](https://happygitwithr.com/credential-caching.html#how-to-manage-a-pat) that
-will walk you through the process of generating a PAT, and storing it in a
-secure location. Here are the steps briefly via R:
-
-1. Create a GitHub PAT via R with `usethis::create_github_token()` (this will
-   open a page in your browser pre-populated with the appropriate scopes. If
-   this does not work, [use this link to generate a new token for
-   R][token-scope].)
-2. Copy and store the token in a password manager (Lastpass, 1Password)
-3. Back in R, use `gitcreds::gitcreds_set()` to register your token with git.
-4. Check your credentials again with `usethis::git_sitrep()`
-
-At this point, you should have things set up properly. If you are still having
-problems, you can try the following two steps (after you have your PAT):
-
-1. in R, use `credentials::git_credentials_forget()` to clear the cache
-2. use `credentials::set_github_pat()` and paste your token. 
-
-::::::::: discussion
-
-### Common Token Errors
-
-There are a few possible errors you might see, but the remedy is always the same:
-get a new token and register it in your credentials keychain.
-
-#### Invalid Personal Access Token
-
-Invalid tokens can come from old tokens that were deleted from your GitHub
-account. 
-
-```output
-Git config (global)
-● Name: 'Zhian N. Kamvar'
-● Email: 'zkamvar@gmail.com'
-● Vaccinated: FALSE
-ℹ See `?git_vaccinate` to learn more
-● Default Git protocol: 'ssh'
-GitHub
-● Default GitHub host: 'https://github.com'
-● Personal access token for 'https://github.com': '<discovered>'
-✖ Token is invalid
-✖ Can't retrieve registered email address(es)
-  If you are troubleshooting, check GitHub host, token, and token scopes
-Git repo for current project
-ℹ No active usethis projectw
-```
-
-#### Password as Token
-
-This error often means that you have your password stored in your keychain
-instead of your token. This seems like a weird error until you realize that
-GitHub will stop allowing password authentication from the command line in 
-August 2021.
-
-```output
-Git config (global)
-● Name: 'Zhian N. Kamvar'
-● Email: 'zkamvar@gmail.com'
-● Vaccinated: FALSE
-ℹ See `?git_vaccinate` to learn more
-● Default Git protocol: 'ssh'
-GitHub
-● Default GitHub host: 'https://github.com'
-Error: GitHub PAT must have one of these forms:
-  * 40 hexadecimal digits (older PATs)
-  * A 'ghp_' prefix followed by 36 to 251 more characters (newer PATs)
-Type .Last.error.trace to see where the error occured
-```
-
-#### No Personal Access Token Detected
-
-This means you have not registered a Personal Access Token with git and are good
-to start fresh!
-
-```output
-● Name: 'Zhian N. Kamvar'
-● Email: 'zkamvar@gmail.com'
-● Vaccinated: FALSE
-ℹ See `?git_vaccinate` to learn more
-● Default Git protocol: 'ssh'
-GitHub
-● Default GitHub host: 'https://github.com'
-● Personal access token for 'https://github.com': <unset>
-✖ Call `gh_token_help()` for help configuring a token
-Git repo for current project
-ℹ No active usethis project
-```
+[Set up keys for SSH (Happy Git With R)](https://happygitwithr.com/ssh-keys.html)
+: Clear explanation on what SSH key pairs are and how to set up and connect them
+  with GitHub. This has recommendations using both the shell and RStudio. 
 
 ::::::::::::::::::::::::
-
-
 
 [R]: https://cran.rstudio.org/
-[token-scope]: https://github.com/settings/tokens/new?scopes=repo,user,gist,workflow&description=R:GITHUB_PAT
 [pandoc]: https://pandoc.org/
 [RStudio]: https://rstudio.com/products/rstudio/download/#download

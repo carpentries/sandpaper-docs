@@ -99,36 +99,11 @@ again, you will see much less output. If you like to would like to know how
 everything works under the hood, you can check out the [{sandpaper} generator
 chapter](sandpaper.html).
 
-
 ## Push to GitHub
 
 The lesson you just created lives local on your computer, but still needs to go
-to GitHub. There are two ways to do this: via the API (in R, only if you have
-HTTPS set up) or via the browser + command line. At this point, we assume that
-you were able to successfully [link your computer to
-GitHub](setup.html#connect-to-github-1).
-
-:::::::::::: solution
-
-### Using The GitHub API with R (HTTPS only)
-
-If you have HTTPS set up, the {usethis} package can set up and push your content
-to a brand new GitHub repository in a single command. In R, you can type the
-following command to create a brand new repository.
-
-```r
-library("usethis")
-use_github()
-```
-
-:::::::::::::::::::::
-
-::::::::::::::: solution
-
-### Using Browser + Command Line (SSH or HTTPS)
-
-If you do not yet have HTTPS set up, then you have to create a new repository
-via the browser:
+to GitHub. At this point, we assume that you have successfully [linked your 
+computer to GitHub](setup.html#connect-to-github-1).
 
 1. visit <https://github.com/new/>
 2. enter `buoyant-barnacle` as the repository name
@@ -136,7 +111,26 @@ via the browser:
 4. Follow the instructions on the page to push an existing repository from the
    command line. 
 
-::::::::::::::::::::::::
+:::::::::::: callout
+
+### One-step R solution
+
+If you use R and use an HTTPS protocol, this can be done in a single step from
+inside RStudio with the {usethis} package:
+
+```r
+usethis::use_github()
+```
+
+This function will set up a new repository under your personal account called
+`buoyant-barnacle`, add that remote to your `git remotes`, and automatically
+push your repository to GitHub. 
+
+If you don't use the HTTPS protocol, and want to find out how to set it in R,
+we have [a walkthrough to set your credentials in the learners section
+](github-pat.html).
+
+::::::::::::::::::::
 
 A few minutes after you pushed your repository, the GitHub workflows would have
 validated your lesson and created deployment branches. You can track the
@@ -154,8 +148,6 @@ Click on the "select branch" button and select "gh-pages":
 > **Be patient!** GitHub needs to start up a new virtual machine the first time
 > you use this, so it may take anywhere from 6 to 15 minutes for the workflow
 > to run.
-
-
 
 ## Tools
 

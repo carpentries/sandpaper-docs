@@ -23,52 +23,51 @@ exercises: 0
 
 If you want to edit and preview your lesson using {sandpaper}, this is the
 episode for you. If you want to create a new lesson, head back to the episode
-for [Creating a New Lesson](introduction.html).
+for [Creating a New Lesson](introduction.html). Instead of adding new content
+to a brand new lesson, I believe it's beneficial to experience editing a fully
+functional lesson, so you will edit THIS lesson. The first step is to fork and
+clone it from GitHub:
 
-## Downloading a Lesson {#create-from-github}
+## Fork and Clone a Lesson {#create-from-github}
 
-1. think about a place on your computer where you want to work on your fork
+If you are familiar with the process of forking and cloning, then you may fork
+and clone as you normally do. If you would like a reminder, here are the steps:
+
+1. Think about a place on your computer where you want to work on your fork
    of the lesson (e.g. `~/Documents/Lessons/`) and make sure that folder exists.
 
-### If you have set up your Personal Access Token and want to work in R
+2. Go to https://github.com/zkamvar/sandpaper-docs/fork/ to fork the repository 
+   to your account
+   
+3. In the shell and use this command to clone this repository to your working
+   directory, replacing `<USERNAME>` with your username
+   ```bash
+   cd ~/Documents/Lessons/
+   git clone git@github.com:<USERNAME>/sandpaper-docs.git
+   cd sandpaper-docs
+   ```
 
-TODO: CHANGE ME
-+f you are NOT comfortable with git, you can download with R. First, open 
-RStudio and think about where on your computer you want to work on lessons
-(e.g. `~/Documents/Lessons`). Once you know where this location will be, you can
-open RStudio and type in the R console (replacing `<USERNAME>` with your 
-username:
+::::::::::::::: callout
+
+### One-step fork with R
+
+If you use R and you also use an HTTPS protocol, you might be interested to know
+that the above three steps can be done in a single step with the {usethis}
+package via the GitHub API:
 
 ```r
-usethis::create_from_github("<USERNAME>/sandpaper-docs", destdir = "~/Documents/Lessons")
+usethis::create_from_github("zkamvar/sandpaper-docs", "~/Documents/Lessons/")
 ```
 
-By default, this will clone the lesson to `~/Documents/Lessons/sandpaper-docs`
-and open a new RStudio session inside of the lesson repository. 
+:::::::::::::::::::::::
 
-### If you have not set up your Personal Access Token
-
-Go to https://github.com/zkamvar/sandpaper-docs/fork/ to fork the repository 
-to your account.
-
-After that, go to your command line and use this command to clone this
-repository to your working directory, replacing `<USERNAME>` with your username
-
-```bash
-cd ~/Documents/Lessons/
-git clone git@github.com:<USERNAME>/sandpaper-docs.git
-cd sandpaper-docs
-```
-
-In the next section, 
-we will explore the folder structure of a lesson. 
-
+In the next section, we will explore the folder structure of a lesson. 
 
 :::::::::::::::::::::::::::: challenge
 
 ### Preview the Lesson
 
-1. Open RStudio (or whatever you use for R)
+1. Open the lesson in RStudio (or whatever you use for R)
 2. Use the keyboard shortcut <kbd>ctrl + shift + b</kbd> 
    (<kbd>cmd + shift + b</kbd> on macOS) to build and preview this lesson (or 
    type `sandpaper::build_lesson()` in the console if you are not using RStudio)
@@ -138,25 +137,25 @@ and organization
 These fields will be simple key-pair values of information used throughout the episode
 
 carpentry
-:    The code for the specific carpentry that the lesson belongs to (swc, dc, lc, cp)
+: The code for the specific carpentry that the lesson belongs to (swc, dc, lc, cp)
 
 title
-:    The main title of the lesson
+: The main title of the lesson
 
 life_cycle
-:    What life cycle is the lesson in? (pre-alpha, alpha, beta, stable)
+: What life cycle is the lesson in? (pre-alpha, alpha, beta, stable)
 
 license
-:    The license the lesson is registered under (defaults to CC-BY 4.0)
+: The license the lesson is registered under (defaults to CC-BY 4.0)
 
 source
-:    The github source of the lesson
+: The github source of the lesson
 
 branch
-:    The default branch
+: The default branch
 
 contact
-:    Who should be contacted if there is a problem with the lesson
+: Who should be contacted if there is a problem with the lesson
 
 ### Organization
 
@@ -178,16 +177,16 @@ episodes:
 Below are the four possible fields {sandpaper} will recognize:
 
 episodes
-:    The names of the episodes (main content)
+: The names of the episodes (main content)
 
 instructors
-:    Instructor-specific resources (e.g. outline, etc)
+: Instructor-specific resources (e.g. outline, etc)
 
 learners
-:    Resources for learners (e.g. Glossary terms)
+: Resources for learners (e.g. Glossary terms)
 
 profiles
-:    Learner profile pages 
+: Learner profile pages 
 
 
 ::::::::::::::::::::::::::::::: challenge
@@ -253,7 +252,6 @@ repository and how to contribute.
 
 ::::::::::::::::::::: keypoints
 
-- `usethis::create_from_github()` will download a github repository to your computer
 - `sandpaper::build_lesson()` renders the site and rebuilds any sources that have changed. 
 - RStudio shortcuts are <kbd>cmd + shift + B</kbd> and <kbd>cmd + shift + K</kbd>
 - To edit a lesson, you only need to know Markdown and/or R Markdown
