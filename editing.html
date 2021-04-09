@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-04-08 00:25:59 +0000">
+<meta http-equiv="last-modified" content="2021-04-09 00:47:15 +0000">
 
 
 
@@ -151,6 +151,9 @@
     <li>
       <a href="setup.html">Setup</a>
     </li>
+    <li>
+      <a href="github-pat.html">Setting Up a Personal Access Token via R</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -246,33 +249,32 @@
 </div>
 </div>
 </div>
-<p>If you want to edit and preview your lesson using {sandpaper}, this is the episode for you. If you want to create a new lesson, head back to the episode for <a href="introduction.html">Creating a New Lesson</a>.</p>
+<p>If you want to edit and preview your lesson using {sandpaper}, this is the episode for you. If you want to create a new lesson, head back to the episode for <a href="introduction.html">Creating a New Lesson</a>. Instead of adding new content to a brand new lesson, I believe it’s beneficial to experience editing a fully functional lesson, so you will edit THIS lesson. The first step is to fork and clone it from GitHub:</p>
 <div id="create-from-github" class="section level2">
-<h2>Downloading a Lesson</h2>
+<h2>Fork and Clone a Lesson</h2>
+<p>If you are familiar with the process of forking and cloning, then you may fork and clone as you normally do. If you would like a reminder, here are the steps:</p>
 <ol style="list-style-type: decimal">
-<li>think about a place on your computer where you want to work on your fork of the lesson (e.g. <code>~/Documents/Lessons/</code>) and make sure that folder exists.</li>
+<li><p>Think about a place on your computer where you want to work on your fork of the lesson (e.g. <code>~/Documents/Lessons/</code>) and make sure that folder exists.</p></li>
+<li><p>Go to <a href="https://github.com/zkamvar/sandpaper-docs/fork/" class="uri">https://github.com/zkamvar/sandpaper-docs/fork/</a> to fork the repository to your account</p></li>
+<li><p>In the shell and use this command to clone this repository to your working directory, replacing <code>&lt;USERNAME&gt;</code> with your username</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/Documents/Lessons/</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@github.com:<span class="op">&lt;</span>USERNAME<span class="op">&gt;</span>/sandpaper-docs.git</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> sandpaper-docs</span></code></pre></div></li>
 </ol>
-<div id="if-you-have-set-up-your-personal-access-token-and-want-to-work-in-r" class="section level3">
-<h3>If you have set up your Personal Access Token and want to work in R</h3>
-<p>TODO: CHANGE ME +f you are NOT comfortable with git, you can download with R. First, open RStudio and think about where on your computer you want to work on lessons (e.g. <code>~/Documents/Lessons</code>). Once you know where this location will be, you can open RStudio and type in the R console (replacing <code>&lt;USERNAME&gt;</code> with your username:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_from_github</span>(<span class="st">&quot;&lt;USERNAME&gt;/sandpaper-docs&quot;</span>, <span class="at">destdir =</span> <span class="st">&quot;~/Documents/Lessons&quot;</span>)</span></code></pre></div>
-<p>By default, this will clone the lesson to <code>~/Documents/Lessons/sandpaper-docs</code> and open a new RStudio session inside of the lesson repository.</p>
+<aside class="callout">
+<div id="one-step-fork-with-r" class="section level3">
+<h3>One-step fork with R</h3>
+<p>If you use R and you also use an HTTPS protocol, you might be interested to know that the above three steps can be done in a single step with the {usethis} package via the GitHub API:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_from_github</span>(<span class="st">&quot;zkamvar/sandpaper-docs&quot;</span>, <span class="st">&quot;~/Documents/Lessons/&quot;</span>)</span></code></pre></div>
 </div>
-<div id="if-you-have-not-set-up-your-personal-access-token" class="section level3">
-<h3>If you have not set up your Personal Access Token</h3>
-<p>Go to <a href="https://github.com/zkamvar/sandpaper-docs/fork/" class="uri">https://github.com/zkamvar/sandpaper-docs/fork/</a> to fork the repository to your account.</p>
-<p>After that, go to your command line and use this command to clone this repository to your working directory, replacing <code>&lt;USERNAME&gt;</code> with your username</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~/Documents/Lessons/</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone git@github.com:<span class="op">&lt;</span>USERNAME<span class="op">&gt;</span>/sandpaper-docs.git</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> sandpaper-docs</span></code></pre></div>
+</aside>
 <p>In the next section, we will explore the folder structure of a lesson.</p>
-</div>
 </div>
 <div class="challenge">
 <div id="preview-the-lesson" class="section level2">
 <h2>Preview the Lesson</h2>
 <ol style="list-style-type: decimal">
-<li>Open RStudio (or whatever you use for R)</li>
+<li>Open the lesson in RStudio (or whatever you use for R)</li>
 <li>Use the keyboard shortcut <kbd>ctrl + shift + b</kbd> (<kbd>cmd + shift + b</kbd> on macOS) to build and preview this lesson (or type <code>sandpaper::build_lesson()</code> in the console if you are not using RStudio)</li>
 <li>Open THIS file (<code>episodes/editing.Rmd</code>) and add step 4: preview the lesson again.</li>
 </ol>
@@ -403,7 +405,6 @@
 <div class="section level2 keypoints">
 <h2>Keypoints</h2>
 <ul>
-<li><p><code>usethis::create_from_github()</code> will download a github repository to your computer</p></li>
 <li><p><code>sandpaper::build_lesson()</code> renders the site and rebuilds any sources that have changed.</p></li>
 <li><p>RStudio shortcuts are <kbd>cmd + shift + B</kbd> and <kbd>cmd + shift + K</kbd></p></li>
 <li><p>To edit a lesson, you only need to know Markdown and/or R Markdown</p></li>

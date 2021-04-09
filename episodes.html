@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-04-08 00:25:59 +0000">
+<meta http-equiv="last-modified" content="2021-04-09 00:47:15 +0000">
 
 
 
@@ -151,6 +151,9 @@
     <li>
       <a href="setup.html">Setup</a>
     </li>
+    <li>
+      <a href="github-pat.html">Setting Up a Personal Access Token via R</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -253,16 +256,20 @@
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
 <p>As outlined in the <a href="editing.html">previous episode</a>, all of the episodes live inside the <code>episodes/</code> directory at the top of the lesson. Their order is dictated by the <code>episodes:</code> element in the <code>config.yaml</code> file (but defaults to alphabetical). The other folders (<code>learners/</code>, <code>instructors/</code>, and <code>profiles/</code>) are similarly configured. This episode will briefly explain how to edit markdown content in the lessons.</p>
+</div>
+<div id="buoyant-barnacle" class="section level2 prereq">
+<h2>Buoyant Barnacle</h2>
+<p>The exercises in this episode correspond to the Buoyant Barnacle repository you created in <a href="introduction.html">the Introduction</a></p>
+</div>
 <p>There are three things you should be comfortable with in order to contribute to a lesson [^Do not worry if you aren’t comfortable yet, that’s what we will show you in this episode!]</p>
 <ol style="list-style-type: decimal">
 <li>Writing <a href="https://www.markdownguide.org/basic-syntax">basic</a> and <a href="https://www.markdownguide.org/extended-syntax/">extended</a> markdown syntax</li>
 <li>Writing <a href="https://pandoc.org/MANUAL#divs-and-spans">Fenced div elements</a> to create callouts and exercise blocks</li>
 <li>Writing simple yaml lists</li>
 </ol>
-</div>
 <div id="creating-a-new-episode" class="section level2">
 <h2>Creating A New Episode</h2>
-<p>To create a new episode, you should open your lesson in your favorite editor (we recommend RStudio) and in the R console type:</p>
+<p>To create a new episode, you should open your lesson (<code>buoyant-barnacle</code>) in your RStudio or your favorite text editor and in the R console type:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>sandpaper<span class="sc">::</span><span class="fu">create_episode</span>(<span class="st">&quot;next-episode&quot;</span>)</span></code></pre></div>
 <p>This will create a new episode in the episodes folder called “02-next-episode”. If you already have your episode schedule set in <code>config.yaml</code>, then this episode will not be rendered in the template and will remain a draft until you add it to the schedule. Next, we will show how you can add a title and other elements to your episode.</p>
 </div>
@@ -279,6 +286,11 @@
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">## First Episode Section</span></span></code></pre></div>
+</div>
+</div>
+<div id="create-a-title" class="section level2 challenge">
+<h2>Create a Title</h2>
+<p>Your new episode needs a title! Open the new episode, edit the title, and preview it. Did the new title show up?</p>
 </div>
 <div id="questions-objectives-keypoints" class="section level3">
 <h3>Questions, Objectives, Keypoints</h3>
@@ -311,7 +323,6 @@
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>keypoint 1</span>
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>keypoint 2</span>
 <span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>:::::::</span></code></pre></div>
-</div>
 </div>
 <div id="editing-an-episode-callout-blocks" class="section level2">
 <h2>Editing an episode: Callout blocks</h2>
