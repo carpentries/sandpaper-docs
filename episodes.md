@@ -33,6 +33,15 @@ alphabetical). The other folders (`learners/`, `instructors/`, and `profiles/`)
 are similarly configured. This episode will briefly explain how to edit markdown
 content in the lessons. 
 
+:::::: prereq
+
+### Buoyant Barnacle
+
+The exercises in this episode correspond to the Buoyant Barnacle repository you
+created in [the Introduction](introduction.html)
+
+:::::::::::::
+
 There are three things you should be comfortable with in order to contribute to
 a lesson [^Do not worry if you aren't comfortable yet, that's what we will show
 you in this episode!]
@@ -44,12 +53,14 @@ you in this episode!]
 
 ## Creating A New Episode
 
-To create a new episode, you should open your lesson in your favorite editor (we
-recommend RStudio) and in the R console type:
+To create a new episode, you should open your lesson (`buoyant-barnacle`) in
+your RStudio or your favorite text editor and in the R console type:
 
 ```r
 sandpaper::create_episode("next-episode")
 ```
+
+
 
 This will create a new episode in the episodes folder called "02-next-episode".
 If you already have your episode schedule set in `config.yaml`, then this 
@@ -80,6 +91,15 @@ exercises: 10 # exercise time in minutes
 
 ## First Episode Section
 ```
+
+:::::::::::::::: challenge
+
+### Create a Title
+
+Your new episode needs a title! Open the new episode, edit the title, and 
+preview it. Did the new title show up?
+
+::::::::::::::::::::::::::
 
 ### Questions, Objectives, Keypoints
 
