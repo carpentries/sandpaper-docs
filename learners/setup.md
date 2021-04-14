@@ -87,11 +87,12 @@ operating system:
 # register the repositories for The Carpentries and CRAN
 options(repos = c(
   carpentries = "https://carpentries.github.io/drat/",
+  ropensci = "https://ropensci.r-universe.dev/",
   CRAN = "https://cran.rstudio.com/"
 ))
 
 # Install the template packages to your R library
-install.packages(c("sandpaper", "varnish", "pegboard"))
+install.packages(c("sandpaper", "varnish", "pegboard", "tinkr"))
 ```
 
 ::::::::::::::::::::
@@ -121,10 +122,11 @@ Ubuntu 20.04 (Focal) **change**", and replace the packagemanager URL below.
 ```r
 options(repos = c(
   carpentries = "https://carpentries.github.io/drat/",
+  ropensci = "https://ropensci.r-universe.dev/",
   CRAN = "https://packagemanager.rstudio.com/all/__linux__/focal/latest"
 ))
 
-install.packages(c("sandpaper", "varnish", "pegboard"))
+install.packages(c("sandpaper", "varnish", "pegboard", "tinkr"))
 ```
 ::::::::::::::::::::
 
