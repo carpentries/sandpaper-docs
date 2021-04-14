@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-04-09 00:47:15 +0000">
+<meta http-equiv="last-modified" content="2021-04-14 19:15:36 +0000">
 
 
 
@@ -131,10 +131,10 @@
       <a href="introduction.html">Introduction to the New Template</a>
     </li>
     <li>
-      <a href="editing.html">Editing a {sandpaper} lesson</a>
+      <a href="episodes.html">Episode Structure</a>
     </li>
     <li>
-      <a href="episodes.html">Episode Structure</a>
+      <a href="editing.html">Editing a {sandpaper} lesson</a>
     </li>
     <li>
       <a href="example.html">Using RMarkdown</a>
@@ -255,7 +255,7 @@
 </div>
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p>As outlined in the <a href="editing.html">previous episode</a>, all of the episodes live inside the <code>episodes/</code> directory at the top of the lesson. Their order is dictated by the <code>episodes:</code> element in the <code>config.yaml</code> file (but defaults to alphabetical). The other folders (<code>learners/</code>, <code>instructors/</code>, and <code>profiles/</code>) are similarly configured. This episode will briefly explain how to edit markdown content in the lessons.</p>
+<p>As we will cover in the <a href="editing.html">next episode</a>, all of the episodes live inside the <code>episodes/</code> directory at the top of the lesson. Their order is dictated by the <code>episodes:</code> element in the <code>config.yaml</code> file (but defaults to alphabetical). The other folders (<code>learners/</code>, <code>instructors/</code>, and <code>profiles/</code>) are similarly configured. This episode will briefly explain how to edit markdown content in the lessons.</p>
 </div>
 <div id="buoyant-barnacle" class="section level2 prereq">
 <h2>Buoyant Barnacle</h2>
@@ -290,7 +290,14 @@
 </div>
 <div id="create-a-title" class="section level2 challenge">
 <h2>Create a Title</h2>
-<p>Your new episode needs a title! Open the new episode, edit the title, and preview it. Did the new title show up?</p>
+<p>Your new episode needs a title!</p>
+<ol style="list-style-type: decimal">
+<li>Open the new episode in your editor</li>
+<li>edit the title</li>
+<li>add the episode to the <code>config.yaml</code></li>
+<li>preview it with <code>sandpaper::build_lesson()</code>/<kbd>ctrl + shift + k</kbd>.</li>
+</ol>
+<p>Did the new title show up?</p>
 </div>
 <div id="questions-objectives-keypoints" class="section level3">
 <h3>Questions, Objectives, Keypoints</h3>
@@ -452,7 +459,7 @@
   <div class="row">
     <div class="col-xs-1">
       <h3 class="text-left">
-        <a href="editing.html"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
+        <a href="introduction.html"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
       </h3>
     </div>
     <div class="col-xs-10">
@@ -460,7 +467,7 @@
     </div>
     <div class="col-xs-1">
       <h3 class="text-right">
-        <a href="example.html"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
+        <a href="editing.html"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
       </h3>
     </div>
   </div>
