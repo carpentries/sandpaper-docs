@@ -21,12 +21,11 @@ exercises: 0
 :::::::::::::::::::::::::::::::
 
 
-If you want to edit and preview your lesson using {sandpaper}, this is the
+If you want to edit and preview a full lesson using {sandpaper}, this is the
 episode for you. If you want to create a new lesson, head back to the episode
-for [Creating a New Lesson](introduction.html). Instead of adding new content
-to a brand new lesson, I believe it's beneficial to experience editing a fully
-functional lesson, so you will edit THIS lesson. The first step is to fork and
-clone it from GitHub:
+for [Creating a New Lesson](introduction.html). I believe it's beneficial to
+experience editing a fully functional lesson, so you will edit THIS lesson. The
+first step is to fork and clone it from GitHub:
 
 ## Fork and Clone a Lesson {#create-from-github}
 
