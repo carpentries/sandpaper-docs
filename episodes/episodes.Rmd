@@ -26,7 +26,7 @@ exercises: 2
 
 ## Introduction
 
-As outlined in the [previous episode](editing.html), all of the episodes live
+As we will cover in the [next episode](editing.html), all of the episodes live
 inside the `episodes/` directory at the top of the lesson. Their order is
 dictated by the `episodes:` element in the `config.yaml` file (but defaults to 
 alphabetical). The other folders (`learners/`, `instructors/`, and `profiles/`)
@@ -59,8 +59,6 @@ your RStudio or your favorite text editor and in the R console type:
 ```r
 sandpaper::create_episode("next-episode")
 ```
-
-
 
 This will create a new episode in the episodes folder called "02-next-episode".
 If you already have your episode schedule set in `config.yaml`, then this 
@@ -96,8 +94,14 @@ exercises: 10 # exercise time in minutes
 
 ### Create a Title
 
-Your new episode needs a title! Open the new episode, edit the title, and 
-preview it. Did the new title show up?
+Your new episode needs a title! 
+
+1. Open the new episode in your editor
+2. edit the title
+3. add the episode to the `config.yaml`
+4. preview it with `sandpaper::build_lesson()`/<kbd>ctrl + shift + k</kbd>.
+
+Did the new title show up?
 
 ::::::::::::::::::::::::::
 
