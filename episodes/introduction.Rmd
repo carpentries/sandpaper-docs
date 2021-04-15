@@ -137,7 +137,8 @@ validated your lesson and created deployment branches. You can track the
 progress at `https://github.com/<USERNAME>/buoyant-barnacle/actions/`. Once you
 have a green check mark, you can [set up GitHub
 Pages](https://docs.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
-by choosing `gh-pages` from the dropdown menu as shown in the image below:
+by going to `https://github.com/<USERNAME>/buoyant-barnacle/settings/pages` and
+choosing `gh-pages` from the dropdown menu as shown in the image below:
 
 ![screencapture of the initial view of the GitHub Pages section of the settings tab](fig/github-pages-none.png){.image-with-shadow}
 
