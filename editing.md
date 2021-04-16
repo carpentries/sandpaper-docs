@@ -210,7 +210,6 @@ figures, and data files needed for the lesson. By default, it will contain an
 episode called 01-introduction.Rmd. You can edit this file to use as your
 introduction. To create a new episode, use the folowing function:
 
-
 ```r
 sandpaper::create_episode("episode-name")
 ```
@@ -260,3 +259,5 @@ repository and how to contribute.
  - New episodes can be added with `sandpaper::create_episode()`
 
 :::::::::::::::::::::::::::::::
+
+[pandoc]: https://pandoc.org/
