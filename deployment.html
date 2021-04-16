@@ -8,11 +8,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-03-12 19:14:10 +0000">
+<meta http-equiv="last-modified" content="2021-04-16 19:02:54 +0000">
 
 
 
-<title>Intruction to the New Lesson Template: How We Deploy the New Template</title>
+<title>Introduction to the New Lesson Template: How We Deploy the New Template</title>
 
 <link rel="apple-touch-icon-precomposed" sizes="57x57" href="favicons/cp/apple-touch-icon-57x57.png" />
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="favicons/cp/apple-touch-icon-114x114.png" />
@@ -28,7 +28,7 @@
 <link rel="icon" type="image/png" href="favicons/cp/favicon-16x16.png" sizes="16x16" />
 <link rel="icon" type="image/png" href="favicons/cp/favicon-128.png" sizes="128x128" />
 
-<meta name="application-name" content="The Carpentries - Intruction to the New Lesson Template"/>
+<meta name="application-name" content="The Carpentries - Introduction to the New Lesson Template"/>
 
 <meta name="msapplication-TileColor" content="#FFFFFF" />
 <meta name="msapplication-TileImage" content="favicons/cp/mstile-144x144.png" />
@@ -131,34 +131,16 @@
       <a href="introduction.html">Introduction to the New Template</a>
     </li>
     <li>
-      <a href="new-site.html">Creating a New Lesson</a>
+      <a href="episodes.html">Episode Structure</a>
     </li>
     <li>
       <a href="editing.html">Editing a {sandpaper} lesson</a>
     </li>
     <li>
-      <a href="migration.html">Migrating from Jekyll</a>
-    </li>
-    <li>
-      <a href="engine.html">The Template Engine: {sandpaper}</a>
-    </li>
-    <li>
-      <a href="episodes.html">Episode Structure</a>
-    </li>
-    <li>
-      <a href="template.html">The Website Template: {varnish}</a>
-    </li>
-    <li>
-      <a href="validator.html">The Validator: {pegboard}</a>
-    </li>
-    <li>
-      <a href="branches.html">GitHub Branches</a>
+      <a href="example.html">Using RMarkdown</a>
     </li>
     <li>
       <a href="deployment.html">How We Deploy the New Template</a>
-    </li>
-    <li>
-      <a href="pull-request.html">Pull Request Previews</a>
     </li>
   </ul>
 </li>
@@ -171,6 +153,9 @@
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="setup.html">Setup</a>
+    </li>
+    <li>
+      <a href="github-pat.html">Setting Up a Personal Access Token via R</a>
     </li>
   </ul>
 </li>
@@ -237,16 +222,6 @@
       <h1>How We Deploy the New Template</h1>
     </div>
 
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
-<p>This is the new Carpentries template. It is written in <a href="https://rmarkdown.rstudio.com/">RMarkdown</a>, which is a variant of Markdown that allows you to render code inside the lesson. Please refer to the <a href="https://carpentries.github.io/lesson-example">lesson example</a> for full documentation.</p>
-<p>What you need to know is that there are three block quotes required for a valid Carpentries lesson template:</p>
-<ol style="list-style-type: decimal">
-<li><code>questions</code> These are displayed at the beginning of the episode to prime the learner for the content.</li>
-<li><code>objectives</code> These are the learning objectives for an episode</li>
-<li><code>keypoints</code> These are displayed at the end of the episode to reinforce the objectives.</li>
-</ol>
-<p>No matter where these blocks appear, they will always be placed at the right part of the html page.</p>
 <div class="section level2 objectives">
 <h2>Overview</h2>
 <div class="row">
@@ -257,8 +232,8 @@
 <div class="col-md-9">
 <p><strong>Questions</strong></p>
 <ul>
-<li>How does GitHub Actions differ from Jekyll?</li>
-<li>What is the purpose of a staging branch?</li>
+<li>What is the two-step model of deployment?</li>
+<li>How do we use the two-step model to provide PR audits?</li>
 </ul>
 </div>
 </div>
@@ -269,56 +244,71 @@
 <div class="col-md-9">
 <p><strong>Objectives</strong></p>
 <ul>
-<li>Explain how to use markdown with the new lesson template</li>
-<li>Demonstrate how to include pieces of code, figures, and nested challenge blocks</li>
+<li>Understand the two-step model for lesson deployment</li>
+<li>Understand the Pull Request Preview for generated lesson content</li>
 </ul>
 </div>
 </div>
+</div>
+<p>Since 2016, <a href="https://software-carpentry.org/blog/2016/07/rmarkdown-new-template.html">we have supported using RMarkdown in lessons</a>. The benefits have been that authors no longer need to manually copy and paste output and graphs into their documents. We were even able to use continuous integration to build the RMarkdown documents to markdown so that they would be then deployed using Jekyll.</p>
+<p>The downside to this model was that the maintainers would occasionally encounter unexpected outputs from new contributions because there was either a syntax error or <a href="https://carpentries.org/blog/2020/08/r-4-migration/">the R ecosystem had changed paradigms</a>. Moreover, people would often edit the generated markdown file instead of the source RMarkdown file, which would result in progress being lost because of a regenerated file.</p>
+<div id="the-two-step-model-of-deployment" class="section level2">
+<h2>The two-step model of deployment</h2>
+<p>To alleviate the downsides of working with generated content, the new template employs a two-step model of deployment when you run <code>sandpaper::build_lesson()</code></p>
+<ol style="list-style-type: decimal">
+<li>Take any source files with content that needs to be interpreted (e.g.  RMarkdown and in the future Jupyter Notebooks) and <strong>render them to markdown</strong> in a staging area ignored by git.</li>
+<li>Apply the HTML style to the markdown files in the staging area to create the lesson website.</li>
+</ol>
+<div class="figure">
+<img src="https://zkamvar.github.io/stunning-barnacle/img/local-flow.dot.svg" alt="" />
+<p class="caption">Diagram showing the two-step model of lesson deployment</p>
+</div>
+<p>All of the generated content lives in the <code>site/</code> folder, and importantly: it is all cached and ignored by git. Ignoring generated content locally means that the source of truth for these files is no longer dependent on the maintainer’s local setup.</p>
+<p>The reason we have this model is also for portability. It’s because markdown output is a lot easier to audit than HTML when something goes wrong, rendered markdown can be transferred to other contexts (e.g. books or blogposts), and we can swap out the generators without needing to rewrite the entire pipeline.</p>
+<aside class="callout">
+<div id="did-you-know" class="section level3">
+<h3>Did you know?</h3>
+<p>When the lesson is pushed to GitHub, all of the generated content IS stored in separate branches so that we can provide a way for you to audit changes from pull requests.</p>
+</div>
+</aside>
+</div>
+<div id="on-github" class="section level2">
+<h2>On GitHub</h2>
+<p>On GitHub, we store generated content in two orphan branches called <code>md-outputs</code> and <code>gh-pages</code> for the generated markdown and html, respectively. We use [GitHub Actions Workflows][gh-workflow] to build, validate, and deploy our lessons on GitHub pages. If you use pure markdown lessons, you should notice no significant changes to your workflow.</p>
+<p>These workflows are the source of truth for the lessons and will keep your lesson up-to-date with the latest version of the HTML template.</p>
+<p>If you use RMarkdown lessons, you will notice that for every pull request, a GitHub bot comments on your pull requests informing you about what content has changed and gives you a link to the differences between the current state of the <code>md-outputs</code> branch and the proposed changes.</p>
+<p>The controls for these actions live in the <code>.github/</code> folder of your repository and are currently maintained at <a href="https://github.com/zkamvar/actions/tree/main/workflows#readme" class="uri">https://github.com/zkamvar/actions/tree/main/workflows#readme</a>.</p>
+<aside class="callout">
+<div id="risk-management" class="section level3">
+<h3>Risk Management</h3>
+<p>Accepting generated content into lessons from anyone runs the risk of a security breach by exposing secrets. To mitigate this risk, GitHub limits the scope of what is possible inside a pull request so that we can check and render the content without risk of exploitation. Through this, we render and check the lesson inside the pull request with no privileges, check that the pull request is valid (not malicious), and then create a temporary branch for an exploratory preview, allowing the maintainer to audit the generated content before it gets adopted into the curriculum.</p>
+<p>If the PR is invalid (e.g. the contributor spoofed a separate, valid PR, or modified one of the github actions files), then the maintainer is alerted that the PR is potentially risky.</p>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/zkamvar/stunning-barnacle/main/img/pr-flow.dot.svg" alt="" />
+<p class="caption">Workflow diagram for a pull request</p>
+</div>
+</div>
+</aside>
+</div>
+<div id="updating-your-workflows" class="section level2">
+<h2>Updating Your Workflows</h2>
+<p>The workflows are one of the few points in the new template where it needs to be updated manually.</p>
+<aside class="callout">
+<div id="in-the-future" class="section level3">
+<h3><span class="emoji" data-emoji="crystal_ball">🔮</span> In the future</h3>
+<p>In the future, we will make this process easier by creating bots that will periodically provide pull requests that update these workflows.</p>
+</div>
+</aside>
+<p>To update your workflows, you can use the following command in your lesson:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>sandpaper<span class="sc">::</span><span class="fu">fetch_github_workflows</span>()</span></code></pre></div>
+<p>After that, you can add and commit your changes and then push them to GitHub.</p>
 </div>
 <div class="section level2 keypoints">
 <h2>Keypoints</h2>
 <ul>
-<li>Use <code>.Rmd</code> files for lessons even if you don’t need to generate any code</li>
-<li>Run <code>sandpaper::check_lesson()</code> to identify any issues with your lesson</li>
-<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson locally</li>
+<li>Lessons are built using a two-step process of caching markdown outputs and then building HTML from that cache</li>
+<li>We use GitHub Actions to deploy and audit generated lesson content to their websites</li>
 </ul>
-</div>
-<div class="challenge">
-<div id="challenge-1-can-you-do-it" class="section level2">
-<h2>Challenge 1: Can you do it?</h2>
-<p>What is the output of this command?</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">paste</span>(<span class="st">&quot;This&quot;</span>, <span class="st">&quot;new&quot;</span>, <span class="st">&quot;template&quot;</span>, <span class="st">&quot;looks&quot;</span>, <span class="st">&quot;good&quot;</span>)</span></code></pre></div>
-</div>
-<div id="output" class="section level2 solution">
-<h2>Output</h2>
-<pre class="output"><code>[1] &quot;This new template looks good&quot;</code></pre>
-</div>
-<div id="challenge-2-how-do-you-nest-solutions-within-challenge-blocks" class="section level2">
-<h2>Challenge 2: how do you nest solutions within challenge blocks?</h2>
-</div>
-<div class="section level2 solution">
-<h2>Solution</h2>
-<p>You can add a line with at least three colons and a <code>solution</code> tag.</p>
-</div>
-</div>
-</div>
-<div id="figures" class="section level1">
-<h1>Figures</h1>
-<p>You can also include figures:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="kw">pie</span>(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>  <span class="kw">c</span>(<span class="dt">Sky =</span> <span class="dv">78</span>, <span class="st">&quot;Sunny side of pyramid&quot;</span> =<span class="st"> </span><span class="dv">17</span>, <span class="st">&quot;Shady side of pyramid&quot;</span> =<span class="st"> </span><span class="dv">5</span>), </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>  <span class="dt">init.angle =</span> <span class="dv">315</span>, </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>  <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;deepskyblue&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;yellow3&quot;</span>), </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>  <span class="dt">border =</span> <span class="ot">FALSE</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>)</span></code></pre></div>
-<p><img src="fig/deployment-rendered-pyramid-1.png" title="plot of chunk pyramid" alt="plot of chunk pyramid" style="display: block; margin: auto;" /></p>
-</div>
-<div id="math" class="section level1">
-<h1>Math</h1>
-<p>One of our episodes contains <span class="math inline">\(\LaTeX\)</span> equations when describing how to create dynamic reports with {knitr}, so we now use mathjax to describe this:</p>
-<p><code>$\alpha = \dfrac{1}{(1 - \beta)^2}$</code> becomes: <span class="math inline">\(\alpha = \dfrac{1}{(1 - \beta)^2}\)</span></p>
-<p>Cool, right?</p>
-<!-- Please do not delete anything below this line -->
 </div>
 
   </div>
@@ -341,15 +331,15 @@
   <div class="row">
     <div class="col-xs-1">
       <h3 class="text-left">
-        <a href="branches.html"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
+        <a href="example.html"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
       </h3>
     </div>
     <div class="col-xs-10">
-      <h3 class="maintitle"><a href="index.html">Intruction to the New Lesson Template</a></h3>
+      <h3 class="maintitle"><a href="index.html">Introduction to the New Lesson Template</a></h3>
     </div>
     <div class="col-xs-1">
       <h3 class="text-right">
-        <a href="pull-request.html"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
+        <a href="index.html"><span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
       </h3>
     </div>
   </div>
@@ -362,7 +352,7 @@
       by <a href="https://softwarecarpentry.org">Software Carpentry Foundation</a>
     </div>
     <div class="col-md-6 help-links pull-right" align="right">
-      <a href="https://github.com/zkamvar/sandpaper-docs//edit/main/episodes/deployment.Rmd" data-checker-ignore>Edit on GitHub</a>
+      <a href="https://github.com/zkamvar/sandpaper-docs//edit/main/episodes/deployment.md" data-checker-ignore>Edit on GitHub</a>
       /
       <a href="https://github.com/zkamvar/sandpaper-docs//blob/main/CONTRIBUTING.md" data-checker-ignore>Contributing</a>
       /
