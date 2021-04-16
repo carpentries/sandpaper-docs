@@ -8,11 +8,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-04-16 19:02:54 +0000">
+<meta http-equiv="last-modified" content="2021-04-16 22:18:46 +0000">
 
 
 
-<title>Introduction to the New Lesson Template: How We Deploy the New Template</title>
+<title>Introduction to the New Lesson Template: Lesson Deployment</title>
 
 <link rel="apple-touch-icon-precomposed" sizes="57x57" href="favicons/cp/apple-touch-icon-57x57.png" />
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="favicons/cp/apple-touch-icon-114x114.png" />
@@ -74,7 +74,7 @@
 
 
 
-<meta property="og:title" content="How We Deploy the New Template" />
+<meta property="og:title" content="Lesson Deployment" />
 
 
 
@@ -137,10 +137,10 @@
       <a href="editing.html">Editing a {sandpaper} lesson</a>
     </li>
     <li>
-      <a href="example.html">Using RMarkdown</a>
+      <a href="example.html">EXAMPLE: Using RMarkdown</a>
     </li>
     <li>
-      <a href="deployment.html">How We Deploy the New Template</a>
+      <a href="deployment.html">Lesson Deployment</a>
     </li>
   </ul>
 </li>
@@ -219,15 +219,15 @@
 <div class="row">
   <div class="contents col-md-9">
     <div class="page-header">
-      <h1>How We Deploy the New Template</h1>
+      <h1>Lesson Deployment</h1>
     </div>
 
 <div class="section level2 objectives">
 <h2>Overview</h2>
 <div class="row">
 <div class="col-md-3">
-<p><strong>Teaching: </strong> 10<br />
-<strong>Exercises: </strong> 2</p>
+<p><strong>Teaching: </strong> 5<br />
+<strong>Exercises: </strong> 0</p>
 </div>
 <div class="col-md-9">
 <p><strong>Questions</strong></p>
@@ -250,8 +250,11 @@
 </div>
 </div>
 </div>
+<div id="how-we-got-here" class="section level2">
+<h2>How we got here</h2>
 <p>Since 2016, <a href="https://software-carpentry.org/blog/2016/07/rmarkdown-new-template.html">we have supported using RMarkdown in lessons</a>. The benefits have been that authors no longer need to manually copy and paste output and graphs into their documents. We were even able to use continuous integration to build the RMarkdown documents to markdown so that they would be then deployed using Jekyll.</p>
 <p>The downside to this model was that the maintainers would occasionally encounter unexpected outputs from new contributions because there was either a syntax error or <a href="https://carpentries.org/blog/2020/08/r-4-migration/">the R ecosystem had changed paradigms</a>. Moreover, people would often edit the generated markdown file instead of the source RMarkdown file, which would result in progress being lost because of a regenerated file.</p>
+</div>
 <div id="the-two-step-model-of-deployment" class="section level2">
 <h2>The two-step model of deployment</h2>
 <p>To alleviate the downsides of working with generated content, the new template employs a two-step model of deployment when you run <code>sandpaper::build_lesson()</code></p>

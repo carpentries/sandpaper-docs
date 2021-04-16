@@ -8,11 +8,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-04-16 19:02:54 +0000">
+<meta http-equiv="last-modified" content="2021-04-16 22:18:46 +0000">
 
 
 
-<title>Introduction to the New Lesson Template: Using RMarkdown</title>
+<title>Introduction to the New Lesson Template: EXAMPLE: Using RMarkdown</title>
 
 <link rel="apple-touch-icon-precomposed" sizes="57x57" href="favicons/cp/apple-touch-icon-57x57.png" />
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="favicons/cp/apple-touch-icon-114x114.png" />
@@ -74,7 +74,7 @@
 
 
 
-<meta property="og:title" content="Using RMarkdown" />
+<meta property="og:title" content="EXAMPLE: Using RMarkdown" />
 
 
 
@@ -137,10 +137,10 @@
       <a href="editing.html">Editing a {sandpaper} lesson</a>
     </li>
     <li>
-      <a href="example.html">Using RMarkdown</a>
+      <a href="example.html">EXAMPLE: Using RMarkdown</a>
     </li>
     <li>
-      <a href="deployment.html">How We Deploy the New Template</a>
+      <a href="deployment.html">Lesson Deployment</a>
     </li>
   </ul>
 </li>
@@ -219,24 +219,14 @@
 <div class="row">
   <div class="contents col-md-9">
     <div class="page-header">
-      <h1>Using RMarkdown</h1>
+      <h1>EXAMPLE: Using RMarkdown</h1>
     </div>
 
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
-<p>This is the new Carpentries template. It is written in <a href="https://rmarkdown.rstudio.com/">RMarkdown</a>, which is a variant of Markdown that allows you to render code inside the lesson. Please refer to the <a href="https://carpentries.github.io/lesson-example">lesson example</a> for full documentation.</p>
-<p>What you need to know is that there are three block quotes required for a valid Carpentries lesson template:</p>
-<ol style="list-style-type: decimal">
-<li><code>questions</code> These are displayed at the beginning of the episode to prime the learner for the content.</li>
-<li><code>objectives</code> These are the learning objectives for an episode</li>
-<li><code>keypoints</code> These are displayed at the end of the episode to reinforce the objectives.</li>
-</ol>
-<p>No matter where these blocks appear, they will always be placed at the right part of the html page.</p>
 <div class="section level2 objectives">
 <h2>Overview</h2>
 <div class="row">
 <div class="col-md-3">
-<p><strong>Teaching: </strong> 10<br />
+<p><strong>Teaching: </strong> 5<br />
 <strong>Exercises: </strong> 2</p>
 </div>
 <div class="col-md-9">
@@ -259,13 +249,15 @@
 </div>
 </div>
 </div>
-<div class="section level2 keypoints">
-<h2>Keypoints</h2>
-<ul>
-<li>Use <code>.Rmd</code> files for lessons even if you don’t need to generate any code</li>
-<li>Run <code>sandpaper::check_lesson()</code> to identify any issues with your lesson</li>
-<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson locally</li>
-</ul>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>This is the new Carpentries template. It is written in <a href="https://rmarkdown.rstudio.com/">RMarkdown</a>, which is a variant of Markdown that allows you to render code inside the lesson. Please refer to the <a href="https://carpentries.github.io/lesson-example">lesson example</a> for full documentation.</p>
+<p>What you need to know is that there are three block quotes required for a valid Carpentries lesson template:</p>
+<ol style="list-style-type: decimal">
+<li><code>questions</code> These are displayed at the beginning of the episode to prime the learner for the content.</li>
+<li><code>objectives</code> These are the learning objectives for an episode</li>
+<li><code>keypoints</code> These are displayed at the end of the episode to reinforce the objectives.</li>
+</ol>
 </div>
 <div class="challenge">
 <div id="challenge-1-can-you-do-it" class="section level2">
@@ -285,7 +277,6 @@
 <p>You can add a line with at least three colons and a <code>solution</code> tag.</p>
 </div>
 </div>
-</div>
 <div id="figures" class="section level1">
 <h1>Figures</h1>
 <p>You can also include figures:</p>
@@ -302,6 +293,14 @@
 <p>One of our episodes contains <span class="math inline">\(\LaTeX\)</span> equations when describing how to create dynamic reports with {knitr}, so we now use mathjax to describe this:</p>
 <p><code>$\alpha = \dfrac{1}{(1 - \beta)^2}$</code> becomes: <span class="math inline">\(\alpha = \dfrac{1}{(1 - \beta)^2}\)</span></p>
 <p>Cool, right?</p>
+<div class="section level2 keypoints">
+<h2>Keypoints</h2>
+<ul>
+<li>Use <code>.Rmd</code> files for lessons even if you don’t need to generate any code</li>
+<li>Run <code>sandpaper::check_lesson()</code> to identify any issues with your lesson</li>
+<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson locally</li>
+</ul>
+</div>
 <!-- Please do not delete anything below this line -->
 </div>
 
