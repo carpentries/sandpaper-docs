@@ -1,10 +1,23 @@
 ---
-title: "Using RMarkdown"
-teaching: 10
+title: "EXAMPLE: Using RMarkdown"
+teaching: 5
 exercises: 2
 ---
 
-# Introduction
+:::::::::::::::: questions :::::::::::::::::::::
+
+- How do you write a lesson using RMarkdown and `{sandpaper}`?
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::: objectives ::::::::::::::::::::
+
+- Explain how to use markdown with the new lesson template
+- Demonstrate how to include pieces of code, figures, and nested challenge blocks
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+## Introduction
 
 This is the new Carpentries template. It is written in [RMarkdown][r-markdown],
 which is a variant of Markdown that allows you to render code inside the
@@ -20,30 +33,6 @@ Carpentries lesson template:
  3. `keypoints` These are displayed at the end of the episode to reinforce the
     objectives.
 
-No matter where these blocks appear, they will always be placed at the right
-part of the html page.
-
-
-:::::::::::::::: questions :::::::::::::::::::::
-
-- How do you write a lesson using RMarkdown and `{sandpaper}`?
-
-::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::: objectives ::::::::::::::::::::
-
-- Explain how to use markdown with the new lesson template
-- Demonstrate how to include pieces of code, figures, and nested challenge blocks
-
-::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::: keypoints :::::::::::::::::::::
-
-- Use `.Rmd` files for lessons even if you don't need to generate any code
-- Run `sandpaper::check_lesson()` to identify any issues with your lesson
-- Run `sandpaper::build_lesson()` to preview your lesson locally
-
-::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::: challenge ::::::::::::::::::::::
 
@@ -103,12 +92,20 @@ dynamic reports with {knitr}, so we now use mathjax to describe this:
 
 Cool, right?
 
+:::::::::::::::: keypoints :::::::::::::::::::::
+
+- Use `.Rmd` files for lessons even if you don't need to generate any code
+- Run `sandpaper::check_lesson()` to identify any issues with your lesson
+- Run `sandpaper::build_lesson()` to preview your lesson locally
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 <!-- Please do not delete anything below this line -->
 
 
 [cc-by-human]: https://creativecommons.org/licenses/by/4.0/
 [cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
-[ci]: http://communityin.org/
+[ci]: https://communityin.org/
 [coc-reporting]: https://docs.carpentries.org/topic_folders/policies/incident-reporting.html
 [coc]: https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html
 [concept-maps]: https://carpentries.github.io/instructor-training/05-memory/
@@ -117,13 +114,12 @@ Cool, right?
 [cran-checkpoint]: https://cran.r-project.org/package=checkpoint
 [cran-knitr]: https://cran.r-project.org/package=knitr
 [cran-stringr]: https://cran.r-project.org/package=stringr
-[dc-lessons]: http://www.datacarpentry.org/lessons/
+[dc-lessons]: https://datacarpentry.org/lessons/
 [email]: mailto:team@carpentries.org
-[github-importer]: https://import.github.com/
-[importer]: https://github.com/new/import
+[github-importer]: https://github.com/new/import
 [jekyll-collection]: https://jekyllrb.com/docs/collections/
 [jekyll-install]: https://jekyllrb.com/docs/installation/
-[jekyll-windows]: http://jekyll-windows.juthilo.com/
+[jekyll-windows]: https://jekyll-windows.juthilo.com/
 [jekyll]: https://jekyllrb.com/
 [jupyter]: https://jupyter.org/
 [kramdown]: https://kramdown.gettalong.org/
@@ -153,4 +149,4 @@ Cool, right?
 [swc-releases]: https://github.com/swcarpentry/swc-releases
 [training]: https://carpentries.github.io/instructor-training/
 [workshop-repo]: {{ site.workshop_repo }}
-[yaml]: http://yaml.org/
+[yaml]: https://yaml.org/
