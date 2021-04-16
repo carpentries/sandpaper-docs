@@ -44,9 +44,9 @@ contact: zkamvar@carpentries.org
 
 # Order of episodes in your lesson 
 episodes: 
-- introduction.Rmd
+- introduction.md
 - episodes.Rmd
-- editing.Rmd
+- editing.md
 - example.Rmd
 
 
