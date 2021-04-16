@@ -169,9 +169,7 @@ template has been split up into three R packages:
 :::::::::::::::::::::::
 
 
-<!-- Please do not delete anything below this line -->
-
-[{varnish}]: template.html
-[{pegboard}]: validator.html
-[{sandpaper}]: engine.html
+[{varnish}]: https://github.com/carpentries/varnish/ 
+[{pegboard}]: https://carpentries.github.io/pegboard/
+[{sandpaper}]: https://carpentries.github.io/sandpaper/
 [pandoc]: https://pandoc.org/
