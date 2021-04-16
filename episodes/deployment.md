@@ -1,5 +1,5 @@
 ---
-title: "How We Deploy the New Template"
+title: "Lesson Deployment"
 teaching: 5
 exercises: 0
 ---
@@ -17,6 +17,8 @@ exercises: 0
  - Understand the Pull Request Preview for generated lesson content
 
 ::::::::::::::::::::::::::::::::::::::::
+
+## How we got here
 
 Since 2016, [we have supported using RMarkdown in lessons][rmd-blog]. The 
 benefits have been that authors no longer need to manually copy and paste 
