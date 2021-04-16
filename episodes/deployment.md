@@ -131,6 +131,9 @@ After that, you can add and commit your changes and then push them to GitHub.
 
 :::::::::::::::::::::::::::::: keypoints
 
+ - Lessons are built using a two-step process of caching markdown outputs and then building HTML from that cache
+ - We use GitHub Actions to deploy and audit generated lesson content to their websites
+
 ::::::::::::::::::::::::::::::::::::::::
 
 
