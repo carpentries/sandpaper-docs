@@ -75,7 +75,7 @@ default.
 After you created your lesson, you will want to preview it locally. There is one
 command to do that in [{sandpaper}]:
 
-```{r, eval = FALSE}
+```r
 sandpaper::build_lesson()
 ```
 
@@ -174,6 +174,4 @@ template has been split up into three R packages:
 [{varnish}]: template.html
 [{pegboard}]: validator.html
 [{sandpaper}]: engine.html
-
-```{r links, child = sandpaper::template_links()}
-```
+[pandoc]: https://pandoc.org/
