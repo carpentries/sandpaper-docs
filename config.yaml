@@ -48,6 +48,7 @@ episodes:
 - episodes.Rmd
 - editing.md
 - example.Rmd
+- deployment.md
 
 
 # Information for Learners
