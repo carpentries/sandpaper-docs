@@ -1,7 +1,7 @@
 ---
 title: "How We Deploy the New Template"
-teaching: 10
-exercises: 2
+teaching: 5
+exercises: 0
 ---
 
 ::::::::::::::::::::::::::::: questions
