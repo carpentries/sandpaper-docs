@@ -52,6 +52,7 @@ jobs:
       - name: Install dependencies
         run: |
           remotes::install_github('carpentries/sandpaper', dependencies = TRUE)
+          install.packages("sessioninfo")
         shell: Rscript {0}
 
       - name: Show Session Information
