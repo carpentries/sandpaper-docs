@@ -46,6 +46,12 @@ jobs:
           remotes::install_github('carpentries/varnish')
         shell: Rscript {0}
 
+      - name: Show Session Information
+        run: |
+          library("sandpaper")
+          sessioninfo::session_info()
+        shell: Rscript {0}
+
       - name: Deploy site
         run: |
           git config --local user.email "actions@github.com"
