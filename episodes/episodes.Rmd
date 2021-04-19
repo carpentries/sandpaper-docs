@@ -27,7 +27,7 @@ exercises: 2
 ## Introduction
 
 As we will cover in the [next episode](editing.html), all of the episodes live
-inside the `episodes/` directory at the top of the lesson. Their order is
+inside the `episodes/` directory at the top of the lesson folder. Their order is
 dictated by the `episodes:` element in the `config.yaml` file (but defaults to 
 alphabetical). The other folders (`learners/`, `instructors/`, and `profiles/`)
 are similarly configured. This episode will briefly explain how to edit markdown
