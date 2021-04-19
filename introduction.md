@@ -52,11 +52,12 @@ Follow these steps to create a brand new lesson on your Desktop.
 3. Use the following code:
 
 ```r
-library("usethis")
+library("fs") # file system package for cross-platform paths
 library("sandpaper")
 
 # Create a brand new lesson on your desktop called "buoyant-barnacle"
-create_lesson("~/Desktop/buoyant-barnacle")
+bb <- path_home("Desktop/buoyant-barnacle")
+create_lesson(bb)
 ```
 
 ::::::::::: solution
@@ -78,6 +79,18 @@ command to do that in [{sandpaper}]:
 ```r
 sandpaper::build_lesson()
 ```
+
+:::::::::::::::: discussion
+
+### What's with the `::` syntax?
+
+This is a syntax that clearly states what package a particular function comes 
+from. In this case, `sandpaper::build_lesson()` tells R to use the 
+`build_lesson()` function from the `sandpaper` package. These commands can be 
+run without first calling `library(<packagename>)`, so they are more portable. 
+I will be using this syntax for the rest of the lesson.
+
+:::::::::::::::::::::::::::
 
 :::::::::::::: callout
 
@@ -113,7 +126,7 @@ computer to GitHub](setup.html#connect-to-github-1).
 
 :::::::::::: callout
 
-### One-step R solution
+### Alternative: One-step R solution
 
 If you use R and use an HTTPS protocol, this can be done in a single step from
 inside RStudio with the {usethis} package:
