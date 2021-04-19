@@ -30,6 +30,14 @@ We want to be able to meet you where you are to work with the new template. If
 you feel comfortable using a different tool (e.g. VSCode), then you should
 install R and pandoc separately and make sure that they are in your path. 
 
+If you are using Windows, setting up your PATH variables can sometimes be
+tricky. The pandoc installer will automatically add itself to your PATH, but R
+will not. [Here are some instructions on setting up your PATH on Windows using
+both the GUI and CLI](https://www.maketecheasier.com/what-is-the-windows-path/).
+Note that R will normally install at something like 
+`c:\Program Files\R\R-4.0.0\bin\x64`, but if you are not admin, it will install
+in your documents folder. 
+
 :::::::::
 
 
