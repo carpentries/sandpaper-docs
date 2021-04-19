@@ -1,0 +1,43 @@
+---
+title: "Update Infrastructure Components"
+teaching: 10
+exercises: 2
+---
+
+:::::::::::::::::::::::::::::::::::::: questions 
+
+- What are the four components of the lesson infrastructure?
+- What lesson components are auto-updated on GitHub?
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::: objectives
+
+- Identify components of the template needed for lesson structure, validation, 
+  styling, and deployment
+- Understand how to update R packages
+- Understand how to update GitHub workflows
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+## Introduction
+
+This episode is still a work in progress. 
+
+::::::::::::::::::::::::::::::::::::: keypoints 
+
+- Lesson structure, validation, and styling components are all updated
+  automatically on GitHub.
+- Lesson structure, validation, and styling components all live in your local
+  R library.
+- Locally, R packages can be updated with `install.packages()`
+- Package styling can be updated any time with `sandpaper::update_varnish()`
+- GitHub workflows live inside the lesson under `.github/workflows/`
+- GitHub workflows can be updated with `sandpaper::fetch_github_workflows()`
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+<!-- Please do not delete anything below this line -->
+
+```{r links, child = sandpaper::template_links()}
+```
