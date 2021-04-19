@@ -97,8 +97,8 @@ jobs:
           git checkout --orphan md-outputs-PR-${NR}
           git add -A 
           git commit -m "source commit: ${CURR_HEAD}"
+          ls -A | grep -v '^.git' | xargs rm -r
           cd ..
-          ls -d -A built/* | grep -v '.git' | xargs rm -r
           unzip -d built built.zip
           cd built
           git add -A
