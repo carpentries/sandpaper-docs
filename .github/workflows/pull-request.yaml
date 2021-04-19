@@ -57,8 +57,15 @@ jobs:
 
       - name: Show Session Information
         run: |
-          library("sandpaper")
-          sessioninfo::session_info()
+          cli::cli_rule("Time Built")
+          cat("sandpaper", packageDescription("sandpaper")$Packaged, "\n")
+          cat("pegboard ", packageDescription("pegboard")$Packaged, "\n")
+          cat("varnish  ", packageDescription("varnish")$Packaged, "\n")
+          cat("tinkr    ", packageDescription("tinkr")$Packaged, "\n")
+          cli::cli_rule("Session info")
+          sessioninfo::platform_info()
+          cli::cli_rule("Package Info")
+          sessioninfo::package_info("sandpaper", dependencies = TRUE)
         shell: Rscript {0}
 
       - name: Build Site
