@@ -45,8 +45,9 @@ in your documents folder.
 
 ### Setting up your R workspace
 
-When you set up R, it's important to make sure you set it up to never save your
-workspace on exit and never load a previously saved workspace on startup. 
+When you set up R, it's important to make sure you set it up to always start R
+with a clean slate[^1]: never save your workspace on exit and never load a
+previously saved workspace on startup.  
 
 #### Via RStudio 
 
@@ -178,3 +179,10 @@ setting up authentication credentials for your account:
 [R]: https://cran.rstudio.org/
 [pandoc]: https://pandoc.org/
 [RStudio]: https://rstudio.com/products/rstudio/download/#download
+[^1]: By default, R will ask if you want to save your workspace to a hidden file
+called `.RData`. This is loaded when you start R, restoring your environment
+with all of the packages and objects you had previously loaded. This default
+behavior is not good for reproducibility and makes updating packages very
+very difficult. In 2017 Jenny Bryan wrote a very good article about the benefits
+of having a project-based workflow, starting from a clean slate: 
+https://www.tidyverse.org/blog/2017/12/workflow-vs-script/
