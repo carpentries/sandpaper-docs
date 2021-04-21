@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-04-19 23:40:52 +0000">
+<meta http-equiv="last-modified" content="2021-04-21 23:54:37 +0000">
 
 
 
@@ -241,7 +241,7 @@
 </div>
 <div id="setting-up-your-r-workspace" class="section level2 prereq">
 <h2>Setting up your R workspace</h2>
-<p>When you set up R, it’s important to make sure you set it up to never save your workspace on exit and never load a previously saved workspace on startup.</p>
+<p>When you set up R, it’s important to make sure you set it up to always start R with a clean slate<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>: never save your workspace on exit and never load a previously saved workspace on startup.</p>
 <div id="via-rstudio" class="section level4">
 <h4>Via RStudio</h4>
 <p>If you are using RStudio, you can <a href="https://community.rstudio.com/t/first-line-of-every-r-script/799/12?u=zkamvar">follow the instructions in this forum post</a>:</p>
@@ -320,6 +320,12 @@
 </dl>
 </div>
 </aside>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>By default, R will ask if you want to save your workspace to a hidden file called <code>.RData</code>. This is loaded when you start R, restoring your environment with all of the packages and objects you had previously loaded. This default behavior is not good for reproducibility and makes updating packages very very difficult. In 2017 Jenny Bryan wrote a very good article about the benefits of having a project-based workflow, starting from a clean slate: <a href="https://www.tidyverse.org/blog/2017/12/workflow-vs-script/" class="uri">https://www.tidyverse.org/blog/2017/12/workflow-vs-script/</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
 
   </div>
