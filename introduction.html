@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-04-23 15:09:25 +0000">
+<meta http-equiv="last-modified" content="2021-04-29 01:20:31 +0000">
 
 
 
@@ -266,10 +266,9 @@
 </div>
 </aside>
 </div>
-<div class="challenge">
-<div id="try-it-yourself" class="section level2">
+<div id="try-it-yourself" class="section level2 challenge">
 <h2>Try it yourself!</h2>
-<p>Follow these steps to create a brand new lesson on your Desktop.</p>
+<p>Follow these steps to create a brand new lesson on your Desktop called “buoyant-barnacle”.</p>
 <ol style="list-style-type: decimal">
 <li>Follow the <a href="setup.html">setup instructions</a></li>
 <li>Open RStudio (or your preferred interface to R)</li>
@@ -280,17 +279,20 @@
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a brand new lesson on your desktop called &quot;buoyant-barnacle&quot;</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>bb <span class="ot">&lt;-</span> <span class="fu">path_home</span>(<span class="st">&quot;Desktop/buoyant-barnacle&quot;</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">create_lesson</span>(bb)</span></code></pre></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(bb) <span class="co"># print the new path to your screen</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">create_lesson</span>(bb) <span class="co"># create a new lesson in that path</span></span></code></pre></div>
 </div>
-<div class="section level2 solution">
-<h2>Solution</h2>
-<p>If everything went correctly, you will now have a new RStudio window open to your new project called “buoyant-barnacle” on your Desktop.</p>
-<p>You will notice that Buoyant Barnacle is initialized with a git repository by default.</p>
+<p>If everything went correctly, you will now have a new RStudio window open to your new project called “buoyant-barnacle” on your Desktop (if you did not use RStudio, your working directory should have changed, you can check it via the <code>getwd()</code> command).</p>
+<p>Your lesson will be initialized with a brand new git repository with the initial commit message being <code>Initial commit [via {sandpaper}]</code>.</p>
+<aside class="callout">
+<div id="ladybug-known-quirk" class="section level3">
+<h3>:ladybug: Known Quirk</h3>
+<p>If you are using RStudio, then an RStudio project file (<code>*.Rproj</code>) is automatically created to help anchor your project. You might notice changes to this file at first as RStudio applies your global user settings to the file. This is perfectly normal and we will fix this in a future iteration of {sandpaper}.</p>
 </div>
-</div>
+</aside>
 <div id="previewing-your-new-lesson" class="section level2">
 <h2>Previewing Your New Lesson</h2>
-<p>After you created your lesson, you will want to preview it locally. There is one command to do that in <a href="https://carpentries.github.io/sandpaper/">{sandpaper}</a>:</p>
+<p>After you created your lesson, you will want to preview it locally. First, make sure that you are in your newly-created repository and then use the following command:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sandpaper<span class="sc">::</span><span class="fu">build_lesson</span>()</span></code></pre></div>
 </div>
 <div id="whats-with-the-syntax" class="section level2 discussion">
@@ -312,6 +314,34 @@
 </div>
 </aside>
 <p>The first time you run this function, you might see A LOT of output on your screen and then your browser will open the preview. If you run the command again, you will see much less output. If you like to would like to know how everything works under the hood, you can check out the <a href="sandpaper.html">{sandpaper} generator chapter</a>.</p>
+<div id="how-do-i-determine-the-order-of-files-displayed-on-the-website" class="section level2 discussion">
+<h2>How do I determine the order of files displayed on the website?</h2>
+<p>The <code>config.yaml</code> file contains four fields that correspond to the folders in your repository: <code>episodes</code>, <code>instructors</code>, <code>learners</code>, <code>profiles</code>. By default, they are displayed in alphabetical order, but if you want to customize exactly what content is published on the website, you can add a yaml list of the filenames to determine order.</p>
+<p>For example, if you had three episodes called “introduction.md”, “part_two.Rmd”, and “in_progress.md” and you wanted to only show introduction and part_two, you would edit <code>config.yaml</code> to list those two files under <code>episodes:</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">episodes</span><span class="kw">:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> introduction.md</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> part_two.Rmd</span></span></code></pre></div>
+</div>
+<div class="challenge">
+<div id="set-the-schedule-optional" class="section level2">
+<h2>Set the schedule (optional)</h2>
+<p>Render the lesson again. It should run more quickly this time, but you might notice a warning at the end of the rendering:</p>
+</div>
+<div id="warning-message" class="section level2 solution">
+<h2>Warning Message</h2>
+<pre class="warning"><code>Warning message:
+In warn_schedule() :
+  No schedule set, using Rmd files in `episodes/` directory.
+To remove this warning, define your schedule in `config.yaml` or use `set_episodes()` to generate it.</code></pre>
+</div>
+<p>This is informing you that the order of episodes in your lesson is defined via alphabetical order of all markdown files in the <code>episodes/</code> directory unless you set the <code>episodes:</code> field in your configuration file (<code>config.yaml</code>).</p>
+<ol style="list-style-type: decimal">
+<li>Open <code>config.yaml</code> in a text editor</li>
+<li>On line 46, you should see the <code>episodes:</code> field.</li>
+<li>Add <code>- 01-Introduction.Rmd</code> to the line below.</li>
+<li>Save the file and re-render. You should notice that the warning has disappeared.</li>
+</ol>
+</div>
 <div id="push-to-github" class="section level2">
 <h2>Push to GitHub</h2>
 <p>The lesson you just created lives local on your computer, but still needs to go to GitHub. At this point, we assume that you have successfully <a href="setup.html#connect-to-github-1">linked your computer to GitHub</a>.</p>
@@ -325,7 +355,7 @@
 <div id="alternative-one-step-r-solution" class="section level3">
 <h3>Alternative: One-step R solution</h3>
 <p>If you use R and use an HTTPS protocol, this can be done in a single step from inside RStudio with the {usethis} package:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_github</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_github</span>()</span></code></pre></div>
 <p>This function will set up a new repository under your personal account called <code>buoyant-barnacle</code>, add that remote to your <code>git remotes</code>, and automatically push your repository to GitHub.</p>
 <p>If you don’t use the HTTPS protocol, and want to find out how to set it in R, we have <a href="github-pat.html">a walkthrough to set your credentials in the learners section</a>.</p>
 </div>
@@ -340,9 +370,12 @@
 <img src="fig/github-pages-gh-pages.png" class="image-with-shadow" alt="" />
 <p class="caption">screencapture of expanded “select branch” button with “gh-pages” selected</p>
 </div>
-<blockquote>
-<p><strong>Be patient!</strong> GitHub needs to start up a new virtual machine the first time you use this, so it may take anywhere from 6 to 15 minutes for the workflow to run.</p>
-</blockquote>
+<aside class="callout">
+<div id="be-patient" class="section level3">
+<h3><span class="emoji" data-emoji="hourglass">⌛</span> Be Patient</h3>
+<p>GitHub needs to start up a new virtual machine the first time you use this, so it may take up to 30 minutes for things to get started: 15 minutes for the workflow to spin up and then another 15 minutes for the machine to bootstrap and cache.</p>
+</div>
+</aside>
 </div>
 <div id="tools" class="section level2">
 <h2>Tools</h2>
