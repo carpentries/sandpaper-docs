@@ -11,10 +11,10 @@ There are three programs that the template works with: Git, RStudio, and pandoc.
 They can be installed from the following resources:
 
  - **Git** (>= 2.28) https://carpentries.github.io/workshop-template/#git
- - **R** (>= 3.6) https://carpentries.github.io/workshop-template/#r
- - **pandoc** (>= 2.11) we recommend installing this by [installing the RStudio 
-   IDE][RStudio], but you can also install it [via pandoc's website
-   ](https://pandoc.org/installing) or [via anaconda
+ - **R** (>= 3.6) https://carpentries.github.io/workshop-template/#r[^linux-r]
+ - **pandoc** (>= 2.11) we recommend installing this by [installing the RStudio
+   IDE][RStudio][^linux-rstudio], but you can also install it [via pandoc's
+   website](https://pandoc.org/installing) or [via anaconda
    ](https://carpentries.github.io/workshop-template/#python)
 
 ::::: solution
@@ -23,12 +23,15 @@ They can be installed from the following resources:
 
 That's perfectly okay and expected! 
 
-We recommend using RStudio because it provides a lot of convenience of being
-able to work consistently across platforms and reduces the barrier for entry. 
+We recommend using RStudio because it wraps an R console, a text editor, 
+git management, and a file browser in one program. This provides a lot of
+convenience of being able to work consistently across platforms and reduces the
+barrier for entry.
 
 We want to be able to meet you where you are to work with the new template. If
-you feel comfortable using a different tool (e.g. VSCode), then you should
-install R and pandoc separately and make sure that they are in your path. 
+you feel comfortable using a different tool (e.g. the command line or VSCode),
+then you should install R and pandoc separately and make sure that they are in
+your path.
 
 If you are using Windows, setting up your PATH variables can sometimes be
 tricky. The pandoc installer will automatically add itself to your PATH, but R
@@ -38,6 +41,10 @@ Note that R will normally install at something like
 `c:\Program Files\R\R-4.0.0\bin\x64`, but if you are not admin, it will install
 in your documents folder. 
 
+To start R from the command line, you can type the letter `R` and an interactive
+[REPL](https://glosario.carpentries.org/en/#repl) will open with a prompt that
+looks like `>`. 
+
 :::::::::
 
 
@@ -46,8 +53,8 @@ in your documents folder.
 ### Setting up your R workspace
 
 When you set up R, it's important to make sure you set it up to always start R
-with a clean slate[^1]: never save your workspace on exit and never load a
-previously saved workspace on startup.  
+with a clean slate[^workspace]: never save your workspace on exit and never
+load a previously saved workspace on startup.  
 
 #### Via RStudio 
 
@@ -61,7 +68,7 @@ post](https://community.rstudio.com/t/first-line-of-every-r-script/799/12?u=zkam
 #### Via Command Line Interface
 
 The flags `--no-restore` and `--no-save` will set these defaults, so you can 
-create an alias for BASH in the `.bashrc` file in your home directory:
+create an alias for R in the `.bashrc` file in your home directory:
 
 ```bash
 alias R='R --no-restore --no-save'
@@ -81,11 +88,11 @@ no one right way!
 
 ## Lesson Template Modules (R packages)
 
-The template is divided into three R pakages, which are designed to be modular
+The template is divided into three R packages, which are designed to be modular
 and upgradable on the fly. Because these are still in developement, please use
 the following to install (*and update*) the packages:
 
-First, **open R/RStudio** and then follow the instructions based on your
+First, **open R or RStudio** and then follow the instructions based on your
 operating system:
 
 ::::::::::: solution
@@ -179,10 +186,20 @@ setting up authentication credentials for your account:
 [R]: https://cran.rstudio.org/
 [pandoc]: https://pandoc.org/
 [RStudio]: https://rstudio.com/products/rstudio/download/#download
-[^1]: By default, R will ask if you want to save your workspace to a hidden file
+[^workspace]: By default, R will ask if you want to save your workspace to a hidden file
 called `.RData`. This is loaded when you start R, restoring your environment
 with all of the packages and objects you had previously loaded. This default
 behavior is not good for reproducibility and makes updating packages very
 very difficult. In 2017 Jenny Bryan wrote a very good article about the benefits
 of having a project-based workflow, starting from a clean slate: 
 https://www.tidyverse.org/blog/2017/12/workflow-vs-script/
+[^linux-r]: Linux installation may be a bit tricky. Official instructions for 
+various flavours of linux can be found at 
+<https://cran.r-project.org/bin/linux/>
+[^linux-rstudio]: When installing RStudio for Linux, your distribution may not
+be shown on the landing p age (e.g. Ubuntu 20.04). In this case, choose the 
+most recent version and download it to your Downloads folder or install it 
+directly. If you download it, you can [verify the
+download](https://www.rstudio.com/code-signing/) before installing. To start
+RStudio, you can type `rstudio &` to launch RStudio and let the process run in
+the background. 
