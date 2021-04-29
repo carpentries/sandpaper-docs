@@ -41,12 +41,21 @@ Note that R will normally install at something like
 `c:\Program Files\R\R-4.0.0\bin\x64`, but if you are not admin, it will install
 in your documents folder. 
 
-To start R from the command line, you can type the letter `R` and an interactive
-[REPL](https://glosario.carpentries.org/en/#repl) will open with a prompt that
-looks like `>`. 
-
 :::::::::
 
+
+## Starting R
+
+Throughout the lesson, I will ask you to **open R or RStudio**. If you are using
+RStudio, you can open it by double-clicking on the RStudio icon in your
+application launcher. You do not have to open R separately for this.
+
+If you are using R, you can open it in your terminal application by typing `R`.
+Your prompt will be replaced by a `>`, which indicates that you are in R's 
+interactive [REPL](https://glosario.carpentries.org/en/#repl). 
+
+
+You can exit R by typing `q()` in the R console. 
 
 ::::::::: prereq
 
@@ -144,7 +153,63 @@ options(repos = c(
 
 install.packages(c("sandpaper", "varnish", "pegboard", "tinkr"))
 ```
+
+If you run into errors (non-zero exit status), it probably means that you were
+missing a C library dependency that needs to be installed via your package 
+manager. To resolve these issues, scroll back in the log and you might find
+messages that looks similar to this:
+
+```output
+* installing *source* package ‘xslt’ ...
+** using staged installation
+Package libexslt was not found in the pkg-config search path.
+Perhaps you should add the directory containing `libexslt.pc'
+to the PKG_CONFIG_PATH environment variable
+No package 'libexslt' found
+Using PKG_CFLAGS=-I/usr/include/libxml2
+Using PKG_LIBS=-lexslt -lxslt -lxml2
+-----------------------------[ ANTICONF ]-------------------------------
+Configuration failed to find libexslt library. Try installing:
+ * deb: libxslt1-dev (Debian, Ubuntu, etc)
+ * rpm: libxslt-devel (Fedora, CentOS, RHEL)
+ * csw: libxslt_dev (Solaris)
+If libexslt is already installed, check that 'pkg-config' is in your
+PATH and PKG_CONFIG_PATH contains a libexslt.pc file. If pkg-config
+is unavailable you can set INCLUDE_DIR and LIB_DIR manually via:
+R CMD INSTALL --configure-vars='INCLUDE_DIR=... LIB_DIR=...'
+---------------------------[ ERROR MESSAGE ]----------------------------
+<stdin>:1:10: fatal error: libxslt/xslt.h: No such file or directory
+compilation terminated.
+------------------------------------------------------------------------
+```
+
+Use the instructions in these logs to install the correct package from your
+terminal and then open R or RStudio and retry installing the packages. 
+
 ::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::: callout
+
+### Your R library 
+
+When you install R packages, the first message you will see will probably be 
+something like (on Windows):
+
+```
+Installing packages into ‘c:/Users/USER/Documents/R/win-library/4.0’
+(as ‘lib’ is unspecified)
+```
+
+This folder is where all of the R packages you install via `install.packages()`
+will live. If you ever need to look this up, you can use the `.libPaths()`
+function.
+
+Sometimes, your R session will throw a warning that says a folder is not
+writeable and asks if you would like to use a personal library instead. In this
+case, select "yes". 
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 ## Connect to GitHub
 
