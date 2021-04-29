@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-04-29 01:20:31 +0000">
+<meta http-equiv="last-modified" content="2021-04-29 23:48:50 +0000">
 
 
 
@@ -228,20 +228,26 @@
 <p>There are three programs that the template works with: Git, RStudio, and pandoc. They can be installed from the following resources:</p>
 <ul>
 <li><strong>Git</strong> (&gt;= 2.28) <a href="https://carpentries.github.io/workshop-template/#git" class="uri">https://carpentries.github.io/workshop-template/#git</a></li>
-<li><strong>R</strong> (&gt;= 3.6) <a href="https://carpentries.github.io/workshop-template/#r" class="uri">https://carpentries.github.io/workshop-template/#r</a></li>
-<li><strong>pandoc</strong> (&gt;= 2.11) we recommend installing this by <a href="https://rstudio.com/products/rstudio/download/#download">installing the RStudio IDE</a>, but you can also install it <a href="https://pandoc.org/installing">via pandoc’s website</a> or <a href="https://carpentries.github.io/workshop-template/#python">via anaconda</a></li>
+<li><strong>R</strong> (&gt;= 3.6) <a href="https://carpentries.github.io/workshop-template/#r" class="uri">https://carpentries.github.io/workshop-template/#r</a><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></li>
+<li><strong>pandoc</strong> (&gt;= 2.11) we recommend installing this by <a href="https://rstudio.com/products/rstudio/download/#download">installing the RStudio IDE</a><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>, but you can also install it <a href="https://pandoc.org/installing">via pandoc’s website</a> or <a href="https://carpentries.github.io/workshop-template/#python">via anaconda</a></li>
 </ul>
 </div>
 <div id="what-if-i-dont-want-to-use-rstudio" class="section level2 solution">
 <h2>What if I don’t want to use RStudio?</h2>
 <p>That’s perfectly okay and expected!</p>
-<p>We recommend using RStudio because it provides a lot of convenience of being able to work consistently across platforms and reduces the barrier for entry.</p>
-<p>We want to be able to meet you where you are to work with the new template. If you feel comfortable using a different tool (e.g. VSCode), then you should install R and pandoc separately and make sure that they are in your path.</p>
+<p>We recommend using RStudio because it wraps an R console, a text editor, git management, and a file browser in one program. This provides a lot of convenience of being able to work consistently across platforms and reduces the barrier for entry.</p>
+<p>We want to be able to meet you where you are to work with the new template. If you feel comfortable using a different tool (e.g. the command line or VSCode), then you should install R and pandoc separately and make sure that they are in your path.</p>
 <p>If you are using Windows, setting up your PATH variables can sometimes be tricky. The pandoc installer will automatically add itself to your PATH, but R will not. <a href="https://www.maketecheasier.com/what-is-the-windows-path/">Here are some instructions on setting up your PATH on Windows using both the GUI and CLI</a>. Note that R will normally install at something like <code>c:\Program Files\R\R-4.0.0\bin\x64</code>, but if you are not admin, it will install in your documents folder.</p>
+</div>
+<div id="starting-r" class="section level2">
+<h2>Starting R</h2>
+<p>Throughout the lesson, I will ask you to <strong>open R or RStudio</strong>. If you are using RStudio, you can open it by double-clicking on the RStudio icon in your application launcher. You do not have to open R separately for this.</p>
+<p>If you are using R, you can open it in your terminal application by typing <code>R</code>. Your prompt will be replaced by a <code>&gt;</code>, which indicates that you are in R’s interactive <a href="https://glosario.carpentries.org/en/#repl">REPL</a>.</p>
+<p>You can exit R by typing <code>q()</code> in the R console.</p>
 </div>
 <div id="setting-up-your-r-workspace" class="section level2 prereq">
 <h2>Setting up your R workspace</h2>
-<p>When you set up R, it’s important to make sure you set it up to always start R with a clean slate<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>: never save your workspace on exit and never load a previously saved workspace on startup.</p>
+<p>When you set up R, it’s important to make sure you set it up to always start R with a clean slate<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>: never save your workspace on exit and never load a previously saved workspace on startup.</p>
 <div id="via-rstudio" class="section level4">
 <h4>Via RStudio</h4>
 <p>If you are using RStudio, you can <a href="https://community.rstudio.com/t/first-line-of-every-r-script/799/12?u=zkamvar">follow the instructions in this forum post</a>:</p>
@@ -252,7 +258,7 @@
 </div>
 <div id="via-command-line-interface" class="section level4">
 <h4>Via Command Line Interface</h4>
-<p>The flags <code>--no-restore</code> and <code>--no-save</code> will set these defaults, so you can create an alias for BASH in the <code>.bashrc</code> file in your home directory:</p>
+<p>The flags <code>--no-restore</code> and <code>--no-save</code> will set these defaults, so you can create an alias for R in the <code>.bashrc</code> file in your home directory:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> R=<span class="st">&#39;R --no-restore --no-save&#39;</span></span></code></pre></div>
 </div>
 </div>
@@ -264,8 +270,8 @@
 </aside>
 <div id="lesson-template-modules-r-packages" class="section level2">
 <h2>Lesson Template Modules (R packages)</h2>
-<p>The template is divided into three R pakages, which are designed to be modular and upgradable on the fly. Because these are still in developement, please use the following to install (<em>and update</em>) the packages:</p>
-<p>First, <strong>open R/RStudio</strong> and then follow the instructions based on your operating system:</p>
+<p>The template is divided into three R packages, which are designed to be modular and upgradable on the fly. Because these are still in developement, please use the following to install (<em>and update</em>) the packages:</p>
+<p>First, <strong>open R or RStudio</strong> and then follow the instructions based on your operating system:</p>
 </div>
 <div id="macoswindows" class="section level2 solution">
 <h2>MacOS/Windows</h2>
@@ -295,7 +301,40 @@
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>))</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;sandpaper&quot;</span>, <span class="st">&quot;varnish&quot;</span>, <span class="st">&quot;pegboard&quot;</span>, <span class="st">&quot;tinkr&quot;</span>))</span></code></pre></div>
+<p>If you run into errors (non-zero exit status), it probably means that you were missing a C library dependency that needs to be installed via your package manager. To resolve these issues, scroll back in the log and you might find messages that looks similar to this:</p>
+<pre class="output"><code>* installing *source* package ‘xslt’ ...
+** using staged installation
+Package libexslt was not found in the pkg-config search path.
+Perhaps you should add the directory containing `libexslt.pc&#39;
+to the PKG_CONFIG_PATH environment variable
+No package &#39;libexslt&#39; found
+Using PKG_CFLAGS=-I/usr/include/libxml2
+Using PKG_LIBS=-lexslt -lxslt -lxml2
+-----------------------------[ ANTICONF ]-------------------------------
+Configuration failed to find libexslt library. Try installing:
+ * deb: libxslt1-dev (Debian, Ubuntu, etc)
+ * rpm: libxslt-devel (Fedora, CentOS, RHEL)
+ * csw: libxslt_dev (Solaris)
+If libexslt is already installed, check that &#39;pkg-config&#39; is in your
+PATH and PKG_CONFIG_PATH contains a libexslt.pc file. If pkg-config
+is unavailable you can set INCLUDE_DIR and LIB_DIR manually via:
+R CMD INSTALL --configure-vars=&#39;INCLUDE_DIR=... LIB_DIR=...&#39;
+---------------------------[ ERROR MESSAGE ]----------------------------
+&lt;stdin&gt;:1:10: fatal error: libxslt/xslt.h: No such file or directory
+compilation terminated.
+------------------------------------------------------------------------</code></pre>
+<p>Use the instructions in these logs to install the correct package from your terminal and then open R or RStudio and retry installing the packages.</p>
 </div>
+<aside class="callout">
+<div id="your-r-library" class="section level3">
+<h3>Your R library</h3>
+<p>When you install R packages, the first message you will see will probably be something like (on Windows):</p>
+<pre><code>Installing packages into ‘c:/Users/USER/Documents/R/win-library/4.0’
+(as ‘lib’ is unspecified)</code></pre>
+<p>This folder is where all of the R packages you install via <code>install.packages()</code> will live. If you ever need to look this up, you can use the <code>.libPaths()</code> function.</p>
+<p>Sometimes, your R session will throw a warning that says a folder is not writeable and asks if you would like to use a personal library instead. In this case, select “yes”.</p>
+</div>
+</aside>
 <div id="connect-to-github" class="section level2">
 <h2>Connect to GitHub</h2>
 <p>You will need to make sure your git session is connected to GitHub. To do so, you will need to use an SSH or HTTPS protocol. If you already know how to push and pull from GitHub using the command line, you do not need to worry about setting this up.</p>
@@ -324,7 +363,9 @@
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>By default, R will ask if you want to save your workspace to a hidden file called <code>.RData</code>. This is loaded when you start R, restoring your environment with all of the packages and objects you had previously loaded. This default behavior is not good for reproducibility and makes updating packages very very difficult. In 2017 Jenny Bryan wrote a very good article about the benefits of having a project-based workflow, starting from a clean slate: <a href="https://www.tidyverse.org/blog/2017/12/workflow-vs-script/" class="uri">https://www.tidyverse.org/blog/2017/12/workflow-vs-script/</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn1"><p>Linux installation may be a bit tricky. Official instructions for various flavours of linux can be found at <a href="https://cran.r-project.org/bin/linux/" class="uri">https://cran.r-project.org/bin/linux/</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>When installing RStudio for Linux, your distribution may not be shown on the landing p age (e.g. Ubuntu 20.04). In this case, choose the most recent version and download it to your Downloads folder or install it directly. If you download it, you can <a href="https://www.rstudio.com/code-signing/">verify the download</a> before installing. To start RStudio, you can type <code>rstudio &amp;</code> to launch RStudio and let the process run in the background.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>By default, R will ask if you want to save your workspace to a hidden file called <code>.RData</code>. This is loaded when you start R, restoring your environment with all of the packages and objects you had previously loaded. This default behavior is not good for reproducibility and makes updating packages very very difficult. In 2017 Jenny Bryan wrote a very good article about the benefits of having a project-based workflow, starting from a clean slate: <a href="https://www.tidyverse.org/blog/2017/12/workflow-vs-script/" class="uri">https://www.tidyverse.org/blog/2017/12/workflow-vs-script/</a><a href="#fnref3" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 
