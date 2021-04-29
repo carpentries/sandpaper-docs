@@ -17,7 +17,7 @@ exercises: 2
 
 ::::::::::::::::::::::::::::::::::::: objectives 
 
-- Practice creating a new episode with R
+- Practise creating a new episode with R
 - Understand the required elements for each episode
 - Understand pandoc-flavored markdown
 - Demonstrate how to include pieces of code, figures, and nested challenge blocks
