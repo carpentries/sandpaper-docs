@@ -60,11 +60,52 @@ your RStudio or your favorite text editor and in the R console type:
 sandpaper::create_episode("next-episode")
 ```
 
-This will create a new episode in the episodes folder called "02-next-episode".
-If you already have your episode schedule set in `config.yaml`, then this 
-episode will not be rendered in the template and will remain a draft until you
-add it to the schedule. Next, we will show how you can add a title and other
-elements to your episode.
+This will create a new episode in the episodes folder called
+"02-next-episode.Rmd".  If you already have your episode schedule set in
+`config.yaml`, then this episode will not be rendered in the template and will
+remain a draft until you add it to the schedule. Next, we will show how you can
+add a title and other elements to your episode.
+
+:::::::::::::::::::::::::::::::: callout
+
+### What is the `.Rmd` extension?
+
+You might notice that the new episode has the extension of `.Rmd` instead of 
+`.md`. This is R Markdown, an extension of markdown that allows us to insert
+special code fences that can execute R code and automatically produce output
+chunks with controls of how the output and input are rendered in the document. 
+
+For example, this markdown code fence will not produce any output, but it is
+valid for both Markdown and R Markdown. 
+
+````
+```r
+print("hello world!")
+```
+````
+
+```r
+print("hello world!")
+```
+
+But when I open the fence with ```` ```{r} ```` then it becomes an R Markdown
+code fence and will execute the code inside the fence:
+
+````
+```{r}`r '' # this is a trick to force R Markdown to print chunks, but not evaluate them`
+print("hello world!")
+```
+````
+
+```{r}
+print("hello world!")
+```
+
+Note that it is completely optional to use these special code fences! 
+
+:::::::::::::::::::::::::::::::::::::::::
+
+
 
 ## Required Elements
 
