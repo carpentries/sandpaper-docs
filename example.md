@@ -33,13 +33,37 @@ Carpentries lesson template:
  3. `keypoints` These are displayed at the end of the episode to reinforce the
     objectives.
 
+### Code fences
+
+Code fences written in standard markdown format will be highlighted, but not
+evaluated:
+
+```bash
+echo '47 + 2' | bc
+echo '47 * 2' | bc
+```
+
+Code fences written using R Markdown chunk notation will be highlighted and 
+executed:
+
+
+```r
+magic <- sprintf("47 plus 2 equals %d\n47 times 2 equals %d", 47 + 2, 47 * 2) 
+cat(magic)
+```
+
+```{.output}
+47 plus 2 equals 49
+47 times 2 equals 94
+```
+
+It's magic!
 
 ::::::::::::::: challenge ::::::::::::::::::::::
 
 ## Challenge 1: Can you do it?
 
 What is the output of this command?
-
 
 ```r
 paste("This", "new", "template", "looks", "good")
@@ -66,7 +90,7 @@ You can add a line with at least three colons and a `solution` tag.
 :::::::::::::::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-# Figures
+## Figures
 
 You can also include figures:
 
@@ -83,7 +107,7 @@ pie(
 <img src="fig/example-rendered-pyramid-1.png" title="plot of chunk pyramid" alt="plot of chunk pyramid" style="display: block; margin: auto;" />
 
 
-# Math
+## Math
 
 One of our episodes contains $\LaTeX$ equations when describing how to create
 dynamic reports with {knitr}, so we now use mathjax to describe this:
