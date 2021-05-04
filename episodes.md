@@ -26,12 +26,20 @@ exercises: 2
 
 ## Introduction
 
+An episode[^episodes] is an individual unit of a lesson that focuses on a
+single topic with clear questions, objectives, and key points. If a lesson goal
+is to teach you about using git, an individual episode would teach you how to
+inspect the status of a git repsitory. The idea behind the name "episode" is
+the thought that each one should last about as long as an episode for an
+television series.
+
 As we will cover in the [next episode](editing.html), all of the episodes live
 inside the `episodes/` directory at the top of the lesson folder. Their order is
 dictated by the `episodes:` element in the `config.yaml` file (but defaults to 
 alphabetical). The other folders (`learners/`, `instructors/`, and `profiles/`)
 are similarly configured. This episode will briefly explain how to edit markdown
 content in the lessons. 
+
 
 :::::: prereq
 
@@ -110,8 +118,6 @@ Note that it is completely optional to use these special code fences!
 
 :::::::::::::::::::::::::::::::::::::::::
 
-
-
 ## Required Elements
 
 To keep with our active learning principals, we want to be mindful about the 
@@ -162,8 +168,8 @@ displayed along with the questions
 3. `keypoints` are displayed at the end of the episode to reinforce the
 objectives
 
-They are formatted as [pandoc fenced div sections][fenced-divs], which we will
-explain in the next section:
+They are formatted as [pandoc fenced divisions][fenced-divs], which we will
+explain in [the next section](#callout-blocks):
 
 ```markdown
 ---
@@ -187,31 +193,38 @@ exercises:
 :::::: keypoints
  - keypoint 1
  - keypoint 2
-:::::::
+::::::
 ```
 
 
-## Editing an episode: Callout blocks
+## Editing an episode: Callout blocks {#callout-blocks}
 
 One of the key elements of our lessons are our callout blocks that give learners
-and instructors a bold visual cue to stop and consider a caveat or exercise. To
-create these blocks, we use [pandoc fenced-divs][fenced-divs]. These are similar
-to code fences in which they start with at least three colons and end with at
-least three colons. For example, to create a callout block, we would do this:
+and instructors a **bold visual cue** to stop and consider a caveat or exercise.
+To create these blocks, we use [**pandoc fenced divisions, aka
+_'fenced-divs'_**][fenced-divs], which are colon-delimited sections similar to 
+code fences that can instruct the markdown interpreter how the content should be
+styled. 
+
+For example, to create a `callout` block, we would use *at least three colons*
+followed by the `callout` tag (the tag designates an open fence), add our
+content after a new line, and then close the fence with *at least three colons*
+and no tag (which designates a closed fence):
 
 ```markdown
 ::: callout
-This is a callout block. It contains three colons
+This is a callout block. It contains at least three colons
 :::
 ```
 
 ::: callout
-This is a callout block. It contains three colons
+This is a callout block. It contains at least three colons
 :::
 
 However, it may be difficult sometimes to keep track of a section if it's only
-delimited by three colons. To alleviate this, we recommend creating blocks with
-enough colons that can easily distinguish a section from a heading or code block:
+delimited by three colons. Because [the specification for fenced-divs require
+*at least* three colons][fenced-divs], it's possible to include more to really
+differentiate between these and headers or code fences:
 
 ```markdown
 ::::::::::::::::::::::::::::::::::::::::::::::: testimonial
@@ -226,6 +239,10 @@ I'm **really excited** for the _new template_ when it arrives :grin:.
 
 --- Toby Hodges
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Even better, you do not have to worry about counting colons! It doesn't matter
+how many colons you put for the opening and closing fences, all that matters is
+you can visually see that the fences match. 
 
 ::::::::::::::::::::::::::::::::::::::::::::::: callout
 
@@ -304,6 +321,30 @@ You can add a line with at least three colons and a `solution` tag.
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 
+Now, here's a real challenge for you
+
+:::::::::::::::::::::::::::::::::::::: challenge
+
+Is the following fenced-div valid? Why?
+
+```markdown
+::::::::::::::::::::: my-class
+This is a block of my class
+:::
+```
+
+::::::::::::::::::::::: solution
+
+Yes! It is a valid fenced div for the following reasons:
+
+1. The opening fence has &ge;3 colons
+2. The opening fence has a class designation
+3. The closing fence is on its own line and has &ge;3 colons
+
+:::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 ## Figures
 
@@ -347,11 +388,6 @@ Cool, right?
 - Run `sandpaper::build_lesson()` to preview your lesson locally
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
-
-[pandoc-md]: https://pandoc.org/MANUAL#pandocs-markdown
-[fenced-divs]: https://pandoc.org/MANUAL#divs-and-spans
-[basic-syntax]: https://www.markdownguide.org/basic-syntax
-[extended-syntax]: https://www.markdownguide.org/extended-syntax/
 
 <!-- Please do not delete anything below this line -->
 
@@ -403,4 +439,13 @@ Cool, right?
 [training]: https://carpentries.github.io/instructor-training/
 [workshop-repo]: {{ site.workshop_repo }}
 [yaml]: https://yaml.org/
+
+[pandoc-md]: https://pandoc.org/MANUAL#pandocs-markdown
+[fenced-divs]: https://pandoc.org/MANUAL#divs-and-spans
+[basic-syntax]: https://www.markdownguide.org/basic-syntax
+[extended-syntax]: https://www.markdownguide.org/extended-syntax/
+[^episodes]: The designation of "episode" will likely change. Throught UX
+testing, it's clear that calling these lesson units "episodes" is confusing, 
+even for people who have been in The Carpentries for several years. The current
+working proposal is to call these "chapters". 
 
