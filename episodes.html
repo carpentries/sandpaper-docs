@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-04-30 01:06:37 +0000">
+<meta http-equiv="last-modified" content="2021-05-04 23:45:44 +0000">
 
 
 
@@ -258,6 +258,7 @@
 </div>
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
+<p>An episode<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> is an individual unit of a lesson that focuses on a single topic with clear questions, objectives, and key points. If a lesson goal is to teach you about using git, an individual episode would teach you how to inspect the status of a git repsitory. The idea behind the name “episode” is the thought that each one should last about as long as an episode for an television series.</p>
 <p>As we will cover in the <a href="editing.html">next episode</a>, all of the episodes live inside the <code>episodes/</code> directory at the top of the lesson folder. Their order is dictated by the <code>episodes:</code> element in the <code>config.yaml</code> file (but defaults to alphabetical). The other folders (<code>learners/</code>, <code>instructors/</code>, and <code>profiles/</code>) are similarly configured. This episode will briefly explain how to edit markdown content in the lessons.</p>
 </div>
 <div id="buoyant-barnacle" class="section level2 prereq">
@@ -328,7 +329,7 @@ print(&quot;hello world!&quot;)
 <li><code>objectives</code> are the learning objectives for an episode and are displayed along with the questions</li>
 <li><code>keypoints</code> are displayed at the end of the episode to reinforce the objectives</li>
 </ol>
-<p>They are formatted as <a href="https://pandoc.org/MANUAL#divs-and-spans">pandoc fenced div sections</a>, which we will explain in the next section:</p>
+<p>They are formatted as <a href="https://pandoc.org/MANUAL#divs-and-spans">pandoc fenced divisions</a>, which we will explain in <a href="#callout-blocks">the next section</a>:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="an">teaching:</span></span>
@@ -350,21 +351,22 @@ print(&quot;hello world!&quot;)
 <span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>:::::: keypoints</span>
 <span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>keypoint 1</span>
 <span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>keypoint 2</span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>:::::::</span></code></pre></div>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>::::::</span></code></pre></div>
 </div>
-<div id="editing-an-episode-callout-blocks" class="section level2">
+<div id="callout-blocks" class="section level2">
 <h2>Editing an episode: Callout blocks</h2>
-<p>One of the key elements of our lessons are our callout blocks that give learners and instructors a bold visual cue to stop and consider a caveat or exercise. To create these blocks, we use <a href="https://pandoc.org/MANUAL#divs-and-spans">pandoc fenced-divs</a>. These are similar to code fences in which they start with at least three colons and end with at least three colons. For example, to create a callout block, we would do this:</p>
+<p>One of the key elements of our lessons are our callout blocks that give learners and instructors a <strong>bold visual cue</strong> to stop and consider a caveat or exercise. To create these blocks, we use <a href="https://pandoc.org/MANUAL#divs-and-spans"><strong>pandoc fenced divisions, aka <em>‘fenced-divs’</em></strong></a>, which are colon-delimited sections similar to code fences that can instruct the markdown interpreter how the content should be styled.</p>
+<p>For example, to create a <code>callout</code> block, we would use <em>at least three colons</em> followed by the <code>callout</code> tag (the tag designates an open fence), add our content after a new line, and then close the fence with <em>at least three colons</em> and no tag (which designates a closed fence):</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>::: callout</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>This is a callout block. It contains three colons</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>This is a callout block. It contains at least three colons</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div>
 <aside class="callout">
 <div class="section level3">
 <h3>Callout</h3>
-<p>This is a callout block. It contains three colons</p>
+<p>This is a callout block. It contains at least three colons</p>
 </div>
 </aside>
-<p>However, it may be difficult sometimes to keep track of a section if it’s only delimited by three colons. To alleviate this, we recommend creating blocks with enough colons that can easily distinguish a section from a heading or code block:</p>
+<p>However, it may be difficult sometimes to keep track of a section if it’s only delimited by three colons. Because <a href="https://pandoc.org/MANUAL#divs-and-spans">the specification for fenced-divs require <em>at least</em> three colons</a>, it’s possible to include more to really differentiate between these and headers or code fences:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>::::::::::::::::::::::::::::::::::::::::::::::: testimonial</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>I&#39;m **really excited** for the _new template_ when it arrives :grin:.</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -376,6 +378,7 @@ print(&quot;hello world!&quot;)
 <p>I’m <strong>really excited</strong> for the <em>new template</em> when it arrives <span class="emoji" data-emoji="grin">😁</span>.</p>
 <p>— Toby Hodges</p>
 </div>
+<p>Even better, you do not have to worry about counting colons! It doesn’t matter how many colons you put for the opening and closing fences, all that matters is you can visually see that the fences match.</p>
 <aside class="callout">
 <div class="section level3">
 <h3>Callout</h3>
@@ -427,21 +430,40 @@ print(&quot;hello world!&quot;)
 <p>You can add a line with at least three colons and a <code>solution</code> tag.</p>
 </div>
 </div>
+<p>Now, here’s a real challenge for you</p>
+<div class="challenge">
+<div class="section level2">
+<h2>Challenge</h2>
+<p>Is the following fenced-div valid? Why?</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>::::::::::::::::::::: my-class</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>This is a block of my class</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre></div>
+</div>
+<div class="section level2 solution">
+<h2>Solution</h2>
+<p>Yes! It is a valid fenced div for the following reasons:</p>
+<ol style="list-style-type: decimal">
+<li>The opening fence has ≥3 colons</li>
+<li>The opening fence has a class designation</li>
+<li>The closing fence is on its own line and has ≥3 colons</li>
+</ol>
+</div>
+</div>
 <div id="figures" class="section level2">
 <h2>Figures</h2>
 <p>To include figures, place them in the <code>episodes/fig</code> folder and reference them directly like so:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Hex sticker for The Carpentries](fig/carpentries-hex-blue.svg)</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Hex sticker for The Carpentries](fig/carpentries-hex-blue.svg)</span></span></code></pre></div>
 <div class="figure">
 <img src="fig/carpentries-hex-blue.svg" alt="" />
 <p class="caption">Hex sticker for The Carpentries</p>
 </div>
 <p>If your lesson uses R, they will be auto-generated and linked. You can use <code>fig.alt</code> to include alt text</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="at">Sky =</span> <span class="dv">78</span>, <span class="st">&quot;Sunny side of pyramid&quot;</span> <span class="ot">=</span> <span class="dv">17</span>, <span class="st">&quot;Shady side of pyramid&quot;</span> <span class="ot">=</span> <span class="dv">5</span>), </span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">init.angle =</span> <span class="dv">315</span>, </span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;deepskyblue&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;yellow3&quot;</span>),</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">border =</span> <span class="cn">FALSE</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="at">Sky =</span> <span class="dv">78</span>, <span class="st">&quot;Sunny side of pyramid&quot;</span> <span class="ot">=</span> <span class="dv">17</span>, <span class="st">&quot;Shady side of pyramid&quot;</span> <span class="ot">=</span> <span class="dv">5</span>), </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">init.angle =</span> <span class="dv">315</span>, </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;deepskyblue&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;yellow3&quot;</span>),</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">border =</span> <span class="cn">FALSE</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <p><img src="fig/episodes-rendered-pyramid-1.png" title="pie chart illusion of a pyramid" alt="pie chart illusion of a pyramid" style="display: block; margin: auto;" /></p>
 </div>
 <div id="math" class="section level2">
@@ -459,6 +481,12 @@ print(&quot;hello world!&quot;)
 </ul>
 </div>
 <!-- Please do not delete anything below this line -->
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>The designation of “episode” will likely change. Throught UX testing, it’s clear that calling these lesson units “episodes” is confusing, even for people who have been in The Carpentries for several years. The current working proposal is to call these “chapters”.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
 
   </div>
 
