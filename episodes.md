@@ -51,8 +51,7 @@ created in [the Introduction](introduction.html)
 :::::::::::::
 
 There are three things you should be comfortable with in order to contribute to
-a lesson [^Do not worry if you aren't comfortable yet, that's what we will show
-you in this episode!]
+a lesson [^worry]
 
 1. Writing [basic][basic-syntax] and [extended][extended-syntax] markdown syntax
 2. Writing [Fenced div elements][fenced-divs] to create callouts and exercise
@@ -349,15 +348,36 @@ Yes! It is a valid fenced div for the following reasons:
 ## Figures
 
 To include figures, place them in the `episodes/fig` folder and reference them 
-directly like so:
+directly like so using standard markdown format, with one twist: add an `alt`
+attribute at the end to make it accessible like this: 
+`![caption](image){alt='alt text'}`.
+
 
 ```markdown
-![Hex sticker for The Carpentries](fig/carpentries-hex-blue.svg)
+![Hex sticker for The Carpentries](fig/carpentries-hex-blue.svg){alt="blue
+hexagon with The Carpentries logo in white and text: 'The Carpentries'"}
 ```
-![Hex sticker for The Carpentries](fig/carpentries-hex-blue.svg)
 
-If your lesson uses R, they will be auto-generated and linked. You can use
-`fig.alt` to include alt text
+![Hex sticker for The Carpentries](fig/carpentries-hex-blue.svg){alt="blue
+hexagon with The Carpentries logo in white and text: 'The Carpentries'"}
+
+:::::::::::::::::::::::::::: discussion
+
+### Accessibility Point: Alternative Text (aka alt-text)
+
+Alternative text (alt text) is a very important tool for making lessons
+accessible. If you are unfamiliar with alt text for images, [this primer on alt
+text gives a good rundown of what alt text is and why it matters][alt-text]. In
+short, alt text provides a short description of an image that can take the place
+of an image if it is missing or the user is unable to see it.
+
+::::::::::::::::::::::::::::::::::::::
+
+If your lesson uses R, some images will be auto-generated from evaluated code
+chunks and linked. You can use `fig.alt` to include alt text. [This blogpost has
+more information about including alt text in RMarkdown 
+documents](https://blog.rstudio.com/2021/04/20/knitr-fig-alt/).
+<!--TODO: and `fig.cap` to provide a caption.-->
 
 
 ```r
@@ -370,7 +390,6 @@ pie(
 ```
 
 <img src="fig/episodes-rendered-pyramid-1.png" title="pie chart illusion of a pyramid" alt="pie chart illusion of a pyramid" style="display: block; margin: auto;" />
-
 
 ## Math
 
@@ -444,8 +463,11 @@ Cool, right?
 [fenced-divs]: https://pandoc.org/MANUAL#divs-and-spans
 [basic-syntax]: https://www.markdownguide.org/basic-syntax
 [extended-syntax]: https://www.markdownguide.org/extended-syntax/
+[alt-text]: https://axesslab.com/alt-texts/
 [^episodes]: The designation of "episode" will likely change. Throught UX
-testing, it's clear that calling these lesson units "episodes" is confusing, 
-even for people who have been in The Carpentries for several years. The current
-working proposal is to call these "chapters". 
+  testing, it's clear that calling these lesson units "episodes" is confusing,
+  even for people who have been in The Carpentries for several years. The
+  current working proposal is to call these "chapters". 
+[^worry]: Do not worry if you aren't comfortable yet, that's what we will show
+  you in this episode!
 
