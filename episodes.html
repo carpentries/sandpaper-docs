@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-05-06 18:34:59 +0000">
+<meta http-equiv="last-modified" content="2021-05-08 00:24:07 +0000">
 
 
 
@@ -463,14 +463,19 @@ print(&quot;hello world!&quot;)
 <h2>Accessibility Point: Alternative Text (aka alt-text)</h2>
 <p>Alternative text (alt text) is a very important tool for making lessons accessible. If you are unfamiliar with alt text for images, <a href="https://axesslab.com/alt-texts/">this primer on alt text gives a good rundown of what alt text is and why it matters</a>. In short, alt text provides a short description of an image that can take the place of an image if it is missing or the user is unable to see it.</p>
 </div>
-<p>If your lesson uses R, some images will be auto-generated from evaluated code chunks and linked. You can use <code>fig.alt</code> to include alt text. <a href="https://blog.rstudio.com/2021/04/20/knitr-fig-alt/">This blogpost has more information about including alt text in RMarkdown documents</a>. <!--TODO: and `fig.cap` to provide a caption.--></p>
+<p>If your lesson uses R, some images will be auto-generated from evaluated code chunks and linked. You can use <code>fig.alt</code> to include alt text. <a href="https://blog.rstudio.com/2021/04/20/knitr-fig-alt/">This blogpost has more information about including alt text in RMarkdown documents</a>. In addition, you can also use <code>fig.cap</code> to provide a caption that puts the picture into context (but take care to not be redundant; screen readers will read both fields).</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="at">Sky =</span> <span class="dv">78</span>, <span class="st">&quot;Sunny side of pyramid&quot;</span> <span class="ot">=</span> <span class="dv">17</span>, <span class="st">&quot;Shady side of pyramid&quot;</span> <span class="ot">=</span> <span class="dv">5</span>), </span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">init.angle =</span> <span class="dv">315</span>, </span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;deepskyblue&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;yellow3&quot;</span>),</span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">border =</span> <span class="cn">FALSE</span></span>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<p><img src="fig/episodes-rendered-pyramid-1.png" title="pie chart illusion of a pyramid" alt="pie chart illusion of a pyramid" style="display: block; margin: auto;" /></p>
+<div class="figure" style="text-align: center">
+<img src="fig/episodes-rendered-pyramid-1.png" alt="pie chart illusion of a pyramid"  />
+<p class="caption">
+Sun arise each and every morning
+</p>
+</div>
 <div id="math" class="section level2">
 <h2>Math</h2>
 <p>One of our episodes contains <span class="math inline">\(\LaTeX\)</span> equations when describing how to create dynamic reports with {knitr}, so we now use mathjax to describe this:</p>
