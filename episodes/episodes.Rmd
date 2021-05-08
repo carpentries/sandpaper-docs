@@ -369,10 +369,11 @@ of an image if it is missing or the user is unable to see it.
 If your lesson uses R, some images will be auto-generated from evaluated code
 chunks and linked. You can use `fig.alt` to include alt text. [This blogpost has
 more information about including alt text in RMarkdown 
-documents](https://blog.rstudio.com/2021/04/20/knitr-fig-alt/).
-<!--TODO: and `fig.cap` to provide a caption.-->
+documents](https://blog.rstudio.com/2021/04/20/knitr-fig-alt/). In addition, you
+can also use `fig.cap` to provide a caption that puts the picture into context
+(but take care to not be redundant; screen readers will read both fields). 
 
-```{r pyramid, fig.alt = "pie chart illusion of a pyramid"}
+```{r pyramid, fig.cap = "Sun arise each and every morning", fig.alt = "pie chart illusion of a pyramid"}
 pie(
   c(Sky = 78, "Sunny side of pyramid" = 17, "Shady side of pyramid" = 5), 
   init.angle = 315, 
