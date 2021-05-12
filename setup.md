@@ -2,8 +2,7 @@
 title: Setup
 ---
 
-The {sandpaper} template requires [R] and [pandoc] to be installed, both of 
-which are bundled in the [RStudio] IDE. 
+The {sandpaper} template requires [R] and [pandoc] to be installed. Since [pandoc] is installed via [RStudio], we recommend R and RStudio. Read on for more details about the software used in the template.  
 
 ## Foundational software
 
