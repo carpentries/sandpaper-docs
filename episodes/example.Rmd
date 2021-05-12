@@ -97,6 +97,19 @@ pie(
 ```
 
 
+::::::::::::::::::::::::::::: challenge
+
+## Challenge 3: the missing tags
+
+See if the interpreter finds the missing tag
+
+:::::::::::::::::::: solution
+
+I betcha it will
+
+::::::::::::::::::::::::::::::::::::::::
+
+
 ## Math
 
 One of our episodes contains $\LaTeX$ equations when describing how to create
