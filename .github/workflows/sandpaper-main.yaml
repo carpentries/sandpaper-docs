@@ -24,7 +24,14 @@ jobs:
       - name: Install Mac Deps
         run: brew install libgit2 harfbuzz fribidi
 
-      - name: Query dependencies
+      - name: Restore Package Cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
+          restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
+
+      - name: Query Sandpaper Dependencies
         run: |
           install.packages('remotes')
           install.packages('drat')
@@ -33,16 +40,13 @@ jobs:
           writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
         shell: Rscript {0}
 
-      - name: Cache R packages
-        uses: actions/cache@v2
-        with:
-          path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
-          restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
-
-      - name: Install dependencies
+      - name: Install Sandpaper Dependencies
         run: |
-          remotes::install_github('carpentries/sandpaper', dependencies = TRUE)
+          library("remotes")
+          drat:::add("carpentries")
+          pkgs <- utils::readRDS(".github/depends.Rds")
+          pkgs$diff[pkgs$package == "tinkr"] <- -1 # force tinkr update for now
+          remotes::update(pkgs, upgrade = "always")
           remotes::install_github('carpentries/varnish')
           install.packages("sessioninfo")
         shell: Rscript {0}
@@ -50,17 +54,18 @@ jobs:
       - name: Show Session Information
         run: |
           cli::cli_rule("Time Built")
-          cat("sandpaper", packageDescription("sandpaper")$Packaged, "\n")
-          cat("pegboard ", packageDescription("pegboard")$Packaged, "\n")
-          cat("varnish  ", packageDescription("varnish")$Packaged, "\n")
-          cat("tinkr    ", packageDescription("tinkr")$Packaged, "\n")
+          pkg_tim <- function(p) {
+            paste(format(c(p, "sandpaper"))[1], packageDescription(p)$Packaged)
+          }
+          status <- vapply(c("sandpaper", "pegboard", "varnish", "tinkr"), pkg_tim, character(1))
+          cli::cli_bullets(status)
           cli::cli_rule("Session info")
           sessioninfo::platform_info()
           cli::cli_rule("Package Info")
           sessioninfo::package_info("sandpaper", dependencies = TRUE)
         shell: Rscript {0}
 
-      - name: Deploy site
+      - name: Deploy Site
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
