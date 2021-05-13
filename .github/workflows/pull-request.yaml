@@ -51,12 +51,12 @@ jobs:
 
       - name: Install Sandpaper Dependencies
         run: |
-          library("remotes")
           drat:::add("carpentries")
           pkgs <- readRDS(".github/depends.Rds")
           pkgs$diff[pkgs$package == "tinkr"] <- -1 # force tinkr update for now
-          remotes::update(pkgs, upgrade = "always")
-          remotes::install_github('carpentries/varnish')
+          library("remotes")
+          update(pkgs, upgrade = "always")
+          install_github('carpentries/varnish')
           install.packages("sessioninfo")
         shell: Rscript {0}
 
