@@ -44,7 +44,7 @@ jobs:
         run: |
           library("remotes")
           drat:::add("carpentries")
-          pkgs <- utils::readRDS(".github/depends.Rds")
+          pkgs <- readRDS(".github/depends.Rds")
           pkgs$diff[pkgs$package == "tinkr"] <- -1 # force tinkr update for now
           remotes::update(pkgs, upgrade = "always")
           remotes::install_github('carpentries/varnish')
