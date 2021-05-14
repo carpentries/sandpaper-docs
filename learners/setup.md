@@ -2,19 +2,53 @@
 title: Setup
 ---
 
-The {sandpaper} template requires [R] and [pandoc] to be installed. Since [pandoc] is installed via [RStudio], we recommend R and RStudio. Read on for more details about the software used in the template.  
+## Overview
 
-## Foundational software
+The lesson infrastructure is built on top of Git, [R], and [pandoc]. It consists
+of four components
 
-There are three programs that the template works with: Git, RStudio, and pandoc.
-They can be installed from the following resources:
+1. The content (plain markdown or RMarkdown files organized into folders with a 
+   configuration yaml file)
+2. The engine to orchestrate building the content from markdown to HTML (R 
+   package [{sandpaper}])
+3. The validator to parse the source files and highlight common errors (R 
+   package [{pegboard}])[^tinkr]
+4. The HTML, CSS, and JavaScript styling elements for the final website (R 
+   package [{varnish}])
 
- - **Git** (>= 2.28) https://carpentries.github.io/workshop-template/#git
- - **R** (>= 3.6) https://carpentries.github.io/workshop-template/#r[^linux-r]
- - **pandoc** (>= 2.11) we recommend installing this by [installing the RStudio
-   IDE][RStudio][^linux-rstudio], but you can also install it [via pandoc's
-   website](https://pandoc.org/installing) or [via anaconda
+### Required Software {#required}
+
+This setup document will walk you through the process of installing or upgrading
+the required software in the following order.
+
+1. **Git** (>= 2.28)
+2. **R** (>= 3.6)
+3. **pandoc** (>= 2.11)
+4. The lesson infrastructure R packages
+  i. **[{sandpaper}]** (development version)
+  ii. **[{varnish}]** (development version)
+  iii. **[{pegboard}]** (development version)
+  iiii. **[{tinkr}]** (markdown parser required by {pegboard}, development version)
+
+ **pandoc** (>= 2.11), Instructions: we recommend installing this by [installing the RStudio IDE](#recommend)[^linux-rstudio], but you can also install it [via pandoc's
+   website](https://pandoc.org/installing) or [anaconda
    ](https://carpentries.github.io/workshop-template/#python)
+
+### Recommended Software {#recommend}
+
+If you are using R or pandoc for the first time, we recommend using [the RStudio
+IDE][RStudio] for the following reasons:
+
+1. It comes with [pandoc] pre-installed.
+2. Works consistently across all major platforms.
+3. A dedicated BASH console so you can easily switch between R and Git
+   operations.
+4. Conveninent keyboard shortcuts to preview lessons.
+5. It will automatically detect your R installation without you needing to
+   edit your PATH
+
+If you do not want to use RStudio, that's perfectly okay and expected! 
+
 
 ::::: solution
 
@@ -249,21 +283,28 @@ setting up authentication credentials for your account:
 
 [R]: https://cran.rstudio.org/
 [pandoc]: https://pandoc.org/
+[{sandpaper}]: https://carpentries.github.io/sandpaper/
+[{pegboard}]: https://carpentries.github.io/pegboard/
+[{varnish}]: https://github.com/carpentries/varnish#readme
+[{tinkr}]: https://docs.ropensci.org/tinkr/
 [RStudio]: https://rstudio.com/products/rstudio/download/#download
-[^workspace]: By default, R will ask if you want to save your workspace to a hidden file
-called `.RData`. This is loaded when you start R, restoring your environment
-with all of the packages and objects you had previously loaded. This default
-behavior is not good for reproducibility and makes updating packages very
-very difficult. In 2017 Jenny Bryan wrote a very good article about the benefits
-of having a project-based workflow, starting from a clean slate: 
-https://www.tidyverse.org/blog/2017/12/workflow-vs-script/
-[^linux-r]: Linux installation may be a bit tricky. Official instructions for 
-various flavours of linux can be found at 
-<https://cran.r-project.org/bin/linux/>
+[^workspace]: By default, R will ask if you want to save your workspace to a
+  hidden file called `.RData`. This is loaded when you start R, restoring your
+  environment with all of the packages and objects you had previously loaded.
+  This default behavior is not good for reproducibility and makes updating
+  packages very very difficult. In 2017 Jenny Bryan wrote a very good article
+  about the benefits of having a project-based workflow, starting from a clean
+  slate: <https://www.tidyverse.org/blog/2017/12/workflow-vs-script/>
+[^linux-r]: Linux installation may be a bit tricky because some package
+  managers are notoriously out-of-date (i.e. apt). Official instructions for
+  various flavours of linux can be found at
+  <https://cran.r-project.org/bin/linux/>
 [^linux-rstudio]: When installing RStudio for Linux, your distribution may not
-be shown on the landing p age (e.g. Ubuntu 20.04). In this case, choose the 
-most recent version and download it to your Downloads folder or install it 
-directly. If you download it, you can [verify the
-download](https://www.rstudio.com/code-signing/) before installing. To start
-RStudio, you can type `rstudio &` to launch RStudio and let the process run in
-the background. 
+  be shown on the landing page (e.g. Ubuntu 20.04). In this case, choose the
+  most recent version and download it to your Downloads folder or install it
+  directly. If you download it, you can [verify the
+  download](https://www.rstudio.com/code-signing/) before installing. To start
+  RStudio, you can type `rstudio &` to launch RStudio and let the process run in
+  the background. 
+[^tinkr]: Note: {pegboard} requires the [{tinkr}] package from rOpenSci. It 
+  is still in development, so we will install this package explicitly. 
