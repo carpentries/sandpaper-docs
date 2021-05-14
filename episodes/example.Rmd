@@ -71,7 +71,6 @@ paste("This", "new", "template", "looks", "good")
 paste("This", "new", "template", "looks", "good")
 ```
 
-:::::::::::::::::::::::::::::::::
 
 
 ## Challenge 2: how do you nest solutions within challenge blocks?
