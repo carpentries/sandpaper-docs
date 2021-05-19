@@ -283,9 +283,79 @@ install.packages(c("sandpaper", "varnish", "pegboard", "tinkr"))
 
 ## Installing on Linux {#linux}
 
+A lot of the documentation for Linux is nuanced because it assumes that if you
+use Linux, then you automatically know how to install things by the command
+line. I will be providing instructions as best I can for Ubuntu Linux and point
+to resourced for other distributions. For Ubuntu/Debian, the default `apt`
+repository is often out of date, so you will need to use a 
+[Personal Package Archive aka PPA](https://itsfoss.com/ppa-guide/) to install
+the latest version of a particular software, which I will include in these
+instructions. 
+
 ### Git
 
+You should have git pre-installed on your computer, but it will likely be 
+outdated. It's okay if this is the case, but if you want to update via `apt`,
+you can add the git-core ppa:
+
+```bash
+sudo add-apt-repository ppa:git-core/ppa
+sudo apt update
+sudo apt install git
+```
+
+#### Verification
+
+Test your git installation by opening the terminal and running
+
+```bash
+git --version
+```
+```output
+git version 2.31.1
+```
+
 ### R
+
+To install R, you can visit <https://cran.r-project.org/bin/linux/> to check if
+your platform is supported. For Ubuntu, there are detailed instructions at:
+<https://cran.r-project.org/bin/linux/ubuntu/>. Here are the commands to register
+the PPA on your machine and then install R:
+
+```bash
+# update indices
+sudo apt update -qq
+# install two helper packages we need
+sudo apt install --no-install-recommends software-properties-common dirmngr
+# import the signing key (by Michael Rutter) for these repo
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+# add the R 4.0 repo from CRAN -- adjust 'focal' to 'groovy' or 'bionic' as needed
+sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
+
+# Install R
+apt install --no-install-recommends r-base
+```
+
+#### Verification
+
+Test your R installation by opening your terminal and running:
+
+```bash
+R --version
+```
+
+```output
+R version 4.1.0 (2021-05-18) -- "Camp Pontanezen"
+Copyright (C) 2021 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under the terms of the
+GNU General Public License versions 2 or 3.
+For more information about these matters see
+https://www.gnu.org/licenses/.
+
+```
 
 ### pandoc
 
