@@ -74,6 +74,8 @@ We recommend installing git via the Git for Windows installer at
 so we recommend [using The Carpentries checklist for workshop
 participants](https://carpentries.github.io/workshop-template/#shell-windows).
 
+#### Verify the installation
+
 To check that you have git installed, you can go to your taskbar at the bottom 
 of your screen and type `cmd` to bring up the command prompt. From there, you
 can type `git --version` to see the version of your git installation. You might
@@ -105,7 +107,7 @@ that can be quite helpful for parsing the steps of installing R on Windows.
 
 ::::::::::::::::::::: callout
 
-#### Want to add R to your PATH? {#winpath}
+#### Optional: Want to add R to your PATH? {#winpath}
 
 As we mention above, [we recommend using RStudio for your lesson](#recommend),
 but if you want to be able to integrate the lesson infrastructure into your own
@@ -117,6 +119,25 @@ GUI and CLI](https://www.maketecheasier.com/what-is-the-windows-path/). Note
 that R will normally install at something like 
 `c:\Program Files\R\R-4.1.0\bin\x64`, but if you are not admin, it will install
 in your Documents folder. 
+
+To verify that R is installed in your `PATH`, you can go to your taskbar at the
+bottom of your screen and type `cmd` to bring up the command prompt. From there,
+you can type `R --version` at the prompt:
+
+```bash
+R --version
+```
+```output
+R version 4.1.0 (2021-05-18) -- "Camp Pontanezen"
+Copyright (C) 2021 The R Foundation for Statistical Computing
+Platform: x86_64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under the terms of the
+GNU General Public License versions 2 or 3.
+For more information about these matters see
+https://www.gnu.org/licenses/.
+```
 
 :::::::::::::::::::::::::::::
 
@@ -136,11 +157,16 @@ If you are comfortable adding R to your windows PATH (see [previous
 section](#winpath)), then you can install pandoc by using the binary provided on
 its website at <https://pandoc.org/installing.html>
 
-### R packages
+#### Verification
 
-To install the R packages, you will need to open RStudio (or start R from the
-command line if you did not install RStudio) and enter the following lines into
-the console. 
+We will wait to verify that pandoc was installed after we install the
+infrastructure packages, to make sure it's discoverable.
+
+### infrastructure R packages
+
+To install the R packages, you will need to **open RStudio** (or start R from
+the command line if you did not install RStudio) and enter the following lines
+into the console.
 
 ```r
 # register the repositories for The Carpentries and CRAN
@@ -154,27 +180,106 @@ options(repos = c(
 install.packages(c("sandpaper", "varnish", "pegboard", "tinkr"))
 ```
 
-:::::::::::: callout
-
-#### Why does it take 6 lines of code to install the infrastructure?
-
-In the future, this will be ONE line of code!
-
-Since we are currently in the alpha phase of testing, the infrastructure can
-update at any moment. Normally, packages will come from 
-[CRAN](https://glosario.carpentries.org/en/#cran), but our development packages
-are not yet on CRAN, so the are stored in The Carpentries and rOpenSci
-development repositories. 
-
-::::::::::::::::::::::
-
 ## Installing on MacOS {#mac}
 
 ### Git
 
+You should have git pre-installed on your macOS, but it is likely that this is
+an old version. We recommend installing [The latest version of Git for MacOS
+from sourceforge](http://sourceforge.net/projects/git-osx-installer/files/) 
+(**ignore the big green button** and choose the latest version from the list). 
+For a video walkthrough and an explanation of what to expect, you can look at 
+the [instructions for workshop 
+participants](https://carpentries.github.io/workshop-template/#git-macos).
+
+#### Verify the installation 
+
+To confirm that you have a working version of Git installed, open
+**Terminal.app** and type the following:
+
+```bash
+git --version
+```
+
+```output
+git version 2.31.0
+```
+
+If you have the default version of git, you might see this output, and that's
+okay for the purposes of this template. 
+
+```output
+git version 2.24.3 (Apple Git-128)
+```
+
 ### R
 
+You can install the latest [R] release for MacOS from 
+<https://cran.r-project.org/bin/MacOSX>. There is also a video tutorial
+up on [The Carpentries instructions for workshop
+participants](https://carpentries.github.io/workshop-template/#rstats-macos)
+that can be quite helpful for parsing the steps of installing R on MacOS.
+
+#### Verify the installation
+
+You can verify that your installation worked by opening **Terminal.app** and 
+typing `R --version` into the prompt:
+
+```bash
+R --version
+```
+```output
+R version 4.1.0 (2021-05-18) -- "Camp Pontanezen"
+Copyright (C) 2021 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin17.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under the terms of the
+GNU General Public License versions 2 or 3.
+For more information about these matters see
+https://www.gnu.org/licenses/.
+```
+
 ### pandoc
+
+There are two ways to install pandoc:
+
+#### Via RStudio (recommended)
+
+Since pandoc comes bundled with RStudio, you can install it by installing the
+latest version of RStudio. You can [download the installer from the RStudio 
+website][RStudio].
+
+#### Via the pandoc website
+
+If are more comfortable using R from the command line, then you can install
+pandoc by clicking the "Download the latest installer for macOS" button at
+<https://pandoc.org/installing.html>. This will save a file called 
+`pandoc-X.XX-macOS.pkg` installer to your computer. Open the installer and
+follow the instructions to install pandoc on your computer.
+
+#### Verification
+
+We will wait to verify that pandoc was installed after we install the
+infrastructure packages, to make sure it's discoverable.
+
+### Infrastructure R packages
+
+To install the R packages, you will need to **open RStudio** (or start R from
+the command line if you did not install RStudio) and enter the following lines
+into the console.
+
+```r
+# register the repositories for The Carpentries and CRAN
+options(repos = c(
+  carpentries = "https://carpentries.github.io/drat/",
+  ropensci = "https://ropensci.r-universe.dev/",
+  CRAN = "https://cran.rstudio.com/"
+))
+
+# Install the template packages to your R library
+install.packages(c("sandpaper", "varnish", "pegboard", "tinkr"))
+```
 
 ## Installing on Linux {#linux}
 
@@ -184,7 +289,98 @@ development repositories.
 
 ### pandoc
 
+There are two ways to install pandoc:
 
+#### Via RStudio (recommended)
+
+Since pandoc comes bundled with RStudio, you can install it by installing the
+latest version of RStudio. You can [download the installer from the RStudio 
+website][RStudio].
+
+#### Via the pandoc website
+
+If are more comfortable using R from the command line, then you can install
+pandoc by clicking the "Download the latest installer" button at
+<https://pandoc.org/installing.html>. This will bring you to the release page 
+on GitHub with a list of installers, and you should choose one of the ones that
+says "linux" according to what chip architecture you have (AMD vs ARM).
+
+#### Verification
+
+We will wait to verify that pandoc was installed after we install the
+infrastructure packages, to make sure it's discoverable.
+
+### Infrastructure R packages
+
+Linux packages normally need to be compiled by your system, which can take a 
+long time the first time it happens. RStudio provides a package manager that
+pre-compiles Linux binaries. Note that you do not have to be using RStudio to
+take advantage of these binaries. The one we are using is set up for Ubuntu 
+20.04 (focal). 
+
+:::: callout
+
+#### What if I have a different version of Linux?
+
+If you have a different version of linux, you can visit 
+https://packagemanager.rstudio.com/client/#/repos/1/overview, select your
+system where it says "Use this URL to work with the latest binary packages for
+Ubuntu 20.04 (Focal) **change**", and replace the packagemanager URL below.
+
+::::
+
+To install the R packages, you will need to **open RStudio** (or start R from
+the command line if you did not install RStudio) and enter the following lines
+into the console.
+
+```r
+# register the repositories for The Carpentries and CRAN
+options(repos = c(
+  carpentries = "https://carpentries.github.io/drat/",
+  ropensci = "https://ropensci.r-universe.dev/",
+  CRAN = "https://packagemanager.rstudio.com/all/__linux__/focal/latest"
+))
+
+# Install the template packages to your R library
+install.packages(c("sandpaper", "varnish", "pegboard", "tinkr"))
+```
+
+## Installation FAQ
+
+### Why does it take 6 lines of code to install the infrastructure?
+
+In the future, this will be ONE line of code!
+
+Since we are currently in the alpha phase of testing, the infrastructure can
+update at any moment. Normally, packages will come from 
+[CRAN](https://glosario.carpentries.org/en/#cran), but our development packages
+are not yet on CRAN, so the are stored in The Carpentries and rOpenSci
+development repositories. 
+
+### Do I really need to use RStudio?
+
+No. We recommend using RStudio for [several reasons that pertain to ease of
+use and standardisation across systems](#recommend), but we do not absolutely
+require it. If you are able to get Git, R, and pandoc installed on your system,
+then you do not need to use RStudio.
+
+### What is an R Library?
+
+When you install R packages, the first message you will see will probably be 
+something like (on Windows):
+
+```
+Installing packages into ‘c:/Users/USER/Documents/R/win-library/4.0’
+(as ‘lib’ is unspecified)
+```
+
+This folder is where all of the R packages you install via `install.packages()`
+will live. If you ever need to look this up, you can use the `.libPaths()`
+function.
+
+Sometimes, your R session will throw a warning that says a folder is not
+writeable and asks if you would like to use a personal library instead. In this
+case, select "yes". 
 
 ## Using {sandpaper}
 
@@ -246,45 +442,14 @@ the following to install (*and update*) the packages:
 First, **open R or RStudio** and then follow the instructions based on your
 operating system:
 
-::::::::::: solution
 
-## MacOS/Windows
-
-```r
-# register the repositories for The Carpentries and CRAN
-options(repos = c(
-  carpentries = "https://carpentries.github.io/drat/",
-  ropensci = "https://ropensci.r-universe.dev/",
-  CRAN = "https://cran.rstudio.com/"
-))
-
-# Install the template packages to your R library
-install.packages(c("sandpaper", "varnish", "pegboard", "tinkr"))
-```
-
-::::::::::::::::::::
 
 
 ::::::::::: solution
 
 ## Linux
 
-Linux packages normally need to be compiled by your system, which can take a 
-long time the first time it happens. RStudio provides a package manager that
-pre-compiles Linux binaries. Note that you do not have to be using RStudio to
-take advantage of these binaries. The one we are using is set up for Ubuntu 
-20.04 (focal). 
 
-:::: callout
-
-### What if I have a different version of Linux?
-
-If you have a different version of linux, you can visit 
-https://packagemanager.rstudio.com/client/#/repos/1/overview, select your
-system where it says "Use this URL to work with the latest binary packages for
-Ubuntu 20.04 (Focal) **change**", and replace the packagemanager URL below.
-
-::::
 
 ```r
 options(repos = c(
