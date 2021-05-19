@@ -74,9 +74,9 @@ We recommend installing git via the Git for Windows installer at
 so we recommend [using The Carpentries checklist for workshop
 participants](https://carpentries.github.io/workshop-template/#shell-windows).
 
-#### Verify the installation
+#### Test your installation
 
-To check that you have git installed, you can go to your taskbar at the bottom 
+To test that you have git installed, you can go to your taskbar at the bottom 
 of your screen and type `cmd` to bring up the command prompt. From there, you
 can type `git --version` to see the version of your git installation. You might
 see something like this:
@@ -157,12 +157,12 @@ If you are comfortable adding R to your windows PATH (see [previous
 section](#winpath)), then you can install pandoc by using the binary provided on
 its website at <https://pandoc.org/installing.html>
 
-#### Verification
+#### Test your installation
 
-We will wait to verify that pandoc was installed after we install the
-infrastructure packages, to make sure it's discoverable.
+We will wait to test the pandoc installation after we install the
+infrastructure packages, to make sure it's discoverable by R. 
 
-### infrastructure R packages
+### Infrastructure R packages
 
 To install the R packages, you will need to **open RStudio** (or start R from
 the command line if you did not install RStudio) and enter the following lines
@@ -192,10 +192,10 @@ For a video walkthrough and an explanation of what to expect, you can look at
 the [instructions for workshop 
 participants](https://carpentries.github.io/workshop-template/#git-macos).
 
-#### Verify the installation 
+#### Test your installation
 
-To confirm that you have a working version of Git installed, open
-**Terminal.app** and type the following:
+To test your installation of Git and confirm it works, open **Terminal.app** and
+type the following:
 
 ```bash
 git --version
@@ -220,10 +220,10 @@ up on [The Carpentries instructions for workshop
 participants](https://carpentries.github.io/workshop-template/#rstats-macos)
 that can be quite helpful for parsing the steps of installing R on MacOS.
 
-#### Verify the installation
+#### Test your installation
 
-You can verify that your installation worked by opening **Terminal.app** and 
-typing `R --version` into the prompt:
+You can test your installation of R by opening **Terminal.app** and typing `R
+--version` into the prompt:
 
 ```bash
 R --version
@@ -258,10 +258,10 @@ pandoc by clicking the "Download the latest installer for macOS" button at
 `pandoc-X.XX-macOS.pkg` installer to your computer. Open the installer and
 follow the instructions to install pandoc on your computer.
 
-#### Verification
+#### Test your installation
 
-We will wait to verify that pandoc was installed after we install the
-infrastructure packages, to make sure it's discoverable.
+We will wait to test the pandoc installation after we install the
+infrastructure packages, to make sure it's discoverable by R. 
 
 ### Infrastructure R packages
 
@@ -304,7 +304,7 @@ sudo apt update
 sudo apt install git
 ```
 
-#### Verification
+#### Test your installation
 
 Test your git installation by opening the terminal and running
 
@@ -336,7 +336,7 @@ sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_
 apt install --no-install-recommends r-base
 ```
 
-#### Verification
+#### Test your installation
 
 Test your R installation by opening your terminal and running:
 
@@ -364,8 +364,20 @@ There are two ways to install pandoc:
 #### Via RStudio (recommended)
 
 Since pandoc comes bundled with RStudio, you can install it by installing the
-latest version of RStudio. You can [download the installer from the RStudio 
-website][RStudio].
+latest version of RStudio. You can [download the installer from the RStudio
+website][RStudio]. When installing RStudio for Linux, your distribution may not
+be shown on the landing page (e.g. Ubuntu 20.04). In this case, choose the most
+recent version and download it to your Downloads folder or install it directly.
+
+::::::::::: callout
+
+##### Optional: verify the install
+
+You can optionally verify the download before installing by following the
+instructions at <https://www.rstudio.com/code-signing/>.
+
+:::::::::::::::::::
+
 
 #### Via the pandoc website
 
@@ -375,10 +387,10 @@ pandoc by clicking the "Download the latest installer" button at
 on GitHub with a list of installers, and you should choose one of the ones that
 says "linux" according to what chip architecture you have (AMD vs ARM).
 
-#### Verification
+#### Test your installation
 
-We will wait to verify that pandoc was installed after we install the
-infrastructure packages, to make sure it's discoverable.
+We will wait to test the pandoc installation after we install the
+infrastructure packages, to make sure it's discoverable by R. 
 
 ### Infrastructure R packages
 
@@ -415,126 +427,14 @@ options(repos = c(
 install.packages(c("sandpaper", "varnish", "pegboard", "tinkr"))
 ```
 
-## Installation FAQ
+::::::::::::: callout
 
-### Why does it take 6 lines of code to install the infrastructure?
-
-In the future, this will be ONE line of code!
-
-Since we are currently in the alpha phase of testing, the infrastructure can
-update at any moment. Normally, packages will come from 
-[CRAN](https://glosario.carpentries.org/en/#cran), but our development packages
-are not yet on CRAN, so the are stored in The Carpentries and rOpenSci
-development repositories. 
-
-### Do I really need to use RStudio?
-
-No. We recommend using RStudio for [several reasons that pertain to ease of
-use and standardisation across systems](#recommend), but we do not absolutely
-require it. If you are able to get Git, R, and pandoc installed on your system,
-then you do not need to use RStudio.
-
-### What is an R Library?
-
-When you install R packages, the first message you will see will probably be 
-something like (on Windows):
-
-```
-Installing packages into ‘c:/Users/USER/Documents/R/win-library/4.0’
-(as ‘lib’ is unspecified)
-```
-
-This folder is where all of the R packages you install via `install.packages()`
-will live. If you ever need to look this up, you can use the `.libPaths()`
-function.
-
-Sometimes, your R session will throw a warning that says a folder is not
-writeable and asks if you would like to use a personal library instead. In this
-case, select "yes". 
-
-## Using {sandpaper}
-
-Throughout the lesson, I will ask you to **open R or RStudio**. If you are using
-RStudio, you can open it by double-clicking on the RStudio icon in your
-application launcher. You do not have to open R separately for this.
-
-If you are using R, you can open it in your terminal application by typing `R`.
-Your prompt will be replaced by a `>`, which indicates that you are in R's 
-interactive [REPL](https://glosario.carpentries.org/en/#repl). 
-
-
-You can exit R by typing `q()` in the R console. 
-
-::::::::: prereq
-
-### Setting up your R workspace
-
-When you set up R, it's important to make sure you set it up to always start R
-with a clean slate[^workspace]: never save your workspace on exit and never
-load a previously saved workspace on startup.  
-
-#### Via RStudio 
-
-If you are using RStudio, you can [follow the instructions in this forum 
-post](https://community.rstudio.com/t/first-line-of-every-r-script/799/12?u=zkamvar):
-
-1. From the menu, select <cmd>Tools<cmd> > <cmd>Global Options</cmd>
-2. Under **Workspace Options**, de-select "Restore .RData into workspace at
-   startup" and set "Save workspace to .RData on exit" to "Never"
-
-#### Via Command Line Interface
-
-The flags `--no-restore` and `--no-save` will set these defaults, so you can 
-create an alias for R in the `.bashrc` file in your home directory:
-
-```bash
-alias R='R --no-restore --no-save'
-```
-
-::::::::::::::::::
-
-:::::::::::::::::::::: callout
-
-### There are many ways to set up R to work with the lesson template
-
-For example, Zhian Kamvar uses Vim with the NVim-R plugin  and 
-[radian](https://github.com/randy3k/radian#readme) on macOS and Linux. There is 
-no one right way!
-
-:::::::::::::::::::::::::::::::
-
-## Lesson Template Modules (R packages)
-
-The template is divided into three R packages, which are designed to be modular
-and upgradable on the fly. Because these are still in developement, please use
-the following to install (*and update*) the packages:
-
-First, **open R or RStudio** and then follow the instructions based on your
-operating system:
-
-
-
-
-::::::::::: solution
-
-## Linux
-
-
-
-```r
-options(repos = c(
-  carpentries = "https://carpentries.github.io/drat/",
-  ropensci = "https://ropensci.r-universe.dev/",
-  CRAN = "https://packagemanager.rstudio.com/all/__linux__/focal/latest"
-))
-
-install.packages(c("sandpaper", "varnish", "pegboard", "tinkr"))
-```
+#### What if I get errors installing packages?
 
 If you run into errors (non-zero exit status), it probably means that you were
 missing a C library dependency that needs to be installed via your package 
-manager. To resolve these issues, scroll back in the log and you might find
-messages that looks similar to this:
+manager (i.e. apt). To resolve these issues, scroll back in the log and you
+might find messages that looks similar to this:
 
 ```output
 * installing *source* package ‘xslt’ ...
@@ -563,14 +463,84 @@ compilation terminated.
 Use the instructions in these logs to install the correct package from your
 terminal and then open R or RStudio and retry installing the packages. 
 
-::::::::::::::::::::
+:::::::::::::::::::::
 
-::::::::::::::::::::::::::::::::::::::::: callout
+## Test your installation {#install-test}
 
-### Your R library 
+Now that you have installed the lesson components, it is a good idea to run a
+small test to verify that these components work together. To test your 
+installation **open RStudio** (or launch R if you have not installed RStudio)
+and enter the following commands to confirm everything works
 
-When you install R packages, the first message you will see will probably be 
-something like (on Windows):
+```r
+rmarkdown::pandoc_version()
+tmp <- tempfile()
+sandpaper::create_lesson(tmp, open = FALSE)
+sandpaper::build_lesson(tmp, preview = FALSE, quiet = TRUE)
+fs::dir_tree(tmp, recurse = 1)
+```
+
+```output
+[1] ‘2.12’
+[1] "/tmp/RtmpCjGtw3/fileac05502830cf"
+Warning message:
+In warn_schedule() :
+  No schedule set, using Rmd files in `episodes/` directory.
+To remove this warning, define your schedule in `config.yaml` or use `set_episodes()` to generate it.
+/tmp/RtmpCjGtw3/fileac05502830cf
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── LICENSE.md
+├── README.md
+├── config.yaml
+├── episodes
+│   ├── 01-introduction.Rmd
+│   ├── data
+│   ├── fig
+│   └── files
+├── index.md
+├── instructors
+│   └── instructor-notes.md
+├── learners
+│   └── Setup.md
+├── profiles
+│   └── learner-profiles.md
+└── site
+    ├── DESCRIPTION
+    ├── README.md
+    ├── _pkgdown.yaml
+    ├── built
+    └── docs
+```
+
+If the installation did not work, please [raise an issue on
+GitHub](https://github.com/zkamvar/sandpaper-docs/issues/new) and I can help
+troubleshoot. 
+
+## Installation FAQ
+
+### Why does it take 6 lines of code to install the infrastructure?
+
+In the future, this will be ONE line of code!
+
+Since we are currently in the alpha phase of testing, the infrastructure can
+update at any moment. Normally, packages will come from 
+[CRAN](https://glosario.carpentries.org/en/#cran), but our development packages
+are not yet on CRAN, so the are stored in The Carpentries and rOpenSci
+development repositories. 
+
+### Do I really need to use RStudio?
+
+No. We recommend using RStudio for [several reasons that pertain to ease of
+use and standardisation across systems](#recommend), but we do not absolutely
+require it. If you are able to get Git, R, and pandoc installed on your system,
+then you do not need to use RStudio.
+
+### What is an R Library?
+
+An R library is a folder on your computer that stores R packages. When you
+install R packages, the first message you will see will probably be something
+like (on Windows):
 
 ```
 Installing packages into ‘c:/Users/USER/Documents/R/win-library/4.0’
@@ -581,12 +551,49 @@ This folder is where all of the R packages you install via `install.packages()`
 will live. If you ever need to look this up, you can use the `.libPaths()`
 function.
 
-Sometimes, your R session will throw a warning that says a folder is not
+Sometimes, your R session will issue a warning that says a folder is not
 writeable and asks if you would like to use a personal library instead. In this
-case, select "yes". 
+case, select "yes".
 
-::::::::::::::::::::::::::::::::::::::::::::::::::
+## Using the lesson engine
 
+Throughout the lesson, I will ask you to **open R or RStudio**. If you are using
+RStudio, you can open it by double-clicking on the RStudio icon in your
+application launcher; you do not have to open R separately to use RStudio. 
+
+If you are using R, you can open it in your terminal application by typing `R`.
+Your prompt will be replaced by a `>`, which indicates that you are in R's 
+interactive [REPL](https://glosario.carpentries.org/en/#repl). 
+
+You can exit R or RStudio by typing `q()` in the R console. 
+
+::::::::: prereq
+
+### Setting up your R workspace
+
+When you set up R, it's important to make sure you set it up to always start R
+with a clean slate[^workspace]: never save your workspace on exit and never
+load a previously saved workspace on startup.  
+
+#### Via RStudio 
+
+If you are using RStudio, you can [follow the instructions in this forum 
+post](https://community.rstudio.com/t/first-line-of-every-r-script/799/12?u=zkamvar):
+
+1. From the menu, select <cmd>Tools<cmd> > <cmd>Global Options</cmd>
+2. Under **Workspace Options**, de-select "Restore .RData into workspace at
+   startup" and set "Save workspace to .RData on exit" to "Never"
+
+#### Via Command Line Interface
+
+The flags `--no-restore` and `--no-save` will set these defaults, so you can 
+create an alias for R in the `.bashrc` file in your home directory:
+
+```bash
+alias R='R --no-restore --no-save'
+```
+
+::::::::::::::::::
 
 ## Connect to GitHub
 
@@ -639,16 +646,6 @@ setting up authentication credentials for your account:
   packages very very difficult. In 2017 Jenny Bryan wrote a very good article
   about the benefits of having a project-based workflow, starting from a clean
   slate: <https://www.tidyverse.org/blog/2017/12/workflow-vs-script/>
-[^linux-r]: Linux installation may be a bit tricky because some package
-  managers are notoriously out-of-date (i.e. apt). Official instructions for
-  various flavours of linux can be found at
-  <https://cran.r-project.org/bin/linux/>
-[^linux-rstudio]: When installing RStudio for Linux, your distribution may not
-  be shown on the landing page (e.g. Ubuntu 20.04). In this case, choose the
-  most recent version and download it to your Downloads folder or install it
-  directly. If you download it, you can [verify the
-  download](https://www.rstudio.com/code-signing/) before installing. To start
-  RStudio, you can type `rstudio &` to launch RStudio and let the process run in
-  the background. 
+
 [^tinkr]: Note: {pegboard} requires the [{tinkr}] package from rOpenSci. It 
   is still in development, so we will install this package explicitly. 
