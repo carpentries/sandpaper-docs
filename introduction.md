@@ -74,7 +74,7 @@ commit message being `Initial commit [via {sandpaper}]`.
 
 :::::::::::::::::::::: callout
 
-## :ladybug: Known Quirk
+## :beetle: Known Quirk
 
 If you are using RStudio, then an RStudio project file (`*.Rproj`) is
 automatically created to help anchor your project. You might notice changes to
@@ -158,7 +158,7 @@ notice a warning at the end of the rendering:
 
 :::::::::::::: solution
 
-### Warning Message
+## Warning Message
 
 ```{.warning}
 Warning message:
