@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-05-13 19:01:37 +0000">
+<meta http-equiv="last-modified" content="2021-05-20 00:31:42 +0000">
 
 
 
@@ -222,86 +222,270 @@
       <h1>Setup</h1>
     </div>
 
-<p>The {sandpaper} template requires <a href="https://cran.rstudio.org/">R</a> and <a href="https://pandoc.org/">pandoc</a> to be installed. Since <a href="https://pandoc.org/">pandoc</a> is installed via <a href="https://rstudio.com/products/rstudio/download/#download">RStudio</a>, we recommend R and RStudio. Read on for more details about the software used in the template.</p>
-<div id="foundational-software" class="section level2">
-<h2>Foundational software</h2>
-<p>There are three programs that the template works with: Git, RStudio, and pandoc. They can be installed from the following resources:</p>
-<ul>
-<li><strong>Git</strong> (&gt;= 2.28) <a href="https://carpentries.github.io/workshop-template/#git" class="uri">https://carpentries.github.io/workshop-template/#git</a></li>
-<li><strong>R</strong> (&gt;= 3.6) <a href="https://carpentries.github.io/workshop-template/#r" class="uri">https://carpentries.github.io/workshop-template/#r</a><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></li>
-<li><strong>pandoc</strong> (&gt;= 2.11) we recommend installing this by <a href="https://rstudio.com/products/rstudio/download/#download">installing the RStudio IDE</a><a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>, but you can also install it <a href="https://pandoc.org/installing">via pandoc’s website</a> or <a href="https://carpentries.github.io/workshop-template/#python">via anaconda</a></li>
-</ul>
-</div>
-<div id="what-if-i-dont-want-to-use-rstudio" class="section level2 solution">
-<h2>What if I don’t want to use RStudio?</h2>
-<p>That’s perfectly okay and expected!</p>
-<p>We recommend using RStudio because it wraps an R console, a text editor, git management, and a file browser in one program. This provides a lot of convenience of being able to work consistently across platforms and reduces the barrier for entry.</p>
-<p>We want to be able to meet you where you are to work with the new template. If you feel comfortable using a different tool (e.g. the command line or VSCode), then you should install R and pandoc separately and make sure that they are in your path.</p>
-<p>If you are using Windows, setting up your PATH variables can sometimes be tricky. The pandoc installer will automatically add itself to your PATH, but R will not. <a href="https://www.maketecheasier.com/what-is-the-windows-path/">Here are some instructions on setting up your PATH on Windows using both the GUI and CLI</a>. Note that R will normally install at something like <code>c:\Program Files\R\R-4.0.0\bin\x64</code>, but if you are not admin, it will install in your documents folder.</p>
-</div>
-<div id="starting-r" class="section level2">
-<h2>Starting R</h2>
-<p>Throughout the lesson, I will ask you to <strong>open R or RStudio</strong>. If you are using RStudio, you can open it by double-clicking on the RStudio icon in your application launcher. You do not have to open R separately for this.</p>
-<p>If you are using R, you can open it in your terminal application by typing <code>R</code>. Your prompt will be replaced by a <code>&gt;</code>, which indicates that you are in R’s interactive <a href="https://glosario.carpentries.org/en/#repl">REPL</a>.</p>
-<p>You can exit R by typing <code>q()</code> in the R console.</p>
-</div>
-<div id="setting-up-your-r-workspace" class="section level2 prereq">
-<h2>Setting up your R workspace</h2>
-<p>When you set up R, it’s important to make sure you set it up to always start R with a clean slate<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>: never save your workspace on exit and never load a previously saved workspace on startup.</p>
-<div id="via-rstudio" class="section level4">
-<h4>Via RStudio</h4>
-<p>If you are using RStudio, you can <a href="https://community.rstudio.com/t/first-line-of-every-r-script/799/12?u=zkamvar">follow the instructions in this forum post</a>:</p>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>The lesson infrastructure is built on Git, <a href="https://cran.rstudio.org/">R</a>, and <a href="https://pandoc.org/">pandoc</a>. It consists of four components:</p>
 <ol style="list-style-type: decimal">
-<li>From the menu, select <cmd>Tools<cmd> &gt; <cmd>Global Options</cmd></li>
-<li>Under <strong>Workspace Options</strong>, de-select “Restore .RData into workspace at startup” and set “Save workspace to .RData on exit” to “Never”</li>
+<li>The source content (plain markdown or RMarkdown files organized into folders with a configuration yaml file)</li>
+<li>The engine (R package <a href="https://carpentries.github.io/sandpaper/">{sandpaper}</a>)to orchestrate building the content from markdown to HTML</li>
+<li>The validator (R package <a href="https://carpentries.github.io/pegboard/">{pegboard}</a>) to parse the source files and highlight common errors<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></li>
+<li>The style (R package <a href="https://github.com/carpentries/varnish#readme">{varnish}</a>) HTML, CSS, and JavaScript styling elements for the final website</li>
+</ol>
+<p><a href="deployment.md">Details of how these tools work together are explained in the Lesson Deployment</a> chapter. In short, you can expect to interact with the source content and {sandpaper} to author and preview your lesson.</p>
+<div id="required" class="section level3">
+<h3>Required Software</h3>
+<p>This setup document will walk you through the process of installing or upgrading the required software in the following order.</p>
+<ol style="list-style-type: decimal">
+<li><strong>Git</strong> (≥ 2.28 recommended)</li>
+<li><strong>R</strong> (≥ 3.6)</li>
+<li><strong>pandoc</strong> (≥ 2.11)</li>
+<li>The lesson infrastructure R packages
+<ol style="list-style-type: lower-roman">
+<li><strong><a href="https://carpentries.github.io/sandpaper/">{sandpaper}</a></strong> (development version)</li>
+<li><strong><a href="https://github.com/carpentries/varnish#readme">{varnish}</a></strong> (development version)</li>
+<li><strong><a href="https://carpentries.github.io/pegboard/">{pegboard}</a></strong> (development version)</li>
+<li><strong><a href="https://docs.ropensci.org/tinkr/">{tinkr}</a></strong> (markdown parser required by {pegboard}, development version)</li>
+</ol></li>
 </ol>
 </div>
-<div id="via-command-line-interface" class="section level4">
-<h4>Via Command Line Interface</h4>
-<p>The flags <code>--no-restore</code> and <code>--no-save</code> will set these defaults, so you can create an alias for R in the <code>.bashrc</code> file in your home directory:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> R=<span class="st">&#39;R --no-restore --no-save&#39;</span></span></code></pre></div>
+<div id="recommend" class="section level3">
+<h3>Recommended Software</h3>
+<p>If you are using R or pandoc for the first time, we recommend using <a href="https://rstudio.com/products/rstudio/download/#download">the RStudio IDE</a> for the following reasons:</p>
+<ol style="list-style-type: decimal">
+<li>It comes with <a href="https://pandoc.org/">pandoc</a> pre-installed.</li>
+<li>Works consistently across all major platforms.</li>
+<li>A dedicated BASH console so you can easily switch between R and Git operations.</li>
+<li>Convenient keyboard shortcuts to preview lessons.</li>
+<li>On Windows, it will automatically detect your R installation without you needing to edit your <code>PATH</code>.</li>
+</ol>
+<p>If you do not want to use RStudio, that’s perfectly okay and expected! We want to be able to meet you where you are to work with the new template. If you feel comfortable using a different tool (e.g. the command line or VSCode), then you should install R and pandoc separately and make sure that they are in your path.</p>
+</div>
+<div id="installation" class="section level3">
+<h3>Installation</h3>
+<p>This will guide you through installing the foundational software and infrastructure packages on your computer. If you already have software installed and are curious if you should update it to a newer version, the answer is almost always, yes, update to a newer version, because often the <a href="https://github.com/git/git/security/advisories/GHSA-8prw-h3cq-mghm">newer versions will contain important bug fixes that are important to the secruity of your computer</a>.</p>
+<p>Jump to the installation instructions for your system: <a href="#windows">Windows</a>, <a href="#mac">MacOS</a>, or <a href="#linux">Linux</a></p>
 </div>
 </div>
+<div id="windows" class="section level2">
+<h2>Installing on Windows</h2>
+<div id="git" class="section level3">
+<h3>Git</h3>
+<p>We recommend installing git via the Git for Windows installer at <a href="https://gitforwindows.org/" class="uri">https://gitforwindows.org/</a>. The installer is going to ask a lot of questions, so we recommend <a href="https://carpentries.github.io/workshop-template/#shell-windows">using The Carpentries checklist for workshop participants</a>.</p>
+<div id="test-your-installation" class="section level4">
+<h4>Test your installation</h4>
+<p>To test that you have git installed, you can go to your taskbar at the bottom of your screen and type <code>cmd</code> to bring up the command prompt. From there, you can type <code>git --version</code> to see the version of your git installation. You might see something like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code></pre></div>
+<pre class="output"><code>git version 2.31.1.windows.1</code></pre>
+<p>If, however, you see this error, then you should try to install git again.</p>
+<pre class="error"><code>&#39;git&#39; is not recognised as an internal or external command,
+operable program or batch file.</code></pre>
+</div>
+</div>
+<div id="r" class="section level3">
+<h3>R</h3>
+<p>You can install the latest <a href="https://cran.rstudio.org/">R</a> for Windows from <a href="https://cran.r-project.org/bin/windows/base/" class="uri">https://cran.r-project.org/bin/windows/base/</a>. There is also a video tutorial up on <a href="https://carpentries.github.io/workshop-template/#rstats-windows">The Carpentries instructions for workshop participants</a> that can be quite helpful for parsing the steps of installing R on Windows.</p>
 <aside class="callout">
-<div id="there-are-many-ways-to-set-up-r-to-work-with-the-lesson-template" class="section level3">
-<h3>There are many ways to set up R to work with the lesson template</h3>
-<p>For example, Zhian Kamvar uses Vim with the NVim-R plugin and <a href="https://github.com/randy3k/radian#readme">radian</a> on macOS and Linux. There is no one right way!</p>
+<div id="winpath" class="section level4">
+<h4>Optional: Want to add R to your PATH?</h4>
+<p>As we mention above, <a href="#recommend">we recommend using RStudio for your lesson</a>, but if you want to be able to integrate the lesson infrastructure into your own preferred workflow, you need to have R on your path. The catch is that R for Windows does not automatically set your <code>PATH</code> variable.</p>
+<p><a href="https://www.maketecheasier.com/what-is-the-windows-path/">Here are some instructions on setting up your PATH on Windows using both the GUI and CLI</a>. Note that R will normally install at something like <code>c:\Program Files\R\R-4.1.0\bin\x64</code>, but if you are not admin, it will install in your Documents folder.</p>
+<p>To verify that R is installed in your <code>PATH</code>, you can go to your taskbar at the bottom of your screen and type <code>cmd</code> to bring up the command prompt. From there, you can type <code>R --version</code> at the prompt:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">R</span> <span class="at">--version</span></span></code></pre></div>
+<pre class="output"><code>R version 4.1.0 (2021-05-18) -- &quot;Camp Pontanezen&quot;
+Copyright (C) 2021 The R Foundation for Statistical Computing
+Platform: x86_64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under the terms of the
+GNU General Public License versions 2 or 3.
+For more information about these matters see
+https://www.gnu.org/licenses/.</code></pre>
 </div>
 </aside>
-<div id="lesson-template-modules-r-packages" class="section level2">
-<h2>Lesson Template Modules (R packages)</h2>
-<p>The template is divided into three R packages, which are designed to be modular and upgradable on the fly. Because these are still in developement, please use the following to install (<em>and update</em>) the packages:</p>
-<p>First, <strong>open R or RStudio</strong> and then follow the instructions based on your operating system:</p>
 </div>
-<div id="macoswindows" class="section level2 solution">
-<h2>MacOS/Windows</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># register the repositories for The Carpentries and CRAN</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repos =</span> <span class="fu">c</span>(</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">carpentries =</span> <span class="st">&quot;https://carpentries.github.io/drat/&quot;</span>,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ropensci =</span> <span class="st">&quot;https://ropensci.r-universe.dev/&quot;</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">CRAN =</span> <span class="st">&quot;https://cran.rstudio.com/&quot;</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>))</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Install the template packages to your R library</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;sandpaper&quot;</span>, <span class="st">&quot;varnish&quot;</span>, <span class="st">&quot;pegboard&quot;</span>, <span class="st">&quot;tinkr&quot;</span>))</span></code></pre></div>
+<div id="pandoc" class="section level3">
+<h3>pandoc</h3>
+<p>There are two ways to install pandoc:</p>
+<div id="via-rstudio-recommended" class="section level4">
+<h4>Via RStudio (recommended)</h4>
+<p>Since pandoc comes bundled with RStudio, you can install it by installing the latest version of RStudio. You can <a href="https://rstudio.com/products/rstudio/download/#download">download the installer from the RStudio website</a>.</p>
 </div>
-<div id="linux" class="section level2 solution">
-<h2>Linux</h2>
+<div id="via-the-pandoc-website" class="section level4">
+<h4>Via the pandoc website</h4>
+<p>If you are comfortable adding R to your windows PATH (see <a href="#winpath">previous section</a>), then you can install pandoc by using the binary provided on its website at <a href="https://pandoc.org/installing.html" class="uri">https://pandoc.org/installing.html</a></p>
+</div>
+<div id="test-your-installation-1" class="section level4">
+<h4>Test your installation</h4>
+<p>We will wait to test the pandoc installation after we install the infrastructure packages, to make sure it’s discoverable by R.</p>
+</div>
+</div>
+<div id="infrastructure-r-packages" class="section level3">
+<h3>Infrastructure R packages</h3>
+<p>To install the R packages, you will need to <strong>open RStudio</strong> (or start R from the command line if you did not install RStudio) and enter the following lines into the console.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># register the repositories for The Carpentries and CRAN</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repos =</span> <span class="fu">c</span>(</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">carpentries =</span> <span class="st">&quot;https://carpentries.github.io/drat/&quot;</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ropensci =</span> <span class="st">&quot;https://ropensci.r-universe.dev/&quot;</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">CRAN =</span> <span class="st">&quot;https://cran.rstudio.com/&quot;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Install the template packages to your R library</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;sandpaper&quot;</span>, <span class="st">&quot;varnish&quot;</span>, <span class="st">&quot;pegboard&quot;</span>, <span class="st">&quot;tinkr&quot;</span>))</span></code></pre></div>
+</div>
+</div>
+<div id="mac" class="section level2">
+<h2>Installing on MacOS</h2>
+<div id="git-1" class="section level3">
+<h3>Git</h3>
+<p>You should have git pre-installed on your macOS, but it is likely that this is an old version. We recommend installing <a href="http://sourceforge.net/projects/git-osx-installer/files/">The latest version of Git for MacOS from sourceforge</a> (<strong>ignore the big green button</strong> and choose the latest version from the list). For a video walkthrough and an explanation of what to expect, you can look at the <a href="https://carpentries.github.io/workshop-template/#git-macos">instructions for workshop participants</a>.</p>
+<div id="test-your-installation-2" class="section level4">
+<h4>Test your installation</h4>
+<p>To test your installation of Git and confirm it works, open <strong>Terminal.app</strong> and type the following:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code></pre></div>
+<pre class="output"><code>git version 2.31.0</code></pre>
+<p>If you have the default version of git, you might see this output, and that’s okay for the purposes of this template.</p>
+<pre class="output"><code>git version 2.24.3 (Apple Git-128)</code></pre>
+</div>
+</div>
+<div id="r-1" class="section level3">
+<h3>R</h3>
+<p>You can install the latest <a href="https://cran.rstudio.org/">R</a> release for MacOS from <a href="https://cran.r-project.org/bin/MacOSX" class="uri">https://cran.r-project.org/bin/MacOSX</a>. There is also a video tutorial up on <a href="https://carpentries.github.io/workshop-template/#rstats-macos">The Carpentries instructions for workshop participants</a> that can be quite helpful for parsing the steps of installing R on MacOS.</p>
+<div id="test-your-installation-3" class="section level4">
+<h4>Test your installation</h4>
+<p>You can test your installation of R by opening <strong>Terminal.app</strong> and typing <code>R --version</code> into the prompt:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">R</span> <span class="at">--version</span></span></code></pre></div>
+<pre class="output"><code>R version 4.1.0 (2021-05-18) -- &quot;Camp Pontanezen&quot;
+Copyright (C) 2021 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin17.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under the terms of the
+GNU General Public License versions 2 or 3.
+For more information about these matters see
+https://www.gnu.org/licenses/.</code></pre>
+</div>
+</div>
+<div id="pandoc-1" class="section level3">
+<h3>pandoc</h3>
+<p>There are two ways to install pandoc:</p>
+<div id="via-rstudio-recommended-1" class="section level4">
+<h4>Via RStudio (recommended)</h4>
+<p>Since pandoc comes bundled with RStudio, you can install it by installing the latest version of RStudio. You can <a href="https://rstudio.com/products/rstudio/download/#download">download the installer from the RStudio website</a>.</p>
+</div>
+<div id="via-the-pandoc-website-1" class="section level4">
+<h4>Via the pandoc website</h4>
+<p>If are more comfortable using R from the command line, then you can install pandoc by clicking the “Download the latest installer for macOS” button at <a href="https://pandoc.org/installing.html" class="uri">https://pandoc.org/installing.html</a>. This will save a file called <code>pandoc-X.XX-macOS.pkg</code> installer to your computer. Open the installer and follow the instructions to install pandoc on your computer.</p>
+</div>
+<div id="test-your-installation-4" class="section level4">
+<h4>Test your installation</h4>
+<p>We will wait to test the pandoc installation after we install the infrastructure packages, to make sure it’s discoverable by R.</p>
+</div>
+</div>
+<div id="infrastructure-r-packages-1" class="section level3">
+<h3>Infrastructure R packages</h3>
+<p>To install the R packages, you will need to <strong>open RStudio</strong> (or start R from the command line if you did not install RStudio) and enter the following lines into the console.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># register the repositories for The Carpentries and CRAN</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repos =</span> <span class="fu">c</span>(</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">carpentries =</span> <span class="st">&quot;https://carpentries.github.io/drat/&quot;</span>,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ropensci =</span> <span class="st">&quot;https://ropensci.r-universe.dev/&quot;</span>,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">CRAN =</span> <span class="st">&quot;https://cran.rstudio.com/&quot;</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Install the template packages to your R library</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;sandpaper&quot;</span>, <span class="st">&quot;varnish&quot;</span>, <span class="st">&quot;pegboard&quot;</span>, <span class="st">&quot;tinkr&quot;</span>))</span></code></pre></div>
+</div>
+</div>
+<div id="linux" class="section level2">
+<h2>Installing on Linux</h2>
+<p>A lot of the documentation for Linux is nuanced because it assumes that if you use Linux, then you automatically know how to install things by the command line. I will be providing instructions as best I can for Ubuntu Linux and point to resourced for other distributions. For Ubuntu/Debian, the default <code>apt</code> repository is often out of date, so you will need to use a <a href="https://itsfoss.com/ppa-guide/">Personal Package Archive aka PPA</a> to install the latest version of a particular software, which I will include in these instructions.</p>
+<div id="git-2" class="section level3">
+<h3>Git</h3>
+<p>You should have git pre-installed on your computer, but it will likely be outdated. It’s okay if this is the case, but if you want to update via <code>apt</code>, you can add the git-core ppa:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> add-apt-repository ppa:git-core/ppa</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install git</span></code></pre></div>
+<div id="test-your-installation-5" class="section level4">
+<h4>Test your installation</h4>
+<p>Test your git installation by opening the terminal and running</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code></pre></div>
+<pre class="output"><code>git version 2.31.1</code></pre>
+</div>
+</div>
+<div id="r-2" class="section level3">
+<h3>R</h3>
+<p>To install R, you can visit <a href="https://cran.r-project.org/bin/linux/" class="uri">https://cran.r-project.org/bin/linux/</a> to check if your platform is supported. For Ubuntu, there are detailed instructions at: <a href="https://cran.r-project.org/bin/linux/ubuntu/" class="uri">https://cran.r-project.org/bin/linux/ubuntu/</a>. Here are the commands to register the PPA on your machine and then install R:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># update indices</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update <span class="at">-qq</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># install two helper packages we need</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install <span class="at">--no-install-recommends</span> software-properties-common dirmngr</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># import the signing key (by Michael Rutter) for these repo</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-key adv <span class="at">--keyserver</span> keyserver.ubuntu.com <span class="at">--recv-keys</span> E298A3A825C0D65DFD57CBB651716619E084DAB9</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># add the R 4.0 repo from CRAN -- adjust &#39;focal&#39; to &#39;groovy&#39; or &#39;bionic&#39; as needed</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> add-apt-repository <span class="st">&quot;deb https://cloud.r-project.org/bin/linux/ubuntu </span><span class="va">$(</span><span class="ex">lsb_release</span> <span class="at">-cs</span><span class="va">)</span><span class="st">-cran40/&quot;</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Install R</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="ex">apt</span> install <span class="at">--no-install-recommends</span> r-base</span></code></pre></div>
+<div id="test-your-installation-6" class="section level4">
+<h4>Test your installation</h4>
+<p>Test your R installation by opening your terminal and running:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">R</span> <span class="at">--version</span></span></code></pre></div>
+<pre class="output"><code>R version 4.1.0 (2021-05-18) -- &quot;Camp Pontanezen&quot;
+Copyright (C) 2021 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under the terms of the
+GNU General Public License versions 2 or 3.
+For more information about these matters see
+https://www.gnu.org/licenses/.
+</code></pre>
+</div>
+</div>
+<div id="pandoc-2" class="section level3">
+<h3>pandoc</h3>
+<p>There are two ways to install pandoc:</p>
+<div id="via-rstudio-recommended-2" class="section level4">
+<h4>Via RStudio (recommended)</h4>
+<p>Since pandoc comes bundled with RStudio, you can install it by installing the latest version of RStudio. You can <a href="https://rstudio.com/products/rstudio/download/#download">download the installer from the RStudio website</a>. When installing RStudio for Linux, your distribution may not be shown on the landing page (e.g. Ubuntu 20.04). In this case, choose the most recent version and download it to your Downloads folder or install it directly.</p>
+<aside class="callout">
+<div id="optional-verify-the-install" class="section level5">
+<h5>Optional: verify the install</h5>
+<p>You can optionally verify the download before installing by following the instructions at <a href="https://www.rstudio.com/code-signing/" class="uri">https://www.rstudio.com/code-signing/</a>.</p>
+</div>
+</aside>
+</div>
+<div id="via-the-pandoc-website-2" class="section level4">
+<h4>Via the pandoc website</h4>
+<p>If are more comfortable using R from the command line, then you can install pandoc by clicking the “Download the latest installer” button at <a href="https://pandoc.org/installing.html" class="uri">https://pandoc.org/installing.html</a>. This will bring you to the release page on GitHub with a list of installers, and you should choose one of the ones that says “linux” according to what chip architecture you have (AMD vs ARM).</p>
+</div>
+<div id="test-your-installation-7" class="section level4">
+<h4>Test your installation</h4>
+<p>We will wait to test the pandoc installation after we install the infrastructure packages, to make sure it’s discoverable by R.</p>
+</div>
+</div>
+<div id="infrastructure-r-packages-2" class="section level3">
+<h3>Infrastructure R packages</h3>
 <p>Linux packages normally need to be compiled by your system, which can take a long time the first time it happens. RStudio provides a package manager that pre-compiles Linux binaries. Note that you do not have to be using RStudio to take advantage of these binaries. The one we are using is set up for Ubuntu 20.04 (focal).</p>
 <aside class="callout">
-<div id="what-if-i-have-a-different-version-of-linux" class="section level3">
-<h3>What if I have a different version of Linux?</h3>
+<div id="what-if-i-have-a-different-version-of-linux" class="section level4">
+<h4>What if I have a different version of Linux?</h4>
 <p>If you have a different version of linux, you can visit <a href="https://packagemanager.rstudio.com/client/#/repos/1/overview" class="uri">https://packagemanager.rstudio.com/client/#/repos/1/overview</a>, select your system where it says “Use this URL to work with the latest binary packages for Ubuntu 20.04 (Focal) <strong>change</strong>”, and replace the packagemanager URL below.</p>
 </div>
 </aside>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repos =</span> <span class="fu">c</span>(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">carpentries =</span> <span class="st">&quot;https://carpentries.github.io/drat/&quot;</span>,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">ropensci =</span> <span class="st">&quot;https://ropensci.r-universe.dev/&quot;</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">CRAN =</span> <span class="st">&quot;https://packagemanager.rstudio.com/all/__linux__/focal/latest&quot;</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>))</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;sandpaper&quot;</span>, <span class="st">&quot;varnish&quot;</span>, <span class="st">&quot;pegboard&quot;</span>, <span class="st">&quot;tinkr&quot;</span>))</span></code></pre></div>
-<p>If you run into errors (non-zero exit status), it probably means that you were missing a C library dependency that needs to be installed via your package manager. To resolve these issues, scroll back in the log and you might find messages that looks similar to this:</p>
+<p>To install the R packages, you will need to <strong>open RStudio</strong> (or start R from the command line if you did not install RStudio) and enter the following lines into the console.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># register the repositories for The Carpentries and CRAN</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repos =</span> <span class="fu">c</span>(</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">carpentries =</span> <span class="st">&quot;https://carpentries.github.io/drat/&quot;</span>,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ropensci =</span> <span class="st">&quot;https://ropensci.r-universe.dev/&quot;</span>,</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">CRAN =</span> <span class="st">&quot;https://packagemanager.rstudio.com/all/__linux__/focal/latest&quot;</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Install the template packages to your R library</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;sandpaper&quot;</span>, <span class="st">&quot;varnish&quot;</span>, <span class="st">&quot;pegboard&quot;</span>, <span class="st">&quot;tinkr&quot;</span>))</span></code></pre></div>
+<aside class="callout">
+<div id="what-if-i-get-errors-installing-packages" class="section level4">
+<h4>What if I get errors installing packages?</h4>
+<p>If you run into errors (non-zero exit status), it probably means that you were missing a C library dependency that needs to be installed via your package manager (i.e. apt). To resolve these issues, scroll back in the log and you might find messages that looks similar to this:</p>
 <pre class="output"><code>* installing *source* package ‘xslt’ ...
 ** using staged installation
 Package libexslt was not found in the pkg-config search path.
@@ -325,16 +509,92 @@ compilation terminated.
 ------------------------------------------------------------------------</code></pre>
 <p>Use the instructions in these logs to install the correct package from your terminal and then open R or RStudio and retry installing the packages.</p>
 </div>
-<aside class="callout">
-<div id="your-r-library" class="section level3">
-<h3>Your R library</h3>
-<p>When you install R packages, the first message you will see will probably be something like (on Windows):</p>
+</aside>
+</div>
+</div>
+<div id="install-test" class="section level2">
+<h2>Test your installation</h2>
+<p>Now that you have installed the lesson components, it is a good idea to run a small test to verify that these components work together. To test your installation <strong>open RStudio</strong> (or launch R if you have not installed RStudio) and enter the following commands to confirm everything works</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>rmarkdown<span class="sc">::</span><span class="fu">pandoc_version</span>()</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">tempfile</span>()</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>sandpaper<span class="sc">::</span><span class="fu">create_lesson</span>(tmp, <span class="at">open =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>sandpaper<span class="sc">::</span><span class="fu">build_lesson</span>(tmp, <span class="at">preview =</span> <span class="cn">FALSE</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>fs<span class="sc">::</span><span class="fu">dir_tree</span>(tmp, <span class="at">recurse =</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre class="output"><code>[1] ‘2.12’
+[1] &quot;/tmp/RtmpCjGtw3/fileac05502830cf&quot;
+Warning message:
+In warn_schedule() :
+  No schedule set, using Rmd files in `episodes/` directory.
+To remove this warning, define your schedule in `config.yaml` or use `set_episodes()` to generate it.
+/tmp/RtmpCjGtw3/fileac05502830cf
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── LICENSE.md
+├── README.md
+├── config.yaml
+├── episodes
+│   ├── 01-introduction.Rmd
+│   ├── data
+│   ├── fig
+│   └── files
+├── index.md
+├── instructors
+│   └── instructor-notes.md
+├── learners
+│   └── Setup.md
+├── profiles
+│   └── learner-profiles.md
+└── site
+    ├── DESCRIPTION
+    ├── README.md
+    ├── _pkgdown.yaml
+    ├── built
+    └── docs</code></pre>
+<p>If the installation did not work, please <a href="https://github.com/zkamvar/sandpaper-docs/issues/new">raise an issue on GitHub</a> and I can help troubleshoot.</p>
+</div>
+<div id="installation-faq" class="section level2">
+<h2>Installation FAQ</h2>
+<div id="why-does-it-take-6-lines-of-code-to-install-the-infrastructure" class="section level3">
+<h3>Why does it take 6 lines of code to install the infrastructure?</h3>
+<p>In the future, this will be ONE line of code!</p>
+<p>Since we are currently in the alpha phase of testing, the infrastructure can update at any moment. Normally, packages will come from <a href="https://glosario.carpentries.org/en/#cran">CRAN</a>, but our development packages are not yet on CRAN, so the are stored in The Carpentries and rOpenSci development repositories.</p>
+</div>
+<div id="do-i-really-need-to-use-rstudio" class="section level3">
+<h3>Do I really need to use RStudio?</h3>
+<p>No. We recommend using RStudio for <a href="#recommend">several reasons that pertain to ease of use and standardisation across systems</a>, but we do not absolutely require it. If you are able to get Git, R, and pandoc installed on your system, then you do not need to use RStudio.</p>
+</div>
+<div id="what-is-an-r-library" class="section level3">
+<h3>What is an R Library?</h3>
+<p>An R library is a folder on your computer that stores R packages. When you install R packages, the first message you will see will probably be something like (on Windows):</p>
 <pre><code>Installing packages into ‘c:/Users/USER/Documents/R/win-library/4.0’
 (as ‘lib’ is unspecified)</code></pre>
 <p>This folder is where all of the R packages you install via <code>install.packages()</code> will live. If you ever need to look this up, you can use the <code>.libPaths()</code> function.</p>
-<p>Sometimes, your R session will throw a warning that says a folder is not writeable and asks if you would like to use a personal library instead. In this case, select “yes”.</p>
+<p>Sometimes, your R session will issue a warning that says a folder is not writeable and asks if you would like to use a personal library instead. In this case, select “yes”.</p>
 </div>
-</aside>
+</div>
+<div id="using-the-lesson-engine" class="section level2">
+<h2>Using the lesson engine</h2>
+<p>Throughout the lesson, I will ask you to <strong>open R or RStudio</strong>. If you are using RStudio, you can open it by double-clicking on the RStudio icon in your application launcher; you do not have to open R separately to use RStudio.</p>
+<p>If you are using R, you can open it in your terminal application by typing <code>R</code>. Your prompt will be replaced by a <code>&gt;</code>, which indicates that you are in R’s interactive <a href="https://glosario.carpentries.org/en/#repl">REPL</a>.</p>
+<p>You can exit R or RStudio by typing <code>q()</code> in the R console.</p>
+<div id="setting-up-your-r-workspace" class="section level3 prereq">
+<h3>Setting up your R workspace</h3>
+<p>When you set up R, it’s important to make sure you set it up to always start R with a clean slate<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>: never save your workspace on exit and never load a previously saved workspace on startup.</p>
+<div id="via-rstudio" class="section level4">
+<h4>Via RStudio</h4>
+<p>If you are using RStudio, you can <a href="https://community.rstudio.com/t/first-line-of-every-r-script/799/12?u=zkamvar">follow the instructions in this forum post</a>:</p>
+<ol style="list-style-type: decimal">
+<li>From the menu, select <cmd>Tools<cmd> &gt; <cmd>Global Options</cmd></li>
+<li>Under <strong>Workspace Options</strong>, de-select “Restore .RData into workspace at startup” and set “Save workspace to .RData on exit” to “Never”</li>
+</ol>
+</div>
+<div id="via-command-line-interface" class="section level4">
+<h4>Via Command Line Interface</h4>
+<p>The flags <code>--no-restore</code> and <code>--no-save</code> will set these defaults, so you can create an alias for R in the <code>.bashrc</code> file in your home directory:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> R=<span class="st">&#39;R --no-restore --no-save&#39;</span></span></code></pre></div>
+</div>
+</div>
+</div>
 <div id="connect-to-github" class="section level2">
 <h2>Connect to GitHub</h2>
 <p>You will need to make sure your git session is connected to GitHub. To do so, you will need to use an SSH or HTTPS protocol. If you already know how to push and pull from GitHub using the command line, you do not need to worry about setting this up.</p>
@@ -363,9 +623,8 @@ compilation terminated.
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>Linux installation may be a bit tricky. Official instructions for various flavours of linux can be found at <a href="https://cran.r-project.org/bin/linux/" class="uri">https://cran.r-project.org/bin/linux/</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>When installing RStudio for Linux, your distribution may not be shown on the landing p age (e.g. Ubuntu 20.04). In this case, choose the most recent version and download it to your Downloads folder or install it directly. If you download it, you can <a href="https://www.rstudio.com/code-signing/">verify the download</a> before installing. To start RStudio, you can type <code>rstudio &amp;</code> to launch RStudio and let the process run in the background.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>By default, R will ask if you want to save your workspace to a hidden file called <code>.RData</code>. This is loaded when you start R, restoring your environment with all of the packages and objects you had previously loaded. This default behavior is not good for reproducibility and makes updating packages very very difficult. In 2017 Jenny Bryan wrote a very good article about the benefits of having a project-based workflow, starting from a clean slate: <a href="https://www.tidyverse.org/blog/2017/12/workflow-vs-script/" class="uri">https://www.tidyverse.org/blog/2017/12/workflow-vs-script/</a><a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn1"><p>Note: {pegboard} requires the <a href="https://docs.ropensci.org/tinkr/">{tinkr}</a> package from rOpenSci. It is still in development, so we will install this package explicitly.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>By default, R will ask if you want to save your workspace to a hidden file called <code>.RData</code>. This is loaded when you start R, restoring your environment with all of the packages and objects you had previously loaded. This default behavior is not good for reproducibility and makes updating packages very very difficult. In 2017 Jenny Bryan wrote a very good article about the benefits of having a project-based workflow, starting from a clean slate: <a href="https://www.tidyverse.org/blog/2017/12/workflow-vs-script/" class="uri">https://www.tidyverse.org/blog/2017/12/workflow-vs-script/</a><a href="#fnref2" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 

@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-05-13 19:01:37 +0000">
+<meta http-equiv="last-modified" content="2021-05-20 00:31:42 +0000">
 
 
 
@@ -260,9 +260,8 @@
 <h2>Introduction</h2>
 <p>An episode<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> is an individual unit of a lesson that focuses on a single topic with clear questions, objectives, and key points. If a lesson goal is to teach you about using git, an individual episode would teach you how to inspect the status of a git repsitory. The idea behind the name “episode” is the thought that each one should last about as long as an episode for an television series.</p>
 <p>As we will cover in the <a href="editing.html">next episode</a>, all of the episodes live inside the <code>episodes/</code> directory at the top of the lesson folder. Their order is dictated by the <code>episodes:</code> element in the <code>config.yaml</code> file (but defaults to alphabetical). The other folders (<code>learners/</code>, <code>instructors/</code>, and <code>profiles/</code>) are similarly configured. This episode will briefly explain how to edit markdown content in the lessons.</p>
-</div>
-<div id="buoyant-barnacle" class="section level2 prereq">
-<h2>Buoyant Barnacle</h2>
+<div id="buoyant-barnacle" class="section level3 prereq">
+<h3>Buoyant Barnacle</h3>
 <p>The exercises in this episode correspond to the Buoyant Barnacle repository you created in <a href="introduction.html">the Introduction</a></p>
 </div>
 <p>There are three things you should be comfortable with in order to contribute to a lesson <a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
@@ -271,6 +270,7 @@
 <li>Writing <a href="https://pandoc.org/MANUAL#divs-and-spans">Fenced div elements</a> to create callouts and exercise blocks</li>
 <li>Writing simple yaml lists</li>
 </ol>
+</div>
 <div id="creating-a-new-episode" class="section level2">
 <h2>Creating A New Episode</h2>
 <p>To create a new episode, you should open your lesson (<code>buoyant-barnacle</code>) in your RStudio or your favorite text editor and in the R console type:</p>
@@ -309,9 +309,8 @@ print(&quot;hello world!&quot;)
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">## First Episode Section</span></span></code></pre></div>
 </div>
-</div>
-<div id="create-a-title" class="section level2 challenge">
-<h2>Create a Title</h2>
+<div id="create-a-title" class="section level3 challenge">
+<h3>Create a Title</h3>
 <p>Your new episode needs a title!</p>
 <ol style="list-style-type: decimal">
 <li>Open the new episode in your editor</li>
@@ -352,6 +351,7 @@ print(&quot;hello world!&quot;)
 <span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>keypoint 1</span>
 <span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span>keypoint 2</span>
 <span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>::::::</span></code></pre></div>
+</div>
 </div>
 <div id="callout-blocks" class="section level2">
 <h2>Editing an episode: Callout blocks</h2>
@@ -458,9 +458,8 @@ print(&quot;hello world!&quot;)
 <img src="fig/carpentries-hex-blue.svg" alt="blue hexagon with The Carpentries logo in white and text: &#39;The Carpentries&#39;" alt="" />
 <p class="caption">Hex sticker for The Carpentries</p>
 </div>
-</div>
-<div id="accessibility-point-alternative-text-aka-alt-text" class="section level2 discussion">
-<h2>Accessibility Point: Alternative Text (aka alt-text)</h2>
+<div id="accessibility-point-alternative-text-aka-alt-text" class="section level3 discussion">
+<h3>Accessibility Point: Alternative Text (aka alt-text)</h3>
 <p>Alternative text (alt text) is a very important tool for making lessons accessible. If you are unfamiliar with alt text for images, <a href="https://axesslab.com/alt-texts/">this primer on alt text gives a good rundown of what alt text is and why it matters</a>. In short, alt text provides a short description of an image that can take the place of an image if it is missing or the user is unable to see it.</p>
 </div>
 <p>If your lesson uses R, some images will be auto-generated from evaluated code chunks and linked. You can use <code>fig.alt</code> to include alt text. <a href="https://blog.rstudio.com/2021/04/20/knitr-fig-alt/">This blogpost has more information about including alt text in RMarkdown documents</a>. In addition, you can also use <code>fig.cap</code> to provide a caption that puts the picture into context (but take care to not be redundant; screen readers will read both fields).</p>
@@ -475,6 +474,7 @@ print(&quot;hello world!&quot;)
 <p class="caption">
 Sun arise each and every morning
 </p>
+</div>
 </div>
 <div id="math" class="section level2">
 <h2>Math</h2>

@@ -186,6 +186,46 @@ pre.sql::before, pre.language-sql::before {
   -webkit-font-smoothing: antialiased;
 }
 
+.callout h4 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 16px;
+  background: linear-gradient(to bottom, #f4fd9c, #f5fda6);
+  border-color: #f4fd9c;
+  margin-top: 0px;
+  margin-left: -5px;
+}
+
+.callout h4:before {
+  font-family: 'Glyphicons Halflings';
+  content: "";
+  float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+}
+
+.callout h5 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 14px;
+  background: linear-gradient(to bottom, #f4fd9c, #f5fda6);
+  border-color: #f4fd9c;
+  margin-top: 0px;
+  margin-left: -5px;
+}
+
+.callout h5:before {
+  font-family: 'Glyphicons Halflings';
+  content: "";
+  float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+}
+
 .challenge {
   padding: 0 0 5px 5px;
   border: 1px solid;
@@ -225,6 +265,46 @@ pre.sql::before, pre.language-sql::before {
 }
 
 .challenge h3:before {
+  font-family: 'Glyphicons Halflings';
+  content: "✏";
+  float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+}
+
+.challenge h4 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 16px;
+  background: linear-gradient(to bottom, #eec275, #f0c883);
+  border-color: #eec275;
+  margin-top: 0px;
+  margin-left: -5px;
+}
+
+.challenge h4:before {
+  font-family: 'Glyphicons Halflings';
+  content: "✏";
+  float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+}
+
+.challenge h5 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 14px;
+  background: linear-gradient(to bottom, #eec275, #f0c883);
+  border-color: #eec275;
+  margin-top: 0px;
+  margin-left: -5px;
+}
+
+.challenge h5:before {
   font-family: 'Glyphicons Halflings';
   content: "✏";
   float: left;
@@ -282,6 +362,46 @@ pre.sql::before, pre.language-sql::before {
   -webkit-font-smoothing: antialiased;
 }
 
+.checklist h4 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 16px;
+  background: linear-gradient(to bottom, #dfd2a0, #e2d7aa);
+  border-color: #dfd2a0;
+  margin-top: 0px;
+  margin-left: -5px;
+}
+
+.checklist h4:before {
+  font-family: 'Glyphicons Halflings';
+  content: "";
+  float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+}
+
+.checklist h5 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 14px;
+  background: linear-gradient(to bottom, #dfd2a0, #e2d7aa);
+  border-color: #dfd2a0;
+  margin-top: 0px;
+  margin-left: -5px;
+}
+
+.checklist h5:before {
+  font-family: 'Glyphicons Halflings';
+  content: "";
+  float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+}
+
 .discussion {
   padding: 0 0 5px 5px;
   border: 1px solid;
@@ -321,6 +441,46 @@ pre.sql::before, pre.language-sql::before {
 }
 
 .discussion h3:before {
+  font-family: 'Glyphicons Halflings';
+  content: "";
+  float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+}
+
+.discussion h4 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 16px;
+  background: linear-gradient(to bottom, #eec275, #f0c883);
+  border-color: #eec275;
+  margin-top: 0px;
+  margin-left: -5px;
+}
+
+.discussion h4:before {
+  font-family: 'Glyphicons Halflings';
+  content: "";
+  float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+}
+
+.discussion h5 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 14px;
+  background: linear-gradient(to bottom, #eec275, #f0c883);
+  border-color: #eec275;
+  margin-top: 0px;
+  margin-left: -5px;
+}
+
+.discussion h5:before {
   font-family: 'Glyphicons Halflings';
   content: "";
   float: left;
@@ -378,6 +538,46 @@ pre.sql::before, pre.language-sql::before {
   -webkit-font-smoothing: antialiased;
 }
 
+.keypoints h4 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 16px;
+  background: linear-gradient(to bottom, #7ae78e, #87e999);
+  border-color: #7ae78e;
+  margin-top: 0px;
+  margin-left: -5px;
+}
+
+.keypoints h4:before {
+  font-family: 'Glyphicons Halflings';
+  content: "";
+  float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+}
+
+.keypoints h5 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 14px;
+  background: linear-gradient(to bottom, #7ae78e, #87e999);
+  border-color: #7ae78e;
+  margin-top: 0px;
+  margin-left: -5px;
+}
+
+.keypoints h5:before {
+  font-family: 'Glyphicons Halflings';
+  content: "";
+  float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+}
+
 .objectives {
   padding: 0 0 5px 5px;
   border: 1px solid;
@@ -417,6 +617,46 @@ pre.sql::before, pre.language-sql::before {
 }
 
 .objectives h3:before {
+  font-family: 'Glyphicons Halflings';
+  content: "";
+  float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+}
+
+.objectives h4 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 16px;
+  background: linear-gradient(to bottom, #daee84, #def090);
+  border-color: #daee84;
+  margin-top: 0px;
+  margin-left: -5px;
+}
+
+.objectives h4:before {
+  font-family: 'Glyphicons Halflings';
+  content: "";
+  float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+}
+
+.objectives h5 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 14px;
+  background: linear-gradient(to bottom, #daee84, #def090);
+  border-color: #daee84;
+  margin-top: 0px;
+  margin-left: -5px;
+}
+
+.objectives h5:before {
   font-family: 'Glyphicons Halflings';
   content: "";
   float: left;
@@ -474,6 +714,46 @@ pre.sql::before, pre.language-sql::before {
   -webkit-font-smoothing: antialiased;
 }
 
+.prereq h4 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 16px;
+  background: linear-gradient(to bottom, #9cd6dc, #a6dae0);
+  border-color: #9cd6dc;
+  margin-top: 0px;
+  margin-left: -5px;
+}
+
+.prereq h4:before {
+  font-family: 'Glyphicons Halflings';
+  content: "";
+  float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+}
+
+.prereq h5 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 14px;
+  background: linear-gradient(to bottom, #9cd6dc, #a6dae0);
+  border-color: #9cd6dc;
+  margin-top: 0px;
+  margin-left: -5px;
+}
+
+.prereq h5:before {
+  font-family: 'Glyphicons Halflings';
+  content: "";
+  float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+}
+
 .solution {
   padding: 0 0 5px 5px;
   border: 1px solid;
@@ -522,6 +802,46 @@ pre.sql::before, pre.language-sql::before {
   -webkit-font-smoothing: antialiased;
 }
 
+.solution h4 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 16px;
+  background: linear-gradient(to bottom, #ded4b9, #e1d8c0);
+  border-color: #ded4b9;
+  margin-top: 0px;
+  margin-left: -5px;
+}
+
+.solution h4:before {
+  font-family: 'Glyphicons Halflings';
+  content: "";
+  float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+}
+
+.solution h5 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 14px;
+  background: linear-gradient(to bottom, #ded4b9, #e1d8c0);
+  border-color: #ded4b9;
+  margin-top: 0px;
+  margin-left: -5px;
+}
+
+.solution h5:before {
+  font-family: 'Glyphicons Halflings';
+  content: "";
+  float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+}
+
 .testimonial {
   padding: 0 0 5px 5px;
   border: 1px solid;
@@ -561,6 +881,46 @@ pre.sql::before, pre.language-sql::before {
 }
 
 .testimonial h3:before {
+  font-family: 'Glyphicons Halflings';
+  content: "";
+  float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+}
+
+.testimonial h4 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 16px;
+  background: linear-gradient(to bottom, #fc8dc1, #fc98c7);
+  border-color: #fc8dc1;
+  margin-top: 0px;
+  margin-left: -5px;
+}
+
+.testimonial h4:before {
+  font-family: 'Glyphicons Halflings';
+  content: "";
+  float: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+}
+
+.testimonial h5 {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 14px;
+  background: linear-gradient(to bottom, #fc8dc1, #fc98c7);
+  border-color: #fc8dc1;
+  margin-top: 0px;
+  margin-left: -5px;
+}
+
+.testimonial h5:before {
   font-family: 'Glyphicons Halflings';
   content: "";
   float: left;

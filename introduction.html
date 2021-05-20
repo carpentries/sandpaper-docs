@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-05-13 19:01:37 +0000">
+<meta http-equiv="last-modified" content="2021-05-20 00:31:42 +0000">
 
 
 
@@ -265,9 +265,8 @@
 <p>Contributors should only be expected to know basic markdown and <em>very</em> minimal yaml syntax in order to work on lessons.</p>
 </div>
 </aside>
-</div>
-<div id="try-it-yourself" class="section level2 challenge">
-<h2>Try it yourself!</h2>
+<div id="try-it-yourself" class="section level3 challenge">
+<h3>Try it yourself!</h3>
 <p>Follow these steps to create a brand new lesson on your Desktop called “buoyant-barnacle”.</p>
 <ol style="list-style-type: decimal">
 <li>Follow the <a href="setup.html">setup instructions</a></li>
@@ -285,18 +284,18 @@
 <p>If everything went correctly, you will now have a new RStudio window open to your new project called “buoyant-barnacle” on your Desktop (if you did not use RStudio, your working directory should have changed, you can check it via the <code>getwd()</code> command).</p>
 <p>Your lesson will be initialized with a brand new git repository with the initial commit message being <code>Initial commit [via {sandpaper}]</code>.</p>
 <aside class="callout">
-<div id="ladybug-known-quirk" class="section level3">
-<h3>:ladybug: Known Quirk</h3>
+<div id="known-quirk" class="section level3">
+<h3><span class="emoji" data-emoji="beetle">🐞</span> Known Quirk</h3>
 <p>If you are using RStudio, then an RStudio project file (<code>*.Rproj</code>) is automatically created to help anchor your project. You might notice changes to this file at first as RStudio applies your global user settings to the file. This is perfectly normal and we will fix this in a future iteration of {sandpaper}.</p>
 </div>
 </aside>
+</div>
 <div id="previewing-your-new-lesson" class="section level2">
 <h2>Previewing Your New Lesson</h2>
 <p>After you created your lesson, you will want to preview it locally. First, make sure that you are in your newly-created repository and then use the following command:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sandpaper<span class="sc">::</span><span class="fu">build_lesson</span>()</span></code></pre></div>
-</div>
-<div id="whats-with-the-syntax" class="section level2 discussion">
-<h2>What’s with the <code>::</code> syntax?</h2>
+<div id="whats-with-the-syntax" class="section level3 discussion">
+<h3>What’s with the <code>::</code> syntax?</h3>
 <p>This is a syntax that clearly states what package a particular function comes from. In this case, <code>sandpaper::build_lesson()</code> tells R to use the <code>build_lesson()</code> function from the <code>sandpaper</code> package. These commands can be run without first calling <code>library(&lt;packagename&gt;)</code>, so they are more portable. I will be using this syntax for the rest of the lesson.</p>
 </div>
 <aside class="callout">
@@ -314,8 +313,8 @@
 </div>
 </aside>
 <p>The first time you run this function, you might see A LOT of output on your screen and then your browser will open the preview. If you run the command again, you will see much less output. If you like to would like to know how everything works under the hood, you can check out the <a href="sandpaper.html">{sandpaper} generator chapter</a>.</p>
-<div id="how-do-i-determine-the-order-of-files-displayed-on-the-website" class="section level2 discussion">
-<h2>How do I determine the order of files displayed on the website?</h2>
+<div id="how-do-i-determine-the-order-of-files-displayed-on-the-website" class="section level3 discussion">
+<h3>How do I determine the order of files displayed on the website?</h3>
 <p>The <code>config.yaml</code> file contains four fields that correspond to the folders in your repository: <code>episodes</code>, <code>instructors</code>, <code>learners</code>, <code>profiles</code>. By default, they are displayed in alphabetical order, but if you want to customize exactly what content is published on the website, you can add a yaml list of the filenames to determine order.</p>
 <p>For example, if you had three episodes called “introduction.md”, “part_two.Rmd”, and “in_progress.md” and you wanted to only show introduction and part_two, you would edit <code>config.yaml</code> to list those two files under <code>episodes:</code>:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">episodes</span><span class="kw">:</span></span>
@@ -323,8 +322,8 @@
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> part_two.Rmd</span></span></code></pre></div>
 </div>
 <div class="challenge">
-<div id="set-the-schedule-optional" class="section level2">
-<h2>Set the schedule (optional)</h2>
+<div id="set-the-schedule-optional" class="section level3">
+<h3>Set the schedule (optional)</h3>
 <p>Render the lesson again. It should run more quickly this time, but you might notice a warning at the end of the rendering:</p>
 </div>
 <div id="warning-message" class="section level2 solution">
@@ -341,6 +340,7 @@ To remove this warning, define your schedule in `config.yaml` or use `set_episod
 <li>Add <code>- 01-Introduction.Rmd</code> to the line below.</li>
 <li>Save the file and re-render. You should notice that the warning has disappeared.</li>
 </ol>
+</div>
 </div>
 <div id="push-to-github" class="section level2">
 <h2>Push to GitHub</h2>
