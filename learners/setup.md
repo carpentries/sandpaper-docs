@@ -171,8 +171,7 @@ into the console.
 ```r
 # register the repositories for The Carpentries and CRAN
 options(repos = c(
-  carpentries = "https://carpentries.github.io/drat/",
-  ropensci = "https://ropensci.r-universe.dev/",
+  carpentries = "https://carpentries.r-universe.dev/",
   CRAN = "https://cran.rstudio.com/"
 ))
 
@@ -272,8 +271,7 @@ into the console.
 ```r
 # register the repositories for The Carpentries and CRAN
 options(repos = c(
-  carpentries = "https://carpentries.github.io/drat/",
-  ropensci = "https://ropensci.r-universe.dev/",
+  carpentries = "https://carpentries.r-universe.dev/",
   CRAN = "https://cran.rstudio.com/"
 ))
 
@@ -418,8 +416,7 @@ into the console.
 ```r
 # register the repositories for The Carpentries and CRAN
 options(repos = c(
-  carpentries = "https://carpentries.github.io/drat/",
-  ropensci = "https://ropensci.r-universe.dev/",
+  carpentries = "https://carpentries.r-universe.dev/",
   CRAN = "https://packagemanager.rstudio.com/all/__linux__/focal/latest"
 ))
 
