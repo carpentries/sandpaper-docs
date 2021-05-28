@@ -21,48 +21,57 @@ jobs:
         with:
           pandoc-version: "2.11.4"
 
-      - name: Install Mac Deps
-        run: brew install libgit2 harfbuzz fribidi
+      - name: "Query Sandpaper Dependencies"
+        run: |
+          install.packages('remotes')
+          options(repos = c(
+            "https://carpentries.r-universe.dev/", 
+            "https://cloud.r-project.org/"
+          ))
+          saveRDS(remotes::package_deps('sandpaper', dependencies = TRUE), 
+            ".github/depends.Rds", 
+            version = 2
+          )
+          writeLines(
+            sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), 
+            ".github/R-version"
+          )
+        shell: Rscript {0}
 
-      - name: Restore Package Cache
+      - name: "Restore Package Cache"
         uses: actions/cache@v2
         with:
           path: ${{ env.R_LIBS_USER }}
           key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
           restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
 
-      - name: Query Sandpaper Dependencies
+      - name: "Install {sandpaper} and Dependencies"
         run: |
-          install.packages('remotes')
-          install.packages('drat')
-          drat:::add('carpentries')
-          saveRDS(remotes::package_deps('sandpaper', dependencies = TRUE), ".github/depends.Rds", version = 2)
-          writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
-        shell: Rscript {0}
-
-      - name: Install Sandpaper Dependencies
-        run: |
-          drat:::add("carpentries")
+          options(repos = c(
+            "https://carpentries.r-universe.dev/", 
+            "https://cloud.r-project.org/"
+          ))
           pkgs <- readRDS(".github/depends.Rds")
           pkgs$diff[pkgs$package == "tinkr"] <- -1 # force tinkr update for now
           library("remotes")
           update(pkgs, upgrade = "always")
-          install_github('carpentries/varnish')
           install.packages("sessioninfo")
         shell: Rscript {0}
 
-      - name: Show Session Information
+      - name: "Show Session Information"
         run: |
-          cli::cli_rule("Time Built")
-          pkg_tim <- function(p) {
-            paste(format(c(p, "sandpaper"))[1], packageDescription(p)$Packaged)
+          if (requireNamespace("glue")) {
+            cli::cli_rule("Time Built")
+            pkg_tim <- function(p) {
+              paste(format(c(p, "sandpaper"))[1], packageDescription(p)$Packaged)
+            }
+            status <- vapply(c("sandpaper", "pegboard", "varnish", "tinkr"), pkg_tim, character(1))
+            cli::cli_bullets(status)
+            cli::cli_rule("Session info")
+            sessioninfo::platform_info()
+            cli::cli_rule("Package Info")
+            sessioninfo::package_info("sandpaper", dependencies = TRUE)
           }
-          status <- vapply(c("sandpaper", "pegboard", "varnish", "tinkr"), pkg_tim, character(1))
-          cli::cli_bullets(status)
-          cli::cli_rule("Session info")
-          sessioninfo::platform_info()
-          cli::cli_rule("Package Info")
-          sessioninfo::package_info("sandpaper", dependencies = TRUE)
         shell: Rscript {0}
 
       - name: Deploy Site
