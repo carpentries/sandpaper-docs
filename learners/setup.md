@@ -516,7 +516,7 @@ troubleshoot.
 
 ## Installation FAQ
 
-### Why does it take 6 lines of code to install the infrastructure?
+### Why does it take 5 lines of code to install the infrastructure?
 
 In the future, this will be ONE line of code!
 
