@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-05-20 00:31:42 +0000">
+<meta http-equiv="last-modified" content="2021-05-28 22:05:20 +0000">
 
 
 
@@ -324,13 +324,12 @@ https://www.gnu.org/licenses/.</code></pre>
 <p>To install the R packages, you will need to <strong>open RStudio</strong> (or start R from the command line if you did not install RStudio) and enter the following lines into the console.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># register the repositories for The Carpentries and CRAN</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repos =</span> <span class="fu">c</span>(</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">carpentries =</span> <span class="st">&quot;https://carpentries.github.io/drat/&quot;</span>,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ropensci =</span> <span class="st">&quot;https://ropensci.r-universe.dev/&quot;</span>,</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">CRAN =</span> <span class="st">&quot;https://cran.rstudio.com/&quot;</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>))</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Install the template packages to your R library</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;sandpaper&quot;</span>, <span class="st">&quot;varnish&quot;</span>, <span class="st">&quot;pegboard&quot;</span>, <span class="st">&quot;tinkr&quot;</span>))</span></code></pre></div>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">carpentries =</span> <span class="st">&quot;https://carpentries.r-universe.dev/&quot;</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">CRAN =</span> <span class="st">&quot;https://cran.rstudio.com/&quot;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Install the template packages to your R library</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;sandpaper&quot;</span>, <span class="st">&quot;varnish&quot;</span>, <span class="st">&quot;pegboard&quot;</span>, <span class="st">&quot;tinkr&quot;</span>))</span></code></pre></div>
 </div>
 </div>
 <div id="mac" class="section level2">
@@ -386,13 +385,12 @@ https://www.gnu.org/licenses/.</code></pre>
 <p>To install the R packages, you will need to <strong>open RStudio</strong> (or start R from the command line if you did not install RStudio) and enter the following lines into the console.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># register the repositories for The Carpentries and CRAN</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repos =</span> <span class="fu">c</span>(</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">carpentries =</span> <span class="st">&quot;https://carpentries.github.io/drat/&quot;</span>,</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ropensci =</span> <span class="st">&quot;https://ropensci.r-universe.dev/&quot;</span>,</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">CRAN =</span> <span class="st">&quot;https://cran.rstudio.com/&quot;</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>))</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Install the template packages to your R library</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;sandpaper&quot;</span>, <span class="st">&quot;varnish&quot;</span>, <span class="st">&quot;pegboard&quot;</span>, <span class="st">&quot;tinkr&quot;</span>))</span></code></pre></div>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">carpentries =</span> <span class="st">&quot;https://carpentries.r-universe.dev/&quot;</span>,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">CRAN =</span> <span class="st">&quot;https://cran.rstudio.com/&quot;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Install the template packages to your R library</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;sandpaper&quot;</span>, <span class="st">&quot;varnish&quot;</span>, <span class="st">&quot;pegboard&quot;</span>, <span class="st">&quot;tinkr&quot;</span>))</span></code></pre></div>
 </div>
 </div>
 <div id="linux" class="section level2">
@@ -475,13 +473,12 @@ https://www.gnu.org/licenses/.
 <p>To install the R packages, you will need to <strong>open RStudio</strong> (or start R from the command line if you did not install RStudio) and enter the following lines into the console.</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># register the repositories for The Carpentries and CRAN</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repos =</span> <span class="fu">c</span>(</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">carpentries =</span> <span class="st">&quot;https://carpentries.github.io/drat/&quot;</span>,</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">ropensci =</span> <span class="st">&quot;https://ropensci.r-universe.dev/&quot;</span>,</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">CRAN =</span> <span class="st">&quot;https://packagemanager.rstudio.com/all/__linux__/focal/latest&quot;</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>))</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Install the template packages to your R library</span></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;sandpaper&quot;</span>, <span class="st">&quot;varnish&quot;</span>, <span class="st">&quot;pegboard&quot;</span>, <span class="st">&quot;tinkr&quot;</span>))</span></code></pre></div>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">carpentries =</span> <span class="st">&quot;https://carpentries.r-universe.dev/&quot;</span>,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">CRAN =</span> <span class="st">&quot;https://packagemanager.rstudio.com/all/__linux__/focal/latest&quot;</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Install the template packages to your R library</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;sandpaper&quot;</span>, <span class="st">&quot;varnish&quot;</span>, <span class="st">&quot;pegboard&quot;</span>, <span class="st">&quot;tinkr&quot;</span>))</span></code></pre></div>
 <aside class="callout">
 <div id="what-if-i-get-errors-installing-packages" class="section level4">
 <h4>What if I get errors installing packages?</h4>
@@ -554,8 +551,8 @@ To remove this warning, define your schedule in `config.yaml` or use `set_episod
 </div>
 <div id="installation-faq" class="section level2">
 <h2>Installation FAQ</h2>
-<div id="why-does-it-take-6-lines-of-code-to-install-the-infrastructure" class="section level3">
-<h3>Why does it take 6 lines of code to install the infrastructure?</h3>
+<div id="why-does-it-take-5-lines-of-code-to-install-the-infrastructure" class="section level3">
+<h3>Why does it take 5 lines of code to install the infrastructure?</h3>
 <p>In the future, this will be ONE line of code!</p>
 <p>Since we are currently in the alpha phase of testing, the infrastructure can update at any moment. Normally, packages will come from <a href="https://glosario.carpentries.org/en/#cran">CRAN</a>, but our development packages are not yet on CRAN, so the are stored in The Carpentries and rOpenSci development repositories.</p>
 </div>
