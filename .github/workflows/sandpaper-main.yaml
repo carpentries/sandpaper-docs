@@ -51,7 +51,7 @@ jobs:
             "https://carpentries.r-universe.dev/", 
             "https://cloud.r-project.org/"
           ))
-          pkgs <- readRDS(".github/depends.Rds")
+          pkgs <- remotes::package_deps('sandpaper', dependencies = TRUE)
           pkgs$diff[pkgs$package == "tinkr"] <- -1 # force tinkr update for now
           library("remotes")
           update(pkgs, upgrade = "always")
