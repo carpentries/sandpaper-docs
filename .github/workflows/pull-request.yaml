@@ -16,10 +16,10 @@ jobs:
       PR: ${{ github.workspace }}/site/pr
       MD: ${{ github.workspace }}/site/built
     steps:
-      - name: "Check out main branch"
+      - name: "Check Out Main Branch"
         uses: actions/checkout@v2
 
-      - name: "Check out staging branch"
+      - name: "Check Out Staging Branch"
         uses: actions/checkout@v2
         with:
           ref: md-outputs
@@ -30,58 +30,67 @@ jobs:
         with:
           pandoc-version: "2.11.4"
 
-      - name: setup dependencies
-        run: brew install libgit2 harfbuzz fribidi
+      - name: "Query Sandpaper Dependencies"
+        run: |
+          install.packages('remotes')
+          options(repos = c(
+            "https://carpentries.r-universe.dev/", 
+            "https://cloud.r-project.org/"
+          ))
+          saveRDS(remotes::package_deps('sandpaper', dependencies = TRUE), 
+            ".github/depends.Rds", 
+            version = 2
+          )
+          writeLines(
+            sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), 
+            ".github/R-version"
+          )
+        shell: Rscript {0}
 
-      - name: Restore Package Cache
+      - name: "Restore Package Cache"
         uses: actions/cache@v2
         with:
           path: ${{ env.R_LIBS_USER }}
           key: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-${{ hashFiles('.github/depends.Rds') }}
           restore-keys: ${{ runner.os }}-${{ hashFiles('.github/R-version') }}-1-
 
-      - name: Query Sandpaper Dependencies
+      - name: "Install {sandpaper} and Dependencies"
         run: |
-          install.packages('remotes')
-          install.packages('drat')
-          drat:::add('carpentries')
-          saveRDS(remotes::package_deps('sandpaper', dependencies = TRUE), ".github/depends.Rds", version = 2)
-          writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
-        shell: Rscript {0}
-
-      - name: Install Sandpaper Dependencies
-        run: |
-          drat:::add("carpentries")
+          options(repos = c(
+            "https://carpentries.r-universe.dev/", 
+            "https://cloud.r-project.org/"
+          ))
           pkgs <- readRDS(".github/depends.Rds")
           pkgs$diff[pkgs$package == "tinkr"] <- -1 # force tinkr update for now
           library("remotes")
           update(pkgs, upgrade = "always")
-          install_github('carpentries/varnish')
           install.packages("sessioninfo")
         shell: Rscript {0}
 
-      - name: Show Session Information
+      - name: "Show Session Information"
         run: |
-          cli::cli_rule("Time Built")
-          pkg_tim <- function(p) {
-            paste(format(c(p, "sandpaper"))[1], packageDescription(p)$Packaged)
+          if (requireNamespace("glue")) {
+            cli::cli_rule("Time Built")
+            pkg_tim <- function(p) {
+              paste(format(c(p, "sandpaper"))[1], packageDescription(p)$Packaged)
+            }
+            status <- vapply(c("sandpaper", "pegboard", "varnish", "tinkr"), pkg_tim, character(1))
+            cli::cli_bullets(status)
+            cli::cli_rule("Session info")
+            sessioninfo::platform_info()
+            cli::cli_rule("Package Info")
+            sessioninfo::package_info("sandpaper", dependencies = TRUE)
           }
-          status <- vapply(c("sandpaper", "pegboard", "varnish", "tinkr"), pkg_tim, character(1))
-          cli::cli_bullets(status)
-          cli::cli_rule("Session info")
-          sessioninfo::platform_info()
-          cli::cli_rule("Package Info")
-          sessioninfo::package_info("sandpaper", dependencies = TRUE)
         shell: Rscript {0}
 
-      - name: Build Site
+      - name: "Build Site"
         id: build-site
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           Rscript -e 'sandpaper::build_lesson()'
 
-      - name: Generate Commit
+      - name: "Generate Commit"
         id: generate-commit
         run: |
           mkdir -p ${{ env.CHIVE }}
@@ -100,24 +109,26 @@ jobs:
           # removing git repo for the built archive.
           rm -rf .git
 
-      - name: Upload PR
+      - name: "Upload PR"
         uses: actions/upload-artifact@v2
         with:
           name: pr
           path: ${{ env.PR }}
 
-      - name: Upload Diff
+      - name: "Upload Diff"
         uses: actions/upload-artifact@v2
         with:
           name: diff
           path: ${{ env.CHIVE }}
+          retention-days: 1
       
-      - name: Upload Build
+      - name: "Upload Build"
         uses: actions/upload-artifact@v2
         with:
           name: built
           path: ${{ env.MD }}
+          retention-days: 1
 
-      - name: Teardown
+      - name: "Teardown"
         run: sandpaper::reset_site()
         shell: Rscript {0}
