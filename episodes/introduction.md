@@ -224,7 +224,7 @@ Pages](https://docs.github.com/en/github/working-with-github-pages/configuring-a
 by going to `https://github.com/<USERNAME>/buoyant-barnacle/settings/pages` and
 choosing `gh-pages` from the dropdown menu as shown in the image below:
 
-![screencapture of the initial view of the GitHub Pages section of the settings tab](fig/github-pages-none.png){.image-with-shadow}{alt="Screencapture of the initial view of the GitHub Pages section of the settings tab"}
+![screencapture of the initial view of the GitHub Pages section of the settings tab](fig/github-pages-none.png){.image-with-shadow}
 
 Click on the "select branch" button and select "gh-pages":
 
