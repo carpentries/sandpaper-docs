@@ -122,7 +122,8 @@ in your Documents folder.
 
 To verify that R is installed in your `PATH`, you can go to your taskbar at the
 bottom of your screen and type `cmd` to bring up the command prompt. From there,
-you can type `R --version` at the prompt:
+you can type `R --version` at the prompt. Your output should be similar to below,
+with a version ≥ 3.6.
 
 ```bash
 R --version
@@ -222,7 +223,8 @@ that can be quite helpful for parsing the steps of installing R on MacOS.
 #### Test your installation
 
 You can test your installation of R by opening **Terminal.app** and typing `R
---version` into the prompt:
+--version` into the prompt.  Your output should be similar to below,
+with a version ≥ 3.6.
 
 ```bash
 R --version
@@ -336,7 +338,9 @@ apt install --no-install-recommends r-base
 
 #### Test your installation
 
-Test your R installation by opening your terminal and running:
+Test your R installation by opening your terminal and running `
+--version` into the prompt.  Your output should be similar to below,
+with a version ≥ 3.6.
 
 ```bash
 R --version
