@@ -340,8 +340,8 @@ apt install --no-install-recommends r-base
 
 #### Test your installation
 
-Test your R installation by opening your terminal and running `
---version` into the prompt.  Your output should be similar to below,
+Test your R installation by opening your terminal and running  
+`R --version` into the prompt.  Your output should be similar to below,
 with a version ≥ 3.6.
 
 ```bash
