@@ -176,7 +176,7 @@ set the `episodes:` field in your configuration file (`config.yaml`).
 
 1. Open `config.yaml` in a text editor
 2. On line 46, you should see the `episodes:` field.
-3. Add `- 01-Introduction.Rmd` to the line below.
+3. Add `- 01-1ntroduction.Rmd` to the line below.
 4. Save the file and re-render. You should notice that the warning has
    disappeared. 
 
