@@ -206,7 +206,7 @@ git version 2.31.0
 ```
 
 If you have the default version of git, you might see this output, and that's
-okay for the purposes of this template. 
+okay for the purposes of this template.
 
 ```output
 git version 2.24.3 (Apple Git-128)
@@ -249,7 +249,15 @@ There are two ways to install pandoc:
 
 Since pandoc comes bundled with RStudio, you can install it by installing the
 latest version of RStudio. You can [download the installer from the RStudio 
-website][RStudio].
+website][RStudio]. RStudio will be a `*.dmg` (disk image) that you will open
+double click to open a window that will look something like this:
+
+![](fig/rstudio-mac-install.png){alt="Installation window for RStudio on mac
+showing two items on a plain background: the Applications folder on the left and
+the RStudio icon on the right."}
+
+You should *drag the RStudio icon to the left, **into** the Applications folder*
+to install RStudio on your computer.
 
 #### Via the pandoc website
 
