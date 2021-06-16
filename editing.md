@@ -35,9 +35,9 @@ and clone as you normally do. If you would like a reminder, here are the steps:
 1. Think about a place on your computer where you want to work on your fork
    of the lesson (e.g. `~/Documents/Lessons/`) and make sure that folder exists.
 
-2. Go to https://github.com/zkamvar/sandpaper-docs/fork/ to fork the repository 
+2. Go to https://github.com/carpentries/sandpaper-docs/fork/ to fork the repository 
    to your account
-   
+
 3. In the shell and use this command to clone this repository to your working
    directory, replacing `<USERNAME>` with your username
    ```bash
@@ -55,7 +55,7 @@ that the above three steps can be done in a single step with the {usethis}
 package via the GitHub API:
 
 ```r
-usethis::create_from_github("zkamvar/sandpaper-docs", "~/Documents/Lessons/")
+usethis::create_from_github("carpentries/sandpaper-docs", "~/Documents/Lessons/")
 ```
 
 :::::::::::::::::::::::

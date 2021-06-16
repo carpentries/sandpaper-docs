@@ -523,7 +523,7 @@ To remove this warning, define your schedule in `config.yaml` or use `set_episod
 ```
 
 If the installation did not work, please [raise an issue on
-GitHub](https://github.com/zkamvar/sandpaper-docs/issues/new) and I can help
+GitHub](https://github.com/carpentries/sandpaper-docs/issues/new) and I can help
 troubleshoot. 
 
 ## Installation FAQ
