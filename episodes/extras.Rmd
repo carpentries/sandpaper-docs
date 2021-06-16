@@ -20,7 +20,7 @@ platforms, and we teach it as part of our core curriculum.
 
 If everything worked, you should have seen a lot of output in your R console and
 then your browser window open to reveal a page that looks identical to
-https://zkamvar.github.io/sandpaper-docs/.
+https://carpentries.github.io/sandpaper-docs/.
 
 If this did NOT work for you, please send any errors you encountered to Zhian at
 zkamvar@carpentries.org or you can reach him on The Carpentries Slack. 

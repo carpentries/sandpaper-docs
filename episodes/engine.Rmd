@@ -142,7 +142,7 @@ can try out this tutorial:
 
 ```r
 library("usethis")
-create_from_github("zkamvar/sandpaper-docs", destdir = "~/Desktop/")
+create_from_github("carpentries/sandpaper-docs", destdir = "~/Desktop/")
 build_lesson()
 ```
 
