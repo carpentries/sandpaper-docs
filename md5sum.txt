@@ -6,7 +6,7 @@
 "/Users/runner/work/sandpaper-docs/sandpaper-docs/episodes/episodes.Rmd" "89305de347de403844c0cb747d1ea806" "/Users/runner/work/sandpaper-docs/sandpaper-docs/site/built/episodes.md"
 "/Users/runner/work/sandpaper-docs/sandpaper-docs/episodes/editing.md" "18e6fbd829c912f93e162754e46de78f" "/Users/runner/work/sandpaper-docs/sandpaper-docs/site/built/editing.md"
 "/Users/runner/work/sandpaper-docs/sandpaper-docs/episodes/example.Rmd" "b030222a2d9cad33f04c8c2676e6a026" "/Users/runner/work/sandpaper-docs/sandpaper-docs/site/built/example.md"
-"/Users/runner/work/sandpaper-docs/sandpaper-docs/episodes/deployment.md" "cab12c5c0be0148522ad3af38f532ff8" "/Users/runner/work/sandpaper-docs/sandpaper-docs/site/built/deployment.md"
+"/Users/runner/work/sandpaper-docs/sandpaper-docs/episodes/deployment.md" "64e738925b4d15113c641ff6e5d8f481" "/Users/runner/work/sandpaper-docs/sandpaper-docs/site/built/deployment.md"
 "/Users/runner/work/sandpaper-docs/sandpaper-docs/instructors/notes.md" "1b23451c437e71b86f312bef374b02e5" "/Users/runner/work/sandpaper-docs/sandpaper-docs/site/built/notes.md"
 "/Users/runner/work/sandpaper-docs/sandpaper-docs/learners/setup.md" "58deecffa7341c3e0daba19a4cad3f8a" "/Users/runner/work/sandpaper-docs/sandpaper-docs/site/built/setup.md"
 "/Users/runner/work/sandpaper-docs/sandpaper-docs/learners/github-pat.md" "65e9fd0b6de9f7904e01e5652fd3f12f" "/Users/runner/work/sandpaper-docs/sandpaper-docs/site/built/github-pat.md"

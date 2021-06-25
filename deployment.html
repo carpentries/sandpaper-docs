@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-06-16 17:10:17 +0000">
+<meta http-equiv="last-modified" content="2021-06-25 16:07:44 +0000">
 
 
 
@@ -263,8 +263,8 @@
 <li>Apply the HTML style to the markdown files in the staging area to create the lesson website.</li>
 </ol>
 <div class="figure">
-<img src="https://zkamvar.github.io/stunning-barnacle/img/local-flow.dot.svg" alt="" />
-<p class="caption">Diagram showing the two-step model of lesson deployment</p>
+<img src="https://zkamvar.github.io/stunning-barnacle/img/local-flow.dot.svg" alt="Diagram showing the process of `build_lesson(rebuild = TRUE)`, starting from R Markdown to Markdown and finally to HTML. R Markdown is highlighted as being the only element tracked by git." alt="" />
+<p class="caption">The two-step model of lesson deployment</p>
 </div>
 <p>All of the generated content lives in the <code>site/</code> folder, and importantly: it is all cached and ignored by git. Ignoring generated content locally means that the source of truth for these files is no longer dependent on the maintainer’s local setup.</p>
 <p>The reason we have this model is also for portability. It’s because markdown output is a lot easier to audit than HTML when something goes wrong, rendered markdown can be transferred to other contexts (e.g. books or blogposts), and we can swap out the generators without needing to rewrite the entire pipeline.</p>
@@ -287,8 +287,8 @@
 <p>Accepting generated content into lessons from anyone runs the risk of a security breach by exposing secrets. To mitigate this risk, GitHub limits the scope of what is possible inside a pull request so that we can check and render the content without risk of exploitation. Through this, we render and check the lesson inside the pull request with no privileges, check that the pull request is valid (not malicious), and then create a temporary branch for an exploratory preview, allowing the maintainer to audit the generated content before it gets adopted into the curriculum.</p>
 <p>If the PR is invalid (e.g. the contributor spoofed a separate, valid PR, or modified one of the github actions files), then the maintainer is alerted that the PR is potentially risky.</p>
 <div class="figure">
-<img src="https://raw.githubusercontent.com/zkamvar/stunning-barnacle/main/img/pr-flow.dot.svg" alt="" />
-<p class="caption">Workflow diagram for a pull request</p>
+<img src="https://raw.githubusercontent.com/zkamvar/stunning-barnacle/main/img/pr-flow.dot.svg" alt="Workflow diagram from a pull request starting from Pull Request, and going to a path involving validation, artifact creation, maintainer review, and potential deployment." alt="" />
+<p class="caption">The pull request cycle. Ellipse nodes (Pull Request and Maintainer Review) are the only places that require maintainer attention.</p>
 </div>
 </div>
 </aside>
