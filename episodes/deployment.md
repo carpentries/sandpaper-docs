@@ -43,7 +43,7 @@ employs a two-step model of deployment when you run `sandpaper::build_lesson()`
 2. Apply the HTML style to the markdown files in the staging area to create the
    lesson website.
 
-![Diagram showing the two-step model of lesson deployment](https://zkamvar.github.io/stunning-barnacle/img/local-flow.dot.svg)
+![The two-step model of lesson deployment](https://zkamvar.github.io/stunning-barnacle/img/local-flow.dot.svg){alt='Diagram showing the process of `build_lesson(rebuild = TRUE)`, starting from R Markdown to Markdown and finally to HTML. R Markdown is highlighted as being the only element tracked by git.'}
 
 All of the generated content lives in the `site/` folder, and importantly: it
 is all cached and ignored by git. Ignoring generated content locally means that
@@ -103,7 +103,7 @@ modified one of the github actions files), then the maintainer is alerted that
 the PR is potentially risky.
 
 
-![Workflow diagram for a pull request](https://raw.githubusercontent.com/zkamvar/stunning-barnacle/main/img/pr-flow.dot.svg)
+![The pull request cycle. Ellipse nodes (Pull Request and Maintainer Review) are the only places that require maintainer attention.](https://raw.githubusercontent.com/zkamvar/stunning-barnacle/main/img/pr-flow.dot.svg){alt="Workflow diagram from a pull request starting from Pull Request, and going to a path involving validation, artifact creation, maintainer review, and potential deployment."}
 
 ::::::::::::::::::::
 
