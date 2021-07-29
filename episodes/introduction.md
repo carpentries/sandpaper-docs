@@ -48,7 +48,7 @@ yaml syntax in order to work on lessons.
 Follow these steps to create a brand new lesson on your Desktop called
 "buoyant-barnacle".
 
-1. Follow the [setup instructions](setup.html)
+1. Follow the [setup instructions][setup]
 2. Open RStudio (or your preferred interface to R)
 3. Use the following code:
 
@@ -124,7 +124,7 @@ The first time you run this function, you might see A LOT of output on your
 screen and then your browser will open the preview. If you run the command 
 again, you will see much less output. If you like to would like to know how
 everything works under the hood, you can check out the [{sandpaper} generator
-chapter](sandpaper.html).
+chapter](sandpaper.md).
 
 ::::::::::::::::::::::::::::::::::::: discussion
 
@@ -187,7 +187,7 @@ set the `episodes:` field in your configuration file (`config.yaml`).
 
 The lesson you just created lives local on your computer, but still needs to go
 to GitHub. At this point, we assume that you have successfully [linked your 
-computer to GitHub](setup.html#connect-to-github-1).
+computer to GitHub](../learners/setup.md#connect-to-github-1).
 
 1. visit <https://github.com/new/>
 2. enter `buoyant-barnacle` as the repository name
@@ -212,7 +212,7 @@ push your repository to GitHub.
 
 If you don't use the HTTPS protocol, and want to find out how to set it in R,
 we have [a walkthrough to set your credentials in the learners section
-](github-pat.html).
+](../learners/github-pat.md).
 
 ::::::::::::::::::::
 
@@ -245,7 +245,7 @@ and cache.
 
 ## Tools
 
-As described in [the setup document](setup.html), the lesson template now only
+As described in [the setup document][setup], the lesson template now only
 requires R and [pandoc] to be installed. The tooling from the current lesson
 template has been split up into three R packages:
 
@@ -266,3 +266,4 @@ template has been split up into three R packages:
 [{pegboard}]: https://carpentries.github.io/pegboard/
 [{sandpaper}]: https://carpentries.github.io/sandpaper/
 [pandoc]: https://pandoc.org/
+[setup]: ../learners/setup.md
