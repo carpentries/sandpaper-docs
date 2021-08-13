@@ -5,7 +5,18 @@ on:
     branches:
       - main
       - master
-
+  schedule:
+    - cron: '0 0 * * 2'
+  workflow_dispatch:
+    inputs:
+      name:
+        description: 'Who triggered this build?'
+        required: true
+        default: 'Maintainer (via GitHub)'
+      reset:
+        description: 'Should the cached markdown files be reset? (true/false)'
+        required: true
+        default: false
 jobs:
   full-build:
     name: "Build Full Site"
@@ -26,6 +37,7 @@ jobs:
           install.packages('remotes')
           options(repos = c(
             "https://carpentries.r-universe.dev/", 
+            "https://carpentries.github.io/drat/",
             "https://cloud.r-project.org/"
           ))
           saveRDS(remotes::package_deps('sandpaper', dependencies = TRUE), 
@@ -49,33 +61,21 @@ jobs:
         run: |
           options(repos = c(
             "https://carpentries.r-universe.dev/", 
+            "https://carpentries.github.io/drat/",
             "https://cloud.r-project.org/"
           ))
-          pkgs <- remotes::package_deps('sandpaper', dependencies = TRUE)
-          pkgs$diff[pkgs$package == "tinkr"] <- -1 # force tinkr update for now
           library("remotes")
+          pkgs <- package_deps('sandpaper', dependencies = TRUE)
+          pkgs$diff[pkgs$package == "tinkr"] <- -1 # force tinkr update for now
           update(pkgs, upgrade = "always")
-          install.packages("sessioninfo")
         shell: Rscript {0}
 
       - name: "Show Session Information"
-        run: |
-          if (requireNamespace("glue")) {
-            cli::cli_rule("Time Built")
-            pkg_tim <- function(p) {
-              paste(format(c(p, "sandpaper"))[1], packageDescription(p)$Packaged)
-            }
-            status <- vapply(c("sandpaper", "pegboard", "varnish", "tinkr"), pkg_tim, character(1))
-            cli::cli_bullets(status)
-            cli::cli_rule("Session info")
-            sessioninfo::platform_info()
-            cli::cli_rule("Package Info")
-            sessioninfo::package_info("sandpaper", dependencies = TRUE)
-          }
-        shell: Rscript {0}
+        run: Rscript -e 'sandpaper:::ci_session_info()'
 
-      - name: Deploy Site
+      - name: "Deploy Site"
         run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Actions"
-          Rscript -e 'sandpaper:::ci_deploy()'
+          sandpaper:::check_git_user(path = ".", name = "GitHub Actions", email = "actions@github.com")
+          reset <- "${{ github.event.inputs.reset }}" == "true"
+          sandpaper:::ci_deploy(reset = reset)
+        shell: Rscript {0}
