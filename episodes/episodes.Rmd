@@ -33,7 +33,7 @@ inspect the status of a git repsitory. The idea behind the name "episode" is
 the thought that each one should last about as long as an episode for an
 television series.
 
-As we will cover in the [next episode](editing.html), all of the episodes live
+As we will cover in the [next episode](editing.md), all of the episodes live
 inside the `episodes/` directory at the top of the lesson folder. Their order is
 dictated by the `episodes:` element in the `config.yaml` file (but defaults to 
 alphabetical). The other folders (`learners/`, `instructors/`, and `profiles/`)
@@ -46,7 +46,7 @@ content in the lessons.
 ### Buoyant Barnacle
 
 The exercises in this episode correspond to the Buoyant Barnacle repository you
-created in [the Introduction](introduction.html)
+created in [the Introduction](introduction.md)
 
 :::::::::::::
 

@@ -17,8 +17,9 @@ four components:
    for the final website
 
 [Details of how these tools work together are explained in the Lesson 
-Deployment](deployment.md) chapter. In short, you can expect to interact with
-the source content and {sandpaper} to author and preview your lesson.
+Deployment](../episodes/deployment.md) chapter. In short, you can expect to
+interact with the source content and {sandpaper} to author and preview your
+lesson.
 
 ### Required Software {#required}
 
