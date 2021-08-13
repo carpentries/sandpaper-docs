@@ -35,6 +35,7 @@ jobs:
           install.packages('remotes')
           options(repos = c(
             "https://carpentries.r-universe.dev/", 
+            "https://carpentries.github.io/drat/",
             "https://cloud.r-project.org/"
           ))
           saveRDS(remotes::package_deps('sandpaper', dependencies = TRUE), 
@@ -58,30 +59,17 @@ jobs:
         run: |
           options(repos = c(
             "https://carpentries.r-universe.dev/", 
+            "https://carpentries.github.io/drat/",
             "https://cloud.r-project.org/"
           ))
-          pkgs <- remotes::package_deps('sandpaper', dependencies = TRUE)
-          pkgs$diff[pkgs$package == "tinkr"] <- -1 # force tinkr update for now
           library("remotes")
+          pkgs <- package_deps('sandpaper', dependencies = TRUE)
+          pkgs$diff[pkgs$package == "tinkr"] <- -1 # force tinkr update for now
           update(pkgs, upgrade = "always")
-          install.packages("sessioninfo")
         shell: Rscript {0}
 
       - name: "Show Session Information"
-        run: |
-          if (requireNamespace("glue")) {
-            cli::cli_rule("Time Built")
-            pkg_tim <- function(p) {
-              paste(format(c(p, "sandpaper"))[1], packageDescription(p)$Packaged)
-            }
-            status <- vapply(c("sandpaper", "pegboard", "varnish", "tinkr"), pkg_tim, character(1))
-            cli::cli_bullets(status)
-            cli::cli_rule("Session info")
-            sessioninfo::platform_info()
-            cli::cli_rule("Package Info")
-            sessioninfo::package_info("sandpaper", dependencies = TRUE)
-          }
-        shell: Rscript {0}
+        run: Rscript -e 'sandpaper:::ci_session_info()'
 
       - name: "Build Site"
         id: build-site
@@ -90,24 +78,18 @@ jobs:
           git config --local user.name "GitHub Actions"
           Rscript -e 'sandpaper::build_lesson()'
 
-      - name: "Generate Commit"
-        id: generate-commit
+      - name: "Generate Artifacts"
+        id: generate-artifacts
         run: |
-          mkdir -p ${{ env.CHIVE }}
-          mkdir -p ${{ env.PR }}
-          echo ${{ github.event.number }} > ${{ env.PR }}/NR
-          DIFF=${{ env.CHIVE }}/diff.md
-          cd ${{ env.MD }}
-          git add -A .
-          printf "### Rendered Changes\n\n" > $DIFF
-          printf "\n:mag: Inspect the changes: https://github.com/${{ github.repository }}/compare/md-outputs..md-outputs-PR-${{ github.event.number }}\n" >> ${DIFF}
-          printf "\n---\n" >> $DIFF
-          printf "\nThe following changes were observed in the rendered markdown documents\n" >> $DIFF
-          printf "\n\`\`\`diff\n" >> $DIFF
-          git diff --staged --compact-summary >> $DIFF
-          printf "\n\`\`\`\n" >> $DIFF
-          # removing git repo for the built archive.
-          rm -rf .git
+          sandpaper:::ci_bundle_pr_artifacts(
+            repo         = '${{ github.repository }}',
+            pr_number    = '${{ github.event.number }}',
+            path_md      = '${{ env.MD }}',
+            path_pr      = '${{ env.PR }}',
+            path_archive = '${{ env.CHIVE }}',
+            branch       = "md-outputs"
+          )
+        shell: Rscript {0}
 
       - name: "Upload PR"
         uses: actions/upload-artifact@v2
