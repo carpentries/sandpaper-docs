@@ -78,3 +78,4 @@ pull request number for the next action
 
 Tiggered by `pr-close.yaml`. This removes the temporary branch associated with
 the pull request (if it was created).
+:3
