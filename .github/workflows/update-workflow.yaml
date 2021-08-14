@@ -1,6 +1,8 @@
 name: Update Workflow Files
-
+# This line will disappear in the next update
 on:
+  schedule:
+    cron: "0 0 16 * *"
   workflow_dispatch:
     inputs:
       name:
