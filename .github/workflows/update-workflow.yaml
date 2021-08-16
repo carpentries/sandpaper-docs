@@ -1,8 +1,6 @@
 name: Update Workflow Files
-# This line will disappear in the next update
+
 on:
-  schedule:
-    - cron: '0 0 16 * *'
   workflow_dispatch:
     inputs:
       name:
@@ -32,9 +30,30 @@ jobs:
           echo "::set-output name=date::$(date -I)"
           echo "::set-output name=min::$(date +%Y-%m-%d-%H-%M)"
 
+      - name: "Check Workflow Scope"
+        id: scope
+        run: |
+          curl -I -H "Authorization: token ${{ secrets.SANDPAPER_WORKFLOW }}" \
+            https://api.github.com/user/ \
+          | grep -c '^X-OAuth-Scopes: .*workflow' \
+          | echo "::set-output name=valid::$(</dev/stdin)"
+
+      - name: "Incorrect Workflow Scope"
+        if: bad-workflow
+        if: "${{ steps.scope.output.valid == '0'}}"
+        run: |
+          echo "::error::The SANDPAPER_WORKFLOW token is invalid." \
+          "If you are working in a Carpentries repository, contact @zkamvar."
+          echo "If you are using a personal repository, go to" \
+          "https://github.com/settings/tokens/new?scopes=repo,workflow&description=Sandpaper%20Token" \
+          "to generate a new token, copy it, and then go to" \
+          "https://github.com/${{ github.repository }}/settings/secrets/actions/" \
+          "and create/update the action."
+
       # NOTE: I really should make this a standalone action
       - name: Update Workflows
         id: update
+        if: "${{ steps.scope.output.valid != '0'}}"
         run: |
           curl https://raw.githubusercontent.com/carpentries/sandpaper/main/inst/scripts/update-workflows.sh -o site/update-workflows.sh
           bash site/update-workflows.sh
@@ -42,15 +61,14 @@ jobs:
 
       - name: Create Pull Request
         id: cpr
-        if: ${{ steps.update.outputs.new }}
+        if: "${{ steps.update.outputs.new && steps.scope.output.valid != '0' }}"
         uses: peter-evans/create-pull-request@v3.10.0
         with:
           token: ${{ secrets.SANDPAPER_WORKFLOW }}
-          # push-to-fork: "znk-machine/${{ github.event.repository.name }}"
           commit-message: "[actions] update sandpaper workflow"
-          branch: "update-workflow-${{ steps.today.outputs.min }}"
+          branch: "update-workflows-version-${{ steps.update.outputs.new }}"
           delete-branch: true
-          title: "Update Workflow (${{ steps.today.outputs.date }} via ${{ github.event.inputs.name }})"
+          title: "Update Workflows to Version ${{ steps.update.outputs.new }} (${{ github.event.inputs.name }})"
           body: |
             Update Workflows from sandpaper version ${{ steps.update.outputs.old }} -> ${{ steps.update.outputs.new }}
             
