@@ -7,6 +7,10 @@ on:
         description: 'Who triggered this build?'
         required: true
         default: 'Maintainer (via GitHub)'
+      clean:
+        description: 'Workflow files to clean (enter "" for none)'
+        required: false
+        default: '*.yaml'
 
 jobs:
   update_workflow:
@@ -18,7 +22,9 @@ jobs:
 
       - name: Update Workflows
         id: update
-        uses: zkamvar/actions/update-workflows@update-workflows
+        uses: zkamvar/actions/update-workflows@main
+        with:
+          clean: ${{ github.event.inputs.clean }}
 
       - name: Create Pull Request
         id: cpr
