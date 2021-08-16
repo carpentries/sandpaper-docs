@@ -25,6 +25,11 @@ jobs:
         uses: zkamvar/actions/update-workflows@main
         with:
           clean: ${{ github.event.inputs.clean }}
+      
+      - name: show outputs
+        run: |
+          echo "output new: ${{ steps.update.outputs.new }}"
+          echo "output old: ${{ steps.update.outputs.old }}"
 
       - name: Create Pull Request
         id: cpr
