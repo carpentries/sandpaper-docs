@@ -30,31 +30,9 @@ jobs:
           echo "::set-output name=date::$(date -I)"
           echo "::set-output name=min::$(date +%Y-%m-%d-%H-%M)"
 
-      - name: "Check Workflow Scope"
-        id: scope
-        run: |
-          TKN="Authorization: token ${{ secrets.SANDPAPER_WORKFLOW }}"
-          RES=$(curl -I -H "${TKN}" https://api.github.com/user/)
-          echo ${RES}
-          echo '::set-output name=valid::$(echo ${RES} | grep "x-oauth-scopes: .*workflow")'
-
-      - name: "Incorrect Workflow Scope"
-        id: bad-workflow
-        # if: "${{ steps.scope.output.valid != '0' }}"
-        run: |
-          echo "${{ steps.scope.output.valid }}"
-          echo "::error::The SANDPAPER_WORKFLOW token is invalid." \
-          "If you are working in a Carpentries repository, contact @zkamvar."
-          echo "::warning::If you are using a personal repository, go to" \
-          "https://github.com/settings/tokens/new?scopes=repo,workflow&description=Sandpaper%20Token" \
-          "to generate a new token, copy it, and then go to" \
-          "https://github.com/${{ github.repository }}/settings/secrets/actions/" \
-          "and create/update the action."
-
       # NOTE: I really should make this a standalone action
       - name: Update Workflows
         id: update
-        if: "${{ steps.scope.output.valid }}"
         run: |
           curl https://raw.githubusercontent.com/carpentries/sandpaper/main/inst/scripts/update-workflows.sh -o site/update-workflows.sh
           bash site/update-workflows.sh
@@ -62,7 +40,7 @@ jobs:
 
       - name: Create Pull Request
         id: cpr
-        if: "${{ steps.update.outputs.new && steps.scope.output.valid }}"
+        if: "${{ steps.update.outputs.new }}"
         uses: peter-evans/create-pull-request@v3.10.0
         with:
           token: ${{ secrets.SANDPAPER_WORKFLOW }}
