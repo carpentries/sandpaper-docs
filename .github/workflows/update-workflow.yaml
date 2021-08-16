@@ -39,7 +39,7 @@ jobs:
           | echo "::set-output name=valid::$(</dev/stdin)"
 
       - name: "Incorrect Workflow Scope"
-        if: bad-workflow
+        id: bad-workflow
         if: "${{ steps.scope.output.valid == '0'}}"
         run: |
           echo "::error::The SANDPAPER_WORKFLOW token is invalid." \
