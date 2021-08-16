@@ -35,13 +35,14 @@ jobs:
         run: |
           curl -I -H "Authorization: token ${{ secrets.SANDPAPER_WORKFLOW }}" \
             https://api.github.com/user/ \
-          | grep -ic '^X-OAuth-Scopes: .*workflow' \
+          | grep -ic '^x-oauth-scopes: .*workflow' \
           | echo "::set-output name=valid::$(</dev/stdin)"
 
       - name: "Incorrect Workflow Scope"
         id: bad-workflow
         if: "${{ steps.scope.output.valid == '0'}}"
         run: |
+          echo "${{ steps.scope.output.valid == '0'}}"
           curl -I -H "Authorization: token ${{ secrets.SANDPAPER_WORKFLOW }}" \
             https://api.github.com/user/ 
           echo "::error::The SANDPAPER_WORKFLOW token is invalid." \
