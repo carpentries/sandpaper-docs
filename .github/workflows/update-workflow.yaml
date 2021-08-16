@@ -40,8 +40,9 @@ jobs:
 
       - name: "Incorrect Workflow Scope"
         id: bad-workflow
-        if: "${{ steps.scope.output.valid == 'true' }}"
+        if: "${{ steps.scope.output.valid != '0' }}"
         run: |
+          echo "${{ steps.scope.output.valid }}"
           echo "::error::The SANDPAPER_WORKFLOW token is invalid." \
           "If you are working in a Carpentries repository, contact @zkamvar."
           echo "::warning::If you are using a personal repository, go to" \
@@ -53,7 +54,7 @@ jobs:
       # NOTE: I really should make this a standalone action
       - name: Update Workflows
         id: update
-        if: "${{ steps.scope.output.valid }}"
+        if: "${{ steps.scope.output.valid == '1' }}"
         run: |
           curl https://raw.githubusercontent.com/carpentries/sandpaper/main/inst/scripts/update-workflows.sh -o site/update-workflows.sh
           bash site/update-workflows.sh
