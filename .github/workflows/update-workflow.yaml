@@ -33,10 +33,10 @@ jobs:
       - name: "Check Workflow Scope"
         id: scope
         run: |
-          curl -I -H "Authorization: token ${{ secrets.SANDPAPER_WORKFLOW }}" \
-            https://api.github.com/user/ \
-          | grep -ic '^x-oauth-scopes: .*workflow' \
-          | echo "::set-output name=valid::$(</dev/stdin)"
+          TKN="Authorization: token ${{ secrets.SANDPAPER_WORKFLOW }}"
+          RES=$(curl -I -H "${TKN}" https://api.github.com/user/ \
+            | grep -ic '^x-oauth-scopes: .*workflow')
+          echo "::set-output name=valid::${RES}"
 
       - name: "Incorrect Workflow Scope"
         id: bad-workflow
@@ -54,7 +54,7 @@ jobs:
       # NOTE: I really should make this a standalone action
       - name: Update Workflows
         id: update
-        if: "${{ steps.scope.output.valid == '1' }}"
+        if: "${{ steps.scope.output.valid }}"
         run: |
           curl https://raw.githubusercontent.com/carpentries/sandpaper/main/inst/scripts/update-workflows.sh -o site/update-workflows.sh
           bash site/update-workflows.sh
@@ -62,7 +62,7 @@ jobs:
 
       - name: Create Pull Request
         id: cpr
-        if: "${{ steps.update.outputs.new && steps.scope.output.valid == 'true' }}"
+        if: "${{ steps.update.outputs.new && steps.scope.output.valid }}"
         uses: peter-evans/create-pull-request@v3.10.0
         with:
           token: ${{ secrets.SANDPAPER_WORKFLOW }}
