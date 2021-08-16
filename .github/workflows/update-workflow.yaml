@@ -35,6 +35,7 @@ jobs:
         run: |
           TKN="Authorization: token ${{ secrets.SANDPAPER_WORKFLOW }}"
           RES=$(curl -I -H "${TKN}" https://api.github.com/user/)
+          echo ${RES}
           echo "::set-output name=valid::$(echo ${RES} | grep -c '^x-oauth-scopes: .*workflow')"
 
       - name: "Incorrect Workflow Scope"
