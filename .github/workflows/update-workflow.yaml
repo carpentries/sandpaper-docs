@@ -35,7 +35,7 @@ jobs:
         run: |
           curl -I -H "Authorization: token ${{ secrets.SANDPAPER_WORKFLOW }}" \
             https://api.github.com/user/ \
-          | grep -c '^X-OAuth-Scopes: .*workflow' \
+          | grep -ic '^X-OAuth-Scopes: .*workflow' \
           | echo "::set-output name=valid::$(</dev/stdin)"
 
       - name: "Incorrect Workflow Scope"
