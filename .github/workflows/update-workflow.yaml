@@ -40,14 +40,11 @@ jobs:
 
       - name: "Incorrect Workflow Scope"
         id: bad-workflow
-        if: "${{ steps.scope.output.valid == '0'}}"
+        if: "${{ steps.scope.output.valid == 'true' }}"
         run: |
-          echo "${{ steps.scope.output.valid == '0'}}"
-          curl -I -H "Authorization: token ${{ secrets.SANDPAPER_WORKFLOW }}" \
-            https://api.github.com/user/ 
           echo "::error::The SANDPAPER_WORKFLOW token is invalid." \
           "If you are working in a Carpentries repository, contact @zkamvar."
-          echo "If you are using a personal repository, go to" \
+          echo "::warning::If you are using a personal repository, go to" \
           "https://github.com/settings/tokens/new?scopes=repo,workflow&description=Sandpaper%20Token" \
           "to generate a new token, copy it, and then go to" \
           "https://github.com/${{ github.repository }}/settings/secrets/actions/" \
@@ -56,7 +53,7 @@ jobs:
       # NOTE: I really should make this a standalone action
       - name: Update Workflows
         id: update
-        if: "${{ steps.scope.output.valid != '0'}}"
+        if: "${{ steps.scope.output.valid }}"
         run: |
           curl https://raw.githubusercontent.com/carpentries/sandpaper/main/inst/scripts/update-workflows.sh -o site/update-workflows.sh
           bash site/update-workflows.sh
@@ -64,7 +61,7 @@ jobs:
 
       - name: Create Pull Request
         id: cpr
-        if: "${{ steps.update.outputs.new && steps.scope.output.valid != '0' }}"
+        if: "${{ steps.update.outputs.new && steps.scope.output.valid == 'true' }}"
         uses: peter-evans/create-pull-request@v3.10.0
         with:
           token: ${{ secrets.SANDPAPER_WORKFLOW }}
