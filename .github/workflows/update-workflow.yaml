@@ -18,7 +18,7 @@ jobs:
 
       - name: Update Workflows
         id: update
-        uses: zkamvar/actions/update-workflows@c53460f316ba187fe9b1fefd21fcdedab49bfca4
+        uses: zkamvar/actions/update-workflows
 
       - name: Create Pull Request
         id: cpr
