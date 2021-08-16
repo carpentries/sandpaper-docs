@@ -1,8 +1,6 @@
 name: Update Workflow Files
-# This line will disappear in the next update
+
 on:
-  schedule:
-    - cron: '0 0 16 * *'
   workflow_dispatch:
     inputs:
       name:
@@ -46,7 +44,7 @@ jobs:
         uses: peter-evans/create-pull-request@v3.10.0
         with:
           token: ${{ secrets.SANDPAPER_WORKFLOW }}
-          # push-to-fork: "znk-machine/${{ github.event.repository.name }}"
+          push-to-fork: "znk-machine/${{ github.event.repository.name }}"
           commit-message: "[actions] update sandpaper workflow"
           branch: "update-workflow-${{ steps.today.outputs.min }}"
           delete-branch: true
