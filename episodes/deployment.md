@@ -69,7 +69,7 @@ pull requests.
 
 On GitHub, we store generated content in two orphan branches called
 `md-outputs` and `gh-pages` for the generated markdown and html, respectively. 
-We use [GitHub Actions Workflows][gh-workflow] to build, validate, and deploy
+We use [GitHub Actions Workflows][gh-workflows] to build, validate, and deploy
 our lessons on GitHub pages. If you use pure markdown lessons, you should notice
 no significant changes to your workflow. 
 
@@ -79,11 +79,10 @@ lesson up-to-date with the latest version of the HTML template.
 If you use RMarkdown lessons, you will notice that for every pull request, a
 GitHub bot comments on your pull requests informing you about what content has
 changed and gives you a link to the differences between the current state of
-the `md-outputs` branch and the proposed changes. 
+the `md-outputs` branch and the proposed changes.
 
-The controls for these actions live in the `.github/` folder of your repository
-and are currently maintained at 
-<https://github.com/zkamvar/actions/tree/main/workflows#readme>. 
+The controls for these actions live in the `.github/workflows` folder of your 
+repository and are currently maintained in {sandpaper}. 
 
 ::::::::::::: callout
 
@@ -109,26 +108,41 @@ the PR is potentially risky.
 
 ## Updating Your Workflows
 
-The workflows are one of the few points in the new template where it needs to
-be updated manually.
+The workflows are the the only place in our lesson that needs to be kept
+up-to-date with upstream changes from [{sandpaper}]. While we try as much as
+possible to keep the functionality of [{sandpaper}] inside the package itself,
+there are times when we need to update the GitHub workflows for security or
+performance reasons. You can update your workflows in one of two ways: via 
+GitHub or via [{sandpaper}].
 
-:::::::::::::::::: callout
+### Via GitHub
 
-### :crystal_ball: In the future
+To update your workflows in GitHub, go to 
+`https://github.com/(ORGANISATION)/(REPOSITORY)/actions/workflows/update-workflows.yaml`
 
-In the future, we will make this process easier by creating bots that will 
-periodically provide pull requests that update these workflows. 
+Once there, you will see a button that says "Run Workflow" in a blue field to
+the right of your screen. Click on that Button and it will give you two options.
+You can leave these as-is or replace them with your own values. You can now hit
+the green "Run Workflow" button.
 
-::::::::::::::::::::::::::::
+After ~10 seconds, your workflow will run and a pull request will be created 
+from a GitHub bot (at the moment, this is @znk-machine) if your workflows are
+in need of updating.
 
-  To update your workflows, you can use the following command in your
-lesson:
+Check the changes and merge if they look okay to you. If they do not, contact
+@zkamvar. 
+
+
+### Via R
+
+To update your workflows via [{sandpaper}], you can use the following command
+in your lesson:
 
 ```r
-sandpaper::fetch_github_workflows()
+sandpaper::update_github_workflows()
 ```
 
-After that, you can add and commit your changes and then push them to GitHub. 
+After that, you can add and commit your changes and then push them to GitHub.
 
 
 :::::::::::::::::::::::::::::: keypoints
@@ -142,3 +156,4 @@ After that, you can add and commit your changes and then push them to GitHub.
 [rmd-blog]: https://software-carpentry.org/blog/2016/07/rmarkdown-new-template.html
 [r4-migration]: https://carpentries.org/blog/2020/08/r-4-migration/
 [gh-workflows]: https://docs.github.com/en/actions/ 
+[{sandpaper}]: https://carpentries.github.io/sandpaper
