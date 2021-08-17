@@ -7,10 +7,6 @@ on:
         description: 'Who triggered this build?'
         required: true
         default: 'Maintainer (via GitHub)'
-      clean:
-        description: 'Workflow files to clean (enter "" for none)'
-        required: false
-        default: '*.yaml'
 
 jobs:
   update_workflow:
@@ -20,16 +16,14 @@ jobs:
       - name: "Checkout Repository"
         uses: actions/checkout@v2
 
+      # NOTE: I really should make this a standalone action
       - name: Update Workflows
         id: update
-        uses: zkamvar/actions/update-workflows@main
-        with:
-          clean: ${{ github.event.inputs.clean }}
-      
-      - name: show outputs
         run: |
-          echo "output new: ${{ steps.update.outputs.new }}"
-          echo "output old: ${{ steps.update.outputs.old }}"
+          curl https://raw.githubusercontent.com/carpentries/sandpaper/main/inst/scripts/update-workflows.sh -o site/update-workflows.sh
+          rm .github/workflows/*.yaml # NOTE: make this optional in the future
+          bash site/update-workflows.sh
+          rm site/update-workflows.sh
 
       - name: Create Pull Request
         id: cpr
