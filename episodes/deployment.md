@@ -102,7 +102,12 @@ modified one of the github actions files), then the maintainer is alerted that
 the PR is potentially risky.
 
 
-![The pull request cycle. Ellipse nodes (Pull Request and Maintainer Review) are the only places that require maintainer attention.](https://raw.githubusercontent.com/zkamvar/stunning-barnacle/main/img/pr-flow.dot.svg){alt="Workflow diagram from a pull request starting from Pull Request, and going to a path involving validation, artifact creation, maintainer review, and potential deployment."}
+![The pull request cycle. Ellipse nodes (Pull Request and Maintainer Review)
+are the only places that require maintainer
+attention.](https://raw.githubusercontent.com/zkamvar/stunning-barnacle/main/img/pr-flow.dot.svg){alt="Workflow
+diagram from a pull request starting from Pull Request, and going to a path
+involving validation, artifact creation, maintainer review, and potential
+deployment."}
 
 ::::::::::::::::::::
 
@@ -121,29 +126,55 @@ To update your workflows in GitHub, go to
 `https://github.com/(ORGANISATION)/(REPOSITORY)/actions/workflows/update-workflows.yaml`
 
 Once there, you will see a button that says "Run Workflow" in a blue field to
-the right of your screen. Click on that Button and it will give you two options.
+the right of your screen. Click on that Button and it will give you two options:
+
+1. "Who this build (enter github username to tag yourself)?
+2. "Workflow files/file extensions to clean (no wildcards, enter "" for none)
+
 You can leave these as-is or replace them with your own values. You can now hit
-the green "Run Workflow" button.
+the green "Run Workflow" button at the bottom.
+
+![](fig/update-workflow-manual.png){alt='Screen shot of GitHub interface zoomed into a button that says "Run workflow" with two options to specify your name (@zkamvar) and files to clean (.yaml). A green Run Workflow button is at the bottom of the dialogue.'}
 
 After ~10 seconds, your workflow will run and a pull request will be created 
 from a GitHub bot (at the moment, this is @znk-machine) if your workflows are
 in need of updating.
 
 Check the changes and merge if they look okay to you. If they do not, contact
-@zkamvar. 
+@zkamvar.
 
 
 ### Via R
 
-To update your workflows via [{sandpaper}], you can use the following command
-in your lesson:
+If you want to update your workflows via R, you can use the 
+`update_github_workflows()` function, which will report which files were updated.
 
 ```r
 sandpaper::update_github_workflows()
 ```
 
+```{.output}
+ℹ Workflows/files updated:
+- .github/workflows/pr-comment.yaml (modified)
+- .github/workflows/pr-post-remove-branch.yaml (modified)
+- .github/workflows/README.md (modified)
+- .github/workflows/sandpaper-version.txt (modified)
+- .github/workflows/update-workflows.yaml (new)
+```
+
 After that, you can add and commit your changes and then push them to GitHub.
 
+:::::: callout
+
+#### Do not combine workflow changes with other changes
+
+If you bundle a workflow changes in a pull request, you will not get the benefit
+of being able to inspect the output of the generated markdown files. Moreover,
+while we try to make these workflow files as simple as possible, they are still
+complex and would distract from any content that would be proposed for the
+lesson.
+
+:::::::::::::::
 
 :::::::::::::::::::::::::::::: keypoints
 
