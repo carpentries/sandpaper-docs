@@ -43,12 +43,14 @@ contact: zkamvar@carpentries.org
 # individual pages in each dropdown section
 
 # Order of episodes in your lesson 
-episodes: 
+episodes:
 - introduction.md
 - episodes.Rmd
 - editing.md
 - example.Rmd
 - deployment.md
+- update.md
+- pull-request.md
 
 
 # Information for Learners

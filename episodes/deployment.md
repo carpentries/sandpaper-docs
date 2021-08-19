@@ -7,39 +7,58 @@ exercises: 0
 ::::::::::::::::::::::::::::: questions
 
  - What is the two-step model of deployment?
- - How do we use the two-step model to provide PR audits?
+ - Why do we preserve both generated markdown and HTML?
 
 :::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::: objectives
 
  - Understand the two-step model for lesson deployment
- - Understand the Pull Request Preview for generated lesson content
+ - Understand how our lessons are deployed on GitHub
 
 ::::::::::::::::::::::::::::::::::::::::
 
-## How we got here
+## Building A Lesson
 
-Since 2016, [we have supported using RMarkdown in lessons][rmd-blog]. The 
-benefits have been that authors no longer need to manually copy and paste 
-output and graphs into their documents. We were even able to use continuous
-integration to build the RMarkdown documents to markdown so that they would be
-then deployed using Jekyll.
+Static site generators all know one thing: how to translate markdown to an HTML
+website. The Carpentries Lesson Infrastructure is no different in that it will
+generate an HTML website from markdown files using [pandoc]. The difference is
+how we handle the generated content to make your lesson portable and
+transferrable.
 
-The downside to this model was that the maintainers would occasionally encounter
-unexpected outputs from new contributions because there was either a syntax
-error or [the R ecosystem had changed paradigms][r4-migration]. Moreover, people
-would often edit the generated markdown file instead of the source RMarkdown
-file, which would result in progress being lost because of a regenerated file.
+### Working With Generated Content
 
-## The two-step model of deployment
+[The Carpentries has formally supported generated content from R lessons in the
+form of R Markdown files since 2016][rmd-blog] and we are working on a solution
+to incorporate generated content from other languages in the future. If you do
+not use generated content in your lesson, you can skip this section.
+
+The default paradigm for R Markdown is to first generate markdown output from
+the R Markdown document, convert it to HTML, and then discard the generated
+markdown output.
+
+![Source: "Teaching In Production" by Dr. Allison Horst,
+<https://rstd.io/tip>](https://github.com/rstudio-education/teaching-in-production/raw/master/slides/images/rmd_flowchart.png){alt="A
+stylized flowchart with 'good ideas', 'code', and 'data' flowing into '.Rmd',
+transformed to '.md' via 'knitr', and then transformed to 'html', 'pdf', and
+'docx' via 'pandoc'. There is an illustration of a hedgehog knitting a sock to
+the left and a rabbit wearing the other sock on the right."}
+
+However, this default behavior for generated content is not conducive for
+collaboration on lessons because the outputs often live in the same place as
+the source files. Moreover, if any changes occur in the software used to
+generate content, inspecting the differences between two HTML files is
+difficult because of markup. We created the {sandpaper} package to alleviate
+these downsides by clearly separating the generated content from the source 
+material by taking advantage of a two-step model of deployment.
+
+### The Two-Step Model of Deployment
 
 To alleviate the downsides of working with generated content, the new template
 employs a two-step model of deployment when you run `sandpaper::build_lesson()`
 
 1. Take any source files with content that needs to be interpreted (e.g. 
-   RMarkdown and in the future Jupyter Notebooks) and **render them to markdown**
-   in a staging area ignored by git. 
+   R Markdown) and **render them to markdown** in a staging area ignored by git. 
 2. Apply the HTML style to the markdown files in the staging area to create the
    lesson website.
 
@@ -57,7 +76,7 @@ can swap out the generators without needing to rewrite the entire pipeline.
 
 :::::::::::::: callout
 
-### Did you know?
+#### Did you know?
 
 When the lesson is pushed to GitHub, all of the generated content IS stored in
 separate branches so that we can provide a way for you to audit changes from 
@@ -65,71 +84,29 @@ pull requests.
 
 ::::::::::::::::::::::
 
-## On GitHub
+## Deploying On GitHub
+
+For historical reasons, GitHub used the Jekyll static site generator to deploy
+their documentation websites, but because we no longer use Jekyll, we we deploy
+our sites in a different manner.
 
 On GitHub, we store generated content in two orphan branches called
-`md-outputs` and `gh-pages` for the generated markdown and html, respectively. 
-We use [GitHub Actions Workflows][gh-workflow] to build, validate, and deploy
-our lessons on GitHub pages. If you use pure markdown lessons, you should notice
-no significant changes to your workflow. 
+`md-outputs` and `gh-pages` for the generated markdown and html, respectively.
+We use [GitHub Actions Workflows][gh-workflows] to build, validate, and deploy
+our lessons on GitHub pages. Because the markdown and HTML outputs are preserved
+in the git history, we can tag and preserve them for archiving.
 
-These workflows are the source of truth for the lessons and will keep your 
-lesson up-to-date with the latest version of the HTML template. 
+These workflows are the source of truth for the lessons and will keep your
+lesson up-to-date with the latest version of the HTML template. Moreover, each
+week, these workflows will check for updates and, if there are any, a pull
+request will be created to ensure you are using the latest versions. You can
+[read more about updating your workflows in the Maitenance chapter](update.Rmd).
 
-If you use RMarkdown lessons, you will notice that for every pull request, a
-GitHub bot comments on your pull requests informing you about what content has
-changed and gives you a link to the differences between the current state of
-the `md-outputs` branch and the proposed changes. 
-
-The controls for these actions live in the `.github/` folder of your repository
-and are currently maintained at 
-<https://github.com/zkamvar/actions/tree/main/workflows#readme>. 
-
-::::::::::::: callout
-
-### Risk Management
-
-Accepting generated content into lessons from anyone runs the risk of a security
-breach by exposing secrets. To mitigate this risk, GitHub limits the scope of
-what is possible inside a pull request so that we can check and render the 
-content without risk of exploitation. Through this, we render and check the 
-lesson inside the pull request with no privileges, check that the pull request
-is valid (not malicious), and then create a temporary branch for an exploratory
-preview, allowing the maintainer to audit the generated content before it gets
-adopted into the curriculum. 
-
-If the PR is invalid (e.g. the contributor spoofed a separate, valid PR, or
-modified one of the github actions files), then the maintainer is alerted that
-the PR is potentially risky.
-
-
-![The pull request cycle. Ellipse nodes (Pull Request and Maintainer Review) are the only places that require maintainer attention.](https://raw.githubusercontent.com/zkamvar/stunning-barnacle/main/img/pr-flow.dot.svg){alt="Workflow diagram from a pull request starting from Pull Request, and going to a path involving validation, artifact creation, maintainer review, and potential deployment."}
-
-::::::::::::::::::::
-
-## Updating Your Workflows
-
-The workflows are one of the few points in the new template where it needs to
-be updated manually.
-
-:::::::::::::::::: callout
-
-### :crystal_ball: In the future
-
-In the future, we will make this process easier by creating bots that will 
-periodically provide pull requests that update these workflows. 
-
-::::::::::::::::::::::::::::
-
-  To update your workflows, you can use the following command in your
-lesson:
-
-```r
-sandpaper::fetch_github_workflows()
-```
-
-After that, you can add and commit your changes and then push them to GitHub. 
-
+If you use R Markdown in your lesson, you will notice that for every pull
+request (PR), a GitHub bot comments on your pull requests informing you about
+what content has changed and gives you a link to the differences between the
+current state of the `md-outputs` branch and the proposed changes. You can find
+out more about this in the [Pull Request chapter](pull-request.md).
 
 :::::::::::::::::::::::::::::: keypoints
 
@@ -142,3 +119,5 @@ After that, you can add and commit your changes and then push them to GitHub.
 [rmd-blog]: https://software-carpentry.org/blog/2016/07/rmarkdown-new-template.html
 [r4-migration]: https://carpentries.org/blog/2020/08/r-4-migration/
 [gh-workflows]: https://docs.github.com/en/actions/ 
+[{sandpaper}]: https://carpentries.github.io/sandpaper
+[pandoc]: https://pandoc.org/
