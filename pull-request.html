@@ -8,11 +8,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-03-12 19:14:10 +0000">
+<meta http-equiv="last-modified" content="2021-08-19 18:11:34 +0000">
 
 
 
-<title>Intruction to the New Lesson Template: Pull Request Previews</title>
+<title>Introduction to the New Lesson Template: Auditing Pull Requests</title>
 
 <link rel="apple-touch-icon-precomposed" sizes="57x57" href="favicons/cp/apple-touch-icon-57x57.png" />
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="favicons/cp/apple-touch-icon-114x114.png" />
@@ -28,7 +28,7 @@
 <link rel="icon" type="image/png" href="favicons/cp/favicon-16x16.png" sizes="16x16" />
 <link rel="icon" type="image/png" href="favicons/cp/favicon-128.png" sizes="128x128" />
 
-<meta name="application-name" content="The Carpentries - Intruction to the New Lesson Template"/>
+<meta name="application-name" content="The Carpentries - Introduction to the New Lesson Template"/>
 
 <meta name="msapplication-TileColor" content="#FFFFFF" />
 <meta name="msapplication-TileImage" content="favicons/cp/mstile-144x144.png" />
@@ -74,7 +74,7 @@
 
 
 
-<meta property="og:title" content="Pull Request Previews" />
+<meta property="og:title" content="Auditing Pull Requests" />
 
 
 
@@ -131,34 +131,22 @@
       <a href="introduction.html">Introduction to the New Template</a>
     </li>
     <li>
-      <a href="new-site.html">Creating a New Lesson</a>
+      <a href="episodes.html">Episode Structure</a>
     </li>
     <li>
       <a href="editing.html">Editing a {sandpaper} lesson</a>
     </li>
     <li>
-      <a href="migration.html">Migrating from Jekyll</a>
+      <a href="example.html">EXAMPLE: Using RMarkdown</a>
     </li>
     <li>
-      <a href="engine.html">The Template Engine: {sandpaper}</a>
+      <a href="deployment.html">Lesson Deployment</a>
     </li>
     <li>
-      <a href="episodes.html">Episode Structure</a>
+      <a href="update.html">Maintaining a Healthy Infrastructure</a>
     </li>
     <li>
-      <a href="template.html">The Website Template: {varnish}</a>
-    </li>
-    <li>
-      <a href="validator.html">The Validator: {pegboard}</a>
-    </li>
-    <li>
-      <a href="branches.html">GitHub Branches</a>
-    </li>
-    <li>
-      <a href="deployment.html">How We Deploy the New Template</a>
-    </li>
-    <li>
-      <a href="pull-request.html">Pull Request Previews</a>
+      <a href="pull-request.html">Auditing Pull Requests</a>
     </li>
   </ul>
 </li>
@@ -171,6 +159,9 @@
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="setup.html">Setup</a>
+    </li>
+    <li>
+      <a href="github-pat.html">Setting Up a Personal Access Token via R</a>
     </li>
   </ul>
 </li>
@@ -234,30 +225,22 @@
 <div class="row">
   <div class="contents col-md-9">
     <div class="page-header">
-      <h1>Pull Request Previews</h1>
+      <h1>Auditing Pull Requests</h1>
     </div>
 
-<div id="introduction" class="section level1">
-<h1>Introduction</h1>
-<p>This is the new Carpentries template. It is written in <a href="https://rmarkdown.rstudio.com/">RMarkdown</a>, which is a variant of Markdown that allows you to render code inside the lesson. Please refer to the <a href="https://carpentries.github.io/lesson-example">lesson example</a> for full documentation.</p>
-<p>What you need to know is that there are three block quotes required for a valid Carpentries lesson template:</p>
-<ol style="list-style-type: decimal">
-<li><code>questions</code> These are displayed at the beginning of the episode to prime the learner for the content.</li>
-<li><code>objectives</code> These are the learning objectives for an episode</li>
-<li><code>keypoints</code> These are displayed at the end of the episode to reinforce the objectives.</li>
-</ol>
-<p>No matter where these blocks appear, they will always be placed at the right part of the html page.</p>
 <div class="section level2 objectives">
 <h2>Overview</h2>
 <div class="row">
 <div class="col-md-3">
-<p><strong>Teaching: </strong> 10<br />
-<strong>Exercises: </strong> 2</p>
+<p><strong>Teaching: </strong> 5<br />
+<strong>Exercises: </strong> 0</p>
 </div>
 <div class="col-md-9">
 <p><strong>Questions</strong></p>
 <ul>
-<li>Why are pull request previews necessary?</li>
+<li>What happens during a pull request?</li>
+<li>How do I review generated content of a pull request?</li>
+<li>How do I handle a pull request from a bot?</li>
 </ul>
 </div>
 </div>
@@ -268,56 +251,56 @@
 <div class="col-md-9">
 <p><strong>Objectives</strong></p>
 <ul>
-<li>objective 1</li>
-<li>objective 2</li>
+<li>Identify key features of a pull request to review</li>
+<li>Identify the benefits of pull request comments from a bot</li>
+<li>Understand why bots will initiate pull requests</li>
+<li>Understand the purpose of automated pull requests</li>
 </ul>
 </div>
 </div>
 </div>
-<div class="challenge">
-<div id="challenge-1-can-you-do-it" class="section level2">
-<h2>Challenge 1: Can you do it?</h2>
-<p>What is the output of this command?</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">paste</span>(<span class="st">&quot;This&quot;</span>, <span class="st">&quot;new&quot;</span>, <span class="st">&quot;template&quot;</span>, <span class="st">&quot;looks&quot;</span>, <span class="st">&quot;good&quot;</span>)</span></code></pre></div>
+<aside class="callout">
+<div id="under-development" class="section level4">
+<h4><span class="emoji" data-emoji="construction">🚧</span> Under Development</h4>
+<p>This episode is still actively being developed</p>
 </div>
-<div id="output" class="section level2 solution">
-<h2>Output</h2>
-<pre class="output"><code>[1] &quot;This new template looks good&quot;</code></pre>
+</aside>
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>One of the biggest benefits of working on a Carpentries Lesson is that it gives maintainers and contributors practice collaboratively working on GitHub and practicing common software engineering practices, including pull requests and reviews. In the Carpentries Lesson Infrastructure, we have implemented new features that will make reviewing contributed content easier for maintainers:</p>
+<ol style="list-style-type: decimal">
+<li>Source content is checked for valid headings, links, and images</li>
+<li>Generated content is rendered to markdown and placed in a temporary branch for visual inspection.</li>
+<li>Pull requests are checked for malicious attacks.</li>
+</ol>
 </div>
-<div id="challenge-2-how-do-you-nest-solutions-within-challenge-blocks" class="section level2">
-<h2>Challenge 2: how do you nest solutions within challenge blocks?</h2>
+<div id="reviewing-a-pull-request" class="section level2">
+<h2>Reviewing A Pull Request</h2>
+<div id="risk-management" class="section level3">
+<h3>Risk Management</h3>
+<p>Accepting generated content into lessons from anyone runs the risk of a security breach by exposing secrets. To mitigate this risk, GitHub limits the scope of what is possible inside a pull request so that we can check and render the content without risk of exploitation. Through this, we render and check the lesson inside the pull request with no privileges, check that the pull request is valid (not malicious), and then create a temporary branch for an exploratory preview, allowing the maintainer to audit the generated content before it gets adopted into the curriculum.</p>
+<p>If the PR is invalid (e.g. the contributor spoofed a separate, valid PR, or modified one of the github actions files), then the maintainer is alerted that the PR is potentially risky.</p>
+<div class="figure">
+<img src="https://raw.githubusercontent.com/zkamvar/stunning-barnacle/main/img/pr-flow.dot.svg" alt="Workflow diagram from a pull request starting from Pull Request, and going to a path involving validation, artifact creation, maintainer review, and potential deployment." alt="" />
+<p class="caption">The pull request cycle. Ellipse nodes (Pull Request and Maintainer Review) are the only places that require maintainer attention.</p>
 </div>
-<div class="section level2 solution">
-<h2>Solution</h2>
-<p>You can add a line with at least three colons and a <code>solution</code> tag.</p>
 </div>
 </div>
+<div id="automated-pull-requests" class="section level2">
+<h2>Automated Pull Requests</h2>
+<p>There are two situations where you would receive an automated pull request:</p>
+<ol style="list-style-type: decimal">
+<li>The workflows need to be updated to the latest versions</li>
+<li>(future) You have a lesson that uses generated content, the software requirements file (e.g. renv.lock or requirements.txt) is updated to the latest versions and the lesson is re-built.</li>
+</ol>
 </div>
-<div id="figures" class="section level1">
-<h1>Figures</h1>
-<p>You can also include figures:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="kw">pie</span>(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>  <span class="kw">c</span>(<span class="dt">Sky =</span> <span class="dv">78</span>, <span class="st">&quot;Sunny side of pyramid&quot;</span> =<span class="st"> </span><span class="dv">17</span>, <span class="st">&quot;Shady side of pyramid&quot;</span> =<span class="st"> </span><span class="dv">5</span>), </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>  <span class="dt">init.angle =</span> <span class="dv">315</span>, </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>  <span class="dt">col =</span> <span class="kw">c</span>(<span class="st">&quot;deepskyblue&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;yellow3&quot;</span>), </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>  <span class="dt">border =</span> <span class="ot">FALSE</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>)</span></code></pre></div>
-<p><img src="fig/pull-request-rendered-pyramid-1.png" title="plot of chunk pyramid" alt="plot of chunk pyramid" style="display: block; margin: auto;" /></p>
-</div>
-<div id="math" class="section level1">
-<h1>Math</h1>
-<p>One of our episodes contains <span class="math inline">\(\LaTeX\)</span> equations when describing how to create dynamic reports with {knitr}, so we now use mathjax to describe this:</p>
-<p><code>$\alpha = \dfrac{1}{(1 - \beta)^2}$</code> becomes: <span class="math inline">\(\alpha = \dfrac{1}{(1 - \beta)^2}\)</span></p>
-<p>Cool, right?</p>
 <div class="section level2 keypoints">
 <h2>Keypoints</h2>
 <ul>
-<li>Use <code>.Rmd</code> files for lessons even if you don’t need to generate any code</li>
-<li>Run <code>sandpaper::check_lesson()</code> to identify any issues with your lesson</li>
-<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson locally</li>
+<li>Pull requests for generated formats requires validate of prose and generated content</li>
+<li>Inspecting the rendered markdown output can help maintainers identify changes that occur due to software before they are deployed to the website</li>
+<li>Automated pull requests help keep the infrastructure up-to-date</li>
 </ul>
-</div>
-<!-- Please do not delete anything below this line -->
 </div>
 
   </div>
@@ -340,11 +323,11 @@
   <div class="row">
     <div class="col-xs-1">
       <h3 class="text-left">
-        <a href="deployment.html"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
+        <a href="update.html"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
       </h3>
     </div>
     <div class="col-xs-10">
-      <h3 class="maintitle"><a href="index.html">Intruction to the New Lesson Template</a></h3>
+      <h3 class="maintitle"><a href="index.html">Introduction to the New Lesson Template</a></h3>
     </div>
     <div class="col-xs-1">
       <h3 class="text-right">
@@ -361,13 +344,13 @@
       by <a href="https://softwarecarpentry.org">Software Carpentry Foundation</a>
     </div>
     <div class="col-md-6 help-links pull-right" align="right">
-      <a href="https://github.com/zkamvar/sandpaper-docs//edit/main/episodes/pull-request.Rmd" data-checker-ignore>Edit on GitHub</a>
+      <a href="https://github.com/carpentries/sandpaper-docs//edit/main/episodes/pull-request.md" data-checker-ignore>Edit on GitHub</a>
       /
-      <a href="https://github.com/zkamvar/sandpaper-docs//blob/main/CONTRIBUTING.md" data-checker-ignore>Contributing</a>
+      <a href="https://github.com/carpentries/sandpaper-docs//blob/main/CONTRIBUTING.md" data-checker-ignore>Contributing</a>
       /
-      <a href="https://github.com/zkamvar/sandpaper-docs//">Source</a>
+      <a href="https://github.com/carpentries/sandpaper-docs//">Source</a>
       /
-      <a href="https://github.com/zkamvar/sandpaper-docs//blob/main/CITATION" data-checker-ignore>Cite</a>
+      <a href="https://github.com/carpentries/sandpaper-docs//blob/main/CITATION" data-checker-ignore>Cite</a>
       /
       <a href="mailto:zkamvar@carpentries.org">Contact</a>
     </div>

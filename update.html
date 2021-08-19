@@ -12,7 +12,7 @@
 
 
 
-<title>Introduction to the New Lesson Template: EXAMPLE: Using RMarkdown</title>
+<title>Introduction to the New Lesson Template: Maintaining a Healthy Infrastructure</title>
 
 <link rel="apple-touch-icon-precomposed" sizes="57x57" href="favicons/cp/apple-touch-icon-57x57.png" />
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="favicons/cp/apple-touch-icon-114x114.png" />
@@ -74,7 +74,7 @@
 
 
 
-<meta property="og:title" content="EXAMPLE: Using RMarkdown" />
+<meta property="og:title" content="Maintaining a Healthy Infrastructure" />
 
 
 
@@ -225,20 +225,21 @@
 <div class="row">
   <div class="contents col-md-9">
     <div class="page-header">
-      <h1>EXAMPLE: Using RMarkdown</h1>
+      <h1>Maintaining a Healthy Infrastructure</h1>
     </div>
 
 <div class="section level2 objectives">
 <h2>Overview</h2>
 <div class="row">
 <div class="col-md-3">
-<p><strong>Teaching: </strong> 5<br />
+<p><strong>Teaching: </strong> 10<br />
 <strong>Exercises: </strong> 2</p>
 </div>
 <div class="col-md-9">
 <p><strong>Questions</strong></p>
 <ul>
-<li>How do you write a lesson using RMarkdown and <code>{sandpaper}</code>?</li>
+<li>What are the four components of the lesson infrastructure?</li>
+<li>What lesson components are auto-updated on GitHub?</li>
 </ul>
 </div>
 </div>
@@ -249,83 +250,100 @@
 <div class="col-md-9">
 <p><strong>Objectives</strong></p>
 <ul>
-<li>Explain how to use markdown with the new lesson template</li>
-<li>Demonstrate how to include pieces of code, figures, and nested challenge blocks</li>
+<li>Identify components of the template needed for lesson structure, validation, styling, and deployment</li>
+<li>Understand how to update R packages</li>
+<li>Understand how to update GitHub workflows</li>
 </ul>
 </div>
 </div>
 </div>
+<aside class="callout">
+<div id="under-development" class="section level4">
+<h4><span class="emoji" data-emoji="construction">🚧</span> Under Development</h4>
+<p>This episode is still actively being developed</p>
+</div>
+</aside>
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p>This is the new Carpentries template. It is written in <a href="https://rmarkdown.rstudio.com/">RMarkdown</a>, which is a variant of Markdown that allows you to render code inside the lesson. Please refer to the <a href="https://carpentries.github.io/lesson-example">lesson example</a> for full documentation.</p>
-<p>What you need to know is that there are three block quotes required for a valid Carpentries lesson template:</p>
+<p>The Carpentries Lesson Infrastructure is designed to be cu</p>
+</div>
+<div id="maintainer-tools" class="section level2">
+<h2>Maintainer Tools</h2>
+<p>This is {sandpaper}! It takes your source files and generates the outputs!</p>
+<p>Update in R with:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;sandpaper&quot;</span>, <span class="at">repos =</span> <span class="st">&quot;https://carpentries.r-universe.dev&quot;</span>)</span></code></pre></div>
+</div>
+<div id="validator" class="section level2">
+<h2>Validator</h2>
+<p>This is {pegboard}! It runs behind the scenes in {sandpaper} to parse the source documents and validate things like headings, images, and cross-links. It also can extract elements like code and individual sections.</p>
+<p>Update in R with:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;pegboard&quot;</span>, <span class="at">repos =</span> <span class="st">&quot;https://carpentries.r-universe.dev&quot;</span>)</span></code></pre></div>
+</div>
+<div id="styling" class="section level2">
+<h2>Styling</h2>
+<p>This is {varnish}! This package contains all the HTML, JavaScript, and CSS to make your generated HTML look like a Carpentries Lesson!</p>
+<p>Update in R with:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sandpaper<span class="sc">::</span><span class="fu">update_varnish</span>()</span></code></pre></div>
+</div>
+<div id="deployment" class="section level2">
+<h2>Deployment</h2>
+<div id="updating-your-deployment-workflows" class="section level3">
+<h3>Updating Your Deployment Workflows</h3>
+<p>The workflows are the the only place in our lesson that needs to be kept up-to-date with upstream changes from [{sandpaper}]. While we try as much as possible to keep the functionality of [{sandpaper}] inside the package itself, there are times when we need to update the GitHub workflows for security or performance reasons. You can update your workflows in one of two ways: via GitHub or via [{sandpaper}].</p>
+<aside class="callout">
+<div id="under-development-1" class="section level4">
+<h4><span class="emoji" data-emoji="construction">🚧</span> Under Development</h4>
+<p>Workflow updates are still underdevelopment, but <strong>are available for use</strong>. We are exploring different methods for making these unobtrusive as possible such as specifying scheduled updates via <code>config.yaml</code> and even creating a bot that will remove the need for this workflow.</p>
+</div>
+</aside>
+</div>
+<div id="on-schedule-default" class="section level3">
+<h3>On Schedule (default)</h3>
+<p>The workflow update workflow is scheduled to run every Tuesday at 00:00 UTC. If there are any changes in the upstream workflows, then a Pull Request will be created with the new changes. If there are <em>no changes</em> to the workflows, then the process will silently exit and you will not be notified.</p>
+</div>
+<div id="via-github" class="section level3">
+<h3>Via GitHub</h3>
+<p>To update your workflows in GitHub, go to <code>https://github.com/(ORGANISATION)/(REPOSITORY)/actions/workflows/update-workflows.yaml</code></p>
+<p>Once there, you will see a button that says “Run Workflow” in a blue field to the right of your screen. Click on that Button and it will give you two options:</p>
 <ol style="list-style-type: decimal">
-<li><code>questions</code> These are displayed at the beginning of the episode to prime the learner for the content.</li>
-<li><code>objectives</code> These are the learning objectives for an episode</li>
-<li><code>keypoints</code> These are displayed at the end of the episode to reinforce the objectives.</li>
+<li>"Who this build (enter github username to tag yourself)?</li>
+<li>“Workflow files/file extensions to clean (no wildcards, enter”" for none)</li>
 </ol>
-<div id="code-fences" class="section level3">
-<h3>Code fences</h3>
-<p>Code fences written in standard markdown format will be highlighted, but not evaluated:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&#39;47 + 2&#39;</span> <span class="kw">|</span> <span class="fu">bc</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&#39;47 * 2&#39;</span> <span class="kw">|</span> <span class="fu">bc</span></span></code></pre></div>
-<p>Code fences written using R Markdown chunk notation will be highlighted and executed:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>magic <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">&quot;47 plus 2 equals %d</span><span class="sc">\n</span><span class="st">47 times 2 equals %d&quot;</span>, <span class="dv">47</span> <span class="sc">+</span> <span class="dv">2</span>, <span class="dv">47</span> <span class="sc">*</span> <span class="dv">2</span>) </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(magic)</span></code></pre></div>
-<pre class="output"><code>47 plus 2 equals 49
-47 times 2 equals 94</code></pre>
-<p>It’s magic!</p>
+<p>You can leave these as-is or replace them with your own values. You can now hit the green “Run Workflow” button at the bottom.</p>
+<p><img src="fig/update-workflow-manual.png" alt="Screen shot of GitHub interface zoomed into a button that says &quot;Run workflow&quot; with two options to specify your name (@zkamvar) and files to clean (.yaml). A green Run Workflow button is at the bottom of the dialogue." /></p>
+<p>After ~10 seconds, your workflow will run and a pull request will be created from a GitHub bot (at the moment, this is <span class="citation">@znk-machine</span>) if your workflows are in need of updating.</p>
+<p>Check the changes and merge if they look okay to you. If they do not, contact <span class="citation">@zkamvar</span>.</p>
 </div>
+<div id="via-r" class="section level3">
+<h3>Via R</h3>
+<p>If you want to update your workflows via R, you can use the <code>update_github_workflows()</code> function, which will report which files were updated.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sandpaper<span class="sc">::</span><span class="fu">update_github_workflows</span>()</span></code></pre></div>
+<pre class="output"><code>ℹ Workflows/files updated:
+- .github/workflows/pr-comment.yaml (modified)
+- .github/workflows/pr-post-remove-branch.yaml (modified)
+- .github/workflows/README.md (modified)
+- .github/workflows/sandpaper-version.txt (modified)
+- .github/workflows/update-workflows.yaml (new)</code></pre>
+<p>After that, you can add and commit your changes and then push them to GitHub.</p>
+<aside class="callout">
+<div id="do-not-combine-workflow-changes-with-other-changes" class="section level4">
+<h4>Do not combine workflow changes with other changes</h4>
+<p>If you bundle a workflow changes in a pull request, you will not get the benefit of being able to inspect the output of the generated markdown files. Moreover, while we try to make these workflow files as simple as possible, they are still complex and would distract from any content that would be proposed for the lesson.</p>
 </div>
-<div class="challenge">
-<div id="challenge-1-can-you-do-it" class="section level2">
-<h2>Challenge 1: Can you do it?</h2>
-<p>What is the output of this command?</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">&quot;This&quot;</span>, <span class="st">&quot;new&quot;</span>, <span class="st">&quot;template&quot;</span>, <span class="st">&quot;looks&quot;</span>, <span class="st">&quot;good&quot;</span>)</span></code></pre></div>
+</aside>
 </div>
-<div id="output" class="section level2 solution">
-<h2>Output</h2>
-<pre class="output"><code>[1] &quot;This new template looks good&quot;</code></pre>
-</div>
-<div id="challenge-2-how-do-you-nest-solutions-within-challenge-blocks" class="section level2">
-<h2>Challenge 2: how do you nest solutions within challenge blocks?</h2>
-</div>
-<div class="section level2 solution">
-<h2>Solution</h2>
-<p>You can add a line with at least three colons and a <code>solution</code> tag.</p>
-</div>
-</div>
-<div id="figures" class="section level2">
-<h2>Figures</h2>
-<p>You can also include figures:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pie</span>(</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="at">Sky =</span> <span class="dv">78</span>, <span class="st">&quot;Sunny side of pyramid&quot;</span> <span class="ot">=</span> <span class="dv">17</span>, <span class="st">&quot;Shady side of pyramid&quot;</span> <span class="ot">=</span> <span class="dv">5</span>), </span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">init.angle =</span> <span class="dv">315</span>, </span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;deepskyblue&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;yellow3&quot;</span>),</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">border =</span> <span class="cn">FALSE</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<div class="figure" style="text-align: center">
-<img src="fig/example-rendered-pyramid-1.png" alt="pie chart illusion of a pyramid"  />
-<p class="caption">
-Sun arise each and every morning
-</p>
-</div>
-</div>
-<div id="math" class="section level2">
-<h2>Math</h2>
-<p>One of our episodes contains <span class="math inline">\(\LaTeX\)</span> equations when describing how to create dynamic reports with {knitr}, so we now use mathjax to describe this:</p>
-<p><code>$\alpha = \dfrac{1}{(1 - \beta)^2}$</code> becomes: <span class="math inline">\(\alpha = \dfrac{1}{(1 - \beta)^2}\)</span></p>
-<p>Cool, right?</p>
 </div>
 <div class="section level2 keypoints">
 <h2>Keypoints</h2>
 <ul>
-<li>Use <code>.Rmd</code> files for lessons even if you don’t need to generate any code</li>
-<li>Run <code>sandpaper::check_lesson()</code> to identify any issues with your lesson</li>
-<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson locally</li>
+<li>Lesson structure, validation, and styling components are all updated automatically on GitHub.</li>
+<li>Lesson structure, validation, and styling components all live in your local R library.</li>
+<li>Locally, R packages can be updated with <code>install.packages()</code></li>
+<li>Package styling can be updated any time with <code>sandpaper::update_varnish()</code></li>
+<li>GitHub workflows live inside the lesson under <code>.github/workflows/</code></li>
+<li>GitHub workflows can be updated with <code>sandpaper::update_github_workflows()</code></li>
 </ul>
 </div>
-<!-- Please do not delete anything below this line -->
 
   </div>
 
@@ -347,7 +365,7 @@ Sun arise each and every morning
   <div class="row">
     <div class="col-xs-1">
       <h3 class="text-left">
-        <a href="editing.html"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
+        <a href="deployment.html"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span><span class="sr-only">previous episode</span></a>
       </h3>
     </div>
     <div class="col-xs-10">
@@ -355,7 +373,7 @@ Sun arise each and every morning
     </div>
     <div class="col-xs-1">
       <h3 class="text-right">
-        <a href="deployment.html"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
+        <a href="pull-request.html"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
       </h3>
     </div>
   </div>
@@ -368,7 +386,7 @@ Sun arise each and every morning
       by <a href="https://softwarecarpentry.org">Software Carpentry Foundation</a>
     </div>
     <div class="col-md-6 help-links pull-right" align="right">
-      <a href="https://github.com/carpentries/sandpaper-docs//edit/main/episodes/example.Rmd" data-checker-ignore>Edit on GitHub</a>
+      <a href="https://github.com/carpentries/sandpaper-docs//edit/main/episodes/update.md" data-checker-ignore>Edit on GitHub</a>
       /
       <a href="https://github.com/carpentries/sandpaper-docs//blob/main/CONTRIBUTING.md" data-checker-ignore>Contributing</a>
       /

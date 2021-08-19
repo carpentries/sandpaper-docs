@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-08-19 00:19:35 +0000">
+<meta http-equiv="last-modified" content="2021-08-19 18:11:34 +0000">
 
 
 
@@ -142,6 +142,12 @@
     <li>
       <a href="deployment.html">Lesson Deployment</a>
     </li>
+    <li>
+      <a href="update.html">Maintaining a Healthy Infrastructure</a>
+    </li>
+    <li>
+      <a href="pull-request.html">Auditing Pull Requests</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -233,7 +239,7 @@
 <p><strong>Questions</strong></p>
 <ul>
 <li>What is the two-step model of deployment?</li>
-<li>How do we use the two-step model to provide PR audits?</li>
+<li>Why do we preserve both generated markdown and HTML?</li>
 </ul>
 </div>
 </div>
@@ -245,21 +251,29 @@
 <p><strong>Objectives</strong></p>
 <ul>
 <li>Understand the two-step model for lesson deployment</li>
-<li>Understand the Pull Request Preview for generated lesson content</li>
+<li>Understand how our lessons are deployed on GitHub</li>
 </ul>
 </div>
 </div>
 </div>
-<div id="how-we-got-here" class="section level2">
-<h2>How we got here</h2>
-<p>Since 2016, <a href="https://software-carpentry.org/blog/2016/07/rmarkdown-new-template.html">we have supported using RMarkdown in lessons</a>. The benefits have been that authors no longer need to manually copy and paste output and graphs into their documents. We were even able to use continuous integration to build the RMarkdown documents to markdown so that they would be then deployed using Jekyll.</p>
-<p>The downside to this model was that the maintainers would occasionally encounter unexpected outputs from new contributions because there was either a syntax error or <a href="https://carpentries.org/blog/2020/08/r-4-migration/">the R ecosystem had changed paradigms</a>. Moreover, people would often edit the generated markdown file instead of the source RMarkdown file, which would result in progress being lost because of a regenerated file.</p>
+<div id="building-a-lesson" class="section level2">
+<h2>Building A Lesson</h2>
+<p>Static site generators all know one thing: how to translate markdown to an HTML website. The Carpentries Lesson Infrastructure is no different in that it will generate an HTML website from markdown files using <a href="https://pandoc.org/">pandoc</a>. The difference is how we handle the generated content to make your lesson portable and transferrable.</p>
+<div id="working-with-generated-content" class="section level3">
+<h3>Working With Generated Content</h3>
+<p><a href="https://software-carpentry.org/blog/2016/07/rmarkdown-new-template.html">The Carpentries has formally supported generated content from R lessons in the form of R Markdown files since 2016</a> and we are working on a solution to incorporate generated content from other languages in the future. If you do not use generated content in your lesson, you can skip this section.</p>
+<p>The default paradigm for R Markdown is to first generate markdown output from the R Markdown document, convert it to HTML, and then discard the generated markdown output.</p>
+<div class="figure">
+<img src="https://github.com/rstudio-education/teaching-in-production/raw/master/slides/images/rmd_flowchart.png" alt="A stylized flowchart with &#39;good ideas&#39;, &#39;code&#39;, and &#39;data&#39; flowing into &#39;.Rmd&#39;, transformed to &#39;.md&#39; via &#39;knitr&#39;, and then transformed to &#39;html&#39;, &#39;pdf&#39;, and &#39;docx&#39; via &#39;pandoc&#39;. There is an illustration of a hedgehog knitting a sock to the left and a rabbit wearing the other sock on the right." alt="" />
+<p class="caption">Source: “Teaching In Production” by Dr. Allison Horst, <a href="https://rstd.io/tip" class="uri">https://rstd.io/tip</a></p>
 </div>
-<div id="the-two-step-model-of-deployment" class="section level2">
-<h2>The two-step model of deployment</h2>
+<p>However, this default behavior for generated content is not conducive for collaboration on lessons because the outputs often live in the same place as the source files. Moreover, if any changes occur in the software used to generate content, inspecting the differences between two HTML files is difficult because of markup. We created the {sandpaper} package to alleviate these downsides by clearly separating the generated content from the source material by taking advantage of a two-step model of deployment.</p>
+</div>
+<div id="the-two-step-model-of-deployment" class="section level3">
+<h3>The Two-Step Model of Deployment</h3>
 <p>To alleviate the downsides of working with generated content, the new template employs a two-step model of deployment when you run <code>sandpaper::build_lesson()</code></p>
 <ol style="list-style-type: decimal">
-<li>Take any source files with content that needs to be interpreted (e.g.  RMarkdown and in the future Jupyter Notebooks) and <strong>render them to markdown</strong> in a staging area ignored by git.</li>
+<li>Take any source files with content that needs to be interpreted (e.g.  R Markdown) and <strong>render them to markdown</strong> in a staging area ignored by git.</li>
 <li>Apply the HTML style to the markdown files in the staging area to create the lesson website.</li>
 </ol>
 <div class="figure">
@@ -269,42 +283,19 @@
 <p>All of the generated content lives in the <code>site/</code> folder, and importantly: it is all cached and ignored by git. Ignoring generated content locally means that the source of truth for these files is no longer dependent on the maintainer’s local setup.</p>
 <p>The reason we have this model is also for portability. It’s because markdown output is a lot easier to audit than HTML when something goes wrong, rendered markdown can be transferred to other contexts (e.g. books or blogposts), and we can swap out the generators without needing to rewrite the entire pipeline.</p>
 <aside class="callout">
-<div id="did-you-know" class="section level3">
-<h3>Did you know?</h3>
+<div id="did-you-know" class="section level4">
+<h4>Did you know?</h4>
 <p>When the lesson is pushed to GitHub, all of the generated content IS stored in separate branches so that we can provide a way for you to audit changes from pull requests.</p>
 </div>
 </aside>
 </div>
-<div id="on-github" class="section level2">
-<h2>On GitHub</h2>
-<p>On GitHub, we store generated content in two orphan branches called <code>md-outputs</code> and <code>gh-pages</code> for the generated markdown and html, respectively. We use [GitHub Actions Workflows][gh-workflow] to build, validate, and deploy our lessons on GitHub pages. If you use pure markdown lessons, you should notice no significant changes to your workflow.</p>
-<p>These workflows are the source of truth for the lessons and will keep your lesson up-to-date with the latest version of the HTML template.</p>
-<p>If you use RMarkdown lessons, you will notice that for every pull request, a GitHub bot comments on your pull requests informing you about what content has changed and gives you a link to the differences between the current state of the <code>md-outputs</code> branch and the proposed changes.</p>
-<p>The controls for these actions live in the <code>.github/</code> folder of your repository and are currently maintained at <a href="https://github.com/zkamvar/actions/tree/main/workflows#readme" class="uri">https://github.com/zkamvar/actions/tree/main/workflows#readme</a>.</p>
-<aside class="callout">
-<div id="risk-management" class="section level3">
-<h3>Risk Management</h3>
-<p>Accepting generated content into lessons from anyone runs the risk of a security breach by exposing secrets. To mitigate this risk, GitHub limits the scope of what is possible inside a pull request so that we can check and render the content without risk of exploitation. Through this, we render and check the lesson inside the pull request with no privileges, check that the pull request is valid (not malicious), and then create a temporary branch for an exploratory preview, allowing the maintainer to audit the generated content before it gets adopted into the curriculum.</p>
-<p>If the PR is invalid (e.g. the contributor spoofed a separate, valid PR, or modified one of the github actions files), then the maintainer is alerted that the PR is potentially risky.</p>
-<div class="figure">
-<img src="https://raw.githubusercontent.com/zkamvar/stunning-barnacle/main/img/pr-flow.dot.svg" alt="Workflow diagram from a pull request starting from Pull Request, and going to a path involving validation, artifact creation, maintainer review, and potential deployment." alt="" />
-<p class="caption">The pull request cycle. Ellipse nodes (Pull Request and Maintainer Review) are the only places that require maintainer attention.</p>
 </div>
-</div>
-</aside>
-</div>
-<div id="updating-your-workflows" class="section level2">
-<h2>Updating Your Workflows</h2>
-<p>The workflows are one of the few points in the new template where it needs to be updated manually.</p>
-<aside class="callout">
-<div id="in-the-future" class="section level3">
-<h3><span class="emoji" data-emoji="crystal_ball">🔮</span> In the future</h3>
-<p>In the future, we will make this process easier by creating bots that will periodically provide pull requests that update these workflows.</p>
-</div>
-</aside>
-<p>To update your workflows, you can use the following command in your lesson:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>sandpaper<span class="sc">::</span><span class="fu">fetch_github_workflows</span>()</span></code></pre></div>
-<p>After that, you can add and commit your changes and then push them to GitHub.</p>
+<div id="deploying-on-github" class="section level2">
+<h2>Deploying On GitHub</h2>
+<p>For historical reasons, GitHub used the Jekyll static site generator to deploy their documentation websites, but because we no longer use Jekyll, we we deploy our sites in a different manner.</p>
+<p>On GitHub, we store generated content in two orphan branches called <code>md-outputs</code> and <code>gh-pages</code> for the generated markdown and html, respectively. We use <a href="https://docs.github.com/en/actions/">GitHub Actions Workflows</a> to build, validate, and deploy our lessons on GitHub pages. Because the markdown and HTML outputs are preserved in the git history, we can tag and preserve them for archiving.</p>
+<p>These workflows are the source of truth for the lessons and will keep your lesson up-to-date with the latest version of the HTML template. Moreover, each week, these workflows will check for updates and, if there are any, a pull request will be created to ensure you are using the latest versions. You can <a href="update.html">read more about updating your workflows in the Maitenance chapter</a>.</p>
+<p>If you use R Markdown in your lesson, you will notice that for every pull request (PR), a GitHub bot comments on your pull requests informing you about what content has changed and gives you a link to the differences between the current state of the <code>md-outputs</code> branch and the proposed changes. You can find out more about this in the <a href="pull-request.html">Pull Request chapter</a>.</p>
 </div>
 <div class="section level2 keypoints">
 <h2>Keypoints</h2>
@@ -342,7 +333,7 @@
     </div>
     <div class="col-xs-1">
       <h3 class="text-right">
-        <a href="index.html"><span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
+        <a href="update.html"><span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span><span class="sr-only">next episode</span></a>
       </h3>
     </div>
   </div>
