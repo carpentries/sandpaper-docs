@@ -8,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta http-equiv="last-modified" content="2021-09-14 00:10:14 +0000">
+<meta http-equiv="last-modified" content="2021-09-16 23:30:33 +0000">
 
 
 
@@ -523,16 +523,17 @@ compilation terminated.
 <p>Now that you have installed the lesson components, it is a good idea to run a small test to verify that these components work together. To test your installation <strong>open RStudio</strong> (or launch R if you have not installed RStudio) and enter the following commands to confirm everything works</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>rmarkdown<span class="sc">::</span><span class="fu">pandoc_version</span>()</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="fu">tempfile</span>()</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>sandpaper<span class="sc">::</span><span class="fu">create_lesson</span>(tmp, <span class="at">open =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>sandpaper<span class="sc">::</span><span class="fu">build_lesson</span>(tmp, <span class="at">preview =</span> <span class="cn">FALSE</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>fs<span class="sc">::</span><span class="fu">dir_tree</span>(tmp, <span class="at">recurse =</span> <span class="dv">1</span>)</span></code></pre></div>
-<pre class="output"><code>[1] ‘2.12’
-[1] &quot;/tmp/RtmpCjGtw3/fileac05502830cf&quot;
-Warning message:
-In warn_schedule() :
-  No schedule set, using Rmd files in `episodes/` directory.
-To remove this warning, define your schedule in `config.yaml` or use `set_episodes()` to generate it.
-/tmp/RtmpCjGtw3/fileac05502830cf
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>sandpaper<span class="sc">::</span><span class="fu">no_package_cache</span>()</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>sandpaper<span class="sc">::</span><span class="fu">create_lesson</span>(tmp, <span class="at">open =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>sandpaper<span class="sc">::</span><span class="fu">build_lesson</span>(tmp, <span class="at">preview =</span> <span class="cn">FALSE</span>, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>fs<span class="sc">::</span><span class="fu">dir_tree</span>(tmp, <span class="at">recurse =</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre class="output"><code>[1] &#39;2.12&#39;
+ℹ Consent for package cache revoked. Use `use_package_cache()` to undo.
+→ Creating Lesson in &#39;/tmp/RtmpnRjHyr/file12f34734be05f&#39;...
+✔ First episode created in &#39;/tmp/RtmpnRjHyr/file12f34734be05f/episodes/01-introduction.Rmd&#39;
+ℹ Workflows up-to-date!
+✔ Lesson successfully created in &#39;/tmp/RtmpnRjHyr/file12f34734be05f&#39;
+/tmp/RtmpnRjHyr/file12f34734be05f
 ├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
 ├── LICENSE.md
@@ -547,7 +548,7 @@ To remove this warning, define your schedule in `config.yaml` or use `set_episod
 ├── instructors
 │   └── instructor-notes.md
 ├── learners
-│   └── Setup.md
+│   └── setup.md
 ├── profiles
 │   └── learner-profiles.md
 └── site
@@ -688,8 +689,9 @@ To remove this warning, define your schedule in `config.yaml` or use `set_episod
   </div>
   <div class="row">
     <div class="col-md-12" align="center">
-      Using <a href="https://github.com/zkamvar/sandpaper">{sandpaper}</a>
-      and <a href="https://github.com/zkamvar/varnish">{varnish}</a>.
+      Built with <a href="https://github.com/carpentries/sandpaper">sandpaper (0.0.0.9050)</a>,
+      <a href="https://github.com/carpentries/pegboard">pegboard (0.0.0.9021)</a>,
+      and <a href="https://github.com/carpentries/varnish">varnish (0.0.0.9006)</a>.
     </div>
   </div>
 </div>
