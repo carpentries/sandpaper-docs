@@ -485,19 +485,20 @@ and enter the following commands to confirm everything works
 ```r
 rmarkdown::pandoc_version()
 tmp <- tempfile()
+sandpaper::no_package_cache()
 sandpaper::create_lesson(tmp, open = FALSE)
 sandpaper::build_lesson(tmp, preview = FALSE, quiet = TRUE)
 fs::dir_tree(tmp, recurse = 1)
 ```
 
 ```output
-[1] ‘2.12’
-[1] "/tmp/RtmpCjGtw3/fileac05502830cf"
-Warning message:
-In warn_schedule() :
-  No schedule set, using Rmd files in `episodes/` directory.
-To remove this warning, define your schedule in `config.yaml` or use `set_episodes()` to generate it.
-/tmp/RtmpCjGtw3/fileac05502830cf
+[1] '2.12'
+ℹ Consent for package cache revoked. Use `use_package_cache()` to undo.
+→ Creating Lesson in '/tmp/RtmpnRjHyr/file12f34734be05f'...
+✔ First episode created in '/tmp/RtmpnRjHyr/file12f34734be05f/episodes/01-introduction.Rmd'
+ℹ Workflows up-to-date!
+✔ Lesson successfully created in '/tmp/RtmpnRjHyr/file12f34734be05f'
+/tmp/RtmpnRjHyr/file12f34734be05f
 ├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
 ├── LICENSE.md
@@ -512,7 +513,7 @@ To remove this warning, define your schedule in `config.yaml` or use `set_episod
 ├── instructors
 │   └── instructor-notes.md
 ├── learners
-│   └── Setup.md
+│   └── setup.md
 ├── profiles
 │   └── learner-profiles.md
 └── site
