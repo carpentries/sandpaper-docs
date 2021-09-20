@@ -44,6 +44,30 @@ features that will make reviewing contributed content easier for maintainers:
 
 ## Reviewing A Pull Request
 
+When you recieve a pull request, a check will first validate that the lesson can
+be built and then, if it okay, it will generate output and leave [a comment that
+# provides information about the rendered output](https://github.com/carpentries/sandpaper-docs/pull/60#issuecomment-923204714):
+
+<!-- NOTE: 
+To generate this screenshot, use the webshot2 package:
+
+library(webshot2)
+repo <- "caprentries/sandpaper-docs"
+pr <- 60
+comment <- "#issuecomment-923204714"
+webshot(glue::glue("https://github.com/{repo}/pull/{pr}{comment}"), 
+  file = "episodes/fig/pr-bot-comment.png", 
+  selector = c("#issuecomment-923204714"), 
+  expand = c(10, 10, 10, 80)
+)
+-->
+
+![](fig/pr-bot-comment.png){alt="Screenshot of GitHub bot comment informing you 
+the message is automated, that you should check for accuracy of rendered output,
+and that there were 3 files changed in the rendered markdown documents."}
+
+
+
 ### Risk Management
 
 Accepting generated content into lessons from anyone runs the risk of a security
@@ -71,9 +95,9 @@ deployment."}
 There are two situations where you would receive an automated pull request:
 
 1. The workflows need to be updated to the latest versions
-2. (future) You have a lesson that uses generated content, the software
-   requirements file (e.g. renv.lock or requirements.txt) is updated to the
-   latest versions and the lesson is re-built.
+2. You have a lesson that uses generated content, the software requirements file
+   (e.g. renv.lock or [future] requirements.txt) is updated to the latest
+   versions and the lesson is re-built.
 
 :::::::::::::::::::::::::::::: keypoints
 
