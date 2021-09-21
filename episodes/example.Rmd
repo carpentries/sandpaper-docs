@@ -87,11 +87,11 @@ You can add a line with at least three colons and a `solution` tag.
 
 You can also include figures:
 
-```{r pyramid, fig.cap = "Sun arise each and every morning", fig.alt = "pie chart illusion of a pyramid with a lavendar sky"}
+```{r pyramid, fig.cap = "Sun arise each and every morning", fig.alt = "pie chart illusion of a pyramid"}
 pie(
-  c("Pollen-filled sky" = 78, "Soft side of pyramid" = 17, "Softer side of pyramid" = 5), 
+  c(Sky = 78, "Sunny side of pyramid" = 17, "Shady side of pyramid" = 5), 
   init.angle = 315, 
-  col = c("khaki", "lavenderblush", "lavenderblush3"),
+  col = c("deepskyblue", "yellow", "yellow3"),
   border = FALSE
 )
 ```
