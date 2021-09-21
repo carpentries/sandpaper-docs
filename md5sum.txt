@@ -9,7 +9,7 @@
 "episodes/example.Rmd" "4c1b51a77eddcb603def0d273dc2b492" "site/built/example.md"
 "episodes/deployment.md" "d59ebf22839ec0f4be68b60b70c0c6d0" "site/built/deployment.md"
 "episodes/update.md" "8975487b9c8e5b6e7aff38bedaf45fb1" "site/built/update.md"
-"episodes/pull-request.md" "c6f980864198ae9cfff602cf6ee4c67e" "site/built/pull-request.md"
+"episodes/pull-request.md" "fb27930cab1b1a90a10f7466ea8ec250" "site/built/pull-request.md"
 "instructors/notes.md" "1b23451c437e71b86f312bef374b02e5" "site/built/notes.md"
 "learners/setup.md" "60735fccc75a521eac80ff64890cbad8" "site/built/setup.md"
 "learners/github-pat.md" "65e9fd0b6de9f7904e01e5652fd3f12f" "site/built/github-pat.md"
