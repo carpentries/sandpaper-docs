@@ -97,15 +97,15 @@ You can also include figures:
 
 ```r
 pie(
-  c("Pollen-filled sky" = 78, "Soft side of pyramid" = 17, "Softer side of pyramid" = 5), 
+  c(Sky = 78, "Sunny side of pyramid" = 17, "Shady side of pyramid" = 5), 
   init.angle = 315, 
-  col = c("khaki", "lavenderblush", "lavenderblush3"),
+  col = c("deepskyblue", "yellow", "yellow3"),
   border = FALSE
 )
 ```
 
 <div class="figure" style="text-align: center">
-<img src="fig/example-rendered-pyramid-1.png" alt="pie chart illusion of a pyramid with a lavendar sky"  />
+<img src="fig/example-rendered-pyramid-1.png" alt="pie chart illusion of a pyramid"  />
 <p class="caption">Sun arise each and every morning</p>
 </div>
 

@@ -6,7 +6,7 @@
 "episodes/introduction.md" "7c06aaa47356f2cc5a080383769b4f8c" "site/built/introduction.md"
 "episodes/episodes.Rmd" "0658de7fa32ea2d2f99b60e1f3e7f5e0" "site/built/episodes.md"
 "episodes/editing.md" "18e6fbd829c912f93e162754e46de78f" "site/built/editing.md"
-"episodes/example.Rmd" "4c1b51a77eddcb603def0d273dc2b492" "site/built/example.md"
+"episodes/example.Rmd" "b030222a2d9cad33f04c8c2676e6a026" "site/built/example.md"
 "episodes/deployment.md" "d59ebf22839ec0f4be68b60b70c0c6d0" "site/built/deployment.md"
 "episodes/update.md" "8975487b9c8e5b6e7aff38bedaf45fb1" "site/built/update.md"
 "episodes/pull-request.md" "fb27930cab1b1a90a10f7466ea8ec250" "site/built/pull-request.md"
