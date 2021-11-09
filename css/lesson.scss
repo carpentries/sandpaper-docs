@@ -29,10 +29,10 @@ $color-testimonial: #fc8dc1 !default;
 
 @mixin cdSetup($color) {
     color: $color;
-    border: solid 1px $color;
-    border-left: solid 5px $color;
-    margin: 15px 5px 10px 0;
-    border-radius: 4px 0 0 4px;
+    border: solid 0.065em $color;
+    border-left: solid 0.325em $color;
+    margin: 0.975em 0.325em 0.65em 0;
+    border-radius: 0.26em 0 0 0.26em;
 }
 
 pre.error   { @include cdSetup($color-error);   }
@@ -60,7 +60,7 @@ pre.sql::before, pre.language-sql::before {
     background-color: #f2eff6;
     display: block;
     font-weight: bold;
-    padding: 5px 10px 5px 0px;
+    padding: 0.325em 0.65em 0.325em 0em;
 }
 
 pre.error::before  { background-color: #ffebe6; content: "Error"; }
@@ -79,7 +79,7 @@ pre.sql::before, pre.language-sql::before { content: "SQL"; }
 // Specialized blockquote environments for learning objectives, callouts, etc.
 //----------------------------------------
 
-$codeblock-padding: 5px !default;
+$codeblock-padding: 0.325em !default;
 
 @mixin bkSetup($color, $glyph) {
 
@@ -87,19 +87,19 @@ $codeblock-padding: 5px !default;
   $gradientcolor2: scale-color($color, $lightness: 10%);
 
   padding: 0 0 $codeblock-padding $codeblock-padding;
-  border: 1px solid;
+  border: 0.065em solid;
   border-color: $color;
-  border-radius: 4px;
+  border-radius: 0.26em;
 
-  margin: 15px 5px 10px 0;
+  margin: 0.975em 0.325em 0.65em 0;
 
   h2 {
     padding-top: $codeblock-padding;
     padding-bottom: $codeblock-padding;
-    font-size: 20px;
+    font-size: 1.3em;
     background: linear-gradient(to bottom, $gradientcolor1, $gradientcolor2);
     border-color: $color;
-    margin-top: 0px;
+    margin-top: 0em;
     margin-left: -$codeblock-padding; // to move back to the left margin of the enclosing blockquote
   }
   h2:before {
@@ -115,10 +115,10 @@ $codeblock-padding: 5px !default;
   h3 {
     padding-top: $codeblock-padding;
     padding-bottom: $codeblock-padding;
-    font-size: 18px;
+    font-size: 1.17em;
     background: linear-gradient(to bottom, $gradientcolor1, $gradientcolor2);
     border-color: $color;
-    margin-top: 0px;
+    margin-top: 0em;
     margin-left: -$codeblock-padding; // to move back to the left margin of the enclosing blockquote
   }
 
@@ -135,10 +135,10 @@ $codeblock-padding: 5px !default;
   h4 {
     padding-top: $codeblock-padding;
     padding-bottom: $codeblock-padding;
-    font-size: 16px;
+    font-size: 1.04em;
     background: linear-gradient(to bottom, $gradientcolor1, $gradientcolor2);
     border-color: $color;
-    margin-top: 0px;
+    margin-top: 0em;
     margin-left: -$codeblock-padding; // to move back to the left margin of the enclosing blockquote
   }
 
@@ -155,10 +155,10 @@ $codeblock-padding: 5px !default;
   h5 {
     padding-top: $codeblock-padding;
     padding-bottom: $codeblock-padding;
-    font-size: 14px;
+    font-size: 0.91em;
     background: linear-gradient(to bottom, $gradientcolor1, $gradientcolor2);
     border-color: $color;
-    margin-top: 0px;
+    margin-top: 0em;
     margin-left: -$codeblock-padding; // to move back to the left margin of the enclosing blockquote
   }
 
@@ -193,7 +193,7 @@ $codeblock-padding: 5px !default;
 .prereq h3,
 .solution h3,
 .testimonial h3 {
-font-size: 18px;
+font-size: 1.17em;
 }
 
 .challenge    { background-color: #eec27520; }
@@ -208,7 +208,7 @@ font-size: 18px;
 .testimonial  { background-color: #fc8dc120; }
 
 blockquote p {
-    margin: 5px;
+    margin: 0.325em;
 }
 blockquote :not(h2) + p {
     padding-top: 1em;
@@ -240,30 +240,30 @@ a:visited {
 
 code {
   white-space: nowrap;
-  padding: 2px 5px;
+  padding: 0.13em 0.325em;
   color: #24292e;
   background-color: #e7e7e7;
 }
 
 samp { hyphens: none; }
 
-dt { margin-top: 20px; }
+dt { margin-top: 1.3em; }
 dd { margin-left: 2em; }
 
 article img {
     display: block;
-    margin: 20px auto;
+    margin: 1.3em auto;
     max-width: 100%;
 }
 
 article h2 {
-  margin: 48px 0 16px;
-  border-bottom: solid 1px #eaecef;
+  margin: 3.12em 0 1.04em;
+  border-bottom: solid 0.065em #eaecef;
   padding-bottom: 0.3em;
   line-height: 1.25;
 }
 
-article h3 { margin: 40px 0 16px; }
+article h3 { margin: 2.6em 0 1.04em; }
 
 article pre {
     margin: 0;
@@ -274,7 +274,7 @@ article pre {
 // Miscellaneous.
 //----------------------------------------
 
-.figures h2 { margin-top: 100px; }
+.figures h2 { margin-top: 6.5em; }
 
 .maintitle {
   text-align: center;
@@ -288,16 +288,15 @@ footer .license,
 footer .help-links
 {
     font-size: inherit;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 0.65em;
+    margin-bottom: 0.65em;
     font-weight: 500;
     line-height: 1.1;
 }
 
 img.navbar-logo {
-  height: 40px; // synchronize with height of navbar
-  padding-top: 5px;
-  padding-right: 10px;
+  height: 1.6em; // synchronize with height of navbar
+  padding-right: 0.65em;
 }
 
 div.branding {
@@ -317,7 +316,7 @@ span.fold-unfold {
 
 p.image-with-shadow img,
 img.image-with-shadow {
-  box-shadow: 0 6px 24px 0 #888;
+  box-shadow: 0 0.39em 1.56em 0 #888;
 }
 
 //----------------------------------------
@@ -331,7 +330,7 @@ div.life-cycle {
     z-index: 100;
     font-size: 1.2em;
     text-align: center;
-    margin-bottom: -1px;
+    margin-bottom: -0.065em;
     border-radius: 0;
 }
 
@@ -366,14 +365,14 @@ kbd {
     margin: 0 .1em;
     padding: .1em .6em;
     font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
-    font-size: 11px;
+    font-size: 0.715em;
     line-height: 1.4;
     color: #242729;
-    text-shadow: 0 1px 0 #FFF;
+    text-shadow: 0 0.065em 0 #FFF;
     background-color: #e1e3e5;
-    border: 1px solid #adb3b9;
-    border-radius: 3px;
-    box-shadow: 0 1px 0 rgba(12,13,14,0.2), 0 0 0 2px #FFF inset;
+    border: 0.065em solid #adb3b9;
+    border-radius: 0.195em;
+    box-shadow: 0 0.065em 0 rgba(12,13,14,0.2), 0 0 0 0.13em #FFF inset;
     white-space: nowrap;
     font-style: normal;
 }
