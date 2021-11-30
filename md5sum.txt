@@ -15,4 +15,4 @@
 "learners/github-pat.md" "65e9fd0b6de9f7904e01e5652fd3f12f" "site/built/github-pat.md"
 "profiles/maintainer.md" "2a2b790c0aa8da5fb72e323e4fafabd9" "site/built/maintainer.md"
 "profiles/instructor.md" "ff8c586028a5e1c7ef0be4178b40417c" "site/built/instructor.md"
-"renv/profiles/lesson-requirements/renv.lock" "9a63fccaaf684f6dcac875fe79a04a7f" "site/built/renv.lock"
+"renv/profiles/lesson-requirements/renv.lock" "b210f48d97f53c3cc5767a654d45a247" "site/built/renv.lock"
