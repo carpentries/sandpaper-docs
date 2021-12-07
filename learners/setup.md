@@ -409,7 +409,40 @@ Linux packages normally need to be compiled by your system, which can take a
 long time the first time it happens. RStudio provides a package manager that
 pre-compiles Linux binaries. Note that you do not have to be using RStudio to
 take advantage of these binaries. The one we are using is set up for Ubuntu 
-20.04 (focal). 
+20.04 (focal).
+
+::::: callout
+
+#### Dependencies of Dependencies
+
+If you are not used to installing software on Linux, it can be frustrating 
+sometimes because few things ever "just work" when you try to install them. The
+same is true for some R packages with compiled code.
+
+Some packages require underlying C libraries (e.g. the xml2 library), which are
+catalogued for Ubuntu in [The Carpentries R
+Universe](https://carpentries.r-universe.dev/ui#builds) and [available via the
+API](https://carpentries.r-universe.dev/ui#api). If you want to view the
+packages that are required (some of which may already be on your system), you
+can use `curl` and `jq` to produce a list:
+
+```bash
+curl https://carpentries.r-universe.dev/stats/sysdeps 2> /dev/null | jq -r '.sysdep'
+```
+
+This list can be sent to `apt-get install` to install everything:
+
+```bash
+sudo apt-get install -y \
+  libxslt-dev \
+  $(curl https://carpentries.r-universe.dev/stats/sysdeps 2> /dev/null | jq -r '.sysdep') 2> /dev/null \
+  || echo "Not on Ubuntu"
+```
+
+After you have these installed, you will be able to install the required R 
+packages without error. 
+
+:::::
 
 :::: callout
 
@@ -420,6 +453,10 @@ https://packagemanager.rstudio.com/client/#/repos/1/overview, select your
 system where it says "Use this URL to work with the latest binary packages for
 Ubuntu 20.04 (Focal) **change**", and replace the packagemanager URL below.
 
+For the dependencies above, you can browse the [rstudio/r-system-requirements 
+repository](https://github.com/rstudio/r-system-requirements) to find the
+correct formulation for your computer.
+
 ::::
 
 To install the R packages, you will need to **open RStudio** (or start R from
@@ -427,6 +464,11 @@ the command line if you did not install RStudio) and enter the following lines
 into the console.
 
 ```r
+# Set the default HTTP user agent to get pre-built binary packages
+RV <- getRversion()
+OS <- paste(RV, R.version["platform"], R.version["arch"], R.version["os"])
+options(HTTPUserAgent = sprintf("R/%s R (%s)", RV, OS))
+
 # register the repositories for The Carpentries and CRAN
 options(repos = c(
   carpentries = "https://carpentries.r-universe.dev/",
