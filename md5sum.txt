@@ -11,7 +11,7 @@
 "episodes/update.md" "8975487b9c8e5b6e7aff38bedaf45fb1" "site/built/update.md"
 "episodes/pull-request.md" "fb27930cab1b1a90a10f7466ea8ec250" "site/built/pull-request.md"
 "instructors/notes.md" "1b23451c437e71b86f312bef374b02e5" "site/built/notes.md"
-"learners/setup.md" "d6e60b16154e9357221f5efb168ce859" "site/built/setup.md"
+"learners/setup.md" "0a45ce400bc4eb5964a166704f372368" "site/built/setup.md"
 "learners/github-pat.md" "65e9fd0b6de9f7904e01e5652fd3f12f" "site/built/github-pat.md"
 "profiles/maintainer.md" "2a2b790c0aa8da5fb72e323e4fafabd9" "site/built/maintainer.md"
 "profiles/instructor.md" "ff8c586028a5e1c7ef0be4178b40417c" "site/built/instructor.md"
