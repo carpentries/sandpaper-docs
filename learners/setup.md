@@ -434,7 +434,6 @@ This list can be sent to `apt-get install` to install everything:
 
 ```bash
 sudo apt-get install -y \
-  libxslt-dev \
   $(curl https://carpentries.r-universe.dev/stats/sysdeps 2> /dev/null | jq -r '.sysdep') 2> /dev/null \
   || echo "Not on Ubuntu"
 ```
