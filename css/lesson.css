@@ -930,6 +930,94 @@ pre.sql::before, pre.language-sql::before {
   -webkit-font-smoothing: antialiased;
 }
 
+.instructor {
+  padding: 0 0 0.325em 0.325em;
+  border: 0.065em solid;
+  border-color: #ce1d9d;
+  border-radius: 0.26em;
+  margin: 0.975em 0.325em 0.65em 0;
+}
+
+.instructor h2 {
+  padding-top: 0.325em;
+  padding-bottom: 0.325em;
+  font-size: 1.3em;
+  background: linear-gradient(to bottom, #ce1d9d, #e026ad);
+  border-color: #ce1d9d;
+  margin-top: 0em;
+  margin-left: -0.325em;
+}
+
+.instructor h2:before {
+  font-family: 'Glyphicons Halflings';
+  content: "i";
+  float: left;
+  padding-left: 0.325em;
+  padding-right: 0.325em;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+}
+
+.instructor h3 {
+  padding-top: 0.325em;
+  padding-bottom: 0.325em;
+  font-size: 1.17em;
+  background: linear-gradient(to bottom, #ce1d9d, #e026ad);
+  border-color: #ce1d9d;
+  margin-top: 0em;
+  margin-left: -0.325em;
+}
+
+.instructor h3:before {
+  font-family: 'Glyphicons Halflings';
+  content: "i";
+  float: left;
+  padding-left: 0.325em;
+  padding-right: 0.325em;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+}
+
+.instructor h4 {
+  padding-top: 0.325em;
+  padding-bottom: 0.325em;
+  font-size: 1.04em;
+  background: linear-gradient(to bottom, #ce1d9d, #e026ad);
+  border-color: #ce1d9d;
+  margin-top: 0em;
+  margin-left: -0.325em;
+}
+
+.instructor h4:before {
+  font-family: 'Glyphicons Halflings';
+  content: "i";
+  float: left;
+  padding-left: 0.325em;
+  padding-right: 0.325em;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+}
+
+.instructor h5 {
+  padding-top: 0.325em;
+  padding-bottom: 0.325em;
+  font-size: 0.91em;
+  background: linear-gradient(to bottom, #ce1d9d, #e026ad);
+  border-color: #ce1d9d;
+  margin-top: 0em;
+  margin-left: -0.325em;
+}
+
+.instructor h5:before {
+  font-family: 'Glyphicons Halflings';
+  content: "i";
+  float: left;
+  padding-left: 0.325em;
+  padding-right: 0.325em;
+  display: inline-block;
+  -webkit-font-smoothing: antialiased;
+}
+
 .callout h3,
 .challenge h3,
 .checklist h3,
@@ -938,6 +1026,7 @@ pre.sql::before, pre.language-sql::before {
 .objectives h3,
 .prereq h3,
 .solution h3,
+.instructor h3,
 .testimonial h3 {
   font-size: 1.17em;
 }
@@ -980,6 +1069,10 @@ pre.sql::before, pre.language-sql::before {
 
 .testimonial {
   background-color: #fc8dc120;
+}
+
+.instructor {
+  background-color: #ce1d9d20;
 }
 
 blockquote p {
