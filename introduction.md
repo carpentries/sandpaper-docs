@@ -91,7 +91,7 @@ sure that you are in your newly-created repository and then use the following
 command:
 
 ```r
-sandpaper::build_lesson()
+sandpaper::serve()
 ```
 
 :::::::::::::::: discussion
@@ -105,6 +105,11 @@ run without first calling `library(<packagename>)`, so they are more portable.
 I will be using this syntax for the rest of the lesson.
 
 :::::::::::::::::::::::::::
+
+If you are working in RStudio, you will see a preview of your lesson in the 
+viewer pane and if you are working in a different program, a browser window will
+open, showing a live preview of the lesson. When you edit files, they will 
+automatically be rebuilt to your website. 
 
 :::::::::::::: callout
 
@@ -195,26 +200,6 @@ computer to GitHub](../learners/setup.md#connect-to-github-1).
 4. Follow the instructions on the page to push an existing repository from the
    command line. 
 
-:::::::::::: callout
-
-### Alternative: One-step R solution
-
-If you use R and use an HTTPS protocol, this can be done in a single step from
-inside RStudio with the {usethis} package:
-
-```r
-usethis::use_github()
-```
-
-This function will set up a new repository under your personal account called
-`buoyant-barnacle`, add that remote to your `git remotes`, and automatically
-push your repository to GitHub. 
-
-If you don't use the HTTPS protocol, and want to find out how to set it in R,
-we have [a walkthrough to set your credentials in the learners section
-](../learners/github-pat.md).
-
-::::::::::::::::::::
 
 A few minutes after you pushed your repository, the GitHub workflows would have
 validated your lesson and created deployment branches. You can track the
@@ -243,6 +228,50 @@ and cache.
 
 :::::::::::::::: 
 
+
+:::::::::::: callout
+
+### Alternative: Two-step solution in R
+
+If you use R and use an HTTPS protocol, this can be done in a single step from
+inside RStudio with the {usethis} package:
+
+```r
+usethis::use_github()
+usethis::use_github_pages()
+```
+
+The `use_github()` function will set up a new repository under your personal
+account called `buoyant-barnacle`, add that remote to your `git remotes`, and
+automatically push your repository to GitHub. 
+
+The `use_github_pages()` function will signal to GitHub that it should allow
+the `gh-pages` branch to serve the website at 
+`https://user.github.io/buoyant-barnacle`
+
+The output of these commands should look something like this:
+
+```output
+> use_github()
+✔ Creating GitHub repository 'zkamvar/buoyant-barnacle'
+✔ Setting remote 'origin' to 'https://github.com/zkamvar/buoyant-barnacle.git'
+✔ Pushing 'main' branch to GitHub and setting 'origin/main' as upstream branch
+✔ Opening URL 'https://github.com/zkamvar/buoyant-barnacle'
+
+> use_github_pages()
+✔ Initializing empty, orphan 'gh-pages' branch in GitHub repo 'zkamvar/buoyant-barnacle'
+✔ GitHub Pages is publishing from:
+• URL: 'https://zkamvar.github.io/buoyant-barnacle/'
+• Branch: 'gh-pages'
+• Path: '/'
+```
+
+If you don't use the HTTPS protocol, and want to find out how to set it in R,
+we have [a walkthrough to set your credentials in the learners section
+](../learners/github-pat.md).
+
+::::::::::::::::::::
+
 ## Tools
 
 As described in [the setup document][setup], the lesson template now only
@@ -256,7 +285,7 @@ template has been split up into three R packages:
 ::::::::::::: keypoints
 
 - Lessons can be created with `create_lesson()`
-- Preview lessons with `build_lesson()`
+- Preview lessons with `serve()`
 - The toolchain is designed to be modular.
 
 :::::::::::::::::::::::
