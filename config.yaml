@@ -59,7 +59,7 @@ learners:
 
 # Information for Instructors
 instructors:
-- notes.md
+- instructor-notes.md
 
 # Learner Profiles
 profiles:
