@@ -15,6 +15,8 @@ title: Introduction to the New Lesson Template
 # Key words, separated by commas
 keywords: static site, lesson template, markdown, R, software
 
+created: 2021-02-09
+
 # Life cycle stage of the lesson
 # possible values: pre-alpha, alpha, beta, stable
 life_cycle: pre-alpha
