@@ -1,15 +1,18 @@
-# sandpaper-docs
+# The Carpentries Workbench Documentation
 
-This is the documentation repository for the [{sandpaper}] R package that will eventually serve as the new lesson template engine for Carpentries Lessons.
+This lesson gives a high-level overview of how you can use The Carpentries
+Workbench (our new and improved lesson infrastructure) to build beautiful and
+accessible lessons from markdown or RMarkdown sources.
 
-If you want to try out this lesson, you can create a copy of it on the RStudio Cloud: https://rstudio.cloud/project/2247061
+If you want to try out this lesson, you can create a copy of it on the RStudio
+Cloud: https://rstudio.cloud/project/2247061
 
+## Setup the Workbench
 
-## Infrastructure Setup
-
-To build this lesson locally, you should follow the [setup instructions for the infrastructure](https://carpentries.github.io/sandpaper-docs/#overview).
-In short, make sure you have R, Git, and Pandoc installed, open R and use the
-following to install/update the infrastructure:
+To build this lesson locally, you should follow the [setup instructions for the
+workbench](https://carpentries.github.io/sandpaper-docs/#overview). In short,
+make sure you have R, Git, and Pandoc installed, open R and use the following
+commands to install/update the packages needed for the infrastructure:
 
 ```r
 # register the repositories for The Carpentries and CRAN
@@ -28,7 +31,7 @@ There are two ways to download the lesson from github:
 
  - via the command line: 
    ```
-   git clone https://github.com/carpentries/sandpaper-docs && cd sandpaper-docs)
+   git clone https://github.com/carpentries/sandpaper-docs && cd sandpaper-docs
    ```
  - via R: 
    ```r
