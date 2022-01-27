@@ -4,6 +4,8 @@ teaching: 10
 exercises: 2
 ---
 
+
+
 :::::::::::::::::::::::::::::::::::::: questions
 
 - How do you create a new episode? 
@@ -243,6 +245,68 @@ you can visually see that the fences match.
 That's right, we can use emojis in the new template! :100: :tada:
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+## Instructor Notes
+
+A new feature in The Carpentries Workbench is separate instructor/learner views,
+which allows for instructor notes to be incorporated into the lesson. The
+default view of a lesson is the learner view, but you can switch to the 
+instructor view by scrolling to the top of the lesson, clicking on the "Learner
+View" button at the top right, and then selecting "Instructor View" from the
+dropdown. You can also add `instructor/` after the lesson URL (e.g. in this
+lesson, the URL is `https://carpentries.github.io/sandpaper-docs/episodes.html`;
+to switch to the instructor view manually, you can use 
+`https://carpentries.github.io/sandpaper-docs/instructor/episodes.html`. 
+
+
+::::::::::::::: challenge
+
+### View the instructor note
+
+When you visit this page, the default is learner view. Scroll to the top of the
+page and select "Instructor View" from the dropdown and return to this section
+to find an instructor note waiting for you.
+
+:::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: instructor
+
+This is an instructor note. It contains information that can be useful for 
+instructors to know such as
+
+ - Useful hints about places that need extra attention
+ - setup instructions for live coding
+ - reminders of what the learners should already know
+ - anything else
+
+These notes are created with a pandoc fenced div that looks like this:
+
+````markdown
+
+::::::::::::::::::::::::::::::::::::: instructor
+
+This is an instructor note. It contains information that can be useful for 
+instructors to know such as
+
+ - Useful hints about places that need extra attention
+ - setup instructions for live coding
+ - reminders of what the learners should already know
+ - anything else
+
+These notes are created with a pandoc fenced div that looks like this:
+
+```markdown
+
+... Instructor note markdown placehoder ...
+
+```
+
+:::::::::::::::::::::::::::::::::::::::::::::::::
+
+````
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 ## Exercises/Challenges
 
