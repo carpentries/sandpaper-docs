@@ -154,6 +154,7 @@
 <li><a href="#creating-a-new-episode">Creating A New Episode</a></li>
 <li><a href="#required-elements">Required Elements</a></li>
 <li><a href="#callout-blocks">Editing an episode: Callout blocks</a></li>
+<li><a href="#instructor-notes">Instructor Notes</a></li>
 <li><a href="#exerciseschallenges">Exercises/Challenges</a></li>
 <li><a href="#figures">Figures</a></li>
 <li><a href="#math">Math</a></li>
@@ -477,23 +478,37 @@ print("hello world!")
 </div>
 </div>
 </div>
+</section><section id="instructor-notes"><h2 class="section-heading">Instructor Notes</h2>
+<hr class="half-width"><p>A new feature in The Carpentries Workbench is separate instructor/learner views, which allows for instructor notes to be incorporated into the lesson. The default view of a lesson is the learner view, but you can switch to the instructor view by scrolling to the top of the lesson, clicking on the “Learner View” button at the top right, and then selecting “Instructor View” from the dropdown. You can also add <code>instructor/</code> after the lesson URL (e.g. in this lesson, the URL is <code>https://carpentries.github.io/sandpaper-docs/episodes.html</code>; to switch to the instructor view manually, you can use <code>https://carpentries.github.io/sandpaper-docs/instructor/episodes.html</code>.</p>
+<div id="discussion2" class="callout discussion">
+<div class="callout-square">
+<i class="callout-icon" data-feather="message-circle"></i>
+</div>
+<div id="view-the-instructor-note" class="callout-inner">
+<h3 class="callout-title">View the instructor note</h3>
+<div class="callout-content">
+<p>When you visit this page, the default is learner view. Scroll to the top of the page and select “Instructor View” from the dropdown and return to this section to find an instructor note waiting for you.</p>
+</div>
+</div>
+</div>
+
 </section><section id="exerciseschallenges"><h2 class="section-heading">Exercises/Challenges</h2>
 <hr class="half-width"><p>the method of creating callout blocks with fences can help us create solution blocks nested within challenge blocks. Much like a <a href="https://en.wikipedia.org/wiki/Toast_sandwich" class="external-link">toast sandwich</a>, we can layer blocks inside blocks by adding more layers. For example, here’s how I would create a single challenge and a single solution:</p>
-<div class="codewrapper sourceCode" id="cb11">
+<div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>::::::::::::::::::::::::::::::::::::: challenge</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Chemistry Joke</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>Q: If you aren't part of the solution, then what are you?</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>:::::::::::::::: solution</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>A: part of the precipitate</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>:::::::::::::::::::::::::</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>:::::::::::::::::::::::::::::::::::::::::::::::</span></code></pre>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>::::::::::::::::::::::::::::::::::::: challenge</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Chemistry Joke</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>Q: If you aren't part of the solution, then what are you?</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>:::::::::::::::: solution</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>A: part of the precipitate</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>:::::::::::::::::::::::::</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>:::::::::::::::::::::::::::::::::::::::::::::::</span></code></pre>
 </div>
 <div id="challenge1" class="callout challenge">
 <div class="callout-square">
@@ -513,7 +528,7 @@ print("hello world!")
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>A: part of the precipitate</p>
 </div>
@@ -529,7 +544,7 @@ print("hello world!")
 <h3 class="callout-title">Challenge 1: Can you do it?</h3>
 <div class="callout-content">
 <p>What is the output of this command?</p>
-<div class="codewrapper sourceCode" id="cb12">
+<div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -545,7 +560,7 @@ print("hello world!")
   Output
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -574,7 +589,7 @@ print("hello world!")
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>You can add a line with at least three colons and a <code>solution</code> tag.</p>
 </div>
@@ -590,12 +605,12 @@ print("hello world!")
 <h3 class="callout-title">Challenge</h3>
 <div class="callout-content">
 <p>Is the following fenced-div valid? Why?</p>
-<div class="codewrapper sourceCode" id="cb14">
+<div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>::::::::::::::::::::: my-class</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>This is a block of my class</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>::::::::::::::::::::: my-class</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>This is a block of my class</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>:::</span></code></pre>
 </div>
 </div>
 </div>
@@ -607,7 +622,7 @@ print("hello world!")
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>Yes! It is a valid fenced div for the following reasons:</p>
 <ol style="list-style-type: decimal"><li>The opening fence has ≥3 colons</li>
@@ -619,13 +634,13 @@ print("hello world!")
 </div>
 </section><section id="figures"><h2 class="section-heading">Figures</h2>
 <hr class="half-width"><p>To include figures, place them in the <code>episodes/fig</code> folder and reference them directly like so using standard markdown format, with one twist: add an <code>alt</code> attribute at the end to make it accessible like this: <code>![caption](image){alt='alt text'}</code>.</p>
-<div class="codewrapper sourceCode" id="cb15">
+<div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Hex sticker for The Carpentries](fig/carpentries-hex-blue.svg)</span>{alt="blue</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>hexagon with The Carpentries logo in white and text: 'The Carpentries'"}</span></code></pre>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Hex sticker for The Carpentries](fig/carpentries-hex-blue.svg)</span>{alt="blue</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>hexagon with The Carpentries logo in white and text: 'The Carpentries'"}</span></code></pre>
 </div>
-<figure><img src="fig/carpentries-hex-blue.svg" alt="blue hexagon with The Carpentries logo in white and text: 'The Carpentries'" class="figure mx-auto d-block"><figcaption>Hex sticker for The Carpentries</figcaption></figure><div id="discussion2" class="callout discussion">
+<figure><img src="fig/carpentries-hex-blue.svg" alt="blue hexagon with The Carpentries logo in white and text: 'The Carpentries'" class="figure mx-auto d-block"><figcaption>Hex sticker for The Carpentries</figcaption></figure><div id="discussion3" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
@@ -637,7 +652,7 @@ print("hello world!")
 </div>
 </div>
 <p>If your lesson uses R, some images will be auto-generated from evaluated code chunks and linked. You can use <code>fig.alt</code> to include alt text. <a href="https://blog.rstudio.com/2021/04/20/knitr-fig-alt/" class="external-link">This blogpost has more information about including alt text in RMarkdown documents</a>. In addition, you can also use <code>fig.cap</code> to provide a caption that puts the picture into context (but take care to not be redundant; screen readers will read both fields).</p>
-<div class="codewrapper sourceCode" id="cb16">
+<div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
