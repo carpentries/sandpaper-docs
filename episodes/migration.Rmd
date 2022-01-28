@@ -14,7 +14,7 @@ exercises: 2
 :::::::::::::::: objectives ::::::::::::::::::::
 
 - Understand the challenges involved in migration
-- Identify the shared components between the current and new lesson template
+- Identify the shared components between the styles template and The Carpentries Workbench
 - Identify the tool needed for migration
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
@@ -50,7 +50,7 @@ that all have a complicated hierarchy of rules.
 
 ### A Question of Syntax
 
-The current template uses a markdown interpreter called [kramdown] because it
+The styles template uses a markdown interpreter called [kramdown] because it
 was the default interpreter for [Jekyll][jekyll] at the time. This syntax 
 allowed us to create customized block quotes that served as waypoints in our
 lessons to facilitate active learning. Unfortunately, the syntax diverged far 

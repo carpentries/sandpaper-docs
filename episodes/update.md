@@ -13,7 +13,7 @@ exercises: 2
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Identify components of the template needed for lesson structure, validation, 
+- Identify components of the workbench needed for lesson structure, validation, 
   styling, and deployment
 - Understand how to update R packages
 - Understand how to update GitHub workflows

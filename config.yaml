@@ -10,7 +10,7 @@
 carpentry: cp
 
 # Overall title for pages.
-title: Introduction to the New Lesson Template
+title: Introduction to The Carpentries Workbench
 
 # Key words, separated by commas
 keywords: static site, lesson template, markdown, R, software

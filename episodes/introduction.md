@@ -1,5 +1,5 @@
 ---
-title: "Introduction to the New Template"
+title: "Introduction to The Carpentries Workbench"
 teaching: 10
 exercises: 2
 ---
@@ -13,8 +13,8 @@ exercises: 2
 ::::::::::: objectives
 
 - Create new lesson from scratch
-- Identify the main command to preview the template
-- Understand the basic structure of the new template
+- Identify the main command to preview the site
+- Understand the basic structure of a new workbench
 
 ::::::::::::::::::::::
 
@@ -274,8 +274,8 @@ we have [a walkthrough to set your credentials in the learners section
 
 ## Tools
 
-As described in [the setup document][setup], the lesson template now only
-requires R and [pandoc] to be installed. The tooling from the current lesson
+As described in [the setup document][setup], The Carpentries Workshop only
+requires R and [pandoc] to be installed. The tooling from the styles lesson
 template has been split up into three R packages:
 
 1. [{varnish}] contains the HTML, CSS, and JavaScript elements

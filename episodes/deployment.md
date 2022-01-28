@@ -54,8 +54,9 @@ material by taking advantage of a two-step model of deployment.
 
 ### The Two-Step Model of Deployment
 
-To alleviate the downsides of working with generated content, the new template
-employs a two-step model of deployment when you run `sandpaper::build_lesson()`
+To alleviate the downsides of working with generated content, The Carpentries
+Workbench employs a two-step model of deployment when you run
+`sandpaper::build_lesson()`
 
 1. Take any source files with content that needs to be interpreted (e.g. 
    R Markdown) and **render them to markdown** in a staging area ignored by git. 
