@@ -1,5 +1,5 @@
 ---
-title: "The Template Engine: {sandpaper}"
+title: "The Lesson Engine: {sandpaper}"
 teaching: 10
 exercises: 2
 ---
@@ -31,8 +31,8 @@ a configuration file, a Makefile, and several scripts (BASH, Python) live inside
 the template itself. There were several places in the template where authors were
 commanded to not touch. 
 
-The new template takes these disparate pieces and liberates them into an
-external engine called [{sandpaper}]. 
+The Carpentries Workbench takes these disparate pieces and liberates them into
+an external engine called [{sandpaper}]. 
 
 [{sandpaper}] orchestrates the two-step process of creating markdown from
 RMarkdown and then converting to HTML and applying The Carpentries theme. It
@@ -270,7 +270,7 @@ profiles:
 
 ### What about the .github/ folder?
 
-Unfortunately, not ALL of the lesson template is up for grabs. This is a folder
+Unfortunately, not ALL of the workbench is up for grabs. This is a folder
 that contains GitHub workflows that we will talk about in the [deployment 
 section](deployment.html) of this tutorial. In the meantime, do not pay any mind
 to this directory. 
