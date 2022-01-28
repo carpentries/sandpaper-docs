@@ -9,7 +9,7 @@ exercises: 2
 :::::::::::::::::::::::::::::::::::::: questions
 
 - How do you create a new episode? 
-- What syntax do you need to know to contribute to a lesson with the new template?
+- What syntax do you need to know to contribute to a lesson with The Carpentries Workbench?
 - How do you write challenge blocks?
 - What syntax do you use to write links?
 - How do you include images?
@@ -71,7 +71,7 @@ sandpaper::create_episode("next-episode")
 
 This will create a new episode in the episodes folder called
 "02-next-episode.Rmd".  If you already have your episode schedule set in
-`config.yaml`, then this episode will not be rendered in the template and will
+`config.yaml`, then this episode will not be rendered in the site and will
 remain a draft until you add it to the schedule. Next, we will show how you can
 add a title and other elements to your episode.
 
@@ -247,7 +247,7 @@ you can visually see that the fences match.
 
 ::::::::::::::::::::::::::::::::::::::::::::::: callout
 
-That's right, we can use emojis in the new template! :100: :tada:
+That's right, we can use emojis in The Carpentries Workbench! :100: :tada:
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::
 

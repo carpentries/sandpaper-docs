@@ -114,7 +114,7 @@ with an arrow `<-` are places in the lesson template you will be modifying:
 ```
 
 This folder structure is heavily opinionated towards achieving our goals of
-creating a lesson template that is fit for the purpose of delivering lesson
+creating a lesson infrastructure that is fit for the purpose of delivering lesson
 content for not only Carpentries instructors, but also for learners and
 educators who are browsing the content after a workshop. It is not designed to
 be a blog or commerce website. Read the following sections to understand the 

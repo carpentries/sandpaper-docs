@@ -2,13 +2,13 @@
 site: sandpaper::sandpaper_site
 ---
 
-Welcome to the documentation for our new Lesson Infrastructure. This is a
+Welcome to the documentation for The Carpentries Workbench. This is a
 complete redesign that follows the philosophy of keeping content and tools
 separate. The new infrastructure will have the following features:
 
 :::::::::::::::::: checklist
 
-## Features of the New Lesson Infrastructure
+## Features of the The Carpentries Workbench
 
 - [x] Automatic updates
 - [x] Pandoc markdown syntax

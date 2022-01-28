@@ -34,7 +34,7 @@ This episode is still actively being developed
 One of the biggest benefits of working on a Carpentries Lesson is that it gives
 maintainers and contributors practice collaboratively working on GitHub and 
 practicing common software engineering practices, including pull requests and
-reviews. In the Carpentries Lesson Infrastructure, we have implemented new 
+reviews. In the Carpentries Workbench, we have implemented new 
 features that will make reviewing contributed content easier for maintainers:
 
 1. Source content is checked for valid headings, links, and images
