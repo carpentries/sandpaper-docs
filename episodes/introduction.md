@@ -18,13 +18,10 @@ exercises: 2
 
 ::::::::::::::::::::::
 
-
-## Quickstart: Create a New Lesson
-
-Let's say you have a set of R Markdown files that you used for a class website
-that you want to convert into a Carpentries Lesson. To go from zero to a new 
-lesson website that auto-renders R Markdown documents to a functional website is
-three steps with `{sandpaper}`:
+Let's say you have a set of Markdown or R Markdown files that you used for a
+class website that you want to convert into a Carpentries Lesson. To go from
+zero to a new lesson website that can auto-render R Markdown documents to a
+functional website is three steps with `{sandpaper}`:
 
 1. Create a site
 2. Push to GitHub
@@ -41,9 +38,51 @@ yaml syntax in order to work on lessons.
 
 :::::::::::::::::::::::::::
 
-::::::::::::::::: challenge
+## Super Quickstart: Copy A Template from GitHub
 
-### Try it yourself!
+The absolute quickest way to get started with The Carpentries Workbench is to 
+create a GitHub repository with one of the two available templates, depending on
+your preference:
+
+### Step 1: Choose a template
+   - [Markdown Lessons (no generated content)](https://github.com/carpentries/workbench-template-md/generate)
+   - [R Markdown Lessons (generated content via R)](https://github.com/carpentries/workbench-template-rmd/generate) (our tutorial uses this template)
+
+### Step 2: Choose a name for your lesson repository. 
+
+Name it "buoyant-barnacle". **DO NOT** select "Include All Branches". Click on
+the button that says "Create repository from template"
+
+::::::::::::: callout
+
+#### Creating a new lesson repository
+
+![What you should see when you click on one of the above two links](fig/intro-template-screen.png){alt="Screenshot of a webform that says
+'Create a new repository from workbench-template-md'. It says that the new
+repository will contain the same files and folders as
+carpentries/workbench-template-md and has two required fields for Owner and
+Repository Name, which are filled in as zkamvar and effective-carnival. There
+is a blank Description option, a radio button that selects public/private, and
+an unchecked checkbox to include all branches"}
+
+::::::::::::::::::::
+
+### Step 3: Deploy the site
+
+It will take a couple of minutes to start the engine, but once you see 
+a green check in the status bar, [follow the instructions to choose 
+gh-pages as the source for your lesson](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)
+
+That's it. If you want to work directly on GitHub, you can do so. If you want to
+work locally, be sure to [follow the setup instructions][setup], clone your
+lesson to your computer, open RStudio (or your preferrred interface to R) inside
+the lesson folder, and [preview your new lesson](#preview)
+
+## Quickstart: Create a New Lesson
+
+:::::::::::::::::::::::::::: challenge
+
+### Create a Lesson Locally
 
 Follow these steps to create a brand new lesson on your Desktop called
 "buoyant-barnacle".
@@ -62,19 +101,19 @@ print(bb) # print the new path to your screen
 create_lesson(bb) # create a new lesson in that path
 ```
 
-:::::::::::::::::::::::::::
-
 If everything went correctly, you will now have a new RStudio window open to
 your new project called "buoyant-barnacle" on your Desktop (if you did not use
 RStudio, your working directory should have changed, you can check it via the
 `getwd()` command). 
+
+::::::::::::::::::::::::::::::::::
 
 Your lesson will be initialized with a brand new git repository with the initial
 commit message being `Initial commit [via {sandpaper}]`. 
 
 :::::::::::::::::::::: callout
 
-## :beetle: Known Quirk
+### :beetle: Known Quirk
 
 If you are using RStudio, then an RStudio project file (`*.Rproj`) is
 automatically created to help anchor your project. You might notice changes to
@@ -84,7 +123,7 @@ This is perfectly normal and we will fix this in a future iteration of
 
 ::::::::::::::::::::::::::::::
 
-## Previewing Your New Lesson
+## Previewing Your New Lesson {#preview}
 
 After you created your lesson, you will want to preview it locally. First, make
 sure that you are in your newly-created repository and then use the following
