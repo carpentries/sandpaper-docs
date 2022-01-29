@@ -141,8 +141,9 @@
         
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
-        <ul><li><a href="#quickstart-create-a-new-lesson">Quickstart: Create a New Lesson</a></li>
-<li><a href="#previewing-your-new-lesson">Previewing Your New Lesson</a></li>
+        <ul><li><a href="#super-quickstart-copy-a-template-from-github">Super Quickstart: Copy A Template from GitHub</a></li>
+<li><a href="#quickstart-create-a-new-lesson">Quickstart: Create a New Lesson</a></li>
+<li><a href="#preview">Previewing Your New Lesson</a></li>
 <li><a href="#push-to-github">Push to GitHub</a></li>
 <li><a href="#tools">Tools</a></li>
         </ul></div><!--/div.accordion-body-->
@@ -248,7 +249,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Introduction to The Carpentries Workbench</h1>
-        <p> Last updated on 2022-01-28 | <a href="https://github.com/carpentries/sandpaper-docs//edit/main/episodes/introduction.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+        <p> Last updated on 2022-01-29 | <a href="https://github.com/carpentries/sandpaper-docs//edit/main/episodes/introduction.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         <p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 12 minutes </p>
         
         <div class="text-end">
@@ -280,8 +281,7 @@
 </div>
 </div>
 </div>
-<section id="quickstart-create-a-new-lesson"><h2 class="section-heading">Quickstart: Create a New Lesson</h2>
-<hr class="half-width"><p>Let’s say you have a set of R Markdown files that you used for a class website that you want to convert into a Carpentries Lesson. To go from zero to a new lesson website that auto-renders R Markdown documents to a functional website is three steps with <a href="https://github.com/carpentries/sandpaper/" class="external-link">sandpaper</a>:</p>
+<p>Let’s say you have a set of Markdown or R Markdown files that you used for a class website that you want to convert into a Carpentries Lesson. To go from zero to a new lesson website that can auto-render R Markdown documents to a functional website is three steps with <a href="https://github.com/carpentries/sandpaper/" class="external-link">sandpaper</a>:</p>
 <ol style="list-style-type: decimal"><li>Create a site</li>
 <li>Push to GitHub</li>
 <li>Add your files</li>
@@ -297,12 +297,40 @@
 </div>
 </div>
 </div>
-<div id="discussion1" class="callout discussion">
+<section id="super-quickstart-copy-a-template-from-github"><h2 class="section-heading">Super Quickstart: Copy A Template from GitHub</h2>
+<hr class="half-width"><p>The absolute quickest way to get started with The Carpentries Workbench is to create a GitHub repository with one of the two available templates, depending on your preference:</p>
+<div class="section level3">
+<h3 id="step-1-choose-a-template">Step 1: Choose a template<a class="anchor" aria-label="anchor" href="#step-1-choose-a-template"></a></h3>
+<ul><li><a href="https://github.com/carpentries/workbench-template-md/generate" class="external-link">Markdown Lessons (no generated content)</a></li>
+<li>
+<a href="https://github.com/carpentries/workbench-template-rmd/generate" class="external-link">R Markdown Lessons (generated content via R)</a> (our tutorial uses this template)</li>
+</ul></div>
+<div class="section level3">
+<h3 id="step-2-choose-a-name-for-your-lesson-repository-">Step 2: Choose a name for your lesson repository.<a class="anchor" aria-label="anchor" href="#step-2-choose-a-name-for-your-lesson-repository-"></a></h3>
+<p>Name it “buoyant-barnacle”. <strong>DO NOT</strong> select “Include All Branches”. Click on the button that says “Create repository from template”</p>
+<div id="callout2" class="callout callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="creating-a-new-lesson-repository" class="callout-inner">
+<h3 class="callout-title">Creating a new lesson repository</h3>
+<div class="callout-content">
+<figure><img src="../fig/intro-template-screen.png" alt="Screenshot of a webform that says 'Create a new repository from workbench-template-md'. It says that the new repository will contain the same files and folders as carpentries/workbench-template-md and has two required fields for Owner and Repository Name, which are filled in as zkamvar and effective-carnival. There is a blank Description option, a radio button that selects public/private, and an unchecked checkbox to include all branches" class="figure mx-auto d-block"><figcaption>What you should see when you click on one of the above two links</figcaption></figure></div>
+</div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="step-3-deploy-the-site">Step 3: Deploy the site<a class="anchor" aria-label="anchor" href="#step-3-deploy-the-site"></a></h3>
+<p>It will take a couple of minutes to start the engine, but once you see a green check in the status bar, <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source" class="external-link">follow the instructions to choose gh-pages as the source for your lesson</a></p>
+<p>That’s it. If you want to work directly on GitHub, you can do so. If you want to work locally, be sure to <a href="../setup.html">follow the setup instructions</a>, clone your lesson to your computer, open RStudio (or your preferrred interface to R) inside the lesson folder, and <a href="../#preview">preview your new lesson</a></p>
+</div>
+</section><section id="quickstart-create-a-new-lesson"><h2 class="section-heading">Quickstart: Create a New Lesson</h2>
+<hr class="half-width"><div id="discussion1" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
-<div id="try-it-yourself" class="callout-inner">
-<h3 class="callout-title">Try it yourself!</h3>
+<div id="create-a-lesson-locally" class="callout-inner">
+<h3 class="callout-title">Create a Lesson Locally</h3>
 <div class="callout-content">
 <p>Follow these steps to create a brand new lesson on your Desktop called “buoyant-barnacle”.</p>
 <ol style="list-style-type: decimal"><li>Follow the <a href="../setup.html">setup instructions</a>
@@ -321,12 +349,12 @@
 <span class="fu">print</span><span class="op">(</span><span class="va">bb</span><span class="op">)</span> <span class="co"># print the new path to your screen</span>
 <span class="fu">create_lesson</span><span class="op">(</span><span class="va">bb</span><span class="op">)</span> <span class="co"># create a new lesson in that path</span></code></pre>
 </div>
-</div>
-</div>
-</div>
 <p>If everything went correctly, you will now have a new RStudio window open to your new project called “buoyant-barnacle” on your Desktop (if you did not use RStudio, your working directory should have changed, you can check it via the <code><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd()</a></code> command).</p>
+</div>
+</div>
+</div>
 <p>Your lesson will be initialized with a brand new git repository with the initial commit message being <code>Initial commit [via {sandpaper}]</code>.</p>
-<div id="callout2" class="callout callout">
+<div id="callout3" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
@@ -338,7 +366,7 @@
 </div>
 </div>
 </div>
-</section><section id="previewing-your-new-lesson"><h2 class="section-heading">Previewing Your New Lesson</h2>
+</section><section id="preview"><h2 class="section-heading">Previewing Your New Lesson</h2>
 <hr class="half-width"><p>After you created your lesson, you will want to preview it locally. First, make sure that you are in your newly-created repository and then use the following command:</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -358,7 +386,7 @@
 </div>
 </div>
 <p>If you are working in RStudio, you will see a preview of your lesson in the viewer pane and if you are working in a different program, a browser window will open, showing a live preview of the lesson. When you edit files, they will automatically be rebuilt to your website.</p>
-<div id="callout3" class="callout callout">
+<div id="callout4" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
@@ -415,7 +443,7 @@
   Warning Message
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">WARNING<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -454,7 +482,7 @@ To remove this warning, define your schedule in `config.yaml` or use `set_episod
 <li>Follow the instructions on the page to push an existing repository from the command line.</li>
 </ol><p>A few minutes after you pushed your repository, the GitHub workflows would have validated your lesson and created deployment branches. You can track the progress at <code>https://github.com/&lt;USERNAME&gt;/buoyant-barnacle/actions/</code>. Once you have a green check mark, you can <a href="https://docs.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site" class="external-link">set up GitHub Pages</a> by going to <code>https://github.com/&lt;USERNAME&gt;/buoyant-barnacle/settings/pages</code> and choosing <code>gh-pages</code> from the dropdown menu as shown in the image below:</p>
 <figure><img src="../fig/github-pages-none.png" class="figure mx-auto d-block" alt="screencapture of the initial view of the GitHub Pages section of the settings tab"></figure><p>Click on the “select branch” button and select “gh-pages”:</p>
-<figure><img src="../fig/github-pages-gh-pages.png" class="figure mx-auto d-block" alt='screencapture of expanded "select branch" button with "gh-pages" selected'></figure><div id="callout4" class="callout callout">
+<figure><img src="../fig/github-pages-gh-pages.png" class="figure mx-auto d-block" alt='screencapture of expanded "select branch" button with "gh-pages" selected'></figure><div id="callout5" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
@@ -466,7 +494,7 @@ To remove this warning, define your schedule in `config.yaml` or use `set_episod
 </div>
 </div>
 </div>
-<div id="callout5" class="callout callout">
+<div id="callout6" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
@@ -574,8 +602,8 @@ To remove this warning, define your schedule in `config.yaml` or use `set_episod
   "url": "https://carpentries.github.io/sandpaper-docs/instructor/introduction.html",
   "identifier": "https://carpentries.github.io/sandpaper-docs/instructor/introduction.html",
   "dateCreated": "2021-02-09",
-  "dateModified": "2022-01-28",
-  "datePublished": "2022-01-28"
+  "dateModified": "2022-01-29",
+  "datePublished": "2022-01-29"
 }
 
   </script><script>
