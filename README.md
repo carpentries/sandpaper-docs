@@ -5,7 +5,7 @@ Workbench (our new and improved lesson infrastructure) to build beautiful and
 accessible lessons from markdown or RMarkdown sources.
 
 If you want to try out this lesson, you can create a copy of it on the RStudio
-Cloud: https://rstudio.cloud/project/2247061
+Cloud: https://rstudio.cloud/project/3507333
 
 ## Setup the Workbench
 
