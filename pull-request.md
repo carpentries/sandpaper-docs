@@ -76,6 +76,14 @@ the "file" icon to the top right, which indicates to "display the rich diff".
 of a pyramid, one with a blue sky and yellow pyramid and the other with a yellow
 sky and lavender pyramid."}
 
+::::: callout
+
+### Living with Entropy
+
+In R Markdown documents, If you use any sort of code that generates random numbers, you may end up with small changes that show up on the list of changed files. See this example where [using the `ggplot2` function `geom_jitter()` leads to slightly different image files](https://github.com/MCMaurer/Rewrite-R-ecology-lesson/pull/3). You can fix this by setting a seed for the random number generator (e.g. `set.seed(1)`) at the beginning of the episode, so that the same random numbers are generated each time the lesson is built.
+
+:::::
+
 Of course, if you have a rendered lesson, another important thing is to check to
 make sure the outputs continue to work. If you notice any new errors or warnings
 new in the diff, you can work with the contributor to resolve them.
