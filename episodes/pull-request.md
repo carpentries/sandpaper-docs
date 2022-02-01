@@ -80,7 +80,7 @@ sky and lavender pyramid."}
 
 ### Living with Entropy
 
-If you use any sort of code that generates random numbers, you may end up with small changes that show up on the list of changed files. [See this example](https://github.com/MCMaurer/Rewrite-R-ecology-lesson/pull/3), where using the `ggplot2` function `geom_jitter()` leads to slightly different image files. You can fix this by setting a seed for the random number generator used in the episode, so that the same random numbers are generated each time the lesson is built.
+In R Markdown documents, If you use any sort of code that generates random numbers, you may end up with small changes that show up on the list of changed files. See this example where [using the `ggplot2` function `geom_jitter()` leads to slightly different image files](https://github.com/MCMaurer/Rewrite-R-ecology-lesson/pull/3). You can fix this by setting a seed for the random number generator (e.g. `set.seed(1)`) at the beginning of the episode, so that the same random numbers are generated each time the lesson is built.
 
 :::::
 
