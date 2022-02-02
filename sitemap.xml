@@ -1,120 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xml2ns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://carpentries.github.io/sandpaper-docs404.html</loc>
+    <loc>https://carpentries.github.io/sandpaper-docs/CODE_OF_CONDUCT.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/sandpaper-docsCODE_OF_CONDUCT.html</loc>
+    <loc>https://carpentries.github.io/sandpaper-docs/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/sandpaper-docsLICENSE.html</loc>
+    <loc>https://carpentries.github.io/sandpaper-docs/deployment.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/sandpaper-docsbranches.html</loc>
+    <loc>https://carpentries.github.io/sandpaper-docs/editing.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/sandpaper-docsdeployment.html</loc>
+    <loc>https://carpentries.github.io/sandpaper-docs/episodes.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/sandpaper-docsediting.html</loc>
+    <loc>https://carpentries.github.io/sandpaper-docs/example.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/sandpaper-docsengine.html</loc>
+    <loc>https://carpentries.github.io/sandpaper-docs/github-pat.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/sandpaper-docsepisodes.html</loc>
+    <loc>https://carpentries.github.io/sandpaper-docs/index.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/sandpaper-docsexample.html</loc>
+    <loc>https://carpentries.github.io/sandpaper-docs/instructor/CODE_OF_CONDUCT.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/sandpaper-docsgithub-pat.html</loc>
+    <loc>https://carpentries.github.io/sandpaper-docs/instructor/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/sandpaper-docsindex.html</loc>
+    <loc>https://carpentries.github.io/sandpaper-docs/instructor/deployment.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/sandpaper-docsinstructor/CODE_OF_CONDUCT.html</loc>
+    <loc>https://carpentries.github.io/sandpaper-docs/instructor/editing.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/sandpaper-docsinstructor/LICENSE.html</loc>
+    <loc>https://carpentries.github.io/sandpaper-docs/instructor/episodes.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/sandpaper-docsinstructor/deployment.html</loc>
+    <loc>https://carpentries.github.io/sandpaper-docs/instructor/example.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/sandpaper-docsinstructor/editing.html</loc>
+    <loc>https://carpentries.github.io/sandpaper-docs/instructor/github-pat.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/sandpaper-docsinstructor/episodes.html</loc>
+    <loc>https://carpentries.github.io/sandpaper-docs/instructor/index.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/sandpaper-docsinstructor/example.html</loc>
+    <loc>https://carpentries.github.io/sandpaper-docs/instructor/instructor-notes.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/sandpaper-docsinstructor/github-pat.html</loc>
+    <loc>https://carpentries.github.io/sandpaper-docs/instructor/introduction.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/sandpaper-docsinstructor/index.html</loc>
+    <loc>https://carpentries.github.io/sandpaper-docs/instructor/key-points.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/sandpaper-docsinstructor/instructor-notes.html</loc>
+    <loc>https://carpentries.github.io/sandpaper-docs/instructor/profiles.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/sandpaper-docsinstructor/introduction.html</loc>
+    <loc>https://carpentries.github.io/sandpaper-docs/instructor/pull-request.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/sandpaper-docsinstructor/key-points.html</loc>
+    <loc>https://carpentries.github.io/sandpaper-docs/instructor/update.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/sandpaper-docsinstructor/profiles.html</loc>
+    <loc>https://carpentries.github.io/sandpaper-docs/instructor-notes.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/sandpaper-docsinstructor/pull-request.html</loc>
+    <loc>https://carpentries.github.io/sandpaper-docs/introduction.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/sandpaper-docsinstructor/update.html</loc>
+    <loc>https://carpentries.github.io/sandpaper-docs/key-points.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/sandpaper-docsinstructor-notes.html</loc>
+    <loc>https://carpentries.github.io/sandpaper-docs/profiles.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/sandpaper-docsinstructor.html</loc>
+    <loc>https://carpentries.github.io/sandpaper-docs/pull-request.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/sandpaper-docsintroduction.html</loc>
-  </url>
-  <url>
-    <loc>https://carpentries.github.io/sandpaper-docskey-points.html</loc>
-  </url>
-  <url>
-    <loc>https://carpentries.github.io/sandpaper-docsmaintainer.html</loc>
-  </url>
-  <url>
-    <loc>https://carpentries.github.io/sandpaper-docsmigration.html</loc>
-  </url>
-  <url>
-    <loc>https://carpentries.github.io/sandpaper-docsnew-site.html</loc>
-  </url>
-  <url>
-    <loc>https://carpentries.github.io/sandpaper-docsnotes.html</loc>
-  </url>
-  <url>
-    <loc>https://carpentries.github.io/sandpaper-docsprofiles.html</loc>
-  </url>
-  <url>
-    <loc>https://carpentries.github.io/sandpaper-docspull-request.html</loc>
-  </url>
-  <url>
-    <loc>https://carpentries.github.io/sandpaper-docssetup.html</loc>
-  </url>
-  <url>
-    <loc>https://carpentries.github.io/sandpaper-docstemplate.html</loc>
-  </url>
-  <url>
-    <loc>https://carpentries.github.io/sandpaper-docsupdate.html</loc>
-  </url>
-  <url>
-    <loc>https://carpentries.github.io/sandpaper-docsvalidator.html</loc>
+    <loc>https://carpentries.github.io/sandpaper-docs/update.html</loc>
   </url>
 </urlset>
