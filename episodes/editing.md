@@ -254,9 +254,8 @@ repository and how to contribute.
 - `sandpaper::build_lesson()` renders the site and rebuilds any sources that have changed. 
 - RStudio shortcuts are <kbd>cmd + shift + B</kbd> and <kbd>cmd + shift + K</kbd>
 - To edit a lesson, you only need to know Markdown and/or R Markdown
-- The folder structure is designed with maintainers in mind
-   
- - New episodes can be added with `sandpaper::create_episode()`
+- The folder structure is designed with maintainers in mind   
+- New episodes can be added with `sandpaper::create_episode()`
 
 :::::::::::::::::::::::::::::::
 
