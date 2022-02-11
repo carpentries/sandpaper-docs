@@ -66,7 +66,7 @@ It's magic!
 What is the output of this command?
 
 ```r
-paste("This", "new", "template", "looks", "good")
+paste("This", "new", "workbench", "looks", "good")
 ```
 
 :::::::::::::::::::::::: solution 
@@ -75,7 +75,7 @@ paste("This", "new", "template", "looks", "good")
  
 
 ```{.output}
-[1] "This new template looks good"
+[1] "This new workbench looks good"
 ```
 
 :::::::::::::::::::::::::::::::::
