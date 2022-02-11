@@ -60,7 +60,7 @@ It's magic!
 What is the output of this command?
 
 ```r
-paste("This", "new", "template", "looks", "good")
+paste("This", "new", "workbench", "looks", "good")
 ```
 
 :::::::::::::::::::::::: solution 
@@ -68,7 +68,7 @@ paste("This", "new", "template", "looks", "good")
 ## Output
  
 ```{r, echo = FALSE}
-paste("This", "new", "template", "looks", "good")
+paste("This", "new", "workbench", "looks", "good")
 ```
 
 :::::::::::::::::::::::::::::::::
