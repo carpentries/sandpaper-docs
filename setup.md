@@ -216,7 +216,7 @@ git version 2.24.3 (Apple Git-128)
 ### R
 
 You can install the latest [R] release for MacOS from 
-<https://cran.r-project.org/bin/MacOSX>. There is also a video tutorial
+<https://cran.r-project.org/bin/macosx>. There is also a video tutorial
 up on [The Carpentries instructions for workshop
 participants](https://carpentries.github.io/workshop-template/#rstats-macos)
 that can be quite helpful for parsing the steps of installing R on MacOS.
