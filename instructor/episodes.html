@@ -156,6 +156,7 @@
 <li><a href="#callout-blocks">Editing an episode: Callout blocks</a></li>
 <li><a href="#instructor-notes">Instructor Notes</a></li>
 <li><a href="#exerciseschallenges">Exercises/Challenges</a></li>
+<li><a href="#links">Links</a></li>
 <li><a href="#figures">Figures</a></li>
 <li><a href="#math">Math</a></li>
         </ul></div><!--/div.accordion-body-->
@@ -252,7 +253,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Episode Structure</h1>
-        <p> Last updated on 2022-02-18 | <a href="https://github.com/carpentries/sandpaper-docs//edit/main/episodes/episodes.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+        <p> Last updated on 2022-02-25 | <a href="https://github.com/carpentries/sandpaper-docs//edit/main/episodes/episodes.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         <p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 12 minutes </p>
         
         <div class="text-end">
@@ -677,13 +678,31 @@ print("hello world!")
 </div>
 </div>
 </div>
-</section><section id="figures"><h2 class="section-heading">Figures</h2>
-<hr class="half-width"><p>To include figures, place them in the <code>episodes/fig</code> folder and reference them directly like so using standard markdown format, with one twist: add an <code>alt</code> attribute at the end to make it accessible like this: <code>![caption](image){alt='alt text'}</code>.</p>
+</section><section id="links"><h2 class="section-heading">Links</h2>
+<hr class="half-width"><p>To include links to outside resources in your lesson, you write them with <a href="https://www.markdownguide.org/basic-syntax" class="external-link">standard markdown syntax</a>: <code>[descriptive link text](https://example.com/link-url)</code>. One thing to remember when writing links (in markdown or anywhere) is that <a href="https://webaim.org/techniques/hypertext/link_text#uninformative" class="external-link">link text should make sense out of context</a>. If you find that the link URL you are using is long, or you want to reuse it multiple times, you can use a link anchor with the following syntax:</p>
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Hex sticker for The Carpentries](fig/carpentries-hex-blue.svg)</span>{alt="blue</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>hexagon with The Carpentries logo in white and text: 'The Carpentries'"}</span></code></pre>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>This is an example of a <span class="co">[</span><span class="ot">link reference</span><span class="co">]</span>.</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>I have a long sentence that also has <span class="co">[</span><span class="ot">a link with a long url</span><span class="co">][long-url-link]</span>, so I will use a link reference.</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Collect your link references at the bottom of your document --&gt;</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="ot">[link reference]: https://example.com/link-reference</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="ot">[long-url-link]: https://example.com/long-url-is-loooooooooooooooooooooooooong</span></span></code></pre>
+</div>
+<p>If you have a link that you want to use across your lesson (e.g. you have a source for a data set that you want to refer to), then you can place a link inside a separate file at the top of your lesson repository called <code>links.md</code>.</p>
+<div class="section level3">
+<h3 id="internal-links">Internal Links<a class="anchor" aria-label="anchor" href="#internal-links"></a></h3>
+<p>To reference other markdown files within the same lesson, use relative paths. For example, you will commonly want to refer learners to <a href="index.html">the setup page</a> from within the episodes. To link back to the setup page, you can use: <code>[setup page](../index.md)</code> and {sandpaper} will convert that link to the appropriate format for the lesson website.</p>
+</div>
+</section><section id="figures"><h2 class="section-heading">Figures</h2>
+<hr class="half-width"><p>To include figures, place them in the <code>episodes/fig</code> folder and reference them directly like so using standard markdown format, with one twist: add an <code>alt</code> attribute at the end to make it accessible like this: <code>![caption](image){alt='alt text'}</code>.</p>
+<div class="codewrapper sourceCode" id="cb17">
+<h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Hex sticker for The Carpentries](fig/carpentries-hex-blue.svg)</span>{alt="blue</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>hexagon with The Carpentries logo in white and text: 'The Carpentries'"}</span></code></pre>
 </div>
 <figure><img src="../fig/carpentries-hex-blue.svg" alt="blue hexagon with The Carpentries logo in white and text: 'The Carpentries'" class="figure mx-auto d-block"><figcaption>Hex sticker for The Carpentries</figcaption></figure><div id="discussion3" class="callout discussion">
 <div class="callout-square">
@@ -697,13 +716,13 @@ print("hello world!")
 </div>
 </div>
 <p>If your lesson uses R, some images will be auto-generated from evaluated code chunks and linked. You can use <code>fig.alt</code> to include alt text. <a href="https://blog.rstudio.com/2021/04/20/knitr-fig-alt/" class="external-link">This blogpost has more information about including alt text in RMarkdown documents</a>. In addition, you can also use <code>fig.cap</code> to provide a caption that puts the picture into context (but take care to not be redundant; screen readers will read both fields).</p>
-<div class="codewrapper sourceCode" id="cb17">
+<div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">pie</span><span class="op">(</span>
-  <span class="fu">c</span><span class="op">(</span>Sky <span class="op">=</span> <span class="fl">78</span>, <span class="st">"Sunny side of pyramid"</span> <span class="op">=</span> <span class="fl">17</span>, <span class="st">"Shady side of pyramid"</span> <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>, 
-  init.angle <span class="op">=</span> <span class="fl">315</span>, 
+  <span class="fu">c</span><span class="op">(</span>Sky <span class="op">=</span> <span class="fl">78</span>, <span class="st">"Sunny side of pyramid"</span> <span class="op">=</span> <span class="fl">17</span>, <span class="st">"Shady side of pyramid"</span> <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>,
+  init.angle <span class="op">=</span> <span class="fl">315</span>,
   col <span class="op">=</span> <span class="fu">c</span><span class="op">(</span><span class="st">"deepskyblue"</span>, <span class="st">"yellow"</span>, <span class="st">"yellow3"</span><span class="op">)</span>,
   border <span class="op">=</span> <span class="cn">FALSE</span>
 <span class="op">)</span></code></pre>
@@ -727,7 +746,6 @@ Sun arise each and every morning
 </ul></div>
 </div>
 </div>
-<!-- Please do not delete anything below this line -->
 </section><div class="footnotes">
 <hr><ol><li id="fn1"><p>The designation of “episode” will likely change. Throught UX testing, it’s clear that calling these lesson units “episodes” is confusing, even for people who have been in The Carpentries for several years. The current working proposal is to call these “chapters”.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
 <li id="fn2"><p>Do not worry if you aren’t comfortable yet, that’s what we will show you in this episode!<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
@@ -759,8 +777,8 @@ Sun arise each and every morning
         <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper" class="external-link">sandpaper (0.2.0)</a>,
-      <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.2.1)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper" class="external-link">sandpaper (0.3.2)</a>,
+      <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.2.4)</a>,
       and <a href="https://github.com/carpentries/varnish" class="external-link">varnish (0.1.4)</a>.</p>
 			</div>
 		</footer></div> <!-- / div.container -->
@@ -782,8 +800,8 @@ Sun arise each and every morning
   "url": "https://carpentries.github.io/sandpaper-docs/instructor/episodes.html",
   "identifier": "https://carpentries.github.io/sandpaper-docs/instructor/episodes.html",
   "dateCreated": "2021-02-09",
-  "dateModified": "2022-02-18",
-  "datePublished": "2022-02-22"
+  "dateModified": "2022-02-25",
+  "datePublished": "2022-02-25"
 }
 
   </script><script>

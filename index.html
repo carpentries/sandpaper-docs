@@ -307,7 +307,7 @@ Compatible with RStudio</li>
 <li>The engine (R package <a href="https://carpentries.github.io/sandpaper/" class="external-link">{sandpaper}</a>)to orchestrate building the content from markdown to HTML</li>
 <li>The validator (R package <a href="https://carpentries.github.io/pegboard/" class="external-link">{pegboard}</a>) to parse the source files and highlight common errors<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>
 </li>
-<li>The style (R package <a href="https://github.com/carpentries/varnish#readme" class="external-link">{varnish}</a>) HTML, CSS, and JavaScript styling elements for the final website</li>
+<li>The style (R package <a href="https://github.com/carpentries/varnish/" class="external-link">{varnish}</a>) HTML, CSS, and JavaScript styling elements for the final website</li>
 </ol><p><a href="deployment.html">Details of how these tools work together are explained in the Lesson Deployment</a> chapter. In short, you can expect to interact with the source content and {sandpaper} to author and preview your lesson.</p>
 <div class="section level3">
 <h3 id="required">Required Software<a class="anchor" aria-label="anchor" href="#required"></a></h3>
@@ -322,7 +322,7 @@ Compatible with RStudio</li>
 <ol style="list-style-type: lower-roman"><li>
 <strong><a href="https://carpentries.github.io/sandpaper/" class="external-link">{sandpaper}</a></strong> (development version)</li>
 <li>
-<strong><a href="https://github.com/carpentries/varnish#readme" class="external-link">{varnish}</a></strong> (development version)</li>
+<strong><a href="https://github.com/carpentries/varnish/" class="external-link">{varnish}</a></strong> (development version)</li>
 <li>
 <strong><a href="https://carpentries.github.io/pegboard/" class="external-link">{pegboard}</a></strong> (development version)</li>
 <li>
@@ -634,14 +634,14 @@ https://www.gnu.org/licenses/.
 <div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> https://carpentries.r-universe.dev/stats/sysdeps <span class="dv">2</span><span class="op">&gt;</span> /dev/null <span class="kw">|</span> <span class="ex">jq</span> <span class="at">-r</span> <span class="st">'.sysdep'</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> https://carpentries.r-universe.dev/stats/sysdeps <span class="dv">2</span><span class="op">&gt;</span> /dev/null <span class="kw">|</span> <span class="ex">jq</span> <span class="at">-r</span> <span class="st">'.headers[0] | select(. != null)'</span></span></code></pre>
 </div>
 <p>This list can be sent to <code>apt-get install</code> to install everything:</p>
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install <span class="at">-y</span> <span class="dt">\</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="va">$(</span><span class="ex">curl</span> https://carpentries.r-universe.dev/stats/sysdeps <span class="dv">2</span><span class="op">&gt;</span> /dev/null <span class="kw">|</span> <span class="ex">jq</span> <span class="at">-r</span> <span class="st">'.sysdep'</span><span class="va">)</span> <span class="dv">2</span><span class="op">&gt;</span> /dev/null <span class="dt">\</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="va">$(</span><span class="ex">curl</span> https://carpentries.r-universe.dev/stats/sysdeps <span class="dv">2</span><span class="op">&gt;</span> /dev/null <span class="kw">|</span> <span class="ex">jq</span> <span class="at">-r</span> <span class="st">'.headers[0] | select(. != null)'</span><span class="va">)</span> <span class="dv">2</span><span class="op">&gt;</span> /dev/null <span class="dt">\</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">||</span> <span class="bu">echo</span> <span class="st">"Not on Ubuntu"</span></span></code></pre>
 </div>
 <p>After you have these installed, you will be able to install the required R packages without error.</p>
@@ -866,8 +866,8 @@ compilation terminated.
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper" class="external-link">sandpaper (0.2.0)</a>,
-      <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.2.1)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper" class="external-link">sandpaper (0.3.2)</a>,
+      <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.2.4)</a>,
       and <a href="https://github.com/carpentries/varnish" class="external-link">varnish (0.1.4)</a>.</p>
 			</div>
 		</footer></div> <!-- / div.container -->
@@ -889,8 +889,8 @@ compilation terminated.
   "url": "https://carpentries.github.io/sandpaper-docs/index.html",
   "identifier": "https://carpentries.github.io/sandpaper-docs/index.html",
   "dateCreated": "2021-02-09",
-  "dateModified": "2022-02-22",
-  "datePublished": "2022-02-22"
+  "dateModified": "2022-02-25",
+  "datePublished": "2022-02-25"
 }
 
   </script><script>
