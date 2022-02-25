@@ -117,8 +117,3 @@ out more about this in the [Pull Request chapter](pull-request.md).
 ::::::::::::::::::::::::::::::::::::::::
 
 
-[rmd-blog]: https://software-carpentry.org/blog/2016/07/rmarkdown-new-template.html
-[r4-migration]: https://carpentries.org/blog/2020/08/r-4-migration/
-[gh-workflows]: https://docs.github.com/en/actions/ 
-[{sandpaper}]: https://carpentries.github.io/sandpaper
-[pandoc]: https://pandoc.org/

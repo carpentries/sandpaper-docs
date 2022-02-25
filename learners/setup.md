@@ -427,14 +427,14 @@ packages that are required (some of which may already be on your system), you
 can use `curl` and `jq` to produce a list:
 
 ```bash
-curl https://carpentries.r-universe.dev/stats/sysdeps 2> /dev/null | jq -r '.sysdep'
+curl https://carpentries.r-universe.dev/stats/sysdeps 2> /dev/null | jq -r '.headers[0] | select(. != null)'
 ```
 
 This list can be sent to `apt-get install` to install everything:
 
 ```bash
 sudo apt-get install -y \
-  $(curl https://carpentries.r-universe.dev/stats/sysdeps 2> /dev/null | jq -r '.sysdep') 2> /dev/null \
+  $(curl https://carpentries.r-universe.dev/stats/sysdeps 2> /dev/null | jq -r '.headers[0] | select(. != null)') 2> /dev/null \
   || echo "Not on Ubuntu"
 ```
 
@@ -685,10 +685,6 @@ setting up authentication credentials for your account:
 ::::::::::::::::::::::::
 
 [R]: https://cran.rstudio.org/
-[pandoc]: https://pandoc.org/
-[{sandpaper}]: https://carpentries.github.io/sandpaper/
-[{pegboard}]: https://carpentries.github.io/pegboard/
-[{varnish}]: https://github.com/carpentries/varnish#readme
 [{tinkr}]: https://docs.ropensci.org/tinkr/
 [RStudio]: https://rstudio.com/products/rstudio/download/#download
 [^workspace]: By default, R will ask if you want to save your workspace to a

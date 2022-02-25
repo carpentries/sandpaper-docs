@@ -401,6 +401,33 @@ Yes! It is a valid fenced div for the following reasons:
 
 :::::::::::::::::::::::::::::::::::::::::::::::::
 
+## Links 
+
+To include links to outside resources in your lesson, you write them with [standard 
+markdown syntax][basic-syntax]: `[descriptive link text](https://example.com/link-url)`.
+One thing to remember when writing links (in markdown or anywhere) is that
+[link text should make sense out of context](https://webaim.org/techniques/hypertext/link_text#uninformative).
+If you find that the link URL you are using is long, or you want to reuse it multiple times, you can use 
+a link anchor with the following syntax:
+
+```markdown
+This is an example of a [link reference].
+
+I have a long sentence that also has [a link with a long url][long-url-link], so I will use a link reference.
+
+<!-- Collect your link references at the bottom of your document -->
+[link reference]: https://example.com/link-reference
+[long-url-link]: https://example.com/long-url-is-loooooooooooooooooooooooooong
+```
+
+If you have a link that you want to use across your lesson (e.g. you have a source for a data set that you
+want to refer to), then you can place a link inside a separate file at the top of your lesson repository called `links.md`.
+
+### Internal Links
+
+To reference other markdown files within the same lesson, use relative paths. For example, you will commonly want to refer
+learners to [the setup page](../index.md) from within the episodes. To link back to the setup page, you can use:
+`[setup page](../index.md)` and {sandpaper} will convert that link to the appropriate format for the lesson website.
 
 ## Figures
 
@@ -439,8 +466,8 @@ can also use `fig.cap` to provide a caption that puts the picture into context
 
 ```{r pyramid, fig.cap = "Sun arise each and every morning", fig.alt = "pie chart illusion of a pyramid"}
 pie(
-  c(Sky = 78, "Sunny side of pyramid" = 17, "Shady side of pyramid" = 5), 
-  init.angle = 315, 
+  c(Sky = 78, "Sunny side of pyramid" = 17, "Shady side of pyramid" = 5),
+  init.angle = 315,
   col = c("deepskyblue", "yellow", "yellow3"),
   border = FALSE
 )
@@ -462,11 +489,6 @@ Cool, right?
 - Run `sandpaper::build_lesson()` to preview your lesson locally
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
-
-<!-- Please do not delete anything below this line -->
-
-```{r links, child = sandpaper::template_links()}
-```
 
 [pandoc-md]: https://pandoc.org/MANUAL#pandocs-markdown
 [fenced-divs]: https://pandoc.org/MANUAL#divs-and-spans
