@@ -50,7 +50,7 @@ your preference:
 
 ### Step 2: Choose a name for your lesson repository. 
 
-Name it "buoyant-barnacle". **DO NOT** select "Include All Branches". Click on
+Name it "buoyant-barnacle". **select "Include All Branches"**. Click on
 the button that says "Create repository from template"
 
 ::::::::::::: callout
@@ -61,9 +61,9 @@ the button that says "Create repository from template"
 'Create a new repository from workbench-template-md'. It says that the new
 repository will contain the same files and folders as
 carpentries/workbench-template-md and has two required fields for Owner and
-Repository Name, which are filled in as zkamvar and effective-carnival. There
+Repository Name, which are filled in as ravmakz and buoyant-barnacle. There
 is a blank Description option, a radio button that selects public/private, and
-an unchecked checkbox to include all branches"}
+an checked checkbox to include all branches"}
 
 ::::::::::::::::::::
 
@@ -167,8 +167,8 @@ Render and preview an episode
 The first time you run this function, you might see A LOT of output on your
 screen and then your browser will open the preview. If you run the command 
 again, you will see much less output. If you like to would like to know how
-everything works under the hood, you can check out the [{sandpaper} generator
-chapter](sandpaper.md).
+everything works under the hood, you can check out the [{sandpaper} package
+documentation][{sandpaper}].
 
 ::::::::::::::::::::::::::::::::::::: discussion
 
@@ -205,10 +205,8 @@ notice a warning at the end of the rendering:
 ## Warning Message
 
 ```{.warning}
-Warning message:
-In warn_schedule() :
-  No schedule set, using Rmd files in `episodes/` directory.
-To remove this warning, define your schedule in `config.yaml` or use `set_episodes()` to generate it.
+ℹ No schedule set, using Rmd files in episodes/ directory.
+→ To remove this message, define your schedule in config.yaml or use `set_episodes()` to generate it.
 ```
 
 ::::::::::::::
@@ -329,9 +327,3 @@ template has been split up into three R packages:
 
 :::::::::::::::::::::::
 
-
-[{varnish}]: https://github.com/carpentries/varnish/ 
-[{pegboard}]: https://carpentries.github.io/pegboard/
-[{sandpaper}]: https://carpentries.github.io/sandpaper/
-[pandoc]: https://pandoc.org/
-[setup]: ../learners/setup.md

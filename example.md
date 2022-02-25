@@ -4,13 +4,13 @@ teaching: 5
 exercises: 2
 ---
 
-:::::::::::::::: questions :::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::: questions 
 
-- How do you write a lesson using RMarkdown and `{sandpaper}`?
+- How do you write a lesson using R Markdown and `{sandpaper}`?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::: objectives ::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::: objectives
 
 - Explain how to use markdown with the new lesson template
 - Demonstrate how to include pieces of code, figures, and nested challenge blocks
@@ -19,19 +19,28 @@ exercises: 2
 
 ## Introduction
 
-This is the new Carpentries template. It is written in [RMarkdown][r-markdown],
-which is a variant of Markdown that allows you to render code inside the
-lesson. Please refer to the [lesson
-example](https://carpentries.github.io/lesson-example) for full documentation.
+This is a lesson created via The Carpentries Workbench. It is written in
+[Pandoc-flavored Markdown][pandoc] for static files and
+[R Markdown][r-markdown] for dynamic files that can render code into output. 
+Please refer to the [Introduction to The Carpentries 
+Workbench][carpentries-workbench] for full documentation.
 
-What you need to know is that there are three block quotes required for a valid
+What you need to know is that there are three sections required for a valid
 Carpentries lesson template:
 
- 1. `questions` These are displayed at the beginning of the episode to prime the
+ 1. `questions` are displayed at the beginning of the episode to prime the
     learner for the content.
- 2. `objectives` These are the learning objectives for an episode
- 3. `keypoints` These are displayed at the end of the episode to reinforce the
+ 2. `objectives` are the learning objectives for an episode displayed with
+    the questions.
+ 3. `keypoints` are displayed at the end of the episode to reinforce the
     objectives.
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: instructor
+
+Inline instructor notes can help inform instructors of timing challenges
+associated with the lessons. They appear in the "Instructor View"
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ### Code fences
 
@@ -59,29 +68,28 @@ cat(magic)
 
 It's magic!
 
-::::::::::::::: challenge ::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::: challenge 
 
-## Challenge 1: Can you do it?
+### Challenge 1: Can you do it?
 
 What is the output of this command?
 
 ```r
-paste("This", "new", "workbench", "looks", "good")
+paste("This", "new", "lesson", "looks", "good")
 ```
 
 :::::::::::::::::::::::: solution 
 
-## Output
+### Output
  
-
-```{.output}
-[1] "This new workbench looks good"
+```output
+[1] "This new lesson looks good"
 ```
 
 :::::::::::::::::::::::::::::::::
 
 
-## Challenge 2: how do you nest solutions within challenge blocks?
+### Challenge 2: how do you nest solutions within challenge blocks?
 
 :::::::::::::::::::::::: solution 
 
@@ -92,14 +100,14 @@ You can add a line with at least three colons and a `solution` tag.
 
 ## Figures
 
-You can also include figures:
+You can also include figures generated from R Markdown:
 
 
 ```r
 pie(
   c(Sky = 78, "Sunny side of pyramid" = 17, "Shady side of pyramid" = 5), 
   init.angle = 315, 
-  col = c("deepskyblue", "yellow", "yellow3"),
+  col = c("deepskyblue", "yellow", "yellow3"), 
   border = FALSE
 )
 ```
@@ -109,6 +117,12 @@ pie(
 <p class="caption">Sun arise each and every morning</p>
 </div>
 
+Or you can use standard markdown for static figures with the following syntax:
+
+`![optional caption that appears below the figure](figure url){alt='alt text for
+accessibility purposes'}`
+
+![You belong in The Carpentries!](https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.'}
 
 ## Math
 
@@ -119,61 +133,12 @@ dynamic reports with {knitr}, so we now use mathjax to describe this:
 
 Cool, right?
 
-:::::::::::::::: keypoints :::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::: keypoints 
 
-- Use `.Rmd` files for lessons even if you don't need to generate any code
+- Use `.md` files for episodes when you want static content
+- Use `.Rmd` files for episodes when you need to generate output
 - Run `sandpaper::check_lesson()` to identify any issues with your lesson
 - Run `sandpaper::build_lesson()` to preview your lesson locally
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-<!-- Please do not delete anything below this line -->
-
-
-[cc-by-human]: https://creativecommons.org/licenses/by/4.0/
-[cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
-[ci]: https://communityin.org/
-[coc-reporting]: https://docs.carpentries.org/topic_folders/policies/incident-reporting.html
-[coc]: https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html
-[concept-maps]: https://carpentries.github.io/instructor-training/05-memory/
-[contrib-covenant]: https://contributor-covenant.org/
-[contributing]: {{ repo_url }}/blob/{{ source_branch }}/CONTRIBUTING.md
-[cran-checkpoint]: https://cran.r-project.org/package=checkpoint
-[cran-knitr]: https://cran.r-project.org/package=knitr
-[cran-stringr]: https://cran.r-project.org/package=stringr
-[dc-lessons]: https://datacarpentry.org/lessons/
-[email]: mailto:team@carpentries.org
-[github-importer]: https://github.com/new/import
-[jekyll-collection]: https://jekyllrb.com/docs/collections/
-[jekyll-install]: https://jekyllrb.com/docs/installation/
-[jekyll-windows]: https://jekyll-windows.juthilo.com/
-[jekyll]: https://jekyllrb.com/
-[jupyter]: https://jupyter.org/
-[kramdown]: https://kramdown.gettalong.org/
-[lc-lessons]: https://librarycarpentry.org/lessons/
-[lesson-aio]: {{ relative_root_path }}{% link aio.md %}
-[lesson-coc]: {{ relative_root_path }}{% link CODE_OF_CONDUCT.md %}
-[lesson-example]: https://carpentries.github.io/lesson-example/
-[lesson-license]: {{ relative_root_path }}{% link LICENSE.md %}
-[lesson-mainpage]: {{ relative_root_path }}{% link index.md %}
-[lesson-reference]: {{ relative_root_path }}{% link reference.md %}
-[lesson-setup]: {{ relative_root_path }}{% link setup.md %}
-[mit-license]: https://opensource.org/licenses/mit-license.html
-[morea]: https://morea-framework.github.io/
-[numfocus]: https://numfocus.org/
-[osi]: https://opensource.org
-[pandoc]: https://pandoc.org/
-[paper-now]: https://github.com/PeerJ/paper-now
-[python-gapminder]: https://swcarpentry.github.io/python-novice-gapminder/
-[pyyaml]: https://pypi.python.org/pypi/PyYAML
-[r-markdown]: https://rmarkdown.rstudio.com/
-[rstudio]: https://www.rstudio.com/
-[ruby-install-guide]: https://www.ruby-lang.org/en/downloads/
-[ruby-installer]: https://rubyinstaller.org/
-[rubygems]: https://rubygems.org/pages/download/
-[styles]: https://github.com/carpentries/styles/
-[swc-lessons]: https://software-carpentry.org/lessons/
-[swc-releases]: https://github.com/swcarpentry/swc-releases
-[training]: https://carpentries.github.io/instructor-training/
-[workshop-repo]: {{ site.workshop_repo }}
-[yaml]: https://yaml.org/

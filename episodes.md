@@ -408,6 +408,33 @@ Yes! It is a valid fenced div for the following reasons:
 
 :::::::::::::::::::::::::::::::::::::::::::::::::
 
+## Links 
+
+To include links to outside resources in your lesson, you write them with [standard 
+markdown syntax][basic-syntax]: `[descriptive link text](https://example.com/link-url)`.
+One thing to remember when writing links (in markdown or anywhere) is that
+[link text should make sense out of context](https://webaim.org/techniques/hypertext/link_text#uninformative).
+If you find that the link URL you are using is long, or you want to reuse it multiple times, you can use 
+a link anchor with the following syntax:
+
+```markdown
+This is an example of a [link reference].
+
+I have a long sentence that also has [a link with a long url][long-url-link], so I will use a link reference.
+
+<!-- Collect your link references at the bottom of your document -->
+[link reference]: https://example.com/link-reference
+[long-url-link]: https://example.com/long-url-is-loooooooooooooooooooooooooong
+```
+
+If you have a link that you want to use across your lesson (e.g. you have a source for a data set that you
+want to refer to), then you can place a link inside a separate file at the top of your lesson repository called `links.md`.
+
+### Internal Links
+
+To reference other markdown files within the same lesson, use relative paths. For example, you will commonly want to refer
+learners to [the setup page](../index.md) from within the episodes. To link back to the setup page, you can use:
+`[setup page](../index.md)` and {sandpaper} will convert that link to the appropriate format for the lesson website.
 
 ## Figures
 
@@ -447,8 +474,8 @@ can also use `fig.cap` to provide a caption that puts the picture into context
 
 ```r
 pie(
-  c(Sky = 78, "Sunny side of pyramid" = 17, "Shady side of pyramid" = 5), 
-  init.angle = 315, 
+  c(Sky = 78, "Sunny side of pyramid" = 17, "Shady side of pyramid" = 5),
+  init.angle = 315,
   col = c("deepskyblue", "yellow", "yellow3"),
   border = FALSE
 )
@@ -475,57 +502,6 @@ Cool, right?
 - Run `sandpaper::build_lesson()` to preview your lesson locally
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
-
-<!-- Please do not delete anything below this line -->
-
-
-[cc-by-human]: https://creativecommons.org/licenses/by/4.0/
-[cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
-[ci]: https://communityin.org/
-[coc-reporting]: https://docs.carpentries.org/topic_folders/policies/incident-reporting.html
-[coc]: https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html
-[concept-maps]: https://carpentries.github.io/instructor-training/05-memory/
-[contrib-covenant]: https://contributor-covenant.org/
-[contributing]: {{ repo_url }}/blob/{{ source_branch }}/CONTRIBUTING.md
-[cran-checkpoint]: https://cran.r-project.org/package=checkpoint
-[cran-knitr]: https://cran.r-project.org/package=knitr
-[cran-stringr]: https://cran.r-project.org/package=stringr
-[dc-lessons]: https://datacarpentry.org/lessons/
-[email]: mailto:team@carpentries.org
-[github-importer]: https://github.com/new/import
-[jekyll-collection]: https://jekyllrb.com/docs/collections/
-[jekyll-install]: https://jekyllrb.com/docs/installation/
-[jekyll-windows]: https://jekyll-windows.juthilo.com/
-[jekyll]: https://jekyllrb.com/
-[jupyter]: https://jupyter.org/
-[kramdown]: https://kramdown.gettalong.org/
-[lc-lessons]: https://librarycarpentry.org/lessons/
-[lesson-aio]: {{ relative_root_path }}{% link aio.md %}
-[lesson-coc]: {{ relative_root_path }}{% link CODE_OF_CONDUCT.md %}
-[lesson-example]: https://carpentries.github.io/lesson-example/
-[lesson-license]: {{ relative_root_path }}{% link LICENSE.md %}
-[lesson-mainpage]: {{ relative_root_path }}{% link index.md %}
-[lesson-reference]: {{ relative_root_path }}{% link reference.md %}
-[lesson-setup]: {{ relative_root_path }}{% link setup.md %}
-[mit-license]: https://opensource.org/licenses/mit-license.html
-[morea]: https://morea-framework.github.io/
-[numfocus]: https://numfocus.org/
-[osi]: https://opensource.org
-[pandoc]: https://pandoc.org/
-[paper-now]: https://github.com/PeerJ/paper-now
-[python-gapminder]: https://swcarpentry.github.io/python-novice-gapminder/
-[pyyaml]: https://pypi.python.org/pypi/PyYAML
-[r-markdown]: https://rmarkdown.rstudio.com/
-[rstudio]: https://www.rstudio.com/
-[ruby-install-guide]: https://www.ruby-lang.org/en/downloads/
-[ruby-installer]: https://rubyinstaller.org/
-[rubygems]: https://rubygems.org/pages/download/
-[styles]: https://github.com/carpentries/styles/
-[swc-lessons]: https://software-carpentry.org/lessons/
-[swc-releases]: https://github.com/swcarpentry/swc-releases
-[training]: https://carpentries.github.io/instructor-training/
-[workshop-repo]: {{ site.workshop_repo }}
-[yaml]: https://yaml.org/
 
 [pandoc-md]: https://pandoc.org/MANUAL#pandocs-markdown
 [fenced-divs]: https://pandoc.org/MANUAL#divs-and-spans
