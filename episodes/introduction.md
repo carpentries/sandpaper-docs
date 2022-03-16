@@ -67,13 +67,14 @@ an checked checkbox to include all branches"}
 
 ::::::::::::::::::::
 
-### Step 3: Deploy the site
+### Step 3: Customise your site
 
-It will take a couple of minutes to start the engine, but once you see 
-a green check in the status bar, [follow the instructions to choose 
-gh-pages as the source for your lesson](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source)
+On GitHub, open the `config.yaml` file, and click on the pencil icon on the top
+and edit the values, especially "carpentry", "source", and "title" to reflect
+your own repository. Commit the file using the form at the bottom of the page.
 
-That's it. If you want to work directly on GitHub, you can do so. If you want to
+That's it. The website should update in about 2-3 minutes with your information.
+If you want to continue working directly on GitHub, you can do so. If you want to
 work locally, be sure to [follow the setup instructions][setup], clone your
 lesson to your computer, open RStudio (or your preferrred interface to R) inside
 the lesson folder, and [preview your new lesson](#preview)
