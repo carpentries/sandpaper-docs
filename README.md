@@ -35,7 +35,7 @@ There are two ways to download the lesson from github:
    ```
  - via R: 
    ```r
-   usethis::create_from_github()
+   usethis::create_from_github("https://github.com/carpentries/sandpaper-docs/")
    ```
 
 ## Build and Preview
