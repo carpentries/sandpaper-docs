@@ -408,6 +408,75 @@ Yes! It is a valid fenced div for the following reasons:
 
 :::::::::::::::::::::::::::::::::::::::::::::::::
 
+## Code Blocks with Syntax Highlighting
+
+To include code examples in your lesson, you can wrap it in three backtics like
+so:
+
+Input:
+
+````markdown
+```
+thing = "python"
+print("this is a {} code block".format(thing))
+```
+````
+Output:
+
+```
+thing = "python"
+print("this is a {} code block".format(thing))
+```
+
+To include a label and syntax highlighting, you can add a label after the first
+set of backtics:
+
+Input:
+
+````markdown
+```python
+thing = "python"
+print("this is a {} code block".format(thing))
+```
+````
+Output:
+
+```python
+thing = "python"
+print("this is a {} code block".format(thing))
+```
+
+To indicate that a code block is an output block, you can use the label "output":
+Input:
+
+````markdown
+```python
+thing = "python"
+print("this is a {} code block".format(thing))
+```
+
+```output
+this is a python code block
+```
+
+````
+Output:
+
+```python
+thing = "python"
+print("this is a {} code block".format(thing))
+```
+
+```output
+this is a python code block
+```
+
+The number of available languages for syntax highlighting are numerous and
+chances are, if you want to highlight a particular language, you can add the
+language name as a label and it will work. A [full list of supported languages
+is here, each language being a separate XML file definition](https://github.com/jgm/skylighting/tree/master/skylighting-core/xml).
+
+
 ## Links 
 
 To include links to outside resources in your lesson, you write them with [standard 
