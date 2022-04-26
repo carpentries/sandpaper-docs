@@ -882,7 +882,7 @@ print("hello world!")
   Instructor Note
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>This is an instructor note. It contains information that can be useful for instructors to know such as</p>
 <ul>
@@ -957,7 +957,7 @@ print("hello world!")
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>A: part of the precipitate</p>
 </div>
@@ -989,7 +989,7 @@ print("hello world!")
   Output
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1018,7 +1018,7 @@ print("hello world!")
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>You can add a line with at least three colons and a <code>solution</code> tag.</p>
 </div>
@@ -1051,7 +1051,7 @@ print("hello world!")
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>Yes! It is a valid fenced div for the following reasons:</p>
 <ol style="list-style-type: decimal">
@@ -1063,19 +1063,77 @@ print("hello world!")
 </div>
 </div>
 </div>
-</section><section id="links"><h2 class="section-heading">Links</h2>
+</section><section id="code-blocks-with-syntax-highlighting"><h2 class="section-heading">Code Blocks with Syntax Highlighting</h2>
 <hr class="half-width">
-<p>To include links to outside resources in your lesson, you write them with <a href="https://www.markdownguide.org/basic-syntax" class="external-link">standard markdown syntax</a>: <code>[descriptive link text](https://example.com/link-url)</code>. One thing to remember when writing links (in markdown or anywhere) is that <a href="https://webaim.org/techniques/hypertext/link_text#uninformative" class="external-link">link text should make sense out of context</a>. If you find that the link URL you are using is long, or you want to reuse it multiple times, you can use a link anchor with the following syntax:</p>
+<p>To include code examples in your lesson, you can wrap it in three backtics like so:</p>
+<p>Input:</p>
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>This is an example of a <span class="co">[</span><span class="ot">link reference</span><span class="co">]</span>.</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>I have a long sentence that also has <span class="co">[</span><span class="ot">a link with a long url</span><span class="co">][long-url-link]</span>, so I will use a link reference.</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Collect your link references at the bottom of your document --&gt;</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="ot">[link reference]: https://example.com/link-reference</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="ot">[long-url-link]: https://example.com/long-url-is-loooooooooooooooooooooooooong</span></span></code></pre>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="in">thing = "python"</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="in">print("this is a {} code block".format(thing))</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre>
+</div>
+<p>Output:</p>
+<pre><code>thing = "python"
+print("this is a {} code block".format(thing))</code></pre>
+<p>To include a label and syntax highlighting, you can add a label after the first set of backtics:</p>
+<p>Input:</p>
+<div class="codewrapper sourceCode" id="cb18">
+<h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>thing <span class="op">=</span> <span class="st">"python"</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"this is a </span><span class="sc">{}</span><span class="st"> code block"</span>.<span class="bu">format</span>(thing))</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre>
+</div>
+<p>Output:</p>
+<div class="codewrapper sourceCode" id="cb19">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>thing <span class="op">=</span> <span class="st">"python"</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"this is a </span><span class="sc">{}</span><span class="st"> code block"</span>.<span class="bu">format</span>(thing))</span></code></pre>
+</div>
+<p>To indicate that a code block is an output block, you can use the label “output”: Input:</p>
+<div class="codewrapper sourceCode" id="cb20">
+<h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>thing <span class="op">=</span> <span class="st">"python"</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"this is a </span><span class="sc">{}</span><span class="st"> code block"</span>.<span class="bu">format</span>(thing))</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="in">```output</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="in">this is a python code block</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre>
+</div>
+<p>Output:</p>
+<div class="codewrapper sourceCode" id="cb21">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>thing <span class="op">=</span> <span class="st">"python"</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"this is a </span><span class="sc">{}</span><span class="st"> code block"</span>.<span class="bu">format</span>(thing))</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>this is a python code block</code></pre>
+</div>
+<p>The number of available languages for syntax highlighting are numerous and chances are, if you want to highlight a particular language, you can add the language name as a label and it will work. A <a href="https://github.com/jgm/skylighting/tree/master/skylighting-core/xml" class="external-link">full list of supported languages is here, each language being a separate XML file definition</a>.</p>
+</section><section id="links"><h2 class="section-heading">Links</h2>
+<hr class="half-width">
+<p>To include links to outside resources in your lesson, you write them with <a href="https://www.markdownguide.org/basic-syntax" class="external-link">standard markdown syntax</a>: <code>[descriptive link text](https://example.com/link-url)</code>. One thing to remember when writing links (in markdown or anywhere) is that <a href="https://webaim.org/techniques/hypertext/link_text#uninformative" class="external-link">link text should make sense out of context</a>. If you find that the link URL you are using is long, or you want to reuse it multiple times, you can use a link anchor with the following syntax:</p>
+<div class="codewrapper sourceCode" id="cb23">
+<h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>This is an example of a <span class="co">[</span><span class="ot">link reference</span><span class="co">]</span>.</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>I have a long sentence that also has <span class="co">[</span><span class="ot">a link with a long url</span><span class="co">][long-url-link]</span>, so I will use a link reference.</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Collect your link references at the bottom of your document --&gt;</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="ot">[link reference]: https://example.com/link-reference</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="ot">[long-url-link]: https://example.com/long-url-is-loooooooooooooooooooooooooong</span></span></code></pre>
 </div>
 <p>If you have a link that you want to use across your lesson (e.g. you have a source for a data set that you want to refer to), then you can place a link inside a separate file at the top of your lesson repository called <code>links.md</code>.</p>
 <div class="section level3">
@@ -1086,11 +1144,11 @@ print("hello world!")
 </section><section id="figures"><h2 class="section-heading">Figures</h2>
 <hr class="half-width">
 <p>To include figures, place them in the <code>episodes/fig</code> folder and reference them directly like so using standard markdown format, with one twist: add an <code>alt</code> attribute at the end to make it accessible like this: <code>![caption](image){alt='alt text'}</code>.</p>
-<div class="codewrapper sourceCode" id="cb17">
+<div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Hex sticker for The Carpentries](fig/carpentries-hex-blue.svg)</span>{alt="blue</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>hexagon with The Carpentries logo in white and text: 'The Carpentries'"}</span></code></pre>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Hex sticker for The Carpentries](fig/carpentries-hex-blue.svg)</span>{alt="blue</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>hexagon with The Carpentries logo in white and text: 'The Carpentries'"}</span></code></pre>
 </div>
 <figure><img src="../fig/carpentries-hex-blue.svg" alt="blue hexagon with The Carpentries logo in white and text: 'The Carpentries'" class="figure mx-auto d-block"><figcaption>Hex sticker for The Carpentries</figcaption></figure><div id="discussion3" class="callout discussion">
 <div class="callout-square">
@@ -1104,7 +1162,7 @@ print("hello world!")
 </div>
 </div>
 <p>If your lesson uses R, some images will be auto-generated from evaluated code chunks and linked. You can use <code>fig.alt</code> to include alt text. <a href="https://blog.rstudio.com/2021/04/20/knitr-fig-alt/" class="external-link">This blogpost has more information about including alt text in RMarkdown documents</a>. In addition, you can also use <code>fig.cap</code> to provide a caption that puts the picture into context (but take care to not be redundant; screen readers will read both fields).</p>
-<div class="codewrapper sourceCode" id="cb18">
+<div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1461,7 +1519,7 @@ Sun arise each and every morning
   Instructor Note
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>Inline instructor notes can help inform instructors of timing challenges associated with the lessons. They appear in the “Instructor View”</p>
 </div>
@@ -1517,7 +1575,7 @@ Sun arise each and every morning
   Output
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1546,7 +1604,7 @@ Sun arise each and every morning
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>You can add a line with at least three colons and a <code>solution</code> tag.</p>
 </div>
