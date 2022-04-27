@@ -403,7 +403,7 @@ Yes! It is a valid fenced div for the following reasons:
 
 ## Code Blocks with Syntax Highlighting
 
-To include code examples in your lesson, you can wrap it in three backtics like
+To include code examples in your lesson, you can wrap it in three backticks like
 so:
 
 Input:
@@ -422,7 +422,7 @@ print("this is a {} code block".format(thing))
 ```
 
 To include a label and syntax highlighting, you can add a label after the first
-set of backtics:
+set of backticks:
 
 Input:
 
