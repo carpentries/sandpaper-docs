@@ -16,4 +16,4 @@
 "learners/github-pat.md" "65e9fd0b6de9f7904e01e5652fd3f12f" "site/built/github-pat.md" "2022-05-03"
 "profiles/maintainer.md" "2a2b790c0aa8da5fb72e323e4fafabd9" "site/built/maintainer.md" "2022-05-03"
 "profiles/instructor.md" "ff8c586028a5e1c7ef0be4178b40417c" "site/built/instructor.md" "2022-05-03"
-"renv/profiles/lesson-requirements/renv.lock" "afe82b18cb9a2f2ef052d631dfacd8b6" "site/built/renv.lock" "2022-05-03"
+"renv/profiles/lesson-requirements/renv.lock" "c80cccb3f0a42cd2aa1a25d33912fa4a" "site/built/renv.lock" "2022-05-03"
