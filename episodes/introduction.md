@@ -45,8 +45,9 @@ create a GitHub repository with one of the two available templates, depending on
 your preference:
 
 ### Step 1: Choose a template
-   - [Markdown Lessons (no generated content)](https://github.com/carpentries/workbench-template-md/generate)
-   - [R Markdown Lessons (generated content via R)](https://github.com/carpentries/workbench-template-rmd/generate) (our tutorial uses this template)
+
+ - [Markdown Lessons (no generated content)](https://github.com/carpentries/workbench-template-md/generate)
+ - [R Markdown Lessons (generated content via R)](https://github.com/carpentries/workbench-template-rmd/generate) (our tutorial uses this template)
 
 ### Step 2: Choose a name for your lesson repository. 
 
@@ -139,10 +140,10 @@ sandpaper::serve()
 ### What's with the `::` syntax?
 
 This is a syntax that clearly states what package a particular function comes 
-from. In this case, `sandpaper::build_lesson()` tells R to use the 
-`build_lesson()` function from the `sandpaper` package. These commands can be 
-run without first calling `library(<packagename>)`, so they are more portable. 
-I will be using this syntax for the rest of the lesson.
+from. In this case, `sandpaper::serve()` tells R to use the `serve()` function
+from the `sandpaper` package. These commands can be run without first calling
+`library(<packagename>)`, so they are more portable. I will be using this
+syntax for the rest of the lesson.
 
 :::::::::::::::::::::::::::
 
@@ -260,9 +261,9 @@ expanded "select branch" button with "gh-pages" selected'}
 ### :hourglass: Be Patient
 
 GitHub needs to start up a new virtual machine the first time you use this, so
-it may take up to 30 minutes for things to get started: 15 minutes for the
-workflow to spin up and then another 15 minutes for the machine to bootstrap
-and cache. 
+it may take anywhere from 4 minutes up to 30 minutes for things to get started:
+15 minutes for the workflow to spin up and then another 15 minutes for the
+machine to bootstrap and cache. 
 
 :::::::::::::::: 
 
