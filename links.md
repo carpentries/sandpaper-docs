@@ -8,3 +8,7 @@
 [rmd-blog]: https://software-carpentry.org/blog/2016/07/rmarkdown-new-template.html
 [r4-migration]: https://carpentries.org/blog/2020/08/r-4-migration/
 [gh-workflows]: https://docs.github.com/en/actions/ 
+[pandoc-md]: https://pandoc.org/MANUAL#pandocs-markdown
+[fenced-divs]: https://pandoc.org/MANUAL#divs-and-spans
+[basic-syntax]: https://www.markdownguide.org/basic-syntax
+[extended-syntax]: https://www.markdownguide.org/extended-syntax/

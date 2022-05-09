@@ -200,6 +200,16 @@ exercises:
 
 ## Editing an episode: Callout blocks {#callout-blocks}
 
+::::: callout
+
+### Callout Component Guide
+
+You can find a catalogue of the different callout blocks The Workbench supports
+in [The Workbench Component Guide](component-guide.md).
+
+::::::::::::
+
+
 One of the key elements of our lessons are our callout blocks that give learners
 and instructors a **bold visual cue** to stop and consider a caveat or exercise.
 To create these blocks, we use [**pandoc fenced divisions, aka
@@ -572,10 +582,6 @@ Cool, right?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-[pandoc-md]: https://pandoc.org/MANUAL#pandocs-markdown
-[fenced-divs]: https://pandoc.org/MANUAL#divs-and-spans
-[basic-syntax]: https://www.markdownguide.org/basic-syntax
-[extended-syntax]: https://www.markdownguide.org/extended-syntax/
 [alt-text]: https://axesslab.com/alt-texts/
 [^episodes]: The designation of "episode" will likely change. Throught UX
   testing, it's clear that calling these lesson units "episodes" is confusing,
