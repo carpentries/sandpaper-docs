@@ -405,7 +405,7 @@
 <span class="fu">print</span><span class="op">(</span><span class="va">bb</span><span class="op">)</span> <span class="co"># print the new path to your screen</span>
 <span class="fu">create_lesson</span><span class="op">(</span><span class="va">bb</span><span class="op">)</span> <span class="co"># create a new lesson in that path</span></code></pre>
 </div>
-<p>If everything went correctly, you will now have a new RStudio window open to your new project called “buoyant-barnacle” on your Desktop (if you did not use RStudio, your working directory should have changed, you can check it via the <code><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd()</a></code> command).</p>
+<p>If everything went correctly, you will now have a new RStudio window open to your new project called “buoyant-barnacle” on your Desktop (if you did not use RStudio, your working directory should have changed, you can check it via the <code>getwd()</code> command).</p>
 </div>
 </div>
 </div>
@@ -438,7 +438,7 @@
 <div id="whats-with-the-syntax" class="callout-inner">
 <h3 class="callout-title">What’s with the <code>::</code> syntax?</h3>
 <div class="callout-content">
-<p>This is a syntax that clearly states what package a particular function comes from. In this case, <code><a href="https://rdrr.io/pkg/sandpaper/man/serve.html" class="external-link">sandpaper::serve()</a></code> tells R to use the <code><a href="https://rdrr.io/pkg/sandpaper/man/serve.html" class="external-link">serve()</a></code> function from the <code>sandpaper</code> package. These commands can be run without first calling <code>library(&lt;packagename&gt;)</code>, so they are more portable. I will be using this syntax for the rest of the lesson.</p>
+<p>This is a syntax that clearly states what package a particular function comes from. In this case, <code>sandpaper::serve()</code> tells R to use the <code>serve()</code> function from the <code>sandpaper</code> package. These commands can be run without first calling <code>library(&lt;packagename&gt;)</code>, so they are more portable. I will be using this syntax for the rest of the lesson.</p>
 </div>
 </div>
 </div>
@@ -502,7 +502,7 @@
   Warning Message
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">WARNING<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -613,9 +613,9 @@
 <h3 class="callout-title">Keypoints</h3>
 <div class="callout-content">
 <ul>
-<li>Lessons can be created with <code><a href="https://rdrr.io/pkg/sandpaper/man/create_lesson.html" class="external-link">create_lesson()</a></code>
+<li>Lessons can be created with <code>create_lesson()</code>
 </li>
-<li>Preview lessons with <code><a href="https://rdrr.io/pkg/sandpaper/man/serve.html" class="external-link">serve()</a></code>
+<li>Preview lessons with <code>serve()</code>
 </li>
 <li>The toolchain is designed to be modular.</li>
 </ul>
@@ -759,7 +759,7 @@ print("hello world!")
 <li>edit the title</li>
 <li>add the episode to the <code>config.yaml</code>
 </li>
-<li>preview it with <code><a href="https://rdrr.io/pkg/sandpaper/man/build_lesson.html" class="external-link">sandpaper::build_lesson()</a></code>/<kbd>ctrl + shift + k</kbd>.</li>
+<li>preview it with <code>sandpaper::build_lesson()</code>/<kbd>ctrl + shift + k</kbd>.</li>
 </ol>
 <p>Did the new title show up?</p>
 </div>
@@ -1157,8 +1157,8 @@ Sun arise each and every morning
 <div class="callout-content">
 <ul>
 <li>Use <code>.Rmd</code> files for lessons even if you don’t need to generate any code</li>
-<li>Run <code><a href="https://rdrr.io/pkg/sandpaper/man/check_lesson.html" class="external-link">sandpaper::check_lesson()</a></code> to identify any issues with your lesson</li>
-<li>Run <code><a href="https://rdrr.io/pkg/sandpaper/man/build_lesson.html" class="external-link">sandpaper::build_lesson()</a></code> to preview your lesson locally</li>
+<li>Run <code>sandpaper::check_lesson()</code> to identify any issues with your lesson</li>
+<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson locally</li>
 </ul>
 </div>
 </div>
@@ -1195,7 +1195,7 @@ Sun arise each and every morning
 <h3 class="card-title">Objectives</h3>
 <ul>
 <li>Understand how to clone an existing lesson from GitHub</li>
-<li>Use <code><a href="https://rdrr.io/pkg/sandpaper/man/build_lesson.html" class="external-link">sandpaper::build_lesson()</a></code> to preview a lesson</li>
+<li>Use <code>sandpaper::build_lesson()</code> to preview a lesson</li>
 <li>Update the configuration for a lesson</li>
 <li>Rearrange the order of episodes</li>
 </ul>
@@ -1249,7 +1249,7 @@ Sun arise each and every morning
 <div class="callout-content">
 <ol style="list-style-type: decimal">
 <li>Open the lesson in RStudio (or whatever you use for R)</li>
-<li>Use the keyboard shortcut <kbd>ctrl + shift + b</kbd> (<kbd>cmd + shift + b</kbd> on macOS) to build and preview this lesson (or type <code><a href="https://rdrr.io/pkg/sandpaper/man/build_lesson.html" class="external-link">sandpaper::build_lesson()</a></code> in the console if you are not using RStudio)</li>
+<li>Use the keyboard shortcut <kbd>ctrl + shift + b</kbd> (<kbd>cmd + shift + b</kbd> on macOS) to build and preview this lesson (or type <code>sandpaper::build_lesson()</code> in the console if you are not using RStudio)</li>
 <li>Open THIS file (<code>episodes/editing.Rmd</code>) and add step 4: preview the lesson again.</li>
 </ol>
 <p>What do you notice?</p>
@@ -1421,13 +1421,13 @@ Sun arise each and every morning
 <div class="callout-content">
 <ul>
 <li>
-<code><a href="https://rdrr.io/pkg/sandpaper/man/build_lesson.html" class="external-link">sandpaper::build_lesson()</a></code> renders the site and rebuilds any sources that have changed.</li>
+<code>sandpaper::build_lesson()</code> renders the site and rebuilds any sources that have changed.</li>
 <li>RStudio shortcuts are <kbd>cmd + shift + B</kbd> and <kbd>cmd + shift + K</kbd>
 </li>
 <li>To edit a lesson, you only need to know Markdown and/or R Markdown</li>
 <li>The folder structure is designed with maintainers in mind<br>
 </li>
-<li>New episodes can be added with <code><a href="https://rdrr.io/pkg/sandpaper/man/create_episode.html" class="external-link">sandpaper::create_episode()</a></code>
+<li>New episodes can be added with <code>sandpaper::create_episode()</code>
 </li>
 </ul>
 </div>
@@ -1526,7 +1526,7 @@ Sun arise each and every morning
   Output
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1555,7 +1555,7 @@ Sun arise each and every morning
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>You can add a line with at least three colons and a <code>solution</code> tag.</p>
 </div>
@@ -1596,8 +1596,8 @@ Sun arise each and every morning
 <ul>
 <li>Use <code>.md</code> files for episodes when you want static content</li>
 <li>Use <code>.Rmd</code> files for episodes when you need to generate output</li>
-<li>Run <code><a href="https://rdrr.io/pkg/sandpaper/man/check_lesson.html" class="external-link">sandpaper::check_lesson()</a></code> to identify any issues with your lesson</li>
-<li>Run <code><a href="https://rdrr.io/pkg/sandpaper/man/build_lesson.html" class="external-link">sandpaper::build_lesson()</a></code> to preview your lesson locally</li>
+<li>Run <code>sandpaper::check_lesson()</code> to identify any issues with your lesson</li>
+<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson locally</li>
 </ul>
 </div>
 </div>
@@ -1648,7 +1648,7 @@ Sun arise each and every morning
 <div class="section level3">
 <h3 id="the-two-step-model-of-deployment">The Two-Step Model of Deployment<a class="anchor" aria-label="anchor" href="#the-two-step-model-of-deployment"></a>
 </h3>
-<p>To alleviate the downsides of working with generated content, The Carpentries Workbench employs a two-step model of deployment when you run <code><a href="https://rdrr.io/pkg/sandpaper/man/build_lesson.html" class="external-link">sandpaper::build_lesson()</a></code></p>
+<p>To alleviate the downsides of working with generated content, The Carpentries Workbench employs a two-step model of deployment when you run <code>sandpaper::build_lesson()</code></p>
 <ol style="list-style-type: decimal">
 <li>Take any source files with content that needs to be interpreted (e.g.  R Markdown) and <strong>render them to markdown</strong> in a staging area ignored by git.</li>
 <li>Apply the HTML style to the markdown files in the staging area to create the lesson website.</li>
@@ -1806,7 +1806,7 @@ Sun arise each and every morning
 <div class="section level3">
 <h3 id="via-r">Via R<a class="anchor" aria-label="anchor" href="#via-r"></a>
 </h3>
-<p>If you want to update your workflows via R, you can use the <code><a href="https://rdrr.io/pkg/sandpaper/man/update_github_workflows.html" class="external-link">update_github_workflows()</a></code> function, which will report which files were updated.</p>
+<p>If you want to update your workflows via R, you can use the <code>update_github_workflows()</code> function, which will report which files were updated.</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1845,13 +1845,13 @@ Sun arise each and every morning
 <ul>
 <li>Lesson structure, validation, and styling components are all updated automatically on GitHub.</li>
 <li>Lesson structure, validation, and styling components all live in your local R library.</li>
-<li>Locally, R packages can be updated with <code><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages()</a></code>
+<li>Locally, R packages can be updated with <code>install.packages()</code>
 </li>
-<li>Package styling can be updated any time with <code><a href="https://rdrr.io/pkg/sandpaper/man/update_varnish.html" class="external-link">sandpaper::update_varnish()</a></code>
+<li>Package styling can be updated any time with <code>sandpaper::update_varnish()</code>
 </li>
 <li>GitHub workflows live inside the lesson under <code>.github/workflows/</code>
 </li>
-<li>GitHub workflows can be updated with <code><a href="https://rdrr.io/pkg/sandpaper/man/update_github_workflows.html" class="external-link">sandpaper::update_github_workflows()</a></code>
+<li>GitHub workflows can be updated with <code>sandpaper::update_github_workflows()</code>
 </li>
 </ul>
 </div>
@@ -2027,9 +2027,9 @@ shoot <- function(file = 'bot-comment', repo = "caprentries/sandpaper-docs", pr 
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.5.1" class="external-link">sandpaper (0.5.1)</a>,
-        <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.2.5)</a>,
-      and <a href="https://github.com/carpentries/varnish/tree/0.1.11" class="external-link">varnish (0.1.11)</a>.</p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.5.2" class="external-link">sandpaper (0.5.2)</a>,
+        <a href="https://github.com/carpentries/pegboard/tree/0.2.6" class="external-link">pegboard (0.2.6)</a>,
+      and <a href="https://github.com/carpentries/varnish/tree/0.1.12" class="external-link">varnish (0.1.12)</a>.</p>
 			</div>
 		</footer>
 </div> <!-- / div.container -->
@@ -2051,8 +2051,8 @@ shoot <- function(file = 'bot-comment', repo = "caprentries/sandpaper-docs", pr 
   "url": "https://carpentries.github.io/sandpaper-docs/aio.html",
   "identifier": "https://carpentries.github.io/sandpaper-docs/aio.html",
   "dateCreated": "2022-05-09",
-  "dateModified": "2022-05-10",
-  "datePublished": "2022-05-10"
+  "dateModified": "2022-05-17",
+  "datePublished": "2022-05-17"
 }
 
   </script><script>

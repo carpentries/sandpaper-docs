@@ -291,36 +291,36 @@
 <section id="introduction"><h2 class="section-heading"><a href="introduction.html">Introduction to The Carpentries Workbench</a></h2>
 <hr class="half-width">
 <ul>
-<li>Lessons can be created with <code><a href="https://rdrr.io/pkg/sandpaper/man/create_lesson.html" class="external-link">create_lesson()</a></code>
+<li>Lessons can be created with <code>create_lesson()</code>
 </li>
-<li>Preview lessons with <code><a href="https://rdrr.io/pkg/sandpaper/man/serve.html" class="external-link">serve()</a></code>
+<li>Preview lessons with <code>serve()</code>
 </li>
 <li>The toolchain is designed to be modular.</li>
 </ul></section><section id="episodes"><h2 class="section-heading"><a href="episodes.html">Episode Structure</a></h2>
 <hr class="half-width">
 <ul>
 <li>Use <code>.Rmd</code> files for lessons even if you don’t need to generate any code</li>
-<li>Run <code><a href="https://rdrr.io/pkg/sandpaper/man/check_lesson.html" class="external-link">sandpaper::check_lesson()</a></code> to identify any issues with your lesson</li>
-<li>Run <code><a href="https://rdrr.io/pkg/sandpaper/man/build_lesson.html" class="external-link">sandpaper::build_lesson()</a></code> to preview your lesson locally</li>
+<li>Run <code>sandpaper::check_lesson()</code> to identify any issues with your lesson</li>
+<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson locally</li>
 </ul></section><section id="editing"><h2 class="section-heading"><a href="editing.html">Editing a {sandpaper} lesson</a></h2>
 <hr class="half-width">
 <ul>
 <li>
-<code><a href="https://rdrr.io/pkg/sandpaper/man/build_lesson.html" class="external-link">sandpaper::build_lesson()</a></code> renders the site and rebuilds any sources that have changed.</li>
+<code>sandpaper::build_lesson()</code> renders the site and rebuilds any sources that have changed.</li>
 <li>RStudio shortcuts are <kbd>cmd + shift + B</kbd> and <kbd>cmd + shift + K</kbd>
 </li>
 <li>To edit a lesson, you only need to know Markdown and/or R Markdown</li>
 <li>The folder structure is designed with maintainers in mind<br>
 </li>
-<li>New episodes can be added with <code><a href="https://rdrr.io/pkg/sandpaper/man/create_episode.html" class="external-link">sandpaper::create_episode()</a></code>
+<li>New episodes can be added with <code>sandpaper::create_episode()</code>
 </li>
 </ul></section><section id="example"><h2 class="section-heading"><a href="example.html">EXAMPLE: Using RMarkdown</a></h2>
 <hr class="half-width">
 <ul>
 <li>Use <code>.md</code> files for episodes when you want static content</li>
 <li>Use <code>.Rmd</code> files for episodes when you need to generate output</li>
-<li>Run <code><a href="https://rdrr.io/pkg/sandpaper/man/check_lesson.html" class="external-link">sandpaper::check_lesson()</a></code> to identify any issues with your lesson</li>
-<li>Run <code><a href="https://rdrr.io/pkg/sandpaper/man/build_lesson.html" class="external-link">sandpaper::build_lesson()</a></code> to preview your lesson locally</li>
+<li>Run <code>sandpaper::check_lesson()</code> to identify any issues with your lesson</li>
+<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson locally</li>
 </ul></section><section id="deployment"><h2 class="section-heading"><a href="deployment.html">Lesson Deployment</a></h2>
 <hr class="half-width">
 <ul>
@@ -331,13 +331,13 @@
 <ul>
 <li>Lesson structure, validation, and styling components are all updated automatically on GitHub.</li>
 <li>Lesson structure, validation, and styling components all live in your local R library.</li>
-<li>Locally, R packages can be updated with <code><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages()</a></code>
+<li>Locally, R packages can be updated with <code>install.packages()</code>
 </li>
-<li>Package styling can be updated any time with <code><a href="https://rdrr.io/pkg/sandpaper/man/update_varnish.html" class="external-link">sandpaper::update_varnish()</a></code>
+<li>Package styling can be updated any time with <code>sandpaper::update_varnish()</code>
 </li>
 <li>GitHub workflows live inside the lesson under <code>.github/workflows/</code>
 </li>
-<li>GitHub workflows can be updated with <code><a href="https://rdrr.io/pkg/sandpaper/man/update_github_workflows.html" class="external-link">sandpaper::update_github_workflows()</a></code>
+<li>GitHub workflows can be updated with <code>sandpaper::update_github_workflows()</code>
 </li>
 </ul></section><section id="pull-request"><h2 class="section-heading"><a href="pull-request.html">Auditing Pull Requests</a></h2>
 <hr class="half-width">
@@ -364,9 +364,9 @@
         <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.5.1" class="external-link">sandpaper (0.5.1)</a>,
-        <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.2.5)</a>,
-      and <a href="https://github.com/carpentries/varnish/tree/0.1.11" class="external-link">varnish (0.1.11)</a>.</p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.5.2" class="external-link">sandpaper (0.5.2)</a>,
+        <a href="https://github.com/carpentries/pegboard/tree/0.2.6" class="external-link">pegboard (0.2.6)</a>,
+      and <a href="https://github.com/carpentries/varnish/tree/0.1.12" class="external-link">varnish (0.1.12)</a>.</p>
 			</div>
 		</footer>
 </div> <!-- / div.container -->
@@ -388,8 +388,8 @@
   "url": "https://carpentries.github.io/sandpaper-docs/instructor/key-points.html",
   "identifier": "https://carpentries.github.io/sandpaper-docs/instructor/key-points.html",
   "dateCreated": "2022-05-09",
-  "dateModified": "2022-05-10",
-  "datePublished": "2022-05-10"
+  "dateModified": "2022-05-17",
+  "datePublished": "2022-05-17"
 }
 
   </script><script>

@@ -284,14 +284,14 @@ Git repo for current project
 </div>
 </section><section id="creating-a-new-github-personal-access-token"><h2 class="section-heading">Creating a New GitHub Personal Access Token</h2>
 <hr class="half-width"><p>If you see errors associated with your GitHub token (see below, e.g. ‘Token is invalid’ or ‘Can’t retrieve registered email address(es)’), then you should create a new one. Dr. Jenny Bryan wrote <a href="https://happygitwithr.com/credential-caching.html#how-to-manage-a-pat" class="external-link">an excellent resource for creating and caching your GitHub credentials on your computer</a> that will walk you through the process of generating a PAT, and storing it in a secure location. Here are the steps briefly via R:</p>
-<ol style="list-style-type: decimal"><li>Create a GitHub PAT via R with <code><a href="https://usethis.r-lib.org/reference/github-token.html" class="external-link">usethis::create_github_token()</a></code> (this will open a page in your browser pre-populated with the appropriate scopes. If this does not work, <a href="https://github.com/settings/tokens/new?scopes=repo,user,gist,workflow&amp;description=R:GITHUB_PAT" class="external-link">use this link to generate a new token for R</a>.)</li>
+<ol style="list-style-type: decimal"><li>Create a GitHub PAT via R with <code>usethis::create_github_token()</code> (this will open a page in your browser pre-populated with the appropriate scopes. If this does not work, <a href="https://github.com/settings/tokens/new?scopes=repo,user,gist,workflow&amp;description=R:GITHUB_PAT" class="external-link">use this link to generate a new token for R</a>.)</li>
 <li>Copy and store the token in a password manager (Lastpass, 1Password)</li>
-<li>Back in R, use <code><a href="https://rdrr.io/pkg/gitcreds/man/gitcreds_get.html" class="external-link">gitcreds::gitcreds_set()</a></code> to register your token with git.</li>
-<li>Check your credentials again with <code><a href="https://usethis.r-lib.org/reference/git_sitrep.html" class="external-link">usethis::git_sitrep()</a></code>
+<li>Back in R, use <code>gitcreds::gitcreds_set()</code> to register your token with git.</li>
+<li>Check your credentials again with <code>usethis::git_sitrep()</code>
 </li>
 </ol><p>At this point, you should have things set up properly. If you are still having problems, you can try the following two steps (after you have your PAT):</p>
 <ol style="list-style-type: decimal"><li>in R, use <code>credentials::git_credentials_forget()</code> to clear the cache</li>
-<li>use <code><a href="https://docs.ropensci.org/credentials/reference/set_github_pat.html" class="external-link">credentials::set_github_pat()</a></code> and paste your token.</li>
+<li>use <code>credentials::set_github_pat()</code> and paste your token.</li>
 </ol><div id="discussion1" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
@@ -388,9 +388,9 @@ Git repo for current project
         <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.5.1" class="external-link">sandpaper (0.5.1)</a>,
-        <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.2.5)</a>,
-      and <a href="https://github.com/carpentries/varnish/tree/0.1.11" class="external-link">varnish (0.1.11)</a>.</p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.5.2" class="external-link">sandpaper (0.5.2)</a>,
+        <a href="https://github.com/carpentries/pegboard/tree/0.2.6" class="external-link">pegboard (0.2.6)</a>,
+      and <a href="https://github.com/carpentries/varnish/tree/0.1.12" class="external-link">varnish (0.1.12)</a>.</p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -412,7 +412,7 @@ Git repo for current project
   "identifier": "https://carpentries.github.io/sandpaper-docs/instructor/github-pat.html",
   "dateCreated": "2022-05-09",
   "dateModified": "2022-05-06",
-  "datePublished": "2022-05-10"
+  "datePublished": "2022-05-17"
 }
 
   </script><script>

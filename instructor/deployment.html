@@ -288,7 +288,7 @@
 </div>
 <div class="section level3">
 <h3 id="the-two-step-model-of-deployment">The Two-Step Model of Deployment<a class="anchor" aria-label="anchor" href="#the-two-step-model-of-deployment"></a></h3>
-<p>To alleviate the downsides of working with generated content, The Carpentries Workbench employs a two-step model of deployment when you run <code><a href="https://rdrr.io/pkg/sandpaper/man/build_lesson.html" class="external-link">sandpaper::build_lesson()</a></code></p>
+<p>To alleviate the downsides of working with generated content, The Carpentries Workbench employs a two-step model of deployment when you run <code>sandpaper::build_lesson()</code></p>
 <ol style="list-style-type: decimal"><li>Take any source files with content that needs to be interpreted (e.g.  R Markdown) and <strong>render them to markdown</strong> in a staging area ignored by git.</li>
 <li>Apply the HTML style to the markdown files in the staging area to create the lesson website.</li>
 </ol><figure><img src="https://zkamvar.github.io/stunning-barnacle/img/local-flow.dot.svg" alt="Diagram showing the process of `build_lesson(rebuild = TRUE)`, starting from R Markdown to Markdown and finally to HTML. R Markdown is highlighted as being the only element tracked by git." class="figure mx-auto d-block"><figcaption>The two-step model of lesson deployment</figcaption></figure><p>All of the generated content lives in the <code>site/</code> folder, and importantly: it is all cached and ignored by git. Ignoring generated content locally means that the source of truth for these files is no longer dependent on the maintainer’s local setup.</p>
@@ -346,9 +346,9 @@
         <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.5.1" class="external-link">sandpaper (0.5.1)</a>,
-        <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.2.5)</a>,
-      and <a href="https://github.com/carpentries/varnish/tree/0.1.11" class="external-link">varnish (0.1.11)</a>.</p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.5.2" class="external-link">sandpaper (0.5.2)</a>,
+        <a href="https://github.com/carpentries/pegboard/tree/0.2.6" class="external-link">pegboard (0.2.6)</a>,
+      and <a href="https://github.com/carpentries/varnish/tree/0.1.12" class="external-link">varnish (0.1.12)</a>.</p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -370,7 +370,7 @@
   "identifier": "https://carpentries.github.io/sandpaper-docs/instructor/deployment.html",
   "dateCreated": "2022-05-09",
   "dateModified": "2022-05-06",
-  "datePublished": "2022-05-10"
+  "datePublished": "2022-05-17"
 }
 
   </script><script>
