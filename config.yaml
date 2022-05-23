@@ -8,6 +8,7 @@
 # lc: Library Carpentry
 # cp: Carpentries (to use for instructor traning for instance)
 carpentry: 'cp'
+workbench-beta: true
 
 # Overall title for pages.
 title: 'Introduction to The Carpentries Workbench'
