@@ -16,7 +16,7 @@ title: 'Introduction to The Carpentries Workbench'
 created: ~
 
 # Comma-separated list of keywords for the lesson
-keywords: static site, lesson template, markdown, R, software
+keywords: 'static site, lesson template, markdown, R, software'
 
 # Life cycle stage of the lesson
 # possible values: pre-alpha, alpha, beta, stable
@@ -80,4 +80,10 @@ instructors:
 profiles: 
 - maintainer.md
 - instructor.md
+
+# Customisation ---------------------------------------------
+#
+# This space below is where custom yaml items (e.g. pinning
+# sandpaper and varnish versions) should live
+workbench-beta: yes
 
