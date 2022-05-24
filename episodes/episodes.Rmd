@@ -35,12 +35,12 @@ inspect the status of a git repsitory. The idea behind the name "episode" is
 the thought that each one should last about as long as an episode for an
 television series.
 
-As we will cover in the [next episode](editing.md), all of the episodes live
+As we will cover in the [next episode](editing.md#missing-anchor), all of the episodes live
 inside the `episodes/` directory at the top of the lesson folder. Their order is
 dictated by the `episodes:` element in the `config.yaml` file (but defaults to 
 alphabetical). The other folders (`learners/`, `instructors/`, and `profiles/`)
 are similarly configured. This episode will briefly explain how to edit markdown
-content in the lessons. 
+content in the lessons. Now see [here](https://example.com) and [this link](missing-file.md).
 
 
 :::::: prereq
@@ -521,10 +521,9 @@ attribute at the end to make it accessible like this:
 hexagon with The Carpentries logo in white and text: 'The Carpentries'"}
 ```
 
-![Hex sticker for The Carpentries](fig/carpentries-hex-blue.svg){alt="blue
-hexagon with The Carpentries logo in white and text: 'The Carpentries'"}
+![Hex sticker for The Carpentries](fig/carpentries-hex-blue.svg)
 
-:::::::::::::::::::::::::::: discussion
+:::::::::::::::::::::::::::: disscussion
 
 ### Accessibility Point: Alternative Text (aka alt-text)
 
@@ -569,7 +568,7 @@ Cool, right?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-[alt-text]: https://axesslab.com/alt-texts/
+[alt-text]: http://axesslab.com/alt-texts/
 [^episodes]: The designation of "episode" will likely change. Throught UX
   testing, it's clear that calling these lesson units "episodes" is confusing,
   even for people who have been in The Carpentries for several years. The
