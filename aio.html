@@ -1182,7 +1182,7 @@ Sun arise each and every morning
 </ol>
 </div></section><section id="aio-editing"><p>Content from <a href="editing.html">Editing a {sandpaper} lesson</a></p>
 <hr>
-<p> Last updated on 2022-05-06 | <a href="https://github.com/carpentries/sandpaper-docs//edit/main/episodes/editing.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<p> Last updated on 2022-05-27 | <a href="https://github.com/carpentries/sandpaper-docs//edit/main/episodes/editing.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -1274,7 +1274,7 @@ Sun arise each and every morning
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>What you should notice is that the only file updated when you re-render the lesson is the file you changed (<code>episodes/editing.Rmd</code>).</p>
 </div>
@@ -1389,7 +1389,7 @@ Sun arise each and every morning
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>The episodes appear in the same order as the configuration file and the timings have rearranged themselves to reflect that.</p>
 </div>
@@ -1413,8 +1413,19 @@ Sun arise each and every morning
 <p>This folder contains information used for instructors only. Downloads of code outlines, aggregated figures, and slides would live in this folder.</p>
 </section><section id="learners"><h2 class="section-heading"><code>learners/</code></h2>
 <hr class="half-width">
-<p>All the extras the learner would need, mostly a setup guide and glossary would live here.</p>
-</section><section id="profiles"><h2 class="section-heading"><code>profiles/</code></h2>
+<p>All the extras the learner would need, mostly a setup guide and glossary live here.</p>
+<p>The glossary page is populated from the <code>reference.md</code> file in this folder. The format of the glossary section of the <code>reference.md</code> file is a heading title <code>## Glossary</code> followed by <a href="https://pandoc.org/MANUAL.html#definition-lists" class="external-link">a definition list</a>. Definition lists are formatted as two lines for each term, the first includes the term to be defined and then the second line starts with a “:” and a space then the definition. i.e.</p>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>term</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>: definition</span></code></pre>
+</div>
+<dl>
+<dt>term</dt>
+<dd>definition
+</dd>
+</dl></section><section id="profiles"><h2 class="section-heading"><code>profiles/</code></h2>
 <hr class="half-width">
 <p>Learner profiles would live in this folder and target learners, instructors, and maintainers alike to give a focus on the lesson.</p>
 </section><section id="index.md"><h2 class="section-heading"><code>index.md</code></h2>
@@ -1537,7 +1548,7 @@ Sun arise each and every morning
   Output
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1566,7 +1577,7 @@ Sun arise each and every morning
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>You can add a line with at least three colons and a <code>solution</code> tag.</p>
 </div>
@@ -2038,7 +2049,7 @@ shoot <- function(file = 'bot-comment', repo = "caprentries/sandpaper-docs", pr 
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.5.6" class="external-link">sandpaper (0.5.6)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.5.7" class="external-link">sandpaper (0.5.7)</a>,
         <a href="https://github.com/carpentries/pegboard/tree/0.3.0" class="external-link">pegboard (0.3.0)</a>,
       and <a href="https://github.com/carpentries/varnish/tree/0.1.13" class="external-link">varnish (0.1.13)</a>.</p>
 			</div>
