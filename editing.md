@@ -230,8 +230,24 @@ outlines, aggregated figures, and slides would live in this folder.
 
 ## `learners/`
 
-All the extras the learner would need, mostly a setup guide and glossary would
+All the extras the learner would need, mostly a setup guide and glossary 
 live here.
+
+The glossary page is populated from the `reference.md` file in this folder.
+The format of the glossary section of the `reference.md` file is a heading title 
+`## Glossary` followed by [a definition list](https://pandoc.org/MANUAL.html#definition-lists). 
+Definition lists are formatted as two lines for each term, the first
+includes the term to be defined and then the second line starts with a ":"
+and a space then the definition.
+i.e.
+
+```markdown
+term
+: definition
+```
+
+term
+: definition
 
 ## `profiles/`
 
