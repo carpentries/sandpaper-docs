@@ -68,6 +68,7 @@ episodes:
 
 # Information for Learners
 learners: 
+- reference.md
 - setup.md
 - github-pat.md
 - component-guide.md
