@@ -559,6 +559,11 @@ saving
 for breakfast'}
 ```
 
+#### Decorative Images
+
+If you have a decorative image such as logo that is not important for the
+content of the lesson, then you should use `alt=""` to mark it as decorative so
+that screen readers will know to skip that image.
 
 ::::::::::::::::::::::::::::::::::::::
 
