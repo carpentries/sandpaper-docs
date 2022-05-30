@@ -263,7 +263,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Episode Structure</h1>
-        <p> Last updated on 2022-05-09 | <a href="https://github.com/carpentries/sandpaper-docs//edit/main/episodes/episodes.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+        <p> Last updated on 2022-05-30 | <a href="https://github.com/carpentries/sandpaper-docs//edit/main/episodes/episodes.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -745,11 +745,32 @@ print("this is a {} code block".format(thing))</code></pre>
 <h3 class="callout-title">Accessibility Point: Alternative Text (aka alt-text)</h3>
 <div class="callout-content">
 <p>Alternative text (alt text) is a very important tool for making lessons accessible. If you are unfamiliar with alt text for images, <a href="https://axesslab.com/alt-texts/" class="external-link">this primer on alt text gives a good rundown of what alt text is and why it matters</a>. In short, alt text provides a short description of an image that can take the place of an image if it is missing or the user is unable to see it.</p>
+<div class="section level4">
+<h4 id="how-long-should-alt-text-be">How long should alt text be?<a class="anchor" aria-label="anchor" href="#how-long-should-alt-text-be"></a></h4>
+<p>Alt text is a wonderful accessibility tool that gives a description of an image when it can not be perceived visually. As the saying goes, a picture is worth a thousand words, but alt text likely should not be so long, so how long should it be? That depends on the context. Generally, if a figure is of minor importance, then try to constrain it to about the length of a tweet (~150-280 characters) or it will get <em>too</em> descriptive, otherwise, describe the salient points that the reader should understand from the figure.</p>
+</div>
+<div class="section level4">
+<h4 id="wrapping-alt-text-lines">Wrapping Alt Text lines<a class="anchor" aria-label="anchor" href="#wrapping-alt-text-lines"></a></h4>
+<p>You will rarely have alt text that fits under 100 characters, so you can wrap alt text like you would any markdown paragraph:</p>
+<div class="codewrapper sourceCode" id="cb25">
+<h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Apologies to William Carlos Williams](fig/freezer.png)</span>{alt='This is just an icebox</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>with no plums</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>which you were probably</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>saving</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>for breakfast'}</span></code></pre>
+</div>
+</div>
+<div class="section level4">
+<h4 id="decorative-images">Decorative Images<a class="anchor" aria-label="anchor" href="#decorative-images"></a></h4>
+<p>If you have a decorative image such as logo that is not important for the content of the lesson, then you should use <code>alt=""</code> to mark it as decorative so that screen readers will know to skip that image.</p>
+</div>
 </div>
 </div>
 </div>
 <p>If your lesson uses R, some images will be auto-generated from evaluated code chunks and linked. You can use <code>fig.alt</code> to include alt text. <a href="https://blog.rstudio.com/2021/04/20/knitr-fig-alt/" class="external-link">This blogpost has more information about including alt text in RMarkdown documents</a>. In addition, you can also use <code>fig.cap</code> to provide a caption that puts the picture into context (but take care to not be redundant; screen readers will read both fields).</p>
-<div class="codewrapper sourceCode" id="cb25">
+<div class="codewrapper sourceCode" id="cb26">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -832,9 +853,9 @@ Sun arise each and every morning
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/sandpaper-docs/episodes.html",
   "identifier": "https://carpentries.github.io/sandpaper-docs/episodes.html",
-  "dateCreated": "2022-05-27",
-  "dateModified": "2022-05-09",
-  "datePublished": "2022-05-27"
+  "dateCreated": "2022-05-30",
+  "dateModified": "2022-05-30",
+  "datePublished": "2022-05-30"
 }
 
   </script><script>
