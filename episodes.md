@@ -522,14 +522,16 @@ directly like so using standard markdown format, with one twist: add an `alt`
 attribute at the end to make it accessible like this: 
 `![caption](image){alt='alt text'}`.
 
-
 ```markdown
 ![Hex sticker for The Carpentries](fig/carpentries-hex-blue.svg){alt="blue
 hexagon with The Carpentries logo in white and text: 'The Carpentries'"}
 ```
 
 ![Hex sticker for The Carpentries](fig/carpentries-hex-blue.svg){alt="blue
-hexagon with The Carpentries logo in white and text: 'The Carpentries'"}
+hexagon with
+The Carpentries logo in white and text:
+'The Carpentries'"}
+
 
 :::::::::::::::::::::::::::: discussion
 
@@ -540,6 +542,35 @@ accessible. If you are unfamiliar with alt text for images, [this primer on alt
 text gives a good rundown of what alt text is and why it matters][alt-text]. In
 short, alt text provides a short description of an image that can take the place
 of an image if it is missing or the user is unable to see it.
+
+#### How long should alt text be?
+
+Alt text is a wonderful accessibility tool that gives a description of an image
+when it can not be perceived visually. As the saying goes, a picture is worth a
+thousand words, but alt text likely should not be so long, so how long should it
+be? That depends on the context. Generally, if a figure is of minor importance,
+then try to constrain it to about the length of a tweet (~150-280 characters) or
+it will get _too_ descriptive, otherwise, describe the salient points that the
+reader should understand from the figure.
+
+#### Wrapping Alt Text lines
+
+You will rarely have alt text that fits under 100 characters, so you can wrap
+alt text like you would any markdown paragraph:
+
+```markdown
+![Apologies to William Carlos Williams](fig/freezer.png){alt='This is just an icebox
+with no plums
+which you were probably
+saving
+for breakfast'}
+```
+
+#### Decorative Images
+
+If you have a decorative image such as logo that is not important for the
+content of the lesson, then you should use `alt=""` to mark it as decorative so
+that screen readers will know to skip that image.
 
 ::::::::::::::::::::::::::::::::::::::
 
