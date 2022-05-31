@@ -61,7 +61,7 @@ jobs:
         with:
           cache-version: ${{ secrets.CACHE_VERSION }}
 
-      - name: "Build Site"
+      - name: "Validate and Build Markdown"
         id: build-site
         run: |
           sandpaper::package_cache_trigger(TRUE)
