@@ -14,7 +14,7 @@ on:
         required: true
         default: 'Maintainer (via GitHub)'
       reset:
-        description: 'rebuild all (for R Markdown lessons)'
+        description: 'Reset cached markdown files'
         required: false
         default: false
         type: boolean
