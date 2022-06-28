@@ -81,8 +81,7 @@
           <button class="nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
             More <i data-feather="chevron-down"></i>
           </button>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown"><li><a class="dropdown-item" href="profiles.html">Learner Profiles</a></li>
-          </ul></li>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown"></ul></li>
       </ul></div>
     <form class="d-flex col-md-2 search-form">
       <fieldset disabled><input class="form-control me-2 searchbox" type="search" placeholder="Search" aria-label="Search"><button class="btn btn-outline-success tablet-search-button" type="submit">
@@ -230,13 +229,21 @@
                 </h2>
                 <div id="flush-collapseTwelve" class="accordion-collapse collapse" aria-labelledby="flush-headingTwelve" data-bs-parent="#accordionFlush12">
                   <div class="accordion-body">
-                    <ul><li><a href="profiles.html">Learner Profiles</a></li>
+                    <ul><li>
+                        <a href="../instructor/key-points.html">Key Points</a>
+                      </li>
+                      <li>
+                        <a href="../instructor/instructor-notes.html">Instructor Notes</a>
+                      </li>
+                      <li>
+                        <a href="../instructor/images.html">Extract All Images</a>
+                      </li>
+                      
                     </ul></div>
                 </div>
               </div>
             </div>
-
-            <a href="../instructor/aio.html">See all in one page</a>
+            <hr class="half-width resources"><a href="../instructor/aio.html">See all in one page</a>
 
             <hr class="d-none d-sm-block d-md-none"><div class="d-grid gap-1">
             
@@ -509,14 +516,14 @@ https://www.gnu.org/licenses/.</code></pre>
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># register the repositories for The Carpentries and CRAN</span>
-<span class="fu">options</span><span class="op">(</span>repos <span class="op">=</span> <span class="fu">c</span><span class="op">(</span>
-  carpentries <span class="op">=</span> <span class="st">"https://carpentries.r-universe.dev/"</span>,
-  CRAN <span class="op">=</span> <span class="st">"https://cran.rstudio.com/"</span>
-<span class="op">)</span><span class="op">)</span>
-
-<span class="co"># Install the template packages to your R library</span>
-<span class="fu">install.packages</span><span class="op">(</span><span class="fu">c</span><span class="op">(</span><span class="st">"sandpaper"</span>, <span class="st">"varnish"</span>, <span class="st">"pegboard"</span>, <span class="st">"tinkr"</span><span class="op">)</span><span class="op">)</span></code></pre>
+<code class="sourceCode R"><span><span class="co"># register the repositories for The Carpentries and CRAN</span></span>
+<span><span class="fu">options</span><span class="op">(</span>repos <span class="op">=</span> <span class="fu">c</span><span class="op">(</span></span>
+<span>  carpentries <span class="op">=</span> <span class="st">"https://carpentries.r-universe.dev/"</span>,</span>
+<span>  CRAN <span class="op">=</span> <span class="st">"https://cran.rstudio.com/"</span></span>
+<span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Install the template packages to your R library</span></span>
+<span><span class="fu">install.packages</span><span class="op">(</span><span class="fu">c</span><span class="op">(</span><span class="st">"sandpaper"</span>, <span class="st">"varnish"</span>, <span class="st">"pegboard"</span>, <span class="st">"tinkr"</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
 </div>
 </section><section id="mac"><h2 class="section-heading">Installing on MacOS</h2>
@@ -594,14 +601,14 @@ https://www.gnu.org/licenses/.</code></pre>
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># register the repositories for The Carpentries and CRAN</span>
-<span class="fu">options</span><span class="op">(</span>repos <span class="op">=</span> <span class="fu">c</span><span class="op">(</span>
-  carpentries <span class="op">=</span> <span class="st">"https://carpentries.r-universe.dev/"</span>,
-  CRAN <span class="op">=</span> <span class="st">"https://cran.rstudio.com/"</span>
-<span class="op">)</span><span class="op">)</span>
-
-<span class="co"># Install the template packages to your R library</span>
-<span class="fu">install.packages</span><span class="op">(</span><span class="fu">c</span><span class="op">(</span><span class="st">"sandpaper"</span>, <span class="st">"varnish"</span>, <span class="st">"pegboard"</span>, <span class="st">"tinkr"</span><span class="op">)</span><span class="op">)</span></code></pre>
+<code class="sourceCode R"><span><span class="co"># register the repositories for The Carpentries and CRAN</span></span>
+<span><span class="fu">options</span><span class="op">(</span>repos <span class="op">=</span> <span class="fu">c</span><span class="op">(</span></span>
+<span>  carpentries <span class="op">=</span> <span class="st">"https://carpentries.r-universe.dev/"</span>,</span>
+<span>  CRAN <span class="op">=</span> <span class="st">"https://cran.rstudio.com/"</span></span>
+<span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Install the template packages to your R library</span></span>
+<span><span class="fu">install.packages</span><span class="op">(</span><span class="fu">c</span><span class="op">(</span><span class="st">"sandpaper"</span>, <span class="st">"varnish"</span>, <span class="st">"pegboard"</span>, <span class="st">"tinkr"</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
 </div>
 </section><section id="linux"><h2 class="section-heading">Installing on Linux</h2>
@@ -746,19 +753,19 @@ https://www.gnu.org/licenses/.
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># Set the default HTTP user agent to get pre-built binary packages</span>
-<span class="va">RV</span> <span class="op">&lt;-</span> <span class="fu">getRversion</span><span class="op">(</span><span class="op">)</span>
-<span class="va">OS</span> <span class="op">&lt;-</span> <span class="fu">paste</span><span class="op">(</span><span class="va">RV</span>, <span class="va">R.version</span><span class="op">[</span><span class="st">"platform"</span><span class="op">]</span>, <span class="va">R.version</span><span class="op">[</span><span class="st">"arch"</span><span class="op">]</span>, <span class="va">R.version</span><span class="op">[</span><span class="st">"os"</span><span class="op">]</span><span class="op">)</span>
-<span class="fu">options</span><span class="op">(</span>HTTPUserAgent <span class="op">=</span> <span class="fu">sprintf</span><span class="op">(</span><span class="st">"R/%s R (%s)"</span>, <span class="va">RV</span>, <span class="va">OS</span><span class="op">)</span><span class="op">)</span>
-
-<span class="co"># register the repositories for The Carpentries and CRAN</span>
-<span class="fu">options</span><span class="op">(</span>repos <span class="op">=</span> <span class="fu">c</span><span class="op">(</span>
-  carpentries <span class="op">=</span> <span class="st">"https://carpentries.r-universe.dev/"</span>,
-  CRAN <span class="op">=</span> <span class="st">"https://packagemanager.rstudio.com/all/__linux__/focal/latest"</span>
-<span class="op">)</span><span class="op">)</span>
-
-<span class="co"># Install the template packages to your R library</span>
-<span class="fu">install.packages</span><span class="op">(</span><span class="fu">c</span><span class="op">(</span><span class="st">"sandpaper"</span>, <span class="st">"varnish"</span>, <span class="st">"pegboard"</span>, <span class="st">"tinkr"</span><span class="op">)</span><span class="op">)</span></code></pre>
+<code class="sourceCode R"><span><span class="co"># Set the default HTTP user agent to get pre-built binary packages</span></span>
+<span><span class="va">RV</span> <span class="op">&lt;-</span> <span class="fu">getRversion</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">OS</span> <span class="op">&lt;-</span> <span class="fu">paste</span><span class="op">(</span><span class="va">RV</span>, <span class="va">R.version</span><span class="op">[</span><span class="st">"platform"</span><span class="op">]</span>, <span class="va">R.version</span><span class="op">[</span><span class="st">"arch"</span><span class="op">]</span>, <span class="va">R.version</span><span class="op">[</span><span class="st">"os"</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="fu">options</span><span class="op">(</span>HTTPUserAgent <span class="op">=</span> <span class="fu">sprintf</span><span class="op">(</span><span class="st">"R/%s R (%s)"</span>, <span class="va">RV</span>, <span class="va">OS</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># register the repositories for The Carpentries and CRAN</span></span>
+<span><span class="fu">options</span><span class="op">(</span>repos <span class="op">=</span> <span class="fu">c</span><span class="op">(</span></span>
+<span>  carpentries <span class="op">=</span> <span class="st">"https://carpentries.r-universe.dev/"</span>,</span>
+<span>  CRAN <span class="op">=</span> <span class="st">"https://packagemanager.rstudio.com/all/__linux__/focal/latest"</span></span>
+<span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Install the template packages to your R library</span></span>
+<span><span class="fu">install.packages</span><span class="op">(</span><span class="fu">c</span><span class="op">(</span><span class="st">"sandpaper"</span>, <span class="st">"varnish"</span>, <span class="st">"pegboard"</span>, <span class="st">"tinkr"</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
 <div id="callout5" class="callout callout">
 <div class="callout-square">
@@ -804,12 +811,12 @@ compilation terminated.
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">rmarkdown</span><span class="fu">::</span><span class="fu">pandoc_version</span><span class="op">(</span><span class="op">)</span>
-<span class="va">tmp</span> <span class="op">&lt;-</span> <span class="fu">tempfile</span><span class="op">(</span><span class="op">)</span>
-<span class="fu">sandpaper</span><span class="fu">::</span><span class="fu">no_package_cache</span><span class="op">(</span><span class="op">)</span>
-<span class="fu">sandpaper</span><span class="fu">::</span><span class="fu">create_lesson</span><span class="op">(</span><span class="va">tmp</span>, open <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
-<span class="fu">sandpaper</span><span class="fu">::</span><span class="fu">build_lesson</span><span class="op">(</span><span class="va">tmp</span>, preview <span class="op">=</span> <span class="cn">FALSE</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="fu">fs</span><span class="fu">::</span><span class="fu">dir_tree</span><span class="op">(</span><span class="va">tmp</span>, recurse <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code></pre>
+<code class="sourceCode R"><span><span class="fu">rmarkdown</span><span class="fu">::</span><span class="fu">pandoc_version</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">tmp</span> <span class="op">&lt;-</span> <span class="fu">tempfile</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">sandpaper</span><span class="fu">::</span><span class="fu">no_package_cache</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">sandpaper</span><span class="fu">::</span><span class="fu">create_lesson</span><span class="op">(</span><span class="va">tmp</span>, open <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="fu">sandpaper</span><span class="fu">::</span><span class="fu">build_lesson</span><span class="op">(</span><span class="va">tmp</span>, preview <span class="op">=</span> <span class="cn">FALSE</span>, quiet <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu">fs</span><span class="fu">::</span><span class="fu">dir_tree</span><span class="op">(</span><span class="va">tmp</span>, recurse <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -947,9 +954,9 @@ compilation terminated.
         <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.6.0" class="external-link">sandpaper (0.6.0)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.6.2" class="external-link">sandpaper (0.6.2)</a>,
         <a href="https://github.com/carpentries/pegboard/tree/0.3.0" class="external-link">pegboard (0.3.0)</a>,
-      and <a href="https://github.com/carpentries/varnish/tree/0.2.0" class="external-link">varnish (0.2.0)</a>.</p>
+      and <a href="https://github.com/carpentries/varnish/tree/0.2.1" class="external-link">varnish (0.2.1)</a>.</p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -970,8 +977,8 @@ compilation terminated.
   "url": "https://carpentries.github.io/sandpaper-docs/instructor/index.html",
   "identifier": "https://carpentries.github.io/sandpaper-docs/instructor/index.html",
   "dateCreated": "2022-06-20",
-  "dateModified": "2022-06-21",
-  "datePublished": "2022-06-21"
+  "dateModified": "2022-06-28",
+  "datePublished": "2022-06-28"
 }
 
   </script><script>

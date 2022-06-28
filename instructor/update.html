@@ -81,8 +81,7 @@
           <button class="nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
             More <i data-feather="chevron-down"></i>
           </button>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown"><li><a class="dropdown-item" href="profiles.html">Learner Profiles</a></li>
-          </ul></li>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown"></ul></li>
       </ul></div>
     <form class="d-flex col-md-2 search-form">
       <fieldset disabled><input class="form-control me-2 searchbox" type="search" placeholder="Search" aria-label="Search"><button class="btn btn-outline-success tablet-search-button" type="submit">
@@ -241,13 +240,21 @@
                 </h2>
                 <div id="flush-collapseTwelve" class="accordion-collapse collapse" aria-labelledby="flush-headingTwelve" data-bs-parent="#accordionFlush12">
                   <div class="accordion-body">
-                    <ul><li><a href="profiles.html">Learner Profiles</a></li>
+                    <ul><li>
+                        <a href="../instructor/key-points.html">Key Points</a>
+                      </li>
+                      <li>
+                        <a href="../instructor/instructor-notes.html">Instructor Notes</a>
+                      </li>
+                      <li>
+                        <a href="../instructor/images.html">Extract All Images</a>
+                      </li>
+                      
                     </ul></div>
                 </div>
               </div>
             </div>
-
-            <a href="../instructor/aio.html">See all in one page</a>
+            <hr class="half-width resources"><a href="../instructor/aio.html">See all in one page</a>
 
             <hr class="d-none d-sm-block d-md-none"><div class="d-grid gap-1">
             
@@ -325,7 +332,7 @@
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">install.packages</span><span class="op">(</span><span class="st">"sandpaper"</span>, repos <span class="op">=</span> <span class="st">"https://carpentries.r-universe.dev"</span><span class="op">)</span></code></pre>
+<code class="sourceCode R"><span><span class="fu">install.packages</span><span class="op">(</span><span class="st">"sandpaper"</span>, repos <span class="op">=</span> <span class="st">"https://carpentries.r-universe.dev"</span><span class="op">)</span></span></code></pre>
 </div>
 </section><section id="validator"><h2 class="section-heading">Validator</h2>
 <hr class="half-width"><p>This is {pegboard}! It runs behind the scenes in {sandpaper} to parse the source documents and validate things like headings, images, and cross-links. It also can extract elements like code and individual sections.</p>
@@ -334,7 +341,7 @@
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">install.packages</span><span class="op">(</span><span class="st">"pegboard"</span>, repos <span class="op">=</span> <span class="st">"https://carpentries.r-universe.dev"</span><span class="op">)</span></code></pre>
+<code class="sourceCode R"><span><span class="fu">install.packages</span><span class="op">(</span><span class="st">"pegboard"</span>, repos <span class="op">=</span> <span class="st">"https://carpentries.r-universe.dev"</span><span class="op">)</span></span></code></pre>
 </div>
 </section><section id="styling"><h2 class="section-heading">Styling</h2>
 <hr class="half-width"><p>This is {varnish}! This package contains all the HTML, JavaScript, and CSS to make your generated HTML look like a Carpentries Lesson!</p>
@@ -343,7 +350,7 @@
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">sandpaper</span><span class="fu">::</span><span class="fu">update_varnish</span><span class="op">(</span><span class="op">)</span></code></pre>
+<code class="sourceCode R"><span><span class="fu">sandpaper</span><span class="fu">::</span><span class="fu">update_varnish</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
 </section><section id="deployment"><h2 class="section-heading">Deployment</h2>
 <hr class="half-width"><div class="section level3">
@@ -383,7 +390,7 @@
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">sandpaper</span><span class="fu">::</span><span class="fu">update_github_workflows</span><span class="op">(</span><span class="op">)</span></code></pre>
+<code class="sourceCode R"><span><span class="fu">sandpaper</span><span class="fu">::</span><span class="fu">update_github_workflows</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -452,9 +459,9 @@
         <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.6.0" class="external-link">sandpaper (0.6.0)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.6.2" class="external-link">sandpaper (0.6.2)</a>,
         <a href="https://github.com/carpentries/pegboard/tree/0.3.0" class="external-link">pegboard (0.3.0)</a>,
-      and <a href="https://github.com/carpentries/varnish/tree/0.2.0" class="external-link">varnish (0.2.0)</a>.</p>
+      and <a href="https://github.com/carpentries/varnish/tree/0.2.1" class="external-link">varnish (0.2.1)</a>.</p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -476,7 +483,7 @@
   "identifier": "https://carpentries.github.io/sandpaper-docs/instructor/update.html",
   "dateCreated": "2022-06-20",
   "dateModified": "2022-06-07",
-  "datePublished": "2022-06-21"
+  "datePublished": "2022-06-28"
 }
 
   </script><script>
