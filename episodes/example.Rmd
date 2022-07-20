@@ -96,11 +96,11 @@ You can add a line with at least three colons and a `solution` tag.
 
 You can also include figures generated from R Markdown:
 
-```{r pyramid, fig.alt = "pie chart illusion of a pyramid", fig.cap = "Sun arise each and every morning"}
+```{r pyramid, fig.alt = "pie chart illusion of a pyramid", fig.cap = "Night falls on Hoboken"}
 pie(
-  c(Sky = 78, "Sunny side of pyramid" = 17, "Shady side of pyramid" = 5), 
+  c("Night Sky" = 78, "Soft Side of pyramid" = 17, "Softer side of pyramid" = 5), 
   init.angle = 315, 
-  col = c("deepskyblue", "yellow", "yellow3"), 
+  col = c("royalblue4", "wheat3", "wheat4"), 
   border = FALSE
 )
 ```
