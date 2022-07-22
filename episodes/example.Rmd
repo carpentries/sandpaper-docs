@@ -110,7 +110,16 @@ Or you can use standard markdown for static figures with the following syntax:
 `![optional caption that appears below the figure](figure url){alt='alt text for
 accessibility purposes'}`
 
-![You belong in The Carpentries!](https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.'}
+This kitten has no alt text 😿:
+
+![i <3 kittens](https://placekitten.com/333/333)
+
+This kitten has alt text 😹:
+
+![i <3 kittens](https://placekitten.com/333/333){alt='A cute kitten'}
+
+find kittens at [this link](https://placekitten.com)
+
 
 ## Math
 
