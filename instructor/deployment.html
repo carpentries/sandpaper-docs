@@ -307,7 +307,8 @@
 </div>
 </div>
 </div>
-<section id="building-a-lesson"><h2 class="section-heading">Building A Lesson</h2>
+<section id="building-a-lesson"><h2 class="section-heading">Building A Lesson<a class="anchor" aria-label="anchor" href="#building-a-lesson"></a>
+</h2>
 <hr class="half-width"><p>Static site generators all know one thing: how to translate markdown to an HTML website. The Carpentries Lesson Infrastructure is no different in that it will generate an HTML website from markdown files using <a href="https://pandoc.org/" class="external-link">pandoc</a>. The difference is how we handle the generated content to make your lesson portable and transferrable.</p>
 <div class="section level3">
 <h3 id="working-with-generated-content">Working With Generated Content<a class="anchor" aria-label="anchor" href="#working-with-generated-content"></a></h3>
@@ -327,14 +328,16 @@
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="did-you-know" class="callout-inner">
-<h3 class="callout-title">Did you know?</h3>
+<h3 class="callout-title">Did you know?<a class="anchor" aria-label="anchor" href="#did-you-know"></a>
+</h3>
 <div class="callout-content">
 <p>When the lesson is pushed to GitHub, all of the generated content IS stored in separate branches so that we can provide a way for you to audit changes from pull requests.</p>
 </div>
 </div>
 </div>
 </div>
-</section><section id="deploying-on-github"><h2 class="section-heading">Deploying On GitHub</h2>
+</section><section id="deploying-on-github"><h2 class="section-heading">Deploying On GitHub<a class="anchor" aria-label="anchor" href="#deploying-on-github"></a>
+</h2>
 <hr class="half-width"><p>For historical reasons, GitHub used the Jekyll static site generator to deploy their documentation websites, but because we no longer use Jekyll, we we deploy our sites in a different manner.</p>
 <p>On GitHub, we store generated content in two orphan branches called <code>md-outputs</code> and <code>gh-pages</code> for the generated markdown and html, respectively. We use <a href="https://docs.github.com/en/actions/" class="external-link">GitHub Actions Workflows</a> to build, validate, and deploy our lessons on GitHub pages. Because the markdown and HTML outputs are preserved in the git history, we can tag and preserve them for archiving.</p>
 <p>These workflows are the source of truth for the lessons and will keep your lesson up-to-date with the latest version of the HTML template. Moreover, each week, these workflows will check for updates and, if there are any, a pull request will be created to ensure you are using the latest versions. You can <a href="update.html">read more about updating your workflows in the Maitenance chapter</a>.</p>
@@ -344,7 +347,8 @@
 <i class="callout-icon" data-feather="key"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Keypoints</h3>
+<h3 class="callout-title">Keypoints<a class="anchor" aria-label="anchor" href="#NA"></a>
+</h3>
 <div class="callout-content">
 <ul><li>Lessons are built using a two-step process of caching markdown outputs and then building HTML from that cache</li>
 <li>We use GitHub Actions to deploy and audit generated lesson content to their websites</li>
@@ -375,9 +379,9 @@
         <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.9.0" class="external-link">sandpaper (0.9.0)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.9.1" class="external-link">sandpaper (0.9.1)</a>,
         <a href="https://github.com/carpentries/pegboard/tree/0.3.0" class="external-link">pegboard (0.3.0)</a>,
-      and <a href="https://github.com/carpentries/varnish/tree/0.2.2" class="external-link">varnish (0.2.2)</a>.</p>
+      and <a href="https://github.com/carpentries/varnish/tree/0.2.3" class="external-link">varnish (0.2.3)</a>.</p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">

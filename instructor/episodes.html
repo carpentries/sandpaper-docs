@@ -321,7 +321,8 @@
 </div>
 </div>
 </div>
-<section id="introduction"><h2 class="section-heading">Introduction</h2>
+<section id="introduction"><h2 class="section-heading">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h2>
 <hr class="half-width"><p>An episode<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> is an individual unit of a lesson that focuses on a single topic with clear questions, objectives, and key points. If a lesson goal is to teach you about using git, an individual episode would teach you how to inspect the status of a git repsitory. The idea behind the name “episode” is the thought that each one should last about as long as an episode for an television series.</p>
 <p>As we will cover in the <a href="editing.html">next episode</a>, all of the episodes live inside the <code>episodes/</code> directory at the top of the lesson folder. Their order is dictated by the <code>episodes:</code> element in the <code>config.yaml</code> file (but defaults to alphabetical). The other folders (<code>learners/</code>, <code>instructors/</code>, and <code>profiles/</code>) are similarly configured. This episode will briefly explain how to edit markdown content in the lessons.</p>
 <div id="prereq1" class="callout prereq">
@@ -329,7 +330,8 @@
 <i class="callout-icon" data-feather="check"></i>
 </div>
 <div id="buoyant-barnacle" class="callout-inner">
-<h3 class="callout-title">Buoyant Barnacle</h3>
+<h3 class="callout-title">Buoyant Barnacle<a class="anchor" aria-label="anchor" href="#buoyant-barnacle"></a>
+</h3>
 <div class="callout-content">
 <p>The exercises in this episode correspond to the Buoyant Barnacle repository you created in <a href="introduction.html">the Introduction</a></p>
 </div>
@@ -339,7 +341,8 @@
 <ol style="list-style-type: decimal"><li>Writing <a href="https://www.markdownguide.org/basic-syntax" class="external-link">basic</a> and <a href="https://www.markdownguide.org/extended-syntax/" class="external-link">extended</a> markdown syntax</li>
 <li>Writing <a href="https://pandoc.org/MANUAL#divs-and-spans" class="external-link">Fenced div elements</a> to create callouts and exercise blocks</li>
 <li>Writing simple yaml lists</li>
-</ol></section><section id="creating-a-new-episode"><h2 class="section-heading">Creating A New Episode</h2>
+</ol></section><section id="creating-a-new-episode"><h2 class="section-heading">Creating A New Episode<a class="anchor" aria-label="anchor" href="#creating-a-new-episode"></a>
+</h2>
 <hr class="half-width"><p>To create a new episode, you should open your lesson (<code>buoyant-barnacle</code>) in your RStudio or your favorite text editor and in the R console type:</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -353,7 +356,8 @@
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="what-is-the-.rmd-extension" class="callout-inner">
-<h3 class="callout-title">What is the <code>.Rmd</code> extension?</h3>
+<h3 class="callout-title">What is the <code>.Rmd</code> extension?<a class="anchor" aria-label="anchor" href="#what-is-the-.rmd-extension"></a>
+</h3>
 <div class="callout-content">
 <p>You might notice that the new episode has the extension of <code>.Rmd</code> instead of <code>.md</code>. This is R Markdown, an extension of markdown that allows us to insert special code fences that can execute R code and automatically produce output chunks with controls of how the output and input are rendered in the document.</p>
 <p>For example, this markdown code fence will not produce any output, but it is valid for both Markdown and R Markdown.</p>
@@ -385,7 +389,8 @@ print("hello world!")
 </div>
 </div>
 </div>
-</section><section id="required-elements"><h2 class="section-heading">Required Elements</h2>
+</section><section id="required-elements"><h2 class="section-heading">Required Elements<a class="anchor" aria-label="anchor" href="#required-elements"></a>
+</h2>
 <hr class="half-width"><p>To keep with our active learning principals, we want to be mindful about the content we present to the learners. We need to give them a clear title, questions and objectives, and an estimate of how long it will take to navigate the episode (though this latter point has shown to be demoralizing). Finally, at the end of the episode, we should reinforce the learners progress with a summary of key points.</p>
 <div class="section level3">
 <h3 id="yaml-metadata">YAML metadata<a class="anchor" aria-label="anchor" href="#yaml-metadata"></a></h3>
@@ -406,7 +411,8 @@ print("hello world!")
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div id="create-a-title" class="callout-inner">
-<h3 class="callout-title">Create a Title</h3>
+<h3 class="callout-title">Create a Title<a class="anchor" aria-label="anchor" href="#create-a-title"></a>
+</h3>
 <div class="callout-content">
 <p>Your new episode needs a title!</p>
 <ol style="list-style-type: decimal"><li>Open the new episode in your editor</li>
@@ -456,13 +462,15 @@ print("hello world!")
 <span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>::::::</span></code></pre>
 </div>
 </div>
-</section><section id="callout-blocks"><h2 class="section-heading">Editing an episode: Callout blocks</h2>
+</section><section id="callout-blocks"><h2 class="section-heading">Editing an episode: Callout blocks<a class="anchor" aria-label="anchor" href="#callout-blocks"></a>
+</h2>
 <hr class="half-width"><div id="callout2" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="callout-component-guide" class="callout-inner">
-<h3 class="callout-title">Callout Component Guide</h3>
+<h3 class="callout-title">Callout Component Guide<a class="anchor" aria-label="anchor" href="#callout-component-guide"></a>
+</h3>
 <div class="callout-content">
 <p>You can find a catalogue of the different callout blocks The Workbench supports in <a href="component-guide.html">The Workbench Component Guide</a>.</p>
 </div>
@@ -482,7 +490,8 @@ print("hello world!")
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Callout</h3>
+<h3 class="callout-title">Callout<a class="anchor" aria-label="anchor" href="#NA"></a>
+</h3>
 <div class="callout-content">
 <p>This is a callout block. It contains at least three colons</p>
 </div>
@@ -503,7 +512,8 @@ print("hello world!")
 <i class="callout-icon" data-feather="heart"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Testimonial</h3>
+<h3 class="callout-title">Testimonial<a class="anchor" aria-label="anchor" href="#NA"></a>
+</h3>
 <div class="callout-content">
 <p>I’m <strong>really excited</strong> for the <em>new template</em> when it arrives <span class="emoji" data-emoji="grin">😁</span>.</p>
 <p>— Toby Hodges</p>
@@ -516,20 +526,23 @@ print("hello world!")
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Callout</h3>
+<h3 class="callout-title">Callout<a class="anchor" aria-label="anchor" href="#NA"></a>
+</h3>
 <div class="callout-content">
 <p>That’s right, we can use emojis in The Carpentries Workbench! <span class="emoji" data-emoji="100">💯</span> <span class="emoji" data-emoji="tada">🎉</span></p>
 </div>
 </div>
 </div>
-</section><section id="instructor-notes"><h2 class="section-heading">Instructor Notes</h2>
+</section><section id="instructor-notes"><h2 class="section-heading">Instructor Notes<a class="anchor" aria-label="anchor" href="#instructor-notes"></a>
+</h2>
 <hr class="half-width"><p>A new feature in The Carpentries Workbench is separate instructor/learner views, which allows for instructor notes to be incorporated into the lesson. The default view of a lesson is the learner view, but you can switch to the instructor view by scrolling to the top of the lesson, clicking on the “Learner View” button at the top right, and then selecting “Instructor View” from the dropdown. You can also add <code>instructor/</code> after the lesson URL (e.g. in this lesson, the URL is <code>https://carpentries.github.io/sandpaper-docs/episodes.html</code>; to switch to the instructor view manually, you can use <code>https://carpentries.github.io/sandpaper-docs/instructor/episodes.html</code>.</p>
 <div id="discussion2" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div id="view-the-instructor-note" class="callout-inner">
-<h3 class="callout-title">View the instructor note</h3>
+<h3 class="callout-title">View the instructor note<a class="anchor" aria-label="anchor" href="#view-the-instructor-note"></a>
+</h3>
 <div class="callout-content">
 <p>When you visit this page, the default is learner view. Scroll to the top of the page and select “Instructor View” from the dropdown and return to this section to find an instructor note waiting for you.</p>
 </div>
@@ -579,7 +592,8 @@ print("hello world!")
 </div>
 </div>
 </div>
-</section><section id="exerciseschallenges"><h2 class="section-heading">Exercises/Challenges</h2>
+</section><section id="exerciseschallenges"><h2 class="section-heading">Exercises/Challenges<a class="anchor" aria-label="anchor" href="#exerciseschallenges"></a>
+</h2>
 <hr class="half-width"><p>the method of creating callout blocks with fences can help us create solution blocks nested within challenge blocks. Much like a <a href="https://en.wikipedia.org/wiki/Toast_sandwich" class="external-link">toast sandwich</a>, we can layer blocks inside blocks by adding more layers. For example, here’s how I would create a single challenge and a single solution:</p>
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -602,7 +616,8 @@ print("hello world!")
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="chemistry-joke" class="callout-inner">
-<h3 class="callout-title">Chemistry Joke</h3>
+<h3 class="callout-title">Chemistry Joke<a class="anchor" aria-label="anchor" href="#chemistry-joke"></a>
+</h3>
 <div class="callout-content">
 <p>Q: If you aren’t part of the solution, then what are you?</p>
 </div>
@@ -628,7 +643,8 @@ print("hello world!")
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge-1-can-you-do-it" class="callout-inner">
-<h3 class="callout-title">Challenge 1: Can you do it?</h3>
+<h3 class="callout-title">Challenge 1: Can you do it?<a class="anchor" aria-label="anchor" href="#challenge-1-can-you-do-it"></a>
+</h3>
 <div class="callout-content">
 <p>What is the output of this command?</p>
 <div class="codewrapper sourceCode" id="cb13">
@@ -663,7 +679,8 @@ print("hello world!")
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge-2-how-do-you-nest-solutions-within-challenge-blocks" class="callout-inner">
-<h3 class="callout-title">Challenge 2: how do you nest solutions within challenge blocks?</h3>
+<h3 class="callout-title">Challenge 2: how do you nest solutions within challenge blocks?<a class="anchor" aria-label="anchor" href="#challenge-2-how-do-you-nest-solutions-within-challenge-blocks"></a>
+</h3>
 <div class="callout-content">
 
 </div>
@@ -689,7 +706,8 @@ print("hello world!")
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Challenge</h3>
+<h3 class="callout-title">Challenge<a class="anchor" aria-label="anchor" href="#NA"></a>
+</h3>
 <div class="callout-content">
 <p>Is the following fenced-div valid? Why?</p>
 <div class="codewrapper sourceCode" id="cb15">
@@ -719,7 +737,8 @@ print("hello world!")
 </div>
 </div>
 </div>
-</section><section id="code-blocks-with-syntax-highlighting"><h2 class="section-heading">Code Blocks with Syntax Highlighting</h2>
+</section><section id="code-blocks-with-syntax-highlighting"><h2 class="section-heading">Code Blocks with Syntax Highlighting<a class="anchor" aria-label="anchor" href="#code-blocks-with-syntax-highlighting"></a>
+</h2>
 <hr class="half-width"><p>To include code examples in your lesson, you can wrap it in three backticks like so:</p>
 <p>Input:</p>
 <div class="codewrapper sourceCode" id="cb16">
@@ -776,7 +795,8 @@ print("this is a {} code block".format(thing))</code></pre>
 <pre class="output" tabindex="0"><code>this is a python code block</code></pre>
 </div>
 <p>The number of available languages for syntax highlighting are numerous and chances are, if you want to highlight a particular language, you can add the language name as a label and it will work. A <a href="https://github.com/jgm/skylighting/tree/master/skylighting-core/xml" class="external-link">full list of supported languages is here, each language being a separate XML file definition</a>.</p>
-</section><section id="links"><h2 class="section-heading">Links</h2>
+</section><section id="links"><h2 class="section-heading">Links<a class="anchor" aria-label="anchor" href="#links"></a>
+</h2>
 <hr class="half-width"><p>To include links to outside resources in your lesson, you write them with <a href="https://www.markdownguide.org/basic-syntax" class="external-link">standard markdown syntax</a>: <code>[descriptive link text](https://example.com/link-url)</code>. One thing to remember when writing links (in markdown or anywhere) is that <a href="https://webaim.org/techniques/hypertext/link_text#uninformative" class="external-link">link text should make sense out of context</a>. If you find that the link URL you are using is long, or you want to reuse it multiple times, you can use a link anchor with the following syntax:</p>
 <div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -794,7 +814,8 @@ print("this is a {} code block".format(thing))</code></pre>
 <h3 id="internal-links">Internal Links<a class="anchor" aria-label="anchor" href="#internal-links"></a></h3>
 <p>To reference other markdown files within the same lesson, use relative paths. For example, you will commonly want to refer learners to <a href="index.html">the setup page</a> from within the episodes. To link back to the setup page, you can use: <code>[setup page](../index.md)</code> and {sandpaper} will convert that link to the appropriate format for the lesson website.</p>
 </div>
-</section><section id="figures"><h2 class="section-heading">Figures</h2>
+</section><section id="figures"><h2 class="section-heading">Figures<a class="anchor" aria-label="anchor" href="#figures"></a>
+</h2>
 <hr class="half-width"><p>To include figures, place them in the <code>episodes/fig</code> folder and reference them directly like so using standard markdown format, with one twist: add an <code>alt</code> attribute at the end to make it accessible like this: <code>![caption](image){alt='alt text'}</code>.</p>
 <div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -807,7 +828,8 @@ print("this is a {} code block".format(thing))</code></pre>
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div id="accessibility-point-alternative-text-aka-alt-text" class="callout-inner">
-<h3 class="callout-title">Accessibility Point: Alternative Text (aka alt-text)</h3>
+<h3 class="callout-title">Accessibility Point: Alternative Text (aka alt-text)<a class="anchor" aria-label="anchor" href="#accessibility-point-alternative-text-aka-alt-text"></a>
+</h3>
 <div class="callout-content">
 <p>Alternative text (alt text) is a very important tool for making lessons accessible. If you are unfamiliar with alt text for images, <a href="https://axesslab.com/alt-texts/" class="external-link">this primer on alt text gives a good rundown of what alt text is and why it matters</a>. In short, alt text provides a short description of an image that can take the place of an image if it is missing or the user is unable to see it.</p>
 <div class="section level4">
@@ -848,7 +870,8 @@ print("this is a {} code block".format(thing))</code></pre>
 </div>
 <figure style="text-align: center"><img src="../fig/episodes-rendered-pyramid-1.png" alt="pie chart illusion of a pyramid" class="figure mx-auto d-block"><figcaption>
 Sun arise each and every morning
-</figcaption></figure></section><section id="math"><h2 class="section-heading">Math</h2>
+</figcaption></figure></section><section id="math"><h2 class="section-heading">Math<a class="anchor" aria-label="anchor" href="#math"></a>
+</h2>
 <hr class="half-width"><p>One of our episodes contains <span class="math inline">\(\LaTeX\)</span> equations when describing how to create dynamic reports with {knitr}, so we now use mathjax to describe this:</p>
 <p><code>$\alpha = \dfrac{1}{(1 - \beta)^2}$</code> becomes: <span class="math inline">\(\alpha = \dfrac{1}{(1 - \beta)^2}\)</span></p>
 <p>Cool, right?</p>
@@ -857,7 +880,8 @@ Sun arise each and every morning
 <i class="callout-icon" data-feather="key"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Keypoints</h3>
+<h3 class="callout-title">Keypoints<a class="anchor" aria-label="anchor" href="#NA"></a>
+</h3>
 <div class="callout-content">
 <ul><li>Use <code>.Rmd</code> files for lessons even if you don’t need to generate any code</li>
 <li>Run <code>sandpaper::check_lesson()</code> to identify any issues with your lesson</li>
@@ -896,9 +920,9 @@ Sun arise each and every morning
         <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.9.0" class="external-link">sandpaper (0.9.0)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.9.1" class="external-link">sandpaper (0.9.1)</a>,
         <a href="https://github.com/carpentries/pegboard/tree/0.3.0" class="external-link">pegboard (0.3.0)</a>,
-      and <a href="https://github.com/carpentries/varnish/tree/0.2.2" class="external-link">varnish (0.2.2)</a>.</p>
+      and <a href="https://github.com/carpentries/varnish/tree/0.2.3" class="external-link">varnish (0.2.3)</a>.</p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">

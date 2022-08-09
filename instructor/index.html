@@ -272,7 +272,8 @@
 <i class="callout-icon" data-feather="check-square"></i>
 </div>
 <div id="features-of-the-the-carpentries-workbench" class="callout-inner">
-<h3 class="callout-title">Features of the The Carpentries Workbench</h3>
+<h3 class="callout-title">Features of the The Carpentries Workbench<a class="anchor" aria-label="anchor" href="#features-of-the-the-carpentries-workbench"></a>
+</h3>
 <div class="callout-content">
 <ul class="task-list"><li>
 <input type="checkbox" disabled checked>
@@ -304,7 +305,7 @@ Compatible with RStudio</li>
 </div>
 <div id="under-construction" class="callout-inner">
 <h3 class="callout-title">
-<span class="emoji" data-emoji="construction">🚧</span> Under Construction <span class="emoji" data-emoji="construction">🚧</span>
+<span class="emoji" data-emoji="construction">🚧</span> Under Construction <span class="emoji" data-emoji="construction">🚧</span><a class="anchor" aria-label="anchor" href="#under-construction"></a>
 </h3>
 <div class="callout-content">
 <p>This documentation site is still being constructed—please be patient.</p>
@@ -389,7 +390,8 @@ Finish
 </tr></tbody></table><p>
       The actual schedule may vary slightly depending on the topics and exercises chosen by the instructor.
       </p>
-      </section><section id="setup"><section id="overview"><h2 class="section-heading">Overview</h2>
+      </section><section id="setup"><section id="overview"><h2 class="section-heading">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
+</h2>
 <hr class="half-width"><p>The lesson infrastructure is built on Git, <a href="https://cran.rstudio.org/" class="external-link">R</a>, and <a href="https://pandoc.org/" class="external-link">pandoc</a>. It consists of four components:</p>
 <ol style="list-style-type: decimal"><li>The source content (plain markdown or RMarkdown files organized into folders with a configuration yaml file)</li>
 <li>The engine (R package <a href="https://carpentries.github.io/sandpaper/" class="external-link">{sandpaper}</a>)to orchestrate building the content from markdown to HTML</li>
@@ -432,7 +434,8 @@ Finish
 <p>This will guide you through installing the foundational software and infrastructure packages on your computer. If you already have software installed and are curious if you should update it to a newer version, the answer is almost always, yes, update to a newer version, because often the <a href="https://github.com/git/git/security/advisories/GHSA-8prw-h3cq-mghm" class="external-link">newer versions will contain important bug fixes that are important to the secruity of your computer</a>.</p>
 <p>Jump to the installation instructions for your system: <a href="#windows">Windows</a>, <a href="#mac">MacOS</a>, or <a href="#linux">Linux</a></p>
 </div>
-</section><section id="windows"><h2 class="section-heading">Installing on Windows</h2>
+</section><section id="windows"><h2 class="section-heading">Installing on Windows<a class="anchor" aria-label="anchor" href="#windows"></a>
+</h2>
 <hr class="half-width"><div class="section level3">
 <h3 id="git">Git<a class="anchor" aria-label="anchor" href="#git"></a></h3>
 <p>We recommend installing git via the Git for Windows installer at <a href="https://gitforwindows.org/" class="external-link uri">https://gitforwindows.org/</a>. The installer is going to ask a lot of questions, so we recommend <a href="https://carpentries.github.io/workshop-template/#shell-windows" class="external-link">using The Carpentries checklist for workshop participants</a>.</p>
@@ -466,7 +469,8 @@ operable program or batch file.</code></pre>
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="winpath" class="callout-inner">
-<h3 class="callout-title">Optional: Want to add R to your PATH?</h3>
+<h3 class="callout-title">Optional: Want to add R to your PATH?<a class="anchor" aria-label="anchor" href="#winpath"></a>
+</h3>
 <div class="callout-content">
 <p>As we mention above, <a href="#recommend">we recommend using RStudio for your lesson</a>, but if you want to be able to integrate the lesson infrastructure into your own preferred workflow, you need to have R on your path. The catch is that R for Windows does not automatically set your <code>PATH</code> variable.</p>
 <p><a href="https://www.maketecheasier.com/what-is-the-windows-path/" class="external-link">Here are some instructions on setting up your PATH on Windows using both the GUI and CLI</a>. Note that R will normally install at something like <code>c:\Program Files\R\R-4.1.0\bin\x64</code>, but if you are not admin, it will install in your Documents folder.</p>
@@ -526,7 +530,8 @@ https://www.gnu.org/licenses/.</code></pre>
 <span><span class="fu">install.packages</span><span class="op">(</span><span class="fu">c</span><span class="op">(</span><span class="st">"sandpaper"</span>, <span class="st">"varnish"</span>, <span class="st">"pegboard"</span>, <span class="st">"tinkr"</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
 </div>
-</section><section id="mac"><h2 class="section-heading">Installing on MacOS</h2>
+</section><section id="mac"><h2 class="section-heading">Installing on MacOS<a class="anchor" aria-label="anchor" href="#mac"></a>
+</h2>
 <hr class="half-width"><div class="section level3">
 <h3 id="git-1">Git<a class="anchor" aria-label="anchor" href="#git-1"></a></h3>
 <p>You should have git pre-installed on your macOS, but it is likely that this is an old version. We recommend installing <a href="http://sourceforge.net/projects/git-osx-installer/files/" class="external-link">The latest version of Git for MacOS from sourceforge</a> (<strong>ignore the big green button</strong> and choose the latest version from the list). For a video walkthrough and an explanation of what to expect, you can look at the <a href="https://carpentries.github.io/workshop-template/#git-macos" class="external-link">instructions for workshop participants</a>.</p>
@@ -611,7 +616,8 @@ https://www.gnu.org/licenses/.</code></pre>
 <span><span class="fu">install.packages</span><span class="op">(</span><span class="fu">c</span><span class="op">(</span><span class="st">"sandpaper"</span>, <span class="st">"varnish"</span>, <span class="st">"pegboard"</span>, <span class="st">"tinkr"</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
 </div>
-</section><section id="linux"><h2 class="section-heading">Installing on Linux</h2>
+</section><section id="linux"><h2 class="section-heading">Installing on Linux<a class="anchor" aria-label="anchor" href="#linux"></a>
+</h2>
 <hr class="half-width"><p>A lot of the documentation for Linux is nuanced because it assumes that if you use Linux, then you automatically know how to install things by the command line. I will be providing instructions as best I can for Ubuntu Linux and point to resourced for other distributions. For Ubuntu/Debian, the default <code>apt</code> repository is often out of date, so you will need to use a <a href="https://itsfoss.com/ppa-guide/" class="external-link">Personal Package Archive aka PPA</a> to install the latest version of a particular software, which I will include in these instructions.</p>
 <div class="section level3">
 <h3 id="git-2">Git<a class="anchor" aria-label="anchor" href="#git-2"></a></h3>
@@ -691,7 +697,8 @@ https://www.gnu.org/licenses/.
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="optional-verify-the-install" class="callout-inner">
-<h3 class="callout-title">Optional: verify the install</h3>
+<h3 class="callout-title">Optional: verify the install<a class="anchor" aria-label="anchor" href="#optional-verify-the-install"></a>
+</h3>
 <div class="callout-content">
 <p>You can optionally verify the download before installing by following the instructions at <a href="https://www.rstudio.com/code-signing/" class="external-link uri">https://www.rstudio.com/code-signing/</a>.</p>
 </div>
@@ -715,7 +722,8 @@ https://www.gnu.org/licenses/.
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="dependencies-of-dependencies" class="callout-inner">
-<h3 class="callout-title">Dependencies of Dependencies</h3>
+<h3 class="callout-title">Dependencies of Dependencies<a class="anchor" aria-label="anchor" href="#dependencies-of-dependencies"></a>
+</h3>
 <div class="callout-content">
 <p>If you are not used to installing software on Linux, it can be frustrating sometimes because few things ever “just work” when you try to install them. The same is true for some R packages with compiled code.</p>
 <p>Some packages require underlying C libraries (e.g. the xml2 library), which are catalogued for Ubuntu in <a href="https://carpentries.r-universe.dev/ui#builds" class="external-link">The Carpentries R Universe</a> and <a href="https://carpentries.r-universe.dev/ui#api" class="external-link">available via the API</a>. If you want to view the packages that are required (some of which may already be on your system), you can use <code>curl</code> and <code>jq</code> to produce a list:</p>
@@ -741,7 +749,8 @@ https://www.gnu.org/licenses/.
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="what-if-i-have-a-different-version-of-linux" class="callout-inner">
-<h3 class="callout-title">What if I have a different version of Linux?</h3>
+<h3 class="callout-title">What if I have a different version of Linux?<a class="anchor" aria-label="anchor" href="#what-if-i-have-a-different-version-of-linux"></a>
+</h3>
 <div class="callout-content">
 <p>If you have a different version of linux, you can visit <a href="https://packagemanager.rstudio.com/client/#/repos/1/overview" class="external-link uri">https://packagemanager.rstudio.com/client/#/repos/1/overview</a>, select your system where it says “Use this URL to work with the latest binary packages for Ubuntu 20.04 (Focal) <strong>change</strong>”, and replace the packagemanager URL below.</p>
 <p>For the dependencies above, you can browse the <a href="https://github.com/rstudio/r-system-requirements" class="external-link">rstudio/r-system-requirements repository</a> to find the correct formulation for your computer.</p>
@@ -772,7 +781,8 @@ https://www.gnu.org/licenses/.
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="what-if-i-get-errors-installing-packages" class="callout-inner">
-<h3 class="callout-title">What if I get errors installing packages?</h3>
+<h3 class="callout-title">What if I get errors installing packages?<a class="anchor" aria-label="anchor" href="#what-if-i-get-errors-installing-packages"></a>
+</h3>
 <div class="callout-content">
 <p>If you run into errors (non-zero exit status), it probably means that you were missing a C library dependency that needs to be installed via your package manager (i.e. apt). To resolve these issues, scroll back in the log and you might find messages that looks similar to this:</p>
 <div class="codewrapper">
@@ -805,7 +815,8 @@ compilation terminated.
 </div>
 </div>
 </div>
-</section><section id="install-test"><h2 class="section-heading">Test your installation</h2>
+</section><section id="install-test"><h2 class="section-heading">Test your installation<a class="anchor" aria-label="anchor" href="#install-test"></a>
+</h2>
 <hr class="half-width"><p>Now that you have installed the lesson components, it is a good idea to run a small test to verify that these components work together. To test your installation <strong>open RStudio</strong> (or launch R if you have not installed RStudio) and enter the following commands to confirm everything works</p>
 <div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -853,7 +864,8 @@ compilation terminated.
     └── docs</code></pre>
 </div>
 <p>If the installation did not work, please <a href="https://github.com/carpentries/sandpaper-docs/issues/new" class="external-link">raise an issue on GitHub</a> and I can help troubleshoot.</p>
-</section><section id="installation-faq"><h2 class="section-heading">Installation FAQ</h2>
+</section><section id="installation-faq"><h2 class="section-heading">Installation FAQ<a class="anchor" aria-label="anchor" href="#installation-faq"></a>
+</h2>
 <hr class="half-width"><div class="section level3">
 <h3 id="why-does-it-take-5-lines-of-code-to-install-the-infrastructure">Why does it take 5 lines of code to install the infrastructure?<a class="anchor" aria-label="anchor" href="#why-does-it-take-5-lines-of-code-to-install-the-infrastructure"></a></h3>
 <p>In the future, this will be ONE line of code!</p>
@@ -871,7 +883,8 @@ compilation terminated.
 <p>This folder is where all of the R packages you install via <code>install.packages()</code> will live. If you ever need to look this up, you can use the <code>.libPaths()</code> function.</p>
 <p>Sometimes, your R session will issue a warning that says a folder is not writeable and asks if you would like to use a personal library instead. In this case, select “yes”.</p>
 </div>
-</section><section id="using-the-lesson-engine"><h2 class="section-heading">Using the lesson engine</h2>
+</section><section id="using-the-lesson-engine"><h2 class="section-heading">Using the lesson engine<a class="anchor" aria-label="anchor" href="#using-the-lesson-engine"></a>
+</h2>
 <hr class="half-width"><p>Throughout the lesson, I will ask you to <strong>open R or RStudio</strong>. If you are using RStudio, you can open it by double-clicking on the RStudio icon in your application launcher; you do not have to open R separately to use RStudio.</p>
 <p>If you are using R, you can open it in your terminal application by typing <code>R</code>. Your prompt will be replaced by a <code>&gt;</code>, which indicates that you are in R’s interactive <a href="https://glosario.carpentries.org/en/#repl" class="external-link">REPL</a>.</p>
 <p>You can exit R or RStudio by typing <code>q()</code> in the R console.</p>
@@ -880,7 +893,8 @@ compilation terminated.
 <i class="callout-icon" data-feather="check"></i>
 </div>
 <div id="setting-up-your-r-workspace" class="callout-inner">
-<h3 class="callout-title">Setting up your R workspace</h3>
+<h3 class="callout-title">Setting up your R workspace<a class="anchor" aria-label="anchor" href="#setting-up-your-r-workspace"></a>
+</h3>
 <div class="callout-content">
 <p>When you set up R, it’s important to make sure you set it up to always start R with a clean slate<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>: never save your workspace on exit and never load a previously saved workspace on startup.</p>
 <div class="section level4">
@@ -901,7 +915,8 @@ compilation terminated.
 </div>
 </div>
 </div>
-</section><section id="connect-to-github"><h2 class="section-heading">Connect to GitHub</h2>
+</section><section id="connect-to-github"><h2 class="section-heading">Connect to GitHub<a class="anchor" aria-label="anchor" href="#connect-to-github"></a>
+</h2>
 <hr class="half-width"><p>You will need to make sure your git session is connected to GitHub. To do so, you will need to use an SSH or HTTPS protocol. If you already know how to push and pull from GitHub using the command line, you do not need to worry about setting this up.</p>
 <p>If you do not have this set up, you should <a href="https://docs.github.com/en/github/getting-started-with-github/about-remote-repositories" class="external-link">choose a protocol</a> and then set them up according to the instructions from GitHub.</p>
 <div id="callout6" class="callout callout">
@@ -909,7 +924,8 @@ compilation terminated.
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="is-githubs-documentation-confusing" class="callout-inner">
-<h3 class="callout-title">Is GitHub’s Documentation Confusing?</h3>
+<h3 class="callout-title">Is GitHub’s Documentation Confusing?<a class="anchor" aria-label="anchor" href="#is-githubs-documentation-confusing"></a>
+</h3>
 <div class="callout-content">
 <p>If you are like me, you may find GitHub’s documentation slightly confusing and/or lacking. I’ve found the following resources to be extremely helpful for setting up authentication credentials for your account:</p>
 <dl><dt><a href="http://swcarpentry.github.io/git-novice/07-github" class="external-link">Remotes in GitHub (Software Carpentry)</a></dt>
@@ -954,9 +970,9 @@ compilation terminated.
         <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.9.0" class="external-link">sandpaper (0.9.0)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.9.1" class="external-link">sandpaper (0.9.1)</a>,
         <a href="https://github.com/carpentries/pegboard/tree/0.3.0" class="external-link">pegboard (0.3.0)</a>,
-      and <a href="https://github.com/carpentries/varnish/tree/0.2.2" class="external-link">varnish (0.2.2)</a>.</p>
+      and <a href="https://github.com/carpentries/varnish/tree/0.2.3" class="external-link">varnish (0.2.3)</a>.</p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">

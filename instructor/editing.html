@@ -317,7 +317,8 @@
 </div>
 </div>
 <p>If you want to edit and preview a full lesson using {sandpaper}, this is the episode for you. If you want to create a new lesson, head back to the episode for <a href="introduction.html">Creating a New Lesson</a>. I believe it’s beneficial to experience editing a fully functional lesson, so you will edit THIS lesson. The first step is to fork and clone it from GitHub:</p>
-<section id="create-from-github"><h2 class="section-heading">Fork and Clone a Lesson</h2>
+<section id="create-from-github"><h2 class="section-heading">Fork and Clone a Lesson<a class="anchor" aria-label="anchor" href="#create-from-github"></a>
+</h2>
 <hr class="half-width"><p>If you are familiar with the process of forking and cloning, then you may fork and clone as you normally do. If you would like a reminder, here are the steps:</p>
 <ol style="list-style-type: decimal"><li><p>Think about a place on your computer where you want to work on your fork of the lesson (e.g. <code>~/Documents/Lessons/</code>) and make sure that folder exists.</p></li>
 <li><p>Go to <a href="https://github.com/carpentries/sandpaper-docs/fork/" class="external-link uri">https://github.com/carpentries/sandpaper-docs/fork/</a> to fork the repository to your account</p></li>
@@ -336,7 +337,8 @@
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="one-step-fork-with-r" class="callout-inner">
-<h3 class="callout-title">One-step fork with R</h3>
+<h3 class="callout-title">One-step fork with R<a class="anchor" aria-label="anchor" href="#one-step-fork-with-r"></a>
+</h3>
 <div class="callout-content">
 <p>If you use R and you also use an HTTPS protocol, you might be interested to know that the above three steps can be done in a single step with the {usethis} package via the GitHub API:</p>
 <div class="codewrapper sourceCode" id="cb2">
@@ -354,7 +356,8 @@
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="preview-the-lesson" class="callout-inner">
-<h3 class="callout-title">Preview the Lesson</h3>
+<h3 class="callout-title">Preview the Lesson<a class="anchor" aria-label="anchor" href="#preview-the-lesson"></a>
+</h3>
 <div class="callout-content">
 <ol style="list-style-type: decimal"><li>Open the lesson in RStudio (or whatever you use for R)</li>
 <li>Use the keyboard shortcut <kbd>ctrl + shift + b</kbd> (<kbd>cmd + shift + b</kbd> on macOS) to build and preview this lesson (or type <code>sandpaper::build_lesson()</code> in the console if you are not using RStudio)</li>
@@ -370,21 +373,22 @@
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>What you should notice is that the only file updated when you re-render the lesson is the file you changed (<code>episodes/editing.Rmd</code>).</p>
 </div>
 </div>
 </div>
 </div>
-</section><section id="folder-structure"><h2 class="section-heading">Folder Structure</h2>
+</section><section id="folder-structure"><h2 class="section-heading">Folder Structure<a class="anchor" aria-label="anchor" href="#folder-structure"></a>
+</h2>
 <hr class="half-width"><div id="callout2" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="this-may-change" class="callout-inner">
 <h3 class="callout-title">
-<span class="emoji" data-emoji="construction">🚧</span> This May Change <span class="emoji" data-emoji="construction">🚧</span>
+<span class="emoji" data-emoji="construction">🚧</span> This May Change <span class="emoji" data-emoji="construction">🚧</span><a class="anchor" aria-label="anchor" href="#this-may-change"></a>
 </h3>
 <div class="callout-content">
 <p>The exact folder structure still has the possibility to change based on user testing for the front-end of the lesson website.</p>
@@ -407,7 +411,9 @@
 `-- README.md          # &lt;- Introduces folks how to use this lesson and where they can find more information.</code></pre>
 <p>This folder structure is heavily opinionated towards achieving our goals of creating a lesson infrastructure that is fit for the purpose of delivering lesson content for not only Carpentries instructors, but also for learners and educators who are browsing the content after a workshop. It is not designed to be a blog or commerce website. Read the following sections to understand the files and folders you will interact with most.</p>
 <p>All source files in {sandpaper} are written in <a href="https://pandoc.org/" class="external-link">pandoc</a>-flavored markdown and all require yaml header called <code>title</code>. Beyond that, you can put anything in these markdown files.</p>
-</section><section id="config.yaml"><h2 class="section-heading"><code>config.yaml</code></h2>
+</section><section id="config.yaml"><h2 class="section-heading">
+<code>config.yaml</code><a class="anchor" aria-label="anchor" href="#config.yaml"></a>
+</h2>
 <hr class="half-width"><p>This configuration file contains global information about the lesson. It is purposefully designed to only include information that is editable and relevant to the lesson itself and can be divided into two sections: information and organization</p>
 <div class="section level3">
 <h3 id="information">Information<a class="anchor" aria-label="anchor" href="#information"></a></h3>
@@ -464,7 +470,8 @@
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="configuring-episode-order" class="callout-inner">
-<h3 class="callout-title">Configuring Episode Order</h3>
+<h3 class="callout-title">Configuring Episode Order<a class="anchor" aria-label="anchor" href="#configuring-episode-order"></a>
+</h3>
 <div class="callout-content">
 <p>Open <code>config.yaml</code> and change the order of the episodes. Preview the lesson after you save the file. How did the schedule change?</p>
 </div>
@@ -477,7 +484,7 @@
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>The episodes appear in the same order as the configuration file and the timings have rearranged themselves to reflect that.</p>
 </div>
@@ -485,7 +492,9 @@
 </div>
 </div>
 </div>
-</section><section id="episodes"><h2 class="section-heading"><code>episodes/</code></h2>
+</section><section id="episodes"><h2 class="section-heading">
+<code>episodes/</code><a class="anchor" aria-label="anchor" href="#episodes"></a>
+</h2>
 <hr class="half-width"><p>This is the folder where all the action is. It contains all of the episodes, figures, and data files needed for the lesson. By default, it will contain an episode called 01-introduction.Rmd. You can edit this file to use as your introduction. To create a new episode, use the folowing function:</p>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -495,9 +504,13 @@
 </div>
 <p>This will template a {sandpaper} episode called <code>02-episode-name.Rmd</code> in the <code>episodes/</code> directory of your lesson and pre-populate it with objectives, questions, and keypoints.</p>
 <p>After you add your draft of the episode, you need to add it to the <code>episodes</code> section of <code>config.yaml</code>. This will be your table of contents. By default, all of the episodes are rendered in alphabetical order, and the <code>config.yaml</code> can allow you to work on episodes that are not yet ready for production.</p>
-</section><section id="instructors"><h2 class="section-heading"><code>instructors/</code></h2>
+</section><section id="instructors"><h2 class="section-heading">
+<code>instructors/</code><a class="anchor" aria-label="anchor" href="#instructors"></a>
+</h2>
 <hr class="half-width"><p>This folder contains information used for instructors only. Downloads of code outlines, aggregated figures, and slides would live in this folder.</p>
-</section><section id="learners"><h2 class="section-heading"><code>learners/</code></h2>
+</section><section id="learners"><h2 class="section-heading">
+<code>learners/</code><a class="anchor" aria-label="anchor" href="#learners"></a>
+</h2>
 <hr class="half-width"><p>All the extras the learner would need, mostly a setup guide and glossary live here.</p>
 <p>The glossary page is populated from the <code>reference.md</code> file in this folder. The format of the glossary section of the <code>reference.md</code> file is a heading title <code>## Glossary</code> followed by <a href="https://pandoc.org/MANUAL.html#definition-lists" class="external-link">a definition list</a>. Definition lists are formatted as two lines for each term, the first includes the term to be defined and then the second line starts with a “:” and a space then the definition. i.e.</p>
 <div class="codewrapper sourceCode" id="cb6">
@@ -509,18 +522,25 @@
 <dl><dt>term</dt>
 <dd>definition
 </dd>
-</dl></section><section id="profiles"><h2 class="section-heading"><code>profiles/</code></h2>
+</dl></section><section id="profiles"><h2 class="section-heading">
+<code>profiles/</code><a class="anchor" aria-label="anchor" href="#profiles"></a>
+</h2>
 <hr class="half-width"><p>Learner profiles would live in this folder and target learners, instructors, and maintainers alike to give a focus on the lesson.</p>
-</section><section id="index.md"><h2 class="section-heading"><code>index.md</code></h2>
+</section><section id="index.md"><h2 class="section-heading">
+<code>index.md</code><a class="anchor" aria-label="anchor" href="#index.html"></a>
+</h2>
 <hr class="half-width"><p>This is the landing page for the lesson. The schedule is appended at the bottom of this page and this will be the first page that anyone sees.</p>
-</section><section id="readme.md"><h2 class="section-heading"><code>README.md</code></h2>
+</section><section id="readme.md"><h2 class="section-heading">
+<code>README.md</code><a class="anchor" aria-label="anchor" href="#readme.html"></a>
+</h2>
 <hr class="half-width"><p>This page gives information to maintainers about what to expect inside of th repository and how to contribute.</p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Keypoints</h3>
+<h3 class="callout-title">Keypoints<a class="anchor" aria-label="anchor" href="#NA"></a>
+</h3>
 <div class="callout-content">
 <ul><li>
 <code>sandpaper::build_lesson()</code> renders the site and rebuilds any sources that have changed.</li>
@@ -557,9 +577,9 @@
         <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.9.0" class="external-link">sandpaper (0.9.0)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.9.1" class="external-link">sandpaper (0.9.1)</a>,
         <a href="https://github.com/carpentries/pegboard/tree/0.3.0" class="external-link">pegboard (0.3.0)</a>,
-      and <a href="https://github.com/carpentries/varnish/tree/0.2.2" class="external-link">varnish (0.2.2)</a>.</p>
+      and <a href="https://github.com/carpentries/varnish/tree/0.2.3" class="external-link">varnish (0.2.3)</a>.</p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">

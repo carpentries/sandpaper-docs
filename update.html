@@ -316,15 +316,18 @@
 </div>
 <div id="under-development" class="callout-inner">
 <h3 class="callout-title">
-<span class="emoji" data-emoji="construction">🚧</span> Under Development</h3>
+<span class="emoji" data-emoji="construction">🚧</span> Under Development<a class="anchor" aria-label="anchor" href="#under-development"></a>
+</h3>
 <div class="callout-content">
 <p>This episode is still actively being developed</p>
 </div>
 </div>
 </div>
-<section id="introduction"><h2 class="section-heading">Introduction</h2>
+<section id="introduction"><h2 class="section-heading">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h2>
 <hr class="half-width"><p>The Carpentries Lesson Infrastructure is designed to be cu</p>
-</section><section id="maintainer-tools"><h2 class="section-heading">Maintainer Tools</h2>
+</section><section id="maintainer-tools"><h2 class="section-heading">Maintainer Tools<a class="anchor" aria-label="anchor" href="#maintainer-tools"></a>
+</h2>
 <hr class="half-width"><p>This is {sandpaper}! It takes your source files and generates the outputs!</p>
 <p>Update in R with:</p>
 <div class="codewrapper sourceCode" id="cb1">
@@ -333,7 +336,8 @@
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">install.packages</span><span class="op">(</span><span class="st">"sandpaper"</span>, repos <span class="op">=</span> <span class="st">"https://carpentries.r-universe.dev"</span><span class="op">)</span></span></code></pre>
 </div>
-</section><section id="validator"><h2 class="section-heading">Validator</h2>
+</section><section id="validator"><h2 class="section-heading">Validator<a class="anchor" aria-label="anchor" href="#validator"></a>
+</h2>
 <hr class="half-width"><p>This is {pegboard}! It runs behind the scenes in {sandpaper} to parse the source documents and validate things like headings, images, and cross-links. It also can extract elements like code and individual sections.</p>
 <p>Update in R with:</p>
 <div class="codewrapper sourceCode" id="cb2">
@@ -342,7 +346,8 @@
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">install.packages</span><span class="op">(</span><span class="st">"pegboard"</span>, repos <span class="op">=</span> <span class="st">"https://carpentries.r-universe.dev"</span><span class="op">)</span></span></code></pre>
 </div>
-</section><section id="styling"><h2 class="section-heading">Styling</h2>
+</section><section id="styling"><h2 class="section-heading">Styling<a class="anchor" aria-label="anchor" href="#styling"></a>
+</h2>
 <hr class="half-width"><p>This is {varnish}! This package contains all the HTML, JavaScript, and CSS to make your generated HTML look like a Carpentries Lesson!</p>
 <p>Update in R with:</p>
 <div class="codewrapper sourceCode" id="cb3">
@@ -351,7 +356,8 @@
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">sandpaper</span><span class="fu">::</span><span class="fu">update_varnish</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
-</section><section id="deployment"><h2 class="section-heading">Deployment</h2>
+</section><section id="deployment"><h2 class="section-heading">Deployment<a class="anchor" aria-label="anchor" href="#deployment"></a>
+</h2>
 <hr class="half-width"><div class="section level3">
 <h3 id="updating-your-deployment-workflows">Updating Your Deployment Workflows<a class="anchor" aria-label="anchor" href="#updating-your-deployment-workflows"></a></h3>
 <p>The workflows are the the only place in our lesson that needs to be kept up-to-date with upstream changes from <a href="https://carpentries.github.io/sandpaper/" class="external-link">{sandpaper}</a>. While we try as much as possible to keep the functionality of <a href="https://carpentries.github.io/sandpaper/" class="external-link">{sandpaper}</a> inside the package itself, there are times when we need to update the GitHub workflows for security or performance reasons. You can update your workflows in one of two ways: via GitHub or via <a href="https://carpentries.github.io/sandpaper/" class="external-link">{sandpaper}</a>.</p>
@@ -361,7 +367,8 @@
 </div>
 <div id="under-development-1" class="callout-inner">
 <h3 class="callout-title">
-<span class="emoji" data-emoji="construction">🚧</span> Under Development</h3>
+<span class="emoji" data-emoji="construction">🚧</span> Under Development<a class="anchor" aria-label="anchor" href="#under-development-1"></a>
+</h3>
 <div class="callout-content">
 <p>Workflow updates are still underdevelopment, but <strong>are available for use</strong>. We are exploring different methods for making these unobtrusive as possible such as specifying scheduled updates via <code>config.yaml</code> and even creating a bot that will remove the need for this workflow.</p>
 </div>
@@ -407,7 +414,8 @@
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="do-not-combine-workflow-changes-with-other-changes" class="callout-inner">
-<h3 class="callout-title">Do not combine workflow changes with other changes</h3>
+<h3 class="callout-title">Do not combine workflow changes with other changes<a class="anchor" aria-label="anchor" href="#do-not-combine-workflow-changes-with-other-changes"></a>
+</h3>
 <div class="callout-content">
 <p>If you bundle a workflow changes in a pull request, you will not get the benefit of being able to inspect the output of the generated markdown files. Moreover, while we try to make these workflow files as simple as possible, they are still complex and would distract from any content that would be proposed for the lesson.</p>
 </div>
@@ -418,7 +426,8 @@
 <i class="callout-icon" data-feather="key"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Keypoints</h3>
+<h3 class="callout-title">Keypoints<a class="anchor" aria-label="anchor" href="#NA"></a>
+</h3>
 <div class="callout-content">
 <ul><li>Lesson structure, validation, and styling components are all updated automatically on GitHub.</li>
 <li>Lesson structure, validation, and styling components all live in your local R library.</li>
@@ -458,9 +467,9 @@
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.9.0" class="external-link">sandpaper (0.9.0)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.9.1" class="external-link">sandpaper (0.9.1)</a>,
         <a href="https://github.com/carpentries/pegboard/tree/0.3.0" class="external-link">pegboard (0.3.0)</a>,
-      and <a href="https://github.com/carpentries/varnish/tree/0.2.2" class="external-link">varnish (0.2.2)</a>.</p>
+      and <a href="https://github.com/carpentries/varnish/tree/0.2.3" class="external-link">varnish (0.2.3)</a>.</p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">

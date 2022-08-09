@@ -271,14 +271,16 @@
 
         
 
-<section id="i-use-ssh-why-should-i-use-https"><h2 class="section-heading">I use SSH, Why should I use HTTPS?</h2>
+<section id="i-use-ssh-why-should-i-use-https"><h2 class="section-heading">I use SSH, Why should I use HTTPS?<a class="anchor" aria-label="anchor" href="#i-use-ssh-why-should-i-use-https"></a>
+</h2>
 <hr class="half-width"><p>GitHub has announced that <a href="https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/" class="external-link">passwords will no longer be used for authentication from the command line starting in August 2021</a>. While you may or may not be comfortable with SSH, here a few things that may motivate you:</p>
 <ol style="list-style-type: decimal"><li>HTTPS is recommended by both GitHub and RStudio for people starting with R, so switching to HTTPS will help you empathize and demonstrate the ropes to learners in the long run.</li>
 <li>HTTPS gives you more fine-grained control over what access each token gives.</li>
 <li>
 <a href="https://rstudio.cloud" class="external-link">RStudio Cloud</a> is a really good platform that can connect to your GitHub account if you need to work on lesson development when you don’t have your computer handy. You cannot use SSH with that service, but it is possible to access it via HTTPS.</li>
 <li>You can connect to the GitHub API with a higher rate limit, which means that you can auto-create remote repositories and analyze GitHub data without a web browser.</li>
-</ol></section><section id="verifying-your-git-situation"><h2 class="section-heading">Verifying Your Git Situation</h2>
+</ol></section><section id="verifying-your-git-situation"><h2 class="section-heading">Verifying Your Git Situation<a class="anchor" aria-label="anchor" href="#verifying-your-git-situation"></a>
+</h2>
 <hr class="half-width"><p>To confirm that your Git session is correctly configured, open RStudio, and run the following line to check if your HTTPS credentials are set up properly:</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -310,7 +312,8 @@ Git repo for current project
 </div>
 <p>If your output looks like this, then you are properly set up and you are good to go! If not, read on!</p>
 </div>
-</section><section id="creating-a-new-github-personal-access-token"><h2 class="section-heading">Creating a New GitHub Personal Access Token</h2>
+</section><section id="creating-a-new-github-personal-access-token"><h2 class="section-heading">Creating a New GitHub Personal Access Token<a class="anchor" aria-label="anchor" href="#creating-a-new-github-personal-access-token"></a>
+</h2>
 <hr class="half-width"><p>If you see errors associated with your GitHub token (see below, e.g. ‘Token is invalid’ or ‘Can’t retrieve registered email address(es)’), then you should create a new one. Dr. Jenny Bryan wrote <a href="https://happygitwithr.com/credential-caching.html#how-to-manage-a-pat" class="external-link">an excellent resource for creating and caching your GitHub credentials on your computer</a> that will walk you through the process of generating a PAT, and storing it in a secure location. Here are the steps briefly via R:</p>
 <ol style="list-style-type: decimal"><li>Create a GitHub PAT via R with <code>usethis::create_github_token()</code> (this will open a page in your browser pre-populated with the appropriate scopes. If this does not work, <a href="https://github.com/settings/tokens/new?scopes=repo,user,gist,workflow&amp;description=R:GITHUB_PAT" class="external-link">use this link to generate a new token for R</a>.)</li>
 <li>Copy and store the token in a password manager (Lastpass, 1Password)</li>
@@ -325,7 +328,8 @@ Git repo for current project
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div id="common-token-errors" class="callout-inner">
-<h3 class="callout-title">Common Token Errors</h3>
+<h3 class="callout-title">Common Token Errors<a class="anchor" aria-label="anchor" href="#common-token-errors"></a>
+</h3>
 <div class="callout-content">
 <p>There are a few possible errors you might see, but the remedy is always the same: get a new token and register it in your credentials keychain.</p>
 <div class="section level4">
@@ -416,9 +420,9 @@ Git repo for current project
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.9.0" class="external-link">sandpaper (0.9.0)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.9.1" class="external-link">sandpaper (0.9.1)</a>,
         <a href="https://github.com/carpentries/pegboard/tree/0.3.0" class="external-link">pegboard (0.3.0)</a>,
-      and <a href="https://github.com/carpentries/varnish/tree/0.2.2" class="external-link">varnish (0.2.2)</a>.</p>
+      and <a href="https://github.com/carpentries/varnish/tree/0.2.3" class="external-link">varnish (0.2.3)</a>.</p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
