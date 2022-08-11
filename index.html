@@ -342,13 +342,11 @@ Compatible with RStudio</li>
 <div class="section level3">
 <h3 id="required">Required Software<a class="anchor" aria-label="anchor" href="#required"></a></h3>
 <p>This setup document will walk you through the process of installing or upgrading the required software in the following order.</p>
-<ol style="list-style-type: decimal"><li>
-<strong>Git</strong> (≥ 2.28 recommended)</li>
+<ol style="list-style-type: decimal"><li><p><strong>Git</strong> (≥ 2.28 recommended)</p></li>
+<li><p><strong>R</strong> (≥ 3.6)</p></li>
+<li><p><strong>pandoc</strong> (≥ 2.11)</p></li>
 <li>
-<strong>R</strong> (≥ 3.6)</li>
-<li>
-<strong>pandoc</strong> (≥ 2.11)</li>
-<li>The lesson infrastructure R packages
+<p>The lesson infrastructure R packages</p>
 <ol style="list-style-type: lower-roman"><li>
 <strong><a href="https://carpentries.github.io/sandpaper/" class="external-link">{sandpaper}</a></strong> (development version)</li>
 <li>
@@ -357,7 +355,15 @@ Compatible with RStudio</li>
 <strong><a href="https://carpentries.github.io/pegboard/" class="external-link">{pegboard}</a></strong> (development version)</li>
 <li>
 <strong><a href="https://docs.ropensci.org/tinkr/" class="external-link">{tinkr}</a></strong> (markdown parser required by {pegboard}, development version)</li>
-</ol></li>
+</ol><p>Once you have Git, R, and Pandoc installed, these packages can be installed and updated via:</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">install.packages</span><span class="op">(</span><span class="fu">c</span><span class="op">(</span><span class="st">"sandpaper"</span>, <span class="st">"varnish"</span>, <span class="st">"pegboard"</span>, <span class="st">"tinkr"</span><span class="op">)</span>,</span>
+<span>  repos <span class="op">=</span> <span class="fu">c</span><span class="op">(</span><span class="st">"https://carpentries.r-universe.dev/"</span>, <span class="fu">getOption</span><span class="op">(</span><span class="st">"repos"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre>
+</div>
+</li>
 </ol></div>
 <div class="section level3">
 <h3 id="recommend">Recommended Software<a class="anchor" aria-label="anchor" href="#recommend"></a></h3>
@@ -382,10 +388,10 @@ Compatible with RStudio</li>
 <div class="section level4">
 <h4 id="test-your-installation">Test your installation<a class="anchor" aria-label="anchor" href="#test-your-installation"></a></h4>
 <p>To test that you have git installed, you can go to your taskbar at the bottom of your screen and type <code>cmd</code> to bring up the command prompt. From there, you can type <code>git --version</code> to see the version of your git installation. You might see something like this:</p>
-<div class="codewrapper sourceCode" id="cb1">
+<div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -415,10 +421,10 @@ operable program or batch file.</code></pre>
 <p>As we mention above, <a href="#recommend">we recommend using RStudio for your lesson</a>, but if you want to be able to integrate the lesson infrastructure into your own preferred workflow, you need to have R on your path. The catch is that R for Windows does not automatically set your <code>PATH</code> variable.</p>
 <p><a href="https://www.maketecheasier.com/what-is-the-windows-path/" class="external-link">Here are some instructions on setting up your PATH on Windows using both the GUI and CLI</a>. Note that R will normally install at something like <code>c:\Program Files\R\R-4.1.0\bin\x64</code>, but if you are not admin, it will install in your Documents folder.</p>
 <p>To verify that R is installed in your <code>PATH</code>, you can go to your taskbar at the bottom of your screen and type <code>cmd</code> to bring up the command prompt. From there, you can type <code>R --version</code> at the prompt. Your output should be similar to below, with a version ≥ 3.6.</p>
-<div class="codewrapper sourceCode" id="cb4">
+<div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">R</span> <span class="at">--version</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">R</span> <span class="at">--version</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -456,7 +462,7 @@ https://www.gnu.org/licenses/.</code></pre>
 <div class="section level3">
 <h3 id="infrastructure-r-packages">Infrastructure R packages<a class="anchor" aria-label="anchor" href="#infrastructure-r-packages"></a></h3>
 <p>To install the R packages, you will need to <strong>open RStudio</strong> (or start R from the command line if you did not install RStudio) and enter the following lines into the console.</p>
-<div class="codewrapper sourceCode" id="cb6">
+<div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -478,10 +484,10 @@ https://www.gnu.org/licenses/.</code></pre>
 <div class="section level4">
 <h4 id="test-your-installation-2">Test your installation<a class="anchor" aria-label="anchor" href="#test-your-installation-2"></a></h4>
 <p>To test your installation of Git and confirm it works, open <strong>Terminal.app</strong> and type the following:</p>
-<div class="codewrapper sourceCode" id="cb7">
+<div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -502,10 +508,10 @@ https://www.gnu.org/licenses/.</code></pre>
 <div class="section level4">
 <h4 id="test-your-installation-3">Test your installation<a class="anchor" aria-label="anchor" href="#test-your-installation-3"></a></h4>
 <p>You can test your installation of R by opening <strong>Terminal.app</strong> and typing <code>R --version</code> into the prompt. Your output should be similar to below, with a version ≥ 3.6.</p>
-<div class="codewrapper sourceCode" id="cb10">
+<div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">R</span> <span class="at">--version</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">R</span> <span class="at">--version</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -542,7 +548,7 @@ https://www.gnu.org/licenses/.</code></pre>
 <div class="section level3">
 <h3 id="infrastructure-r-packages-1">Infrastructure R packages<a class="anchor" aria-label="anchor" href="#infrastructure-r-packages-1"></a></h3>
 <p>To install the R packages, you will need to <strong>open RStudio</strong> (or start R from the command line if you did not install RStudio) and enter the following lines into the console.</p>
-<div class="codewrapper sourceCode" id="cb12">
+<div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -562,20 +568,20 @@ https://www.gnu.org/licenses/.</code></pre>
 <div class="section level3">
 <h3 id="git-2">Git<a class="anchor" aria-label="anchor" href="#git-2"></a></h3>
 <p>You should have git pre-installed on your computer, but it will likely be outdated. It’s okay if this is the case, but if you want to update via <code>apt</code>, you can add the git-core ppa:</p>
-<div class="codewrapper sourceCode" id="cb13">
+<div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> add-apt-repository ppa:git-core/ppa</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install git</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> add-apt-repository ppa:git-core/ppa</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install git</span></code></pre>
 </div>
 <div class="section level4">
 <h4 id="test-your-installation-5">Test your installation<a class="anchor" aria-label="anchor" href="#test-your-installation-5"></a></h4>
 <p>Test your git installation by opening the terminal and running</p>
-<div class="codewrapper sourceCode" id="cb14">
+<div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -587,28 +593,28 @@ https://www.gnu.org/licenses/.</code></pre>
 <div class="section level3">
 <h3 id="r-2">R<a class="anchor" aria-label="anchor" href="#r-2"></a></h3>
 <p>To install R, you can visit <a href="https://cran.r-project.org/bin/linux/" class="external-link uri">https://cran.r-project.org/bin/linux/</a> to check if your platform is supported. For Ubuntu, there are detailed instructions at: <a href="https://cran.r-project.org/bin/linux/ubuntu/" class="external-link uri">https://cran.r-project.org/bin/linux/ubuntu/</a>. Here are the commands to register the PPA on your machine and then install R:</p>
-<div class="codewrapper sourceCode" id="cb16">
+<div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># update indices</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update <span class="at">-qq</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># install two helper packages we need</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install <span class="at">--no-install-recommends</span> software-properties-common dirmngr</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># import the signing key (by Michael Rutter) for these repo</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-key adv <span class="at">--keyserver</span> keyserver.ubuntu.com <span class="at">--recv-keys</span> E298A3A825C0D65DFD57CBB651716619E084DAB9</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># add the R 4.0 repo from CRAN -- adjust 'focal' to 'groovy' or 'bionic' as needed</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> add-apt-repository <span class="st">"deb https://cloud.r-project.org/bin/linux/ubuntu </span><span class="va">$(</span><span class="ex">lsb_release</span> <span class="at">-cs</span><span class="va">)</span><span class="st">-cran40/"</span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Install R</span></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install <span class="at">--no-install-recommends</span> r-base</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># update indices</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update <span class="at">-qq</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># install two helper packages we need</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install <span class="at">--no-install-recommends</span> software-properties-common dirmngr</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co"># import the signing key (by Michael Rutter) for these repo</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-key adv <span class="at">--keyserver</span> keyserver.ubuntu.com <span class="at">--recv-keys</span> E298A3A825C0D65DFD57CBB651716619E084DAB9</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># add the R 4.0 repo from CRAN -- adjust 'focal' to 'groovy' or 'bionic' as needed</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> add-apt-repository <span class="st">"deb https://cloud.r-project.org/bin/linux/ubuntu </span><span class="va">$(</span><span class="ex">lsb_release</span> <span class="at">-cs</span><span class="va">)</span><span class="st">-cran40/"</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Install R</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install <span class="at">--no-install-recommends</span> r-base</span></code></pre>
 </div>
 <div class="section level4">
 <h4 id="test-your-installation-6">Test your installation<a class="anchor" aria-label="anchor" href="#test-your-installation-6"></a></h4>
 <p>Test your R installation by opening your terminal and running<br><code>R --version</code> into the prompt. Your output should be similar to below, with a version ≥ 3.6.</p>
-<div class="codewrapper sourceCode" id="cb17">
+<div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">R</span> <span class="at">--version</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">R</span> <span class="at">--version</span></span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -667,18 +673,18 @@ https://www.gnu.org/licenses/.
 <div class="callout-content">
 <p>If you are not used to installing software on Linux, it can be frustrating sometimes because few things ever “just work” when you try to install them. The same is true for some R packages with compiled code.</p>
 <p>Some packages require underlying C libraries (e.g. the xml2 library), which are catalogued for Ubuntu in <a href="https://carpentries.r-universe.dev/ui#builds" class="external-link">The Carpentries R Universe</a> and <a href="https://carpentries.r-universe.dev/ui#api" class="external-link">available via the API</a>. If you want to view the packages that are required (some of which may already be on your system), you can use <code>curl</code> and <code>jq</code> to produce a list:</p>
-<div class="codewrapper sourceCode" id="cb19">
-<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> https://carpentries.r-universe.dev/stats/sysdeps <span class="dv">2</span><span class="op">&gt;</span> /dev/null <span class="kw">|</span> <span class="ex">jq</span> <span class="at">-r</span> <span class="st">'.headers[0] | select(. != null)'</span></span></code></pre>
-</div>
-<p>This list can be sent to <code>apt-get install</code> to install everything:</p>
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install <span class="at">-y</span> <span class="dt">\</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="va">$(</span><span class="ex">curl</span> https://carpentries.r-universe.dev/stats/sysdeps <span class="dv">2</span><span class="op">&gt;</span> /dev/null <span class="kw">|</span> <span class="ex">jq</span> <span class="at">-r</span> <span class="st">'.headers[0] | select(. != null)'</span><span class="va">)</span> <span class="dv">2</span><span class="op">&gt;</span> /dev/null <span class="dt">\</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">||</span> <span class="bu">echo</span> <span class="st">"Not on Ubuntu"</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> https://carpentries.r-universe.dev/stats/sysdeps <span class="dv">2</span><span class="op">&gt;</span> /dev/null <span class="kw">|</span> <span class="ex">jq</span> <span class="at">-r</span> <span class="st">'.headers[0] | select(. != null)'</span></span></code></pre>
+</div>
+<p>This list can be sent to <code>apt-get install</code> to install everything:</p>
+<div class="codewrapper sourceCode" id="cb21">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install <span class="at">-y</span> <span class="dt">\</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="va">$(</span><span class="ex">curl</span> https://carpentries.r-universe.dev/stats/sysdeps <span class="dv">2</span><span class="op">&gt;</span> /dev/null <span class="kw">|</span> <span class="ex">jq</span> <span class="at">-r</span> <span class="st">'.headers[0] | select(. != null)'</span><span class="va">)</span> <span class="dv">2</span><span class="op">&gt;</span> /dev/null <span class="dt">\</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">||</span> <span class="bu">echo</span> <span class="st">"Not on Ubuntu"</span></span></code></pre>
 </div>
 <p>After you have these installed, you will be able to install the required R packages without error.</p>
 </div>
@@ -692,13 +698,13 @@ https://www.gnu.org/licenses/.
 <h3 class="callout-title">What if I have a different version of Linux?<a class="anchor" aria-label="anchor" href="#what-if-i-have-a-different-version-of-linux"></a>
 </h3>
 <div class="callout-content">
-<p>If you have a different version of linux, you can visit <a href="https://packagemanager.rstudio.com/client/#/repos/1/overview" class="external-link uri">https://packagemanager.rstudio.com/client/#/repos/1/overview</a>, select your system where it says “Use this URL to work with the latest binary packages for Ubuntu 20.04 (Focal) <strong>change</strong>”, and replace the packagemanager URL below.</p>
+<p>If you have a different version of linux, you can visit <a href="https://packagemanager.rstudio.com/client/#/repos/1/overview" class="external-link">The RSPM overview page</a>, select your system where it says “Use this URL to work with the latest binary packages for Ubuntu 20.04 (Focal) <strong>change</strong>”, and replace the packagemanager URL below.</p>
 <p>For the dependencies above, you can browse the <a href="https://github.com/rstudio/r-system-requirements" class="external-link">rstudio/r-system-requirements repository</a> to find the correct formulation for your computer.</p>
 </div>
 </div>
 </div>
 <p>To install the R packages, you will need to <strong>open RStudio</strong> (or start R from the command line if you did not install RStudio) and enter the following lines into the console.</p>
-<div class="codewrapper sourceCode" id="cb21">
+<div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -758,7 +764,7 @@ compilation terminated.
 </section><section id="install-test"><h2 class="section-heading">Test your installation<a class="anchor" aria-label="anchor" href="#install-test"></a>
 </h2>
 <hr class="half-width"><p>Now that you have installed the lesson components, it is a good idea to run a small test to verify that these components work together. To test your installation <strong>open RStudio</strong> (or launch R if you have not installed RStudio) and enter the following commands to confirm everything works</p>
-<div class="codewrapper sourceCode" id="cb23">
+<div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -846,10 +852,10 @@ compilation terminated.
 <div class="section level4">
 <h4 id="via-command-line-interface">Via Command Line Interface<a class="anchor" aria-label="anchor" href="#via-command-line-interface"></a></h4>
 <p>The flags <code>--no-restore</code> and <code>--no-save</code> will set these defaults, so you can create an alias for R in the <code>.bashrc</code> file in your home directory:</p>
-<div class="codewrapper sourceCode" id="cb26">
+<div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> R=<span class="st">'R --no-restore --no-save'</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> R=<span class="st">'R --no-restore --no-save'</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -910,9 +916,9 @@ compilation terminated.
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.9.1" class="external-link">sandpaper (0.9.1)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.9.2" class="external-link">sandpaper (0.9.2)</a>,
         <a href="https://github.com/carpentries/pegboard/tree/0.3.0" class="external-link">pegboard (0.3.0)</a>,
-      and <a href="https://github.com/carpentries/varnish/tree/0.2.3" class="external-link">varnish (0.2.3)</a>.</p>
+      and <a href="https://github.com/carpentries/varnish/tree/0.2.4" class="external-link">varnish (0.2.4)</a>.</p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -932,9 +938,9 @@ compilation terminated.
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/sandpaper-docs/index.html",
   "identifier": "https://carpentries.github.io/sandpaper-docs/index.html",
-  "dateCreated": "2022-08-05",
-  "dateModified": "2022-08-09",
-  "datePublished": "2022-08-09"
+  "dateCreated": "2022-08-11",
+  "dateModified": "2022-08-11",
+  "datePublished": "2022-08-11"
 }
 
   </script><script>
