@@ -35,6 +35,13 @@ the required software in the following order.
    iii. **[{pegboard}]** (development version)
    iiii. **[{tinkr}]** (markdown parser required by {pegboard}, development version)
 
+   Once you have Git, R, and Pandoc installed, these packages can be installed
+   and updated via:
+   ```r
+   install.packages(c("sandpaper", "varnish", "pegboard", "tinkr"),
+     repos = c("https://carpentries.r-universe.dev/", getOption("repos")))
+   ```
+
 ### Recommended Software {#recommend}
 
 If you are using R or pandoc for the first time, we recommend using [the RStudio
@@ -448,7 +455,8 @@ packages without error.
 #### What if I have a different version of Linux?
 
 If you have a different version of linux, you can visit 
-https://packagemanager.rstudio.com/client/#/repos/1/overview, select your
+[The RSPM overview page](https://packagemanager.rstudio.com/client/#/repos/1/overview), 
+select your
 system where it says "Use this URL to work with the latest binary packages for
 Ubuntu 20.04 (Focal) **change**", and replace the packagemanager URL below.
 
