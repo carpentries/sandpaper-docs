@@ -112,7 +112,7 @@ accessibility purposes'}`
 
 ![You belong in The Carpentries!](https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.'}
 
-Additional attributes can be specified for the image alongside the alternative etxt description
+Additional attributes can be specified for the image alongside the alternative text description
 in the `{}`.
 For example, to add some space around the image, you could apply some padding:
 
