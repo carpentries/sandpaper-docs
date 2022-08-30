@@ -112,6 +112,16 @@ accessibility purposes'}`
 
 ![You belong in The Carpentries!](https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.'}
 
+Additional attributes can be specified for the image alongside the alternative etxt description
+in the `{}`.
+For example, to add some space around the image, you could apply some padding:
+
+`![You belong in The Carpentries!](https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.' padding=10px}
+`
+
+![You belong in The Carpentries!](https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.' padding=10px}
+
+
 ## Math
 
 One of our episodes contains $\LaTeX$ equations when describing how to create
