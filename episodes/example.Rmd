@@ -116,8 +116,7 @@ Additional attributes can be specified for the image alongside the alternative e
 in the `{}`.
 For example, to add some space around the image, you could apply some padding:
 
-`![You belong in The Carpentries!](https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.' padding=10px}
-`
+`![You belong in The Carpentries!](https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.' padding=10px}`
 
 ![You belong in The Carpentries!](https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.' padding=10px}
 
