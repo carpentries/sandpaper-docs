@@ -114,7 +114,7 @@ accessibility purposes'}`
 
 Additional attributes can be specified for the image alongside the alternative text description
 in the `{}`.
-Some, like `alt`, `width`, and `height`, can be specified directly:
+Some, like `width` and `height`, can be specified directly:
 
 `![You belong in The Carpentries!](https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.' width='25%'}`
 
@@ -139,7 +139,7 @@ For example, to introduce some padding around the resized image:
 
 ![You belong in The Carpentries!](https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.' style='padding:10px; width:25%'}
 
-Note the use of `:` between key-value pairs for CSS directives defined within `style`.
+Note the use of `:` for the key-value pairs of CSS directives defined within `style`.
 
 ::::::::::::::::::::
 
