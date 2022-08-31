@@ -112,7 +112,7 @@ accessibility purposes'}`
 
 ![You belong in The Carpentries!](https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.'}
 
-Additional attributes can be specified for the image alongside the alternative text description
+[Additional attributes can be specified for the image](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Img#attributes) alongside the alternative text description
 in the `{}`.
 Some, like `width` and `height`, can be specified directly:
 
@@ -124,7 +124,7 @@ The Mozilla Developer Network provides [a list of the attributes that can be spe
 
 :::::::::::: callout
 
-## :warning: Advanced Image Styling
+## :art: Advanced Image Styling
 
 More complex styling with arbitrary CSS is also possible within the Workbench,
 by providing CSS directives (separated by `;`) to a `style` attribute inside the `{}`.
