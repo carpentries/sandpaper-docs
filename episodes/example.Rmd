@@ -110,7 +110,41 @@ Or you can use standard markdown for static figures with the following syntax:
 `![optional caption that appears below the figure](figure url){alt='alt text for
 accessibility purposes'}`
 
-![You belong in The Carpentries!](https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.'}
+For example:
+
+`![You belong in The Carpentries!](fig/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.'}`
+
+![You belong in The Carpentries!](fig/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.'}
+
+[Additional attributes can be specified for the image](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Img#attributes)
+alongside the alternative text description in the `{}`.
+Some, like `width` and `height`, can be specified directly:
+
+`![You belong in The Carpentries!](fig/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.' width='25%'}`
+
+![You belong in The Carpentries!](fig/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.' width='25%'}
+
+:::::::::::: callout
+
+## :art: Advanced Image Styling
+
+More complex styling with arbitrary CSS is also possible within the Workbench,
+by providing CSS directives (separated by `;`) to a `style` attribute inside the `{}`.
+
+However, you should be aware that _all styling must be described in this `style` attribute
+if it is present_, i.e. `width` and `height` must be included as CSS directives
+_within the `style` attribute_ when it is used.
+
+For example, to introduce some padding around the resized image:
+
+`![You belong in The Carpentries!](fig/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.' style='padding:10px; width:25%'}`
+
+![You belong in The Carpentries!](fig/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.' style='padding:10px; width:25%'}
+
+Note the use of `:` for the key-value pairs of CSS directives defined within `style`.
+
+::::::::::::::::::::
+
 
 ## Math
 
