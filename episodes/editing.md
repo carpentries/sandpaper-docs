@@ -207,21 +207,67 @@ have rearranged themselves to reflect that.
 
 This is the folder where all the action is. It contains all of the episodes, 
 figures, and data files needed for the lesson. By default, it will contain an
-episode called 01-introduction.Rmd. You can edit this file to use as your
-introduction. To create a new episode, use the folowing function:
+episode called introduction.Rmd. You can edit this file to use as your
+introduction. To create a new Markdown episode, use the folowing function:
 
 ```r
-sandpaper::create_episode("episode-name")
+sandpaper::create_episode_md("Episode Name")
 ```
 
-This will template a {sandpaper} episode called `02-episode-name.Rmd` in the
-`episodes/` directory of your lesson and pre-populate it with objectives,
-questions, and keypoints. 
+This will create a Markdown episode called `episode-name.md` in the
+`episodes/` directory of your lesson, pre-populated with objectives,
+questions, and keypoints. The episode will be added to the end of the `episodes:`
+list in `config.yaml`, which serves as the table of contents.
 
-After you add your draft of the episode, you need to add it to the `episodes`
-section of `config.yaml`. This will be your table of contents. By default, all
-of the episodes are rendered in alphabetical order, and the `config.yaml` can
-allow you to work on episodes that are not yet ready for production.
+If you want to create an episode, but are not yet ready to render or publish it,
+you can create a draft using the `draft_episode` family of functions:
+
+```r
+sandpaper::draft_episode_rmd("Visualising Data")
+```
+
+This will create an R Markdown episode called `visualising-data.Rmd` in the
+`episodes/` directory of your lesson, but it will NOT be added to `config.yaml`,
+allowing you to work on it at your own pace without the need to publish it.
+
+When you are ready to publish an episode or want to move an existing episode to
+a new place, you can use `move_episode()` to pull up an interactive menu for 
+moving the episode.
+
+```r
+sandpaper::move_episode("visualising-data.Rmd")
+```
+
+```output
+ℹ Select a number to insert your episode
+(if an episode already occupies that position, it will be shifted down)
+
+1. introduction.md
+2. episode-name.md
+3. [insert at end]
+
+Choice:          
+```
+
+::::::::::::::::: callout
+
+### Should I use R Markdown or Markdown Episodes?
+
+All {sandpaper} lessons can be built using Markdown, R Markdown, or a mix of
+both. If you want to dynamically render the output of your code via R (other
+languages will be supported in the future), then you should use R Markdown, but
+if you do not need to dynamically render output, you should stick with Markdown.
+
+Sandpaper offers four functions that will help with episode creation depending
+on your usage:
+
+| R Markdown             | Markdown              |
+| ---------------------- | --------------------- |
+| `create_episode_rmd()` | `create_episode_md()` |
+| `draft_episode_rmd()`  | `draft_episode_md()`  |
+
+
+:::::::::::::::::::::::::
 
 ## `instructors/`
 

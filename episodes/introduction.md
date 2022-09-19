@@ -177,10 +177,10 @@ documentation][{sandpaper}].
 ### How do I determine the order of files displayed on the website?
 
 The `config.yaml` file contains four fields that correspond to the folders in
-your repository: `episodes`, `instructors`, `learners`, `profiles`. By default,
-they are displayed in alphabetical order, but if you want to customize exactly
-what content is published on the website, you can add a yaml list of the
-filenames to determine order. 
+your repository: `episodes`, `instructors`, `learners`, `profiles`. If the list
+is empty, then the files in the folders are displayed in alphabetical order,
+but if you want to customize exactly what content is published on the website,
+you can add a yaml list of the filenames to determine order. 
 
 For example, if you had three episodes called "introduction.md", "part_two.Rmd",
 and "in_progress.md" and you wanted to only show introduction and part_two, you
@@ -191,38 +191,6 @@ episodes:
 - introduction.md
 - part_two.Rmd
 ```
-
-::::::::::::::::::::::::::::::::::::::::::::::::
-
-
-:::::::::::::::::::::::::::::::::::::: challenge
-
-### Set the schedule (optional)
-
-Render the lesson again. It should run more quickly this time, but you might
-notice a warning at the end of the rendering:
-
-:::::::::::::: solution
-
-## Warning Message
-
-```{.warning}
-ℹ No schedule set, using Rmd files in episodes/ directory.
-→ To remove this message, define your schedule in config.yaml or use `set_episodes()` to generate it.
-```
-
-::::::::::::::
-
-
-This is informing you that the order of episodes in your lesson is defined via
-alphabetical order of all markdown files in the `episodes/` directory unless you
-set the `episodes:` field in your configuration file (`config.yaml`).
-
-1. Open `config.yaml` in a text editor
-2. On line 46, you should see the `episodes:` field.
-3. Add `- 01-1ntroduction.Rmd` to the line below.
-4. Save the file and re-render. You should notice that the warning has
-   disappeared. 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
