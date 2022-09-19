@@ -278,7 +278,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Introduction to The Carpentries Workbench</h1>
-        <p> Last updated on 2022-09-08 | <a href="https://github.com/carpentries/sandpaper-docs//edit/main/episodes/introduction.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+        <p> Last updated on 2022-09-19 | <a href="https://github.com/carpentries/sandpaper-docs//edit/main/episodes/introduction.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         <p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 12 minutes </p>
         
         <div class="text-end">
@@ -452,7 +452,7 @@
 <h3 class="callout-title">How do I determine the order of files displayed on the website?<a class="anchor" aria-label="anchor" href="#how-do-i-determine-the-order-of-files-displayed-on-the-website"></a>
 </h3>
 <div class="callout-content">
-<p>The <code>config.yaml</code> file contains four fields that correspond to the folders in your repository: <code>episodes</code>, <code>instructors</code>, <code>learners</code>, <code>profiles</code>. By default, they are displayed in alphabetical order, but if you want to customize exactly what content is published on the website, you can add a yaml list of the filenames to determine order.</p>
+<p>The <code>config.yaml</code> file contains four fields that correspond to the folders in your repository: <code>episodes</code>, <code>instructors</code>, <code>learners</code>, <code>profiles</code>. If the list is empty, then the files in the folders are displayed in alphabetical order, but if you want to customize exactly what content is published on the website, you can add a yaml list of the filenames to determine order.</p>
 <p>For example, if you had three episodes called “introduction.md”, “part_two.Rmd”, and “in_progress.md” and you wanted to only show introduction and part_two, you would edit <code>config.yaml</code> to list those two files under <code>episodes:</code>:</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -462,53 +462,6 @@
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> part_two.Rmd</span></span></code></pre>
 </div>
 </div>
-</div>
-</div>
-<div id="challenge1" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<div id="set-the-schedule-optional" class="callout-inner">
-<h3 class="callout-title">Set the schedule (optional)<a class="anchor" aria-label="anchor" href="#set-the-schedule-optional"></a>
-</h3>
-<div class="callout-content">
-<p>Render the lesson again. It should run more quickly this time, but you might notice a warning at the end of the rendering:</p>
-</div>
-</div>
-</div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1">
-  Warning Message
-  </h4>
-</button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
-<div class="accordion-body">
-<div class="codewrapper">
-<h3 class="code-label">WARNING<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="warning" tabindex="0"><code>ℹ No schedule set, using Rmd files in episodes/ directory.
-→ To remove this message, define your schedule in config.yaml or use `set_episodes()` to generate it.</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="discussion4" class="callout discussion">
-<div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
-</div>
-<div id="set-the-schedule-optional" class="callout-inner">
-<h3 class="callout-title">Set the schedule (optional)<em> (continued)</em><a class="anchor" aria-label="anchor" href="#set-the-schedule-optional"></a>
-</h3>
-<div class="callout-content">
-<p>This is informing you that the order of episodes in your lesson is defined via alphabetical order of all markdown files in the <code>episodes/</code> directory unless you set the <code>episodes:</code> field in your configuration file (<code>config.yaml</code>).</p>
-<ol style="list-style-type: decimal"><li>Open <code>config.yaml</code> in a text editor</li>
-<li>On line 46, you should see the <code>episodes:</code> field.</li>
-<li>Add <code>- 01-1ntroduction.Rmd</code> to the line below.</li>
-<li>Save the file and re-render. You should notice that the warning has disappeared.</li>
-</ol></div>
 </div>
 </div>
 </section><section id="push-to-github"><h2 class="section-heading">Push to GitHub<a class="anchor" aria-label="anchor" href="#push-to-github"></a>
@@ -543,7 +496,7 @@
 </h3>
 <div class="callout-content">
 <p>If you use R and use an HTTPS protocol, this can be done in a single step from inside RStudio with the {usethis} package:</p>
-<div class="codewrapper sourceCode" id="cb5">
+<div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -622,8 +575,8 @@
         <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.9.5" class="external-link">sandpaper (0.9.5)</a>,
-        <a href="https://github.com/carpentries/pegboard/tree/0.3.1" class="external-link">pegboard (0.3.1)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.9.6" class="external-link">sandpaper (0.9.6)</a>,
+        <a href="https://github.com/carpentries/pegboard/tree/0.3.2" class="external-link">pegboard (0.3.2)</a>,
       and <a href="https://github.com/carpentries/varnish/tree/0.2.4" class="external-link">varnish (0.2.4)</a>.</p>
 			</div>
 		</footer></div> <!-- / div.container -->
@@ -644,9 +597,9 @@
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/sandpaper-docs/instructor/introduction.html",
   "identifier": "https://carpentries.github.io/sandpaper-docs/instructor/introduction.html",
-  "dateCreated": "2022-09-08",
-  "dateModified": "2022-09-08",
-  "datePublished": "2022-09-13"
+  "dateCreated": "2022-09-19",
+  "dateModified": "2022-09-19",
+  "datePublished": "2022-09-19"
 }
 
   </script><script>
