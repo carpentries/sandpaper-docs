@@ -564,6 +564,18 @@ https://www.gnu.org/licenses/.</code></pre>
 </div>
 <div class="section level3">
 <h3 id="r-1">R<a class="anchor" aria-label="anchor" href="#r-1"></a></h3>
+<div id="prereq1" class="callout prereq">
+<div class="callout-square">
+<i class="callout-icon" data-feather="check"></i>
+</div>
+<div id="homebrew-not-recommended" class="callout-inner">
+<h3 class="callout-title">Homebrew Not Recommended<a class="anchor" aria-label="anchor" href="#prereq1"></a>
+</h3>
+<div class="callout-content">
+<p>Installing R via Homebrew can allow you to customise your installation, but you lose the advantage of having readily available package binaries. Moreover, if you do not have the required C libraries (e.g. <code>libxslt</code>) installed, then the installation of some packages will fail. So, unless you are prepared for this, please do not use Homebrew to install R.</p>
+</div>
+</div>
+</div>
 <p>You can install the latest <a href="https://cran.rstudio.org/" class="external-link">R</a> release for MacOS from <a href="https://cran.r-project.org/bin/macosx" class="external-link uri">https://cran.r-project.org/bin/macosx</a>. There is also a video tutorial up on <a href="https://carpentries.github.io/workshop-template/#rstats-macos" class="external-link">The Carpentries instructions for workshop participants</a> that can be quite helpful for parsing the steps of installing R on MacOS.</p>
 <div class="section level4">
 <h4 id="test-your-installation-3">Test your installation<a class="anchor" aria-label="anchor" href="#test-your-installation-3"></a></h4>
@@ -894,12 +906,12 @@ compilation terminated.
 <hr class="half-width"><p>Throughout the lesson, I will ask you to <strong>open R or RStudio</strong>. If you are using RStudio, you can open it by double-clicking on the RStudio icon in your application launcher; you do not have to open R separately to use RStudio.</p>
 <p>If you are using R, you can open it in your terminal application by typing <code>R</code>. Your prompt will be replaced by a <code>&gt;</code>, which indicates that you are in R’s interactive <a href="https://glosario.carpentries.org/en/#repl" class="external-link">REPL</a>.</p>
 <p>You can exit R or RStudio by typing <code>q()</code> in the R console.</p>
-<div id="prereq1" class="callout prereq">
+<div id="prereq2" class="callout prereq">
 <div class="callout-square">
 <i class="callout-icon" data-feather="check"></i>
 </div>
 <div id="setting-up-your-r-workspace" class="callout-inner">
-<h3 class="callout-title">Setting up your R workspace<a class="anchor" aria-label="anchor" href="#prereq1"></a>
+<h3 class="callout-title">Setting up your R workspace<a class="anchor" aria-label="anchor" href="#prereq2"></a>
 </h3>
 <div class="callout-content">
 <p>When you set up R, it’s important to make sure you set it up to always start R with a clean slate<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>: never save your workspace on exit and never load a previously saved workspace on startup.</p>
@@ -976,7 +988,7 @@ compilation terminated.
         <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.10.0" class="external-link">sandpaper (0.10.0)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.10.1" class="external-link">sandpaper (0.10.1)</a>,
         <a href="https://github.com/carpentries/pegboard/tree/0.3.2" class="external-link">pegboard (0.3.2)</a>,
       and <a href="https://github.com/carpentries/varnish/tree/0.2.4" class="external-link">varnish (0.2.4)</a>.</p>
 			</div>
@@ -998,9 +1010,9 @@ compilation terminated.
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/sandpaper-docs/instructor/index.html",
   "identifier": "https://carpentries.github.io/sandpaper-docs/instructor/index.html",
-  "dateCreated": "2022-09-20",
-  "dateModified": "2022-09-27",
-  "datePublished": "2022-09-27"
+  "dateCreated": "2022-10-03",
+  "dateModified": "2022-10-03",
+  "datePublished": "2022-10-03"
 }
 
   </script><script>
