@@ -190,6 +190,8 @@ install.packages(c("sandpaper", "varnish", "pegboard", "tinkr"))
 
 ## Installing on MacOS {#mac}
 
+
+
 ### Git
 
 You should have git pre-installed on your macOS, but it is likely that this is
@@ -221,6 +223,19 @@ git version 2.24.3 (Apple Git-128)
 ```
 
 ### R
+
+::: prereq
+
+### Homebrew Not Recommended
+
+Installing R via Homebrew can allow you to customise your installation, but you
+lose the advantage of having readily available package binaries. Moreover, if
+you do not have the required C libraries (e.g. `libxslt`) installed, then the
+installation of some packages will fail. So, unless you are prepared for this,
+please do not use Homebrew to install R.
+
+:::
+
 
 You can install the latest [R] release for MacOS from 
 <https://cran.r-project.org/bin/macosx>. There is also a video tutorial
