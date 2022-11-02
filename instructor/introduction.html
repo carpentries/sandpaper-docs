@@ -319,11 +319,16 @@
 </div>
 </div>
 </div>
-<p>Let’s say you have a set of Markdown or R Markdown files that you used for a class website that you want to convert into a Carpentries Lesson. To go from zero to a new lesson website that can auto-render R Markdown documents to a functional website is three steps with <a href="https://carpentries.github.io/sandpaper/" class="external-link">sandpaper</a>:</p>
+<p>Let’s say you have a set of Markdown or R Markdown files that you
+used for a class website that you want to convert into a Carpentries
+Lesson. To go from zero to a new lesson website that can auto-render R
+Markdown documents to a functional website is three steps with
+<a href="https://carpentries.github.io/sandpaper/" class="external-link">sandpaper</a>:</p>
 <ol style="list-style-type: decimal"><li>Create a site</li>
 <li>Push to GitHub</li>
 <li>Add your files</li>
-</ol><p>That’s it. After that, if you know how to write in Markdown, you are good to go.</p>
+</ol><p>That’s it. After that, if you know how to write in Markdown, you are
+good to go.</p>
 <div id="callout1" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -332,22 +337,30 @@
 <h3 class="callout-title">Takeaway message<a class="anchor" aria-label="anchor" href="#callout1"></a>
 </h3>
 <div class="callout-content">
-<p>Contributors should only be expected to know basic markdown and <em>very</em> minimal yaml syntax in order to work on lessons.</p>
+<p>Contributors should only be expected to know basic markdown and
+<em>very</em> minimal yaml syntax in order to work on lessons.</p>
 </div>
 </div>
 </div>
 <section id="super-quickstart-copy-a-template-from-github"><h2 class="section-heading">Super Quickstart: Copy A Template from GitHub<a class="anchor" aria-label="anchor" href="#super-quickstart-copy-a-template-from-github"></a>
 </h2>
-<hr class="half-width"><p>The absolute quickest way to get started with The Carpentries Workbench is to create a GitHub repository with one of the two available templates, depending on your preference:</p>
+<hr class="half-width"><p>The absolute quickest way to get started with The Carpentries
+Workbench is to create a GitHub repository with one of the two available
+templates, depending on your preference:</p>
 <div class="section level3">
 <h3 id="step-1-choose-a-template">Step 1: Choose a template<a class="anchor" aria-label="anchor" href="#step-1-choose-a-template"></a></h3>
-<ul><li><a href="https://github.com/carpentries/workbench-template-md/generate" class="external-link">Markdown Lessons (no generated content)</a></li>
+<ul><li><a href="https://github.com/carpentries/workbench-template-md/generate" class="external-link">Markdown
+Lessons (no generated content)</a></li>
 <li>
-<a href="https://github.com/carpentries/workbench-template-rmd/generate" class="external-link">R Markdown Lessons (generated content via R)</a> (our tutorial uses this template)</li>
+<a href="https://github.com/carpentries/workbench-template-rmd/generate" class="external-link">R
+Markdown Lessons (generated content via R)</a> (our tutorial uses this
+template)</li>
 </ul></div>
 <div class="section level3">
 <h3 id="step-2-choose-a-name-for-your-lesson-repository-">Step 2: Choose a name for your lesson repository.<a class="anchor" aria-label="anchor" href="#step-2-choose-a-name-for-your-lesson-repository-"></a></h3>
-<p>Name it “buoyant-barnacle”. <strong>select “Include All Branches”</strong>. Click on the button that says “Create repository from template”</p>
+<p>Name it “buoyant-barnacle”. <strong>select “Include All
+Branches”</strong>. Click on the button that says “Create repository
+from template”</p>
 <div id="callout2" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -356,14 +369,23 @@
 <h3 class="callout-title">Creating a new lesson repository<a class="anchor" aria-label="anchor" href="#callout2"></a>
 </h3>
 <div class="callout-content">
-<figure><img src="../fig/intro-template-screen.png" alt="Screenshot of a webform that says 'Create a new repository from workbench-template-md'. It says that the new repository will contain the same files and folders as carpentries/workbench-template-md and has two required fields for Owner and Repository Name, which are filled in as ravmakz and buoyant-barnacle. There is a blank Description option, a radio button that selects public/private, and an checked checkbox to include all branches" class="figure mx-auto d-block"><figcaption>What you should see when you click on one of the above two links</figcaption></figure></div>
+<figure><img src="../fig/intro-template-screen.png" alt="Screenshot of a webform that says 'Create a new repository from workbench-template-md'. It says that the new repository will contain the same files and folders as carpentries/workbench-template-md and has two required fields for Owner and Repository Name, which are filled in as ravmakz and buoyant-barnacle. There is a blank Description option, a radio button that selects public/private, and an checked checkbox to include all branches" class="figure mx-auto d-block"><figcaption>What you should see when you click on one of the
+above two links</figcaption></figure></div>
 </div>
 </div>
 </div>
 <div class="section level3">
 <h3 id="step-3-customise-your-site">Step 3: Customise your site<a class="anchor" aria-label="anchor" href="#step-3-customise-your-site"></a></h3>
-<p>On GitHub, open the <code>config.yaml</code> file, and click on the pencil icon on the top and edit the values, especially “carpentry”, “source”, and “title” to reflect your own repository. Commit the file using the form at the bottom of the page.</p>
-<p>That’s it. The website should update in about 2-3 minutes with your information. If you want to continue working directly on GitHub, you can do so. If you want to work locally, be sure to <a href="index.html#setup">follow the setup instructions</a>, clone your lesson to your computer, open RStudio (or your preferrred interface to R) inside the lesson folder, and <a href="#preview">preview your new lesson</a></p>
+<p>On GitHub, open the <code>config.yaml</code> file, and click on the
+pencil icon on the top and edit the values, especially “carpentry”,
+“source”, and “title” to reflect your own repository. Commit the file
+using the form at the bottom of the page.</p>
+<p>That’s it. The website should update in about 2-3 minutes with your
+information. If you want to continue working directly on GitHub, you can
+do so. If you want to work locally, be sure to <a href="index.html#setup">follow the setup instructions</a>, clone your lesson
+to your computer, open RStudio (or your preferrred interface to R)
+inside the lesson folder, and <a href="#preview">preview your new
+lesson</a></p>
 </div>
 </section><section id="quickstart-create-a-new-lesson"><h2 class="section-heading">Quickstart: Create a New Lesson<a class="anchor" aria-label="anchor" href="#quickstart-create-a-new-lesson"></a>
 </h2>
@@ -375,7 +397,8 @@
 <h3 class="callout-title">Create a Lesson Locally<a class="anchor" aria-label="anchor" href="#discussion1"></a>
 </h3>
 <div class="callout-content">
-<p>Follow these steps to create a brand new lesson on your Desktop called “buoyant-barnacle”.</p>
+<p>Follow these steps to create a brand new lesson on your Desktop
+called “buoyant-barnacle”.</p>
 <ol style="list-style-type: decimal"><li>Follow the <a href="index.html#setup">setup instructions</a>
 </li>
 <li>Open RStudio (or your preferred interface to R)</li>
@@ -392,27 +415,38 @@
 <span><span class="fu">print</span><span class="op">(</span><span class="va">bb</span><span class="op">)</span> <span class="co"># print the new path to your screen</span></span>
 <span><span class="fu">create_lesson</span><span class="op">(</span><span class="va">bb</span><span class="op">)</span> <span class="co"># create a new lesson in that path</span></span></code></pre>
 </div>
-<p>If everything went correctly, you will now have a new RStudio window open to your new project called “buoyant-barnacle” on your Desktop (if you did not use RStudio, your working directory should have changed, you can check it via the <code>getwd()</code> command).</p>
+<p>If everything went correctly, you will now have a new RStudio window
+open to your new project called “buoyant-barnacle” on your Desktop (if
+you did not use RStudio, your working directory should have changed, you
+can check it via the <code>getwd()</code> command).</p>
 </div>
 </div>
 </div>
-<p>Your lesson will be initialized with a brand new git repository with the initial commit message being <code>Initial commit [via {sandpaper}]</code>.</p>
+<p>Your lesson will be initialized with a brand new git repository with
+the initial commit message being
+<code>Initial commit [via {sandpaper}]</code>.</p>
 <div id="callout3" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="known-quirk" class="callout-inner">
 <h3 class="callout-title">
-<span class="emoji" data-emoji="beetle">🐞</span> Known Quirk<a class="anchor" aria-label="anchor" href="#callout3"></a>
+<span class="emoji" data-emoji="beetle">🪲</span> Known Quirk<a class="anchor" aria-label="anchor" href="#callout3"></a>
 </h3>
 <div class="callout-content">
-<p>If you are using RStudio, then an RStudio project file (<code>*.Rproj</code>) is automatically created to help anchor your project. You might notice changes to this file at first as RStudio applies your global user settings to the file. This is perfectly normal and we will fix this in a future iteration of {sandpaper}.</p>
+<p>If you are using RStudio, then an RStudio project file
+(<code>*.Rproj</code>) is automatically created to help anchor your
+project. You might notice changes to this file at first as RStudio
+applies your global user settings to the file. This is perfectly normal
+and we will fix this in a future iteration of {sandpaper}.</p>
 </div>
 </div>
 </div>
 </section><section id="preview"><h2 class="section-heading">Previewing Your New Lesson<a class="anchor" aria-label="anchor" href="#preview"></a>
 </h2>
-<hr class="half-width"><p>After you created your lesson, you will want to preview it locally. First, make sure that you are in your newly-created repository and then use the following command:</p>
+<hr class="half-width"><p>After you created your lesson, you will want to preview it locally.
+First, make sure that you are in your newly-created repository and then
+use the following command:</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -427,20 +461,30 @@
 <h3 class="callout-title">What’s with the <code>::</code> syntax?<a class="anchor" aria-label="anchor" href="#discussion2"></a>
 </h3>
 <div class="callout-content">
-<p>This is a syntax that clearly states what package a particular function comes from. In this case, <code>sandpaper::serve()</code> tells R to use the <code>serve()</code> function from the <code>sandpaper</code> package. These commands can be run without first calling <code>library(&lt;packagename&gt;)</code>, so they are more portable. I will be using this syntax for the rest of the lesson.</p>
+<p>This is a syntax that clearly states what package a particular
+function comes from. In this case, <code>sandpaper::serve()</code> tells
+R to use the <code>serve()</code> function from the
+<code>sandpaper</code> package. These commands can be run without first
+calling <code>library(&lt;packagename&gt;)</code>, so they are more
+portable. I will be using this syntax for the rest of the lesson.</p>
 </div>
 </div>
 </div>
-<p>If you are working in RStudio, you will see a preview of your lesson in the viewer pane and if you are working in a different program, a browser window will open, showing a live preview of the lesson. When you edit files, they will automatically be rebuilt to your website.</p>
+<p>If you are working in RStudio, you will see a preview of your lesson
+in the viewer pane and if you are working in a different program, a
+browser window will open, showing a live preview of the lesson. When you
+edit files, they will automatically be rebuilt to your website.</p>
 <div id="callout4" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="did-you-know-keyboard-shortcuts-are-available" class="callout-inner">
-<h3 class="callout-title">DID YOU KNOW? Keyboard Shortcuts are Available<a class="anchor" aria-label="anchor" href="#callout4"></a>
+<h3 class="callout-title">DID YOU KNOW? Keyboard Shortcuts are
+Available<a class="anchor" aria-label="anchor" href="#callout4"></a>
 </h3>
 <div class="callout-content">
-<p>If you are using RStudio, did you know you can use keyboard shortcuts to render the lesson as you are working on the episodes?</p>
+<p>If you are using RStudio, did you know you can use keyboard shortcuts
+to render the lesson as you are working on the episodes?</p>
 <dl><dt>Render and preview the whole lesson</dt>
 <dd>
 <kbd>ctrl + shift + B</kbd>
@@ -452,17 +496,32 @@
 </dl></div>
 </div>
 </div>
-<p>The first time you run this function, you might see A LOT of output on your screen and then your browser will open the preview. If you run the command again, you will see much less output. If you like to would like to know how everything works under the hood, you can check out the <a href="https://carpentries.github.io/sandpaper/" class="external-link">{sandpaper} package documentation</a>.</p>
+<p>The first time you run this function, you might see A LOT of output
+on your screen and then your browser will open the preview. If you run
+the command again, you will see much less output. If you like to would
+like to know how everything works under the hood, you can check out the
+<a href="https://carpentries.github.io/sandpaper/" class="external-link">{sandpaper} package
+documentation</a>.</p>
 <div id="discussion3" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div id="how-do-i-determine-the-order-of-files-displayed-on-the-website" class="callout-inner">
-<h3 class="callout-title">How do I determine the order of files displayed on the website?<a class="anchor" aria-label="anchor" href="#discussion3"></a>
+<h3 class="callout-title">How do I determine the order of files
+displayed on the website?<a class="anchor" aria-label="anchor" href="#discussion3"></a>
 </h3>
 <div class="callout-content">
-<p>The <code>config.yaml</code> file contains four fields that correspond to the folders in your repository: <code>episodes</code>, <code>instructors</code>, <code>learners</code>, <code>profiles</code>. If the list is empty, then the files in the folders are displayed in alphabetical order, but if you want to customize exactly what content is published on the website, you can add a yaml list of the filenames to determine order.</p>
-<p>For example, if you had three episodes called “introduction.md”, “part_two.Rmd”, and “in_progress.md” and you wanted to only show introduction and part_two, you would edit <code>config.yaml</code> to list those two files under <code>episodes:</code>:</p>
+<p>The <code>config.yaml</code> file contains four fields that
+correspond to the folders in your repository: <code>episodes</code>,
+<code>instructors</code>, <code>learners</code>, <code>profiles</code>.
+If the list is empty, then the files in the folders are displayed in
+alphabetical order, but if you want to customize exactly what content is
+published on the website, you can add a yaml list of the filenames to
+determine order.</p>
+<p>For example, if you had three episodes called “introduction.md”,
+“part_two.Rmd”, and “in_progress.md” and you wanted to only show
+introduction and part_two, you would edit <code>config.yaml</code> to
+list those two files under <code>episodes:</code>:</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -475,13 +534,26 @@
 </div>
 </section><section id="push-to-github"><h2 class="section-heading">Push to GitHub<a class="anchor" aria-label="anchor" href="#push-to-github"></a>
 </h2>
-<hr class="half-width"><p>The lesson you just created lives local on your computer, but still needs to go to GitHub. At this point, we assume that you have successfully <a href="index.html#setup">linked your computer to GitHub</a>.</p>
+<hr class="half-width"><p>The lesson you just created lives local on your computer, but still
+needs to go to GitHub. At this point, we assume that you have
+successfully <a href="index.html#setup">linked your
+computer to GitHub</a>.</p>
 <ol style="list-style-type: decimal"><li>visit <a href="https://github.com/new/" class="external-link uri">https://github.com/new/</a>
 </li>
 <li>enter <code>buoyant-barnacle</code> as the repository name</li>
-<li>Press the green “Create Repository” button at the bottom of the page</li>
-<li>Follow the instructions on the page to push an existing repository from the command line.</li>
-</ol><p>A few minutes after you pushed your repository, the GitHub workflows would have validated your lesson and created deployment branches. You can track the progress at <code>https://github.com/&lt;USERNAME&gt;/buoyant-barnacle/actions/</code>. Once you have a green check mark, you can <a href="https://docs.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site" class="external-link">set up GitHub Pages</a> by going to <code>https://github.com/&lt;USERNAME&gt;/buoyant-barnacle/settings/pages</code> and choosing <code>gh-pages</code> from the dropdown menu as shown in the image below:</p>
+<li>Press the green “Create Repository” button at the bottom of the
+page</li>
+<li>Follow the instructions on the page to push an existing repository
+from the command line.</li>
+</ol><p>A few minutes after you pushed your repository, the GitHub workflows
+would have validated your lesson and created deployment branches. You
+can track the progress at
+<code>https://github.com/&lt;USERNAME&gt;/buoyant-barnacle/actions/</code>.
+Once you have a green check mark, you can <a href="https://docs.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site" class="external-link">set
+up GitHub Pages</a> by going to
+<code>https://github.com/&lt;USERNAME&gt;/buoyant-barnacle/settings/pages</code>
+and choosing <code>gh-pages</code> from the dropdown menu as shown in
+the image below:</p>
 <figure><img src="../fig/github-pages-none.png" class="image-with-shadow figure mx-auto d-block" alt="screencapture of the initial view of the GitHub Pages section of the settings tab"></figure><p>Click on the “select branch” button and select “gh-pages”:</p>
 <figure><img src="../fig/github-pages-gh-pages.png" class="image-with-shadow figure mx-auto d-block" alt='screencapture of expanded "select branch" button with "gh-pages" selected'></figure><div id="callout5" class="callout callout">
 <div class="callout-square">
@@ -492,7 +564,10 @@
 <span class="emoji" data-emoji="hourglass">⌛</span> Be Patient<a class="anchor" aria-label="anchor" href="#callout5"></a>
 </h3>
 <div class="callout-content">
-<p>GitHub needs to start up a new virtual machine the first time you use this, so it may take anywhere from 4 minutes up to 30 minutes for things to get started: 15 minutes for the workflow to spin up and then another 15 minutes for the machine to bootstrap and cache.</p>
+<p>GitHub needs to start up a new virtual machine the first time you use
+this, so it may take anywhere from 4 minutes up to 30 minutes for things
+to get started: 15 minutes for the workflow to spin up and then another
+15 minutes for the machine to bootstrap and cache.</p>
 </div>
 </div>
 </div>
@@ -504,7 +579,8 @@
 <h3 class="callout-title">Alternative: Two-step solution in R<a class="anchor" aria-label="anchor" href="#callout6"></a>
 </h3>
 <div class="callout-content">
-<p>If you use R and use an HTTPS protocol, this can be done in a single step from inside RStudio with the {usethis} package:</p>
+<p>If you use R and use an HTTPS protocol, this can be done in a single
+step from inside RStudio with the {usethis} package:</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -512,8 +588,13 @@
 <code class="sourceCode R"><span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_github</span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_github_pages</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
-<p>The <code>use_github()</code> function will set up a new repository under your personal account called <code>buoyant-barnacle</code>, add that remote to your <code>git remotes</code>, and automatically push your repository to GitHub.</p>
-<p>The <code>use_github_pages()</code> function will signal to GitHub that it should allow the <code>gh-pages</code> branch to serve the website at <code>https://user.github.io/buoyant-barnacle</code></p>
+<p>The <code>use_github()</code> function will set up a new repository
+under your personal account called <code>buoyant-barnacle</code>, add
+that remote to your <code>git remotes</code>, and automatically push
+your repository to GitHub.</p>
+<p>The <code>use_github_pages()</code> function will signal to GitHub
+that it should allow the <code>gh-pages</code> branch to serve the
+website at <code>https://user.github.io/buoyant-barnacle</code></p>
 <p>The output of these commands should look something like this:</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -531,19 +612,26 @@
 • Branch: 'gh-pages'
 • Path: '/'</code></pre>
 </div>
-<p>If you don’t use the HTTPS protocol, and want to find out how to set it in R, we have <a href="github-pat.html">a walkthrough to set your credentials in the learners section</a>.</p>
+<p>If you don’t use the HTTPS protocol, and want to find out how to set
+it in R, we have <a href="github-pat.html">a walkthrough to set your
+credentials in the learners section</a>.</p>
 </div>
 </div>
 </div>
 </section><section id="tools"><h2 class="section-heading">Tools<a class="anchor" aria-label="anchor" href="#tools"></a>
 </h2>
-<hr class="half-width"><p>As described in <a href="index.html#setup">the setup document</a>, The Carpentries Workshop only requires R and <a href="https://pandoc.org/" class="external-link">pandoc</a> to be installed. The tooling from the styles lesson template has been split up into three R packages:</p>
+<hr class="half-width"><p>As described in <a href="index.html#setup">the setup document</a>, The
+Carpentries Workshop only requires R and <a href="https://pandoc.org/" class="external-link">pandoc</a> to be installed. The tooling from
+the styles lesson template has been split up into three R packages:</p>
 <ol style="list-style-type: decimal"><li>
-<a href="https://github.com/carpentries/varnish/" class="external-link">{varnish}</a> contains the HTML, CSS, and JavaScript elements</li>
+<a href="https://github.com/carpentries/varnish/" class="external-link">{varnish}</a>
+contains the HTML, CSS, and JavaScript elements</li>
 <li>
-<a href="https://carpentries.github.io/pegboard/" class="external-link">{pegboard}</a> is a validator for the markdown documents</li>
+<a href="https://carpentries.github.io/pegboard/" class="external-link">{pegboard}</a> is
+a validator for the markdown documents</li>
 <li>
-<a href="https://carpentries.github.io/sandpaper/" class="external-link">{sandpaper}</a> is the engine that puts everything together.</li>
+<a href="https://carpentries.github.io/sandpaper/" class="external-link">{sandpaper}</a>
+is the engine that puts everything together.</li>
 </ol><div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -591,7 +679,7 @@
         <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.10.6" class="external-link">sandpaper (0.10.6)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.10.7" class="external-link">sandpaper (0.10.7)</a>,
         <a href="https://github.com/carpentries/pegboard/tree/0.3.2" class="external-link">pegboard (0.3.2)</a>,
       and <a href="https://github.com/carpentries/varnish/tree/0.2.8" class="external-link">varnish (0.2.8)</a>.</p>
 			</div>
@@ -613,9 +701,9 @@
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/sandpaper-docs/instructor/introduction.html",
   "identifier": "https://carpentries.github.io/sandpaper-docs/instructor/introduction.html",
-  "dateCreated": "2022-10-12",
+  "dateCreated": "2022-11-02",
   "dateModified": "2022-10-07",
-  "datePublished": "2022-11-01"
+  "datePublished": "2022-11-02"
 }
 
   </script><script>

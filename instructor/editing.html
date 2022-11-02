@@ -325,14 +325,26 @@
 </div>
 </div>
 </div>
-<p>If you want to edit and preview a full lesson using {sandpaper}, this is the episode for you. If you want to create a new lesson, head back to the episode for <a href="introduction.html">Creating a New Lesson</a>. I believe it’s beneficial to experience editing a fully functional lesson, so you will edit THIS lesson. The first step is to fork and clone it from GitHub:</p>
+<p>If you want to edit and preview a full lesson using {sandpaper}, this
+is the episode for you. If you want to create a new lesson, head back to
+the episode for <a href="introduction.html">Creating a New Lesson</a>. I
+believe it’s beneficial to experience editing a fully functional lesson,
+so you will edit THIS lesson. The first step is to fork and clone it
+from GitHub:</p>
 <section id="create-from-github"><h2 class="section-heading">Fork and Clone a Lesson<a class="anchor" aria-label="anchor" href="#create-from-github"></a>
 </h2>
-<hr class="half-width"><p>If you are familiar with the process of forking and cloning, then you may fork and clone as you normally do. If you would like a reminder, here are the steps:</p>
-<ol style="list-style-type: decimal"><li><p>Think about a place on your computer where you want to work on your fork of the lesson (e.g. <code>~/Documents/Lessons/</code>) and make sure that folder exists.</p></li>
-<li><p>Go to <a href="https://github.com/carpentries/sandpaper-docs/fork/" class="external-link uri">https://github.com/carpentries/sandpaper-docs/fork/</a> to fork the repository to your account</p></li>
+<hr class="half-width"><p>If you are familiar with the process of forking and cloning, then you
+may fork and clone as you normally do. If you would like a reminder,
+here are the steps:</p>
+<ol style="list-style-type: decimal"><li><p>Think about a place on your computer where you want to work on
+your fork of the lesson (e.g. <code>~/Documents/Lessons/</code>) and
+make sure that folder exists.</p></li>
+<li><p>Go to <a href="https://github.com/carpentries/sandpaper-docs/fork/" class="external-link uri">https://github.com/carpentries/sandpaper-docs/fork/</a> to
+fork the repository to your account</p></li>
 <li>
-<p>In the shell and use this command to clone this repository to your working directory, replacing <code>&lt;USERNAME&gt;</code> with your username</p>
+<p>In the shell and use this command to clone this repository to
+your working directory, replacing <code>&lt;USERNAME&gt;</code> with
+your username</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -349,7 +361,9 @@
 <h3 class="callout-title">One-step fork with R<a class="anchor" aria-label="anchor" href="#callout1"></a>
 </h3>
 <div class="callout-content">
-<p>If you use R and you also use an HTTPS protocol, you might be interested to know that the above three steps can be done in a single step with the {usethis} package via the GitHub API:</p>
+<p>If you use R and you also use an HTTPS protocol, you might be
+interested to know that the above three steps can be done in a single
+step with the {usethis} package via the GitHub API:</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -359,7 +373,8 @@
 </div>
 </div>
 </div>
-<p>In the next section, we will explore the folder structure of a lesson.</p>
+<p>In the next section, we will explore the folder structure of a
+lesson.</p>
 <div id="challenge1" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -369,8 +384,12 @@
 </h3>
 <div class="callout-content">
 <ol style="list-style-type: decimal"><li>Open the lesson in RStudio (or whatever you use for R)</li>
-<li>Use the keyboard shortcut <kbd>ctrl + shift + b</kbd> (<kbd>cmd + shift + b</kbd> on macOS) to build and preview this lesson (or type <code>sandpaper::build_lesson()</code> in the console if you are not using RStudio)</li>
-<li>Open THIS file (<code>episodes/editing.Rmd</code>) and add step 4: preview the lesson again.</li>
+<li>Use the keyboard shortcut <kbd>ctrl + shift + b</kbd> (<kbd>cmd +
+shift + b</kbd> on macOS) to build and preview this lesson (or type
+<code>sandpaper::build_lesson()</code> in the console if you are not
+using RStudio)</li>
+<li>Open THIS file (<code>episodes/editing.Rmd</code>) and add step 4:
+preview the lesson again.</li>
 </ol><p>What do you notice?</p>
 </div>
 </div>
@@ -382,9 +401,11 @@
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
-<p>What you should notice is that the only file updated when you re-render the lesson is the file you changed (<code>episodes/editing.Rmd</code>).</p>
+<p>What you should notice is that the only file updated when you
+re-render the lesson is the file you changed
+(<code>episodes/editing.Rmd</code>).</p>
 </div>
 </div>
 </div>
@@ -400,11 +421,15 @@
 <span class="emoji" data-emoji="construction">🚧</span> This May Change <span class="emoji" data-emoji="construction">🚧</span><a class="anchor" aria-label="anchor" href="#callout2"></a>
 </h3>
 <div class="callout-content">
-<p>The exact folder structure still has the possibility to change based on user testing for the front-end of the lesson website.</p>
+<p>The exact folder structure still has the possibility to change based
+on user testing for the front-end of the lesson website.</p>
 </div>
 </div>
 </div>
-<p>The template folder structure will contain markdown files arranged so that they match what we expect the menubar for the lesson should be. All folders and files with an arrow <code>&lt;-</code> are places in the lesson template you will be modifying:</p>
+<p>The template folder structure will contain markdown files arranged so
+that they match what we expect the menubar for the lesson should be. All
+folders and files with an arrow <code>&lt;-</code> are places in the
+lesson template you will be modifying:</p>
 <pre><code>|-- .gitignore         #  | Ignore everything in the site/ folder
 |-- .github/           #  | Configuration for deployment
 |-- episodes/          # &lt;- PUT YOUR EPISODE MARKDOWN FILES IN THIS FOLDER
@@ -418,40 +443,66 @@
 |-- CODE_OF_CONDUCT.md #  | Carpentries Code of Conduct (REQUIRED)
 |-- LICENSE.md         #  | Carpentries Licenses (REQUIRED)
 `-- README.md          # &lt;- Introduces folks how to use this lesson and where they can find more information.</code></pre>
-<p>This folder structure is heavily opinionated towards achieving our goals of creating a lesson infrastructure that is fit for the purpose of delivering lesson content for not only Carpentries instructors, but also for learners and educators who are browsing the content after a workshop. It is not designed to be a blog or commerce website. Read the following sections to understand the files and folders you will interact with most.</p>
-<p>All source files in {sandpaper} are written in <a href="https://pandoc.org/" class="external-link">pandoc</a>-flavored markdown and all require yaml header called <code>title</code>. Beyond that, you can put anything in these markdown files.</p>
+<p>This folder structure is heavily opinionated towards achieving our
+goals of creating a lesson infrastructure that is fit for the purpose of
+delivering lesson content for not only Carpentries instructors, but also
+for learners and educators who are browsing the content after a
+workshop. It is not designed to be a blog or commerce website. Read the
+following sections to understand the files and folders you will interact
+with most.</p>
+<p>All source files in {sandpaper} are written in <a href="https://pandoc.org/" class="external-link">pandoc</a>-flavored markdown and all require
+yaml header called <code>title</code>. Beyond that, you can put anything
+in these markdown files.</p>
 </section><section id="config.yaml"><h2 class="section-heading">
 <code>config.yaml</code><a class="anchor" aria-label="anchor" href="#config.yaml"></a>
 </h2>
-<hr class="half-width"><p>This configuration file contains global information about the lesson. It is purposefully designed to only include information that is editable and relevant to the lesson itself and can be divided into two sections: information and organization</p>
+<hr class="half-width"><p>This configuration file contains global information about the lesson.
+It is purposefully designed to only include information that is editable
+and relevant to the lesson itself and can be divided into two sections:
+information and organization</p>
 <div class="section level3">
 <h3 id="information">Information<a class="anchor" aria-label="anchor" href="#information"></a></h3>
-<p>These fields will be simple key-pair values of information used throughout the episode</p>
+<p>These fields will be simple key-pair values of information used
+throughout the episode</p>
 <dl><dt>carpentry</dt>
-<dd>The code for the specific carpentry that the lesson belongs to (swc, dc, lc, cp)
+<dd>
+The code for the specific carpentry that the lesson belongs to (swc, dc,
+lc, cp)
 </dd>
 <dt>title</dt>
-<dd>The main title of the lesson
+<dd>
+The main title of the lesson
 </dd>
 <dt>life_cycle</dt>
-<dd>What life cycle is the lesson in? (pre-alpha, alpha, beta, stable)
+<dd>
+What life cycle is the lesson in? (pre-alpha, alpha, beta, stable)
 </dd>
 <dt>license</dt>
-<dd>The license the lesson is registered under (defaults to CC-BY 4.0)
+<dd>
+The license the lesson is registered under (defaults to CC-BY 4.0)
 </dd>
 <dt>source</dt>
-<dd>The github source of the lesson
+<dd>
+The github source of the lesson
 </dd>
 <dt>branch</dt>
-<dd>The default branch
+<dd>
+The default branch
 </dd>
 <dt>contact</dt>
-<dd>Who should be contacted if there is a problem with the lesson
+<dd>
+Who should be contacted if there is a problem with the lesson
 </dd>
 </dl></div>
 <div class="section level3">
 <h3 id="organization">Organization<a class="anchor" aria-label="anchor" href="#organization"></a></h3>
-<p>These fields match the folder names in the repository and the values are a list of file names in the order they should be displayed. By default, each of these fields is blank, indicating that the default alphabetical order is used. To list items, add a new line with a hyphen and a space preceding the item name (<code>-</code>). For example, if I wanted to have the episodes called “one.md”, “two.Rmd”, “three.md”, and “four.md” in numerical order, I would use:</p>
+<p>These fields match the folder names in the repository and the values
+are a list of file names in the order they should be displayed. By
+default, each of these fields is blank, indicating that the default
+alphabetical order is used. To list items, add a new line with a hyphen
+and a space preceding the item name (<code>-</code>). For example, if I
+wanted to have the episodes called “one.md”, “two.Rmd”, “three.md”, and
+“four.md” in numerical order, I would use:</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -463,16 +514,20 @@
 </div>
 <p>Below are the four possible fields {sandpaper} will recognize:</p>
 <dl><dt>episodes</dt>
-<dd>The names of the episodes (main content)
+<dd>
+The names of the episodes (main content)
 </dd>
 <dt>instructors</dt>
-<dd>Instructor-specific resources (e.g. outline, etc)
+<dd>
+Instructor-specific resources (e.g. outline, etc)
 </dd>
 <dt>learners</dt>
-<dd>Resources for learners (e.g. Glossary terms)
+<dd>
+Resources for learners (e.g. Glossary terms)
 </dd>
 <dt>profiles</dt>
-<dd>Learner profile pages
+<dd>
+Learner profile pages
 </dd>
 </dl><div id="challenge2" class="callout challenge">
 <div class="callout-square">
@@ -482,7 +537,9 @@
 <h3 class="callout-title">Configuring Episode Order<a class="anchor" aria-label="anchor" href="#challenge2"></a>
 </h3>
 <div class="callout-content">
-<p>Open <code>config.yaml</code> and change the order of the episodes. Preview the lesson after you save the file. How did the schedule change?</p>
+<p>Open <code>config.yaml</code> and change the order of the episodes.
+Preview the lesson after you save the file. How did the schedule
+change?</p>
 </div>
 </div>
 </div>
@@ -493,9 +550,10 @@
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
-<p>The episodes appear in the same order as the configuration file and the timings have rearranged themselves to reflect that.</p>
+<p>The episodes appear in the same order as the configuration file and
+the timings have rearranged themselves to reflect that.</p>
 </div>
 </div>
 </div>
@@ -504,23 +562,39 @@
 </section><section id="episodes"><h2 class="section-heading">
 <code>episodes/</code><a class="anchor" aria-label="anchor" href="#episodes"></a>
 </h2>
-<hr class="half-width"><p>This is the folder where all the action is. It contains all of the episodes, figures, and data files needed for the lesson. By default, it will contain an episode called introduction.Rmd. You can edit this file to use as your introduction. To create a new Markdown episode, use the folowing function:</p>
+<hr class="half-width"><p>This is the folder where all the action is. It contains all of the
+episodes, figures, and data files needed for the lesson. By default, it
+will contain an episode called introduction.Rmd. You can edit this file
+to use as your introduction. To create a new Markdown episode, use the
+folowing function:</p>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">sandpaper</span><span class="fu">::</span><span class="fu">create_episode_md</span><span class="op">(</span><span class="st">"Episode Name"</span><span class="op">)</span></span></code></pre>
 </div>
-<p>This will create a Markdown episode called <code>episode-name.md</code> in the <code>episodes/</code> directory of your lesson, pre-populated with objectives, questions, and keypoints. The episode will be added to the end of the <code>episodes:</code> list in <code>config.yaml</code>, which serves as the table of contents.</p>
-<p>If you want to create an episode, but are not yet ready to render or publish it, you can create a draft using the <code>draft_episode</code> family of functions:</p>
+<p>This will create a Markdown episode called
+<code>episode-name.md</code> in the <code>episodes/</code> directory of
+your lesson, pre-populated with objectives, questions, and keypoints.
+The episode will be added to the end of the <code>episodes:</code> list
+in <code>config.yaml</code>, which serves as the table of contents.</p>
+<p>If you want to create an episode, but are not yet ready to render or
+publish it, you can create a draft using the <code>draft_episode</code>
+family of functions:</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">sandpaper</span><span class="fu">::</span><span class="fu">draft_episode_rmd</span><span class="op">(</span><span class="st">"Visualising Data"</span><span class="op">)</span></span></code></pre>
 </div>
-<p>This will create an R Markdown episode called <code>visualising-data.Rmd</code> in the <code>episodes/</code> directory of your lesson, but it will NOT be added to <code>config.yaml</code>, allowing you to work on it at your own pace without the need to publish it.</p>
-<p>When you are ready to publish an episode or want to move an existing episode to a new place, you can use <code>move_episode()</code> to pull up an interactive menu for moving the episode.</p>
+<p>This will create an R Markdown episode called
+<code>visualising-data.Rmd</code> in the <code>episodes/</code>
+directory of your lesson, but it will NOT be added to
+<code>config.yaml</code>, allowing you to work on it at your own pace
+without the need to publish it.</p>
+<p>When you are ready to publish an episode or want to move an existing
+episode to a new place, you can use <code>move_episode()</code> to pull
+up an interactive menu for moving the episode.</p>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -544,11 +618,17 @@ Choice:          </code></pre>
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="should-i-use-r-markdown-or-markdown-episodes" class="callout-inner">
-<h3 class="callout-title">Should I use R Markdown or Markdown Episodes?<a class="anchor" aria-label="anchor" href="#callout3"></a>
+<h3 class="callout-title">Should I use R Markdown or Markdown
+Episodes?<a class="anchor" aria-label="anchor" href="#callout3"></a>
 </h3>
 <div class="callout-content">
-<p>All {sandpaper} lessons can be built using Markdown, R Markdown, or a mix of both. If you want to dynamically render the output of your code via R (other languages will be supported in the future), then you should use R Markdown, but if you do not need to dynamically render output, you should stick with Markdown.</p>
-<p>Sandpaper offers four functions that will help with episode creation depending on your usage:</p>
+<p>All {sandpaper} lessons can be built using Markdown, R Markdown, or a
+mix of both. If you want to dynamically render the output of your code
+via R (other languages will be supported in the future), then you should
+use R Markdown, but if you do not need to dynamically render output, you
+should stick with Markdown.</p>
+<p>Sandpaper offers four functions that will help with episode creation
+depending on your usage:</p>
 <table class="table"><thead><tr class="header"><th>R Markdown</th>
 <th>Markdown</th>
 </tr></thead><tbody><tr class="odd"><td><code>create_episode_rmd()</code></td>
@@ -561,12 +641,21 @@ Choice:          </code></pre>
 </section><section id="instructors"><h2 class="section-heading">
 <code>instructors/</code><a class="anchor" aria-label="anchor" href="#instructors"></a>
 </h2>
-<hr class="half-width"><p>This folder contains information used for instructors only. Downloads of code outlines, aggregated figures, and slides would live in this folder.</p>
+<hr class="half-width"><p>This folder contains information used for instructors only. Downloads
+of code outlines, aggregated figures, and slides would live in this
+folder.</p>
 </section><section id="learners"><h2 class="section-heading">
 <code>learners/</code><a class="anchor" aria-label="anchor" href="#learners"></a>
 </h2>
-<hr class="half-width"><p>All the extras the learner would need, mostly a setup guide and glossary live here.</p>
-<p>The glossary page is populated from the <code>reference.md</code> file in this folder. The format of the glossary section of the <code>reference.md</code> file is a heading title <code>## Glossary</code> followed by <a href="https://pandoc.org/MANUAL.html#definition-lists" class="external-link">a definition list</a>. Definition lists are formatted as two lines for each term, the first includes the term to be defined and then the second line starts with a “:” and a space then the definition. i.e.</p>
+<hr class="half-width"><p>All the extras the learner would need, mostly a setup guide and
+glossary live here.</p>
+<p>The glossary page is populated from the <code>reference.md</code>
+file in this folder. The format of the glossary section of the
+<code>reference.md</code> file is a heading title
+<code>## Glossary</code> followed by <a href="https://pandoc.org/MANUAL.html#definition-lists" class="external-link">a definition
+list</a>. Definition lists are formatted as two lines for each term, the
+first includes the term to be defined and then the second line starts
+with a “:” and a space then the definition. i.e.</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -574,20 +663,25 @@ Choice:          </code></pre>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>: definition</span></code></pre>
 </div>
 <dl><dt>term</dt>
-<dd>definition
+<dd>
+definition
 </dd>
 </dl></section><section id="profiles"><h2 class="section-heading">
 <code>profiles/</code><a class="anchor" aria-label="anchor" href="#profiles"></a>
 </h2>
-<hr class="half-width"><p>Learner profiles would live in this folder and target learners, instructors, and maintainers alike to give a focus on the lesson.</p>
+<hr class="half-width"><p>Learner profiles would live in this folder and target learners,
+instructors, and maintainers alike to give a focus on the lesson.</p>
 </section><section id="index.md"><h2 class="section-heading">
 <code>index.md</code><a class="anchor" aria-label="anchor" href="#index.html"></a>
 </h2>
-<hr class="half-width"><p>This is the landing page for the lesson. The schedule is appended at the bottom of this page and this will be the first page that anyone sees.</p>
+<hr class="half-width"><p>This is the landing page for the lesson. The schedule is appended at
+the bottom of this page and this will be the first page that anyone
+sees.</p>
 </section><section id="readme.md"><h2 class="section-heading">
 <code>README.md</code><a class="anchor" aria-label="anchor" href="#readme.html"></a>
 </h2>
-<hr class="half-width"><p>This page gives information to maintainers about what to expect inside of th repository and how to contribute.</p>
+<hr class="half-width"><p>This page gives information to maintainers about what to expect
+inside of th repository and how to contribute.</p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -597,12 +691,16 @@ Choice:          </code></pre>
 </h3>
 <div class="callout-content">
 <ul><li>
-<code>sandpaper::build_lesson()</code> renders the site and rebuilds any sources that have changed.</li>
-<li>RStudio shortcuts are <kbd>cmd + shift + B</kbd> and <kbd>cmd + shift + K</kbd>
+<code>sandpaper::build_lesson()</code> renders the site and rebuilds
+any sources that have changed.</li>
+<li>RStudio shortcuts are <kbd>cmd + shift + B</kbd> and <kbd>cmd +
+shift + K</kbd>
 </li>
-<li>To edit a lesson, you only need to know Markdown and/or R Markdown</li>
+<li>To edit a lesson, you only need to know Markdown and/or R
+Markdown</li>
 <li>The folder structure is designed with maintainers in mind<br></li>
-<li>New episodes can be added with <code>sandpaper::create_episode()</code>
+<li>New episodes can be added with
+<code>sandpaper::create_episode()</code>
 </li>
 </ul></div>
 </div>
@@ -638,7 +736,7 @@ Choice:          </code></pre>
         <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.10.6" class="external-link">sandpaper (0.10.6)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.10.7" class="external-link">sandpaper (0.10.7)</a>,
         <a href="https://github.com/carpentries/pegboard/tree/0.3.2" class="external-link">pegboard (0.3.2)</a>,
       and <a href="https://github.com/carpentries/varnish/tree/0.2.8" class="external-link">varnish (0.2.8)</a>.</p>
 			</div>
@@ -660,9 +758,9 @@ Choice:          </code></pre>
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/sandpaper-docs/instructor/editing.html",
   "identifier": "https://carpentries.github.io/sandpaper-docs/instructor/editing.html",
-  "dateCreated": "2022-10-12",
+  "dateCreated": "2022-11-02",
   "dateModified": "2022-10-07",
-  "datePublished": "2022-11-01"
+  "datePublished": "2022-11-02"
 }
 
   </script><script>

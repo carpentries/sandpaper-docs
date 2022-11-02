@@ -334,13 +334,22 @@
 </div>
 <section id="introduction"><h2 class="section-heading">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
-<hr class="half-width"><p>One of the biggest benefits of working on a Carpentries Lesson is that it gives maintainers and contributors practice collaboratively working on GitHub and practicing common software engineering practices, including pull requests and reviews. In the Carpentries Workbench, we have implemented new features that will make reviewing contributed content easier for maintainers:</p>
+<hr class="half-width"><p>One of the biggest benefits of working on a Carpentries Lesson is
+that it gives maintainers and contributors practice collaboratively
+working on GitHub and practicing common software engineering practices,
+including pull requests and reviews. In the Carpentries Workbench, we
+have implemented new features that will make reviewing contributed
+content easier for maintainers:</p>
 <ol style="list-style-type: decimal"><li>Source content is checked for valid headings, links, and images</li>
-<li>Generated content is rendered to markdown and placed in a temporary branch for visual inspection.</li>
+<li>Generated content is rendered to markdown and placed in a temporary
+branch for visual inspection.</li>
 <li>Pull requests are checked for malicious attacks.</li>
 </ol></section><section id="reviewing-a-pull-request"><h2 class="section-heading">Reviewing A Pull Request<a class="anchor" aria-label="anchor" href="#reviewing-a-pull-request"></a>
 </h2>
-<hr class="half-width"><p>When you recieve a pull request, a check will first validate that the lesson can be built and then, if the lesson can be built, it will generate output and leave <a href="https://github.com/carpentries/sandpaper-docs/pull/60#issuecomment-923204714" class="external-link">a comment that provides information about the rendered output</a>:</p>
+<hr class="half-width"><p>When you recieve a pull request, a check will first validate that the
+lesson can be built and then, if the lesson can be built, it will
+generate output and leave <a href="https://github.com/carpentries/sandpaper-docs/pull/60#issuecomment-923204714" class="external-link">a
+comment that provides information about the rendered output</a>:</p>
 <!-- NOTE: 
 To generate this screenshot, use the webshot2 package:
 
@@ -353,7 +362,12 @@ shoot <- function(file = 'bot-comment', repo = "caprentries/sandpaper-docs", pr 
    )
 }
 -->
-<figure><img src="fig/pr-bot-comment.png" alt="Screenshot of GitHub bot comment informing you  the message is automated, that you should check for accuracy of rendered output, and that there were 3 files changed in the rendered markdown documents." class="figure mx-auto d-block"></figure><p>With this information, you can click on the link that says ‘Inspect the changes’ to navigate to a diff of the rendered files. In this example, we have manipulated the output of a plot, and GitHub allows us to visually inspect these differences by scrolling down to the file mentioned in the diff and clicking on the “file” icon to the top right, which indicates to “display the rich diff”.</p>
+<figure><img src="fig/pr-bot-comment.png" alt="Screenshot of GitHub bot comment informing you  the message is automated, that you should check for accuracy of rendered output, and that there were 3 files changed in the rendered markdown documents." class="figure mx-auto d-block"></figure><p>With this information, you can click on the link that says ‘Inspect
+the changes’ to navigate to a diff of the rendered files. In this
+example, we have manipulated the output of a plot, and GitHub allows us
+to visually inspect these differences by scrolling down to the file
+mentioned in the diff and clicking on the “file” icon to the top right,
+which indicates to “display the rich diff”.</p>
 <figure><img src="fig/pr-diff.png" alt="Screeshot of a GitHub rich diff showing two versions of a pyramid, one with a blue sky and yellow pyramid and the other with a yellow sky and lavender pyramid." class="figure mx-auto d-block"></figure><div id="callout2" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -362,11 +376,21 @@ shoot <- function(file = 'bot-comment', repo = "caprentries/sandpaper-docs", pr 
 <h3 class="callout-title">Living with Entropy<a class="anchor" aria-label="anchor" href="#callout2"></a>
 </h3>
 <div class="callout-content">
-<p>In R Markdown documents, If you use any sort of code that generates random numbers, you may end up with small changes that show up on the list of changed files. See this example where <a href="https://github.com/MCMaurer/Rewrite-R-ecology-lesson/pull/3" class="external-link">using the <code>ggplot2</code> function <code>geom_jitter()</code> leads to slightly different image files</a>. You can fix this by setting a seed for the random number generator (e.g. <code>set.seed(1)</code>) at the beginning of the episode, so that the same random numbers are generated each time the lesson is built.</p>
+<p>In R Markdown documents, If you use any sort of code that generates
+random numbers, you may end up with small changes that show up on the
+list of changed files. See this example where <a href="https://github.com/MCMaurer/Rewrite-R-ecology-lesson/pull/3" class="external-link">using
+the <code>ggplot2</code> function <code>geom_jitter()</code> leads to
+slightly different image files</a>. You can fix this by setting a seed
+for the random number generator (e.g. <code>set.seed(1)</code>) at the
+beginning of the episode, so that the same random numbers are generated
+each time the lesson is built.</p>
 </div>
 </div>
 </div>
-<p>Of course, if you have a rendered lesson, another important thing is to check to make sure the outputs continue to work. If you notice any new errors or warnings new in the diff, you can work with the contributor to resolve them.</p>
+<p>Of course, if you have a rendered lesson, another important thing is
+to check to make sure the outputs continue to work. If you notice any
+new errors or warnings new in the diff, you can work with the
+contributor to resolve them.</p>
 <div id="discussion1" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
@@ -375,16 +399,32 @@ shoot <- function(file = 'bot-comment', repo = "caprentries/sandpaper-docs", pr 
 <h3 class="callout-title">Risk Management<a class="anchor" aria-label="anchor" href="#discussion1"></a>
 </h3>
 <div class="callout-content">
-<p>Accepting generated content into lessons from anyone runs the risk of a security breach by exposing secrets. To mitigate this risk, GitHub limits the scope of what is possible inside a pull request so that we can check and render the content without risk of exploitation. Through this, we render and check the lesson inside the pull request with no privileges, check that the pull request is valid (not malicious), and then create a temporary branch for an exploratory preview, allowing the maintainer to audit the generated content before it gets adopted into the curriculum.</p>
-<p>If the PR is invalid (e.g. the contributor spoofed a separate, valid PR, or modified one of the github actions files), then the maintainer is alerted that the PR is potentially risky.</p>
-<figure><img src="https://raw.githubusercontent.com/zkamvar/stunning-barnacle/main/img/pr-flow.dot.svg" alt="Workflow diagram from a pull request starting from Pull Request, and going to a path involving validation, artifact creation, maintainer review, and potential deployment." class="figure mx-auto d-block"><figcaption>The pull request cycle. Ellipse nodes (Pull Request and Maintainer Review) are the only places that require maintainer attention.</figcaption></figure></div>
+<p>Accepting generated content into lessons from anyone runs the risk of
+a security breach by exposing secrets. To mitigate this risk, GitHub
+limits the scope of what is possible inside a pull request so that we
+can check and render the content without risk of exploitation. Through
+this, we render and check the lesson inside the pull request with no
+privileges, check that the pull request is valid (not malicious), and
+then create a temporary branch for an exploratory preview, allowing the
+maintainer to audit the generated content before it gets adopted into
+the curriculum.</p>
+<p>If the PR is invalid (e.g. the contributor spoofed a separate, valid
+PR, or modified one of the github actions files), then the maintainer is
+alerted that the PR is potentially risky.</p>
+<figure><img src="https://raw.githubusercontent.com/zkamvar/stunning-barnacle/main/img/pr-flow.dot.svg" alt="Workflow diagram from a pull request starting from Pull Request, and going to a path involving validation, artifact creation, maintainer review, and potential deployment." class="figure mx-auto d-block"><figcaption>The pull request cycle. Ellipse nodes (Pull Request
+and Maintainer Review) are the only places that require maintainer
+attention.</figcaption></figure></div>
 </div>
 </div>
 </section><section id="automated-pull-requests"><h2 class="section-heading">Automated Pull Requests<a class="anchor" aria-label="anchor" href="#automated-pull-requests"></a>
 </h2>
-<hr class="half-width"><p>There are two situations where you would receive a pull request from <a href="https://github.com/znk-machine/" class="external-link">The Carpentries Apprentice bot</a></p>
+<hr class="half-width"><p>There are two situations where you would receive a pull request from
+<a href="https://github.com/znk-machine/" class="external-link">The Carpentries Apprentice
+bot</a></p>
 <ol style="list-style-type: decimal"><li>The workflows need to be updated to the latest versions</li>
-<li>You have a lesson that uses generated content, the software requirements file (e.g. renv.lock or [future] requirements.txt) is updated to the latest versions and the lesson is re-built.</li>
+<li>You have a lesson that uses generated content, the software
+requirements file (e.g. renv.lock or [future] requirements.txt) is
+updated to the latest versions and the lesson is re-built.</li>
 </ol><p>More details about the purpose of these builds can be found in <a href="update.html">The Chapter on updating lesson components</a>.</p>
 <div id="callout3" class="callout callout">
 <div class="callout-square">
@@ -394,26 +434,37 @@ shoot <- function(file = 'bot-comment', repo = "caprentries/sandpaper-docs", pr 
 <h3 class="callout-title">For Lessons Outside of The Carpentries<a class="anchor" aria-label="anchor" href="#callout3"></a>
 </h3>
 <div class="callout-content">
-<p>If you are using {sandpaper} to work on a lesson on your own personal account, these pull requests may never trigger. If you want them to work, follow the instructions in the technical article in {sandpaper} called [Working with Automated Pull Requests].</p>
+<p>If you are using {sandpaper} to work on a lesson on your own personal
+account, these pull requests may never trigger. If you want them to
+work, follow the instructions in the technical article in {sandpaper}
+called [Working with Automated Pull Requests].</p>
 </div>
 </div>
 </div>
 <div class="section level3">
 <h3 id="workflow-updates">Workflow Updates<a class="anchor" aria-label="anchor" href="#workflow-updates"></a></h3>
-<p>When you receive a workflow update pull request, it will state that it is a bot and then indicate which version of sandpaper the workflows will be updated to.</p>
-<figure><img src="fig/pr-apprentice-workflow.png" alt="Screen shot of the bot commenting that  it is an automated build and that it is updating workflows." class="figure mx-auto d-block"></figure><p>Because this PR contains changed workflow files, it will be marked as invalid no preview will be created, rendering a comment that indicates as such.</p>
+<p>When you receive a workflow update pull request, it will state that
+it is a bot and then indicate which version of sandpaper the workflows
+will be updated to.</p>
+<figure><img src="fig/pr-apprentice-workflow.png" alt="Screen shot of the bot commenting that  it is an automated build and that it is updating workflows." class="figure mx-auto d-block"></figure><p>Because this PR contains changed workflow files, it will be marked as
+invalid no preview will be created, rendering a comment that indicates
+as such.</p>
 <figure><img src="fig/pr-bot-workflow.png" alt="Screen shot of the github-actions bot commenting with 'Pull Request contains modified workflows; no preview will be  created.'" class="figure mx-auto d-block"></figure></div>
 <div class="section level3">
 <h3 id="updating-package-cache">Updating Package Cache<a class="anchor" aria-label="anchor" href="#updating-package-cache"></a></h3>
-<p>Updates to the package cache are accompanied by a bot comment that indicates the package versions that have been updated.</p>
-<figure><img src="fig/pr-apprentice-cache.png" alt="Screen shot of the apprentice bot  commenting that package versions have been updated in the lesson (e.g. knitr version changing from 1.33 to 1.34). It indicates that a comment will appear in a few minutes to show what has changed." class="figure mx-auto d-block"></figure><p>You will notice at the bottom of the comment there are instructions for how to check out a new branch and inspect the changes locally:</p>
+<p>Updates to the package cache are accompanied by a bot comment that
+indicates the package versions that have been updated.</p>
+<figure><img src="fig/pr-apprentice-cache.png" alt="Screen shot of the apprentice bot  commenting that package versions have been updated in the lesson (e.g. knitr version changing from 1.33 to 1.34). It indicates that a comment will appear in a few minutes to show what has changed." class="figure mx-auto d-block"></figure><p>You will notice at the bottom of the comment there are instructions
+for how to check out a new branch and inspect the changes locally:</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch origin update-7-packages-2021-09-11</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout update-7-packages-2021-09-11</span></code></pre>
 </div>
-<p>You are free to push code changes to this branch to update any lesson material that has changed due to package updates or you can also pin the versions of the packages you do not want updated.</p>
+<p>You are free to push code changes to this branch to update any lesson
+material that has changed due to package updates or you can also pin the
+versions of the packages you do not want updated.</p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -422,8 +473,11 @@ shoot <- function(file = 'bot-comment', repo = "caprentries/sandpaper-docs", pr 
 <h3 class="callout-title">Keypoints<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
 </h3>
 <div class="callout-content">
-<ul><li>Pull requests for generated formats requires validate of prose and generated content</li>
-<li>Inspecting the rendered markdown output can help maintainers identify changes that occur due to software before they are deployed to the website</li>
+<ul><li>Pull requests for generated formats requires validate of prose and
+generated content</li>
+<li>Inspecting the rendered markdown output can help maintainers
+identify changes that occur due to software before they are deployed to
+the website</li>
 <li>Automated pull requests help keep the infrastructure up-to-date</li>
 </ul></div>
 </div>
@@ -460,7 +514,7 @@ shoot <- function(file = 'bot-comment', repo = "caprentries/sandpaper-docs", pr 
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.10.6" class="external-link">sandpaper (0.10.6)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.10.7" class="external-link">sandpaper (0.10.7)</a>,
         <a href="https://github.com/carpentries/pegboard/tree/0.3.2" class="external-link">pegboard (0.3.2)</a>,
       and <a href="https://github.com/carpentries/varnish/tree/0.2.8" class="external-link">varnish (0.2.8)</a>.</p>
 			</div>
@@ -482,9 +536,9 @@ shoot <- function(file = 'bot-comment', repo = "caprentries/sandpaper-docs", pr 
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/sandpaper-docs/pull-request.html",
   "identifier": "https://carpentries.github.io/sandpaper-docs/pull-request.html",
-  "dateCreated": "2022-10-12",
+  "dateCreated": "2022-11-02",
   "dateModified": "2022-10-07",
-  "datePublished": "2022-11-01"
+  "datePublished": "2022-11-02"
 }
 
   </script><script>
