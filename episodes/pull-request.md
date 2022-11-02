@@ -170,8 +170,8 @@ You will notice at the bottom of the comment there are instructions for how to
 check out a new branch and inspect the changes locally:
 
 ```bash
-git fetch origin update-7-packages-2021-09-11
-git checkout update-7-packages-2021-09-11
+git fetch origin update/packages
+git checkout update/packages
 ```
 
 You are free to push code changes to this branch to update any lesson material
