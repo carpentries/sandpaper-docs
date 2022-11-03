@@ -224,6 +224,7 @@
         <ul><li><a href="#introduction">Introduction</a></li>
 <li><a href="#reviewing-a-pull-request">Reviewing A Pull Request</a></li>
 <li><a href="#automated-pull-requests">Automated Pull Requests</a></li>
+<li><a href="#being-vigilant">Being Vigilant</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
         
@@ -281,7 +282,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Auditing Pull Requests</h1>
-        <p> Last updated on 2022-11-02 | 
+        <p> Last updated on 2022-11-03 | 
         
         <a href="https://github.com/carpentries/sandpaper-docs/edit/main/episodes/pull-request.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -319,19 +320,6 @@
 </div>
 </div>
 </div>
-<div id="callout1" class="callout callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<div id="under-development" class="callout-inner">
-<h3 class="callout-title">
-<span class="emoji" data-emoji="construction">🚧</span> Under Development<a class="anchor" aria-label="anchor" href="#callout1"></a>
-</h3>
-<div class="callout-content">
-<p>This episode is still actively being developed</p>
-</div>
-</div>
-</div>
 <section id="introduction"><h2 class="section-heading">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
 <hr class="half-width"><p>One of the biggest benefits of working on a Carpentries Lesson is
@@ -354,12 +342,14 @@ comment that provides information about the rendered output</a>:</p>
 To generate this screenshot, use the webshot2 package:
 
 library(webshot2)
-shoot <- function(file = 'bot-comment', repo = "caprentries/sandpaper-docs", pr = 60, comment = "#issuecomment-923204714") {
-   webshot(glue::glue("https://github.com/{repo}/pull/{pr}{comment}"), 
-     file = glue::glue("episodes/fig/pr-{file}.png"), 
-     selector = comment, 
-     expand = c(10, 10, 10, 80)
-   )
+shoot <- function(file = 'bot-comment', url = "https://github.com/carpentries/sandpaper-docs/pull/110#issue-1403830300") {
+   the_url <- xml2::url_parse(url)
+   comment <- glue::glue("#{the_url$fragment}")
+   url <- glue::glue("https://github.com/{the_url$path}")
+   file <- glue::glue("episodes/fig/pr-{file}.png")
+   expand <- c(5, 20, 5, 80)
+   webshot(url = url,  file = file,  selector = comment,  expand = expand, zoom = 1.5)
+   return(list(url = url,  file = file,  selector = comment,  expand = expand, zoom = 1.5))
 }
 -->
 <figure><img src="fig/pr-bot-comment.png" alt="Screenshot of GitHub bot comment informing you  the message is automated, that you should check for accuracy of rendered output, and that there were 3 files changed in the rendered markdown documents." class="figure mx-auto d-block"></figure><p>With this information, you can click on the link that says ‘Inspect
@@ -368,12 +358,12 @@ example, we have manipulated the output of a plot, and GitHub allows us
 to visually inspect these differences by scrolling down to the file
 mentioned in the diff and clicking on the “file” icon to the top right,
 which indicates to “display the rich diff”.</p>
-<figure><img src="fig/pr-diff.png" alt="Screeshot of a GitHub rich diff showing two versions of a pyramid, one with a blue sky and yellow pyramid and the other with a yellow sky and lavender pyramid." class="figure mx-auto d-block"></figure><div id="callout2" class="callout callout">
+<figure><img src="fig/pr-diff.png" alt="Screeshot of a GitHub rich diff showing two versions of a pyramid, one with a blue sky and yellow pyramid and the other with a yellow sky and lavender pyramid." class="figure mx-auto d-block"></figure><div id="callout1" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="living-with-entropy" class="callout-inner">
-<h3 class="callout-title">Living with Entropy<a class="anchor" aria-label="anchor" href="#callout2"></a>
+<h3 class="callout-title">Living with Entropy<a class="anchor" aria-label="anchor" href="#callout1"></a>
 </h3>
 <div class="callout-content">
 <p>In R Markdown documents, If you use any sort of code that generates
@@ -410,7 +400,7 @@ maintainer to audit the generated content before it gets adopted into
 the curriculum.</p>
 <p>If the PR is invalid (e.g. the contributor spoofed a separate, valid
 PR, or modified one of the github actions files), then the maintainer is
-alerted that the PR is potentially risky.</p>
+alerted that the PR is potentially risky (see the <a href="#being-vigilant">Being Vigilant</a> section for details)</p>
 <figure><img src="https://raw.githubusercontent.com/zkamvar/stunning-barnacle/main/img/pr-flow.dot.svg" alt="Workflow diagram from a pull request starting from Pull Request, and going to a path involving validation, artifact creation, maintainer review, and potential deployment." class="figure mx-auto d-block"><figcaption>The pull request cycle. Ellipse nodes (Pull Request
 and Maintainer Review) are the only places that require maintainer
 attention.</figcaption></figure></div>
@@ -426,12 +416,12 @@ bot</a></p>
 requirements file (e.g. renv.lock or [future] requirements.txt) is
 updated to the latest versions and the lesson is re-built.</li>
 </ol><p>More details about the purpose of these builds can be found in <a href="update.html">The Chapter on updating lesson components</a>.</p>
-<div id="callout3" class="callout callout">
+<div id="callout2" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="for-lessons-outside-of-the-carpentries" class="callout-inner">
-<h3 class="callout-title">For Lessons Outside of The Carpentries<a class="anchor" aria-label="anchor" href="#callout3"></a>
+<h3 class="callout-title">For Lessons Outside of The Carpentries<a class="anchor" aria-label="anchor" href="#callout2"></a>
 </h3>
 <div class="callout-content">
 <p>If you are using {sandpaper} to work on a lesson on your own personal
@@ -443,29 +433,73 @@ called [Working with Automated Pull Requests].</p>
 </div>
 <div class="section level3">
 <h3 id="workflow-updates">Workflow Updates<a class="anchor" aria-label="anchor" href="#workflow-updates"></a></h3>
-<p>When you receive a workflow update pull request, it will state that
-it is a bot and then indicate which version of sandpaper the workflows
-will be updated to.</p>
+<p>When you receive a workflow update pull request, it will be on a
+branch called <code>update/workflows</code>, state that it is a bot and
+then indicate which version of sandpaper the workflows will be updated
+to.</p>
 <figure><img src="fig/pr-apprentice-workflow.png" alt="Screen shot of the bot commenting that  it is an automated build and that it is updating workflows." class="figure mx-auto d-block"></figure><p>Because this PR contains changed workflow files, it will be marked as
 invalid no preview will be created, rendering a comment that indicates
 as such.</p>
-<figure><img src="fig/pr-bot-workflow.png" alt="Screen shot of the github-actions bot commenting with 'Pull Request contains modified workflows; no preview will be  created.'" class="figure mx-auto d-block"></figure></div>
+<figure><img src="fig/pr-bot-workflow.png" alt="Screen shot of the github-actions bot commenting with the heading 'Modified Workflows' with text 'Pull Request contains modified workflows and no preview will be  created.' It lists the workflow files modified and then says in bold text: 'If this is not from a trusted source, please inspect the changes for any malicious content.'" class="figure mx-auto d-block"><figcaption>A Pull Request from <a href="https://github.com/carpentries-bot" class="external-link"><span class="citation">@carpentries-bot</span></a> signalling that workflows
+are modified and that they can be merged if you trust the bot</figcaption></figure></div>
 <div class="section level3">
 <h3 id="updating-package-cache">Updating Package Cache<a class="anchor" aria-label="anchor" href="#updating-package-cache"></a></h3>
-<p>Updates to the package cache are accompanied by a bot comment that
-indicates the package versions that have been updated.</p>
-<figure><img src="fig/pr-apprentice-cache.png" alt="Screen shot of the apprentice bot  commenting that package versions have been updated in the lesson (e.g. knitr version changing from 1.33 to 1.34). It indicates that a comment will appear in a few minutes to show what has changed." class="figure mx-auto d-block"></figure><p>You will notice at the bottom of the comment there are instructions
+<p>Updates to the package cache are on the <code>updates/packages</code>
+branch and accompanied by a bot comment that indicates the package
+versions that have been updated.</p>
+<figure><img src="fig/pr-apprentice-cache.png" alt="Screen shot of the apprentice bot commenting that package versions have been updated in the lesson (e.g. xfun  version changing from 0.33 to 0.34). It indicates that a comment will appear in a few minutes to show what has changed." class="figure mx-auto d-block"><figcaption>A Pull Request from <a href="https://github.com/carpentries-bot" class="external-link"><span class="citation">@carpentries-bot</span></a> giving details of what
+packages were modified and that they can be merged if you trust the
+bot</figcaption></figure><p>You will notice at the bottom of the comment there are instructions
 for how to check out a new branch and inspect the changes locally:</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch origin update-7-packages-2021-09-11</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout update-7-packages-2021-09-11</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch origin update/packages</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout update/packages</span></code></pre>
 </div>
 <p>You are free to push code changes to this branch to update any lesson
 material that has changed due to package updates or you can also pin the
 versions of the packages you do not want updated.</p>
-<div id="keypoints1" class="callout keypoints">
+<div class="section level4">
+<h4 id="status-updates">Status Updates<a class="anchor" aria-label="anchor" href="#status-updates"></a></h4>
+<p>When the pull request comes in from [The Carpentries Apprentice], you
+will see this comment immediately:</p>
+<figure><img src="fig/pr-bot-comment-ok.png" alt="a comment from github actions (bot) that with the heading 'Pre-Flight Checkes Passed' and a smiley face. The text reads 'This pull request has been checked and contains no modified workflow files, spoofing, or invalid commits. Results of any additional workflows will appear here when they are done.'" class="figure mx-auto d-block"><figcaption>A sign that good things will come</figcaption></figure><p>In the next couple of minutes, the R Markdown files will be re-built
+with the updated versions of the packages and the comment will update to
+reveal changes that have been made (if any).</p>
+</div>
+</div>
+</section><section id="being-vigilant"><h2 class="section-heading">Being Vigilant<a class="anchor" aria-label="anchor" href="#being-vigilant"></a>
+</h2>
+<hr class="half-width"><div class="section level3">
+<h3 id="preventing-malicious-commits">Preventing Malicious Commits<a class="anchor" aria-label="anchor" href="#preventing-malicious-commits"></a></h3>
+<p>The pull request previews are designed to allow you to inspect the
+potential changes before they go live. Because our lessons run arbitrary
+code, it is important to inspect the changes to make sure that someone
+is not trying to insert anything malicious into your lesson. A good rule
+of thumb for maintaining your lesson is that if there are changes are
+changes you do not understand coming from someone other than <span class="citation">@carpentries-bot</span>, then, it’s a good idea to wait
+to merge until you can fully understand the changes that are being
+proposed.</p>
+<p>One risk that might happen is if someone updates lesson content and
+the github workflows at the same time. If this happens, you will see a
+comment from the workflows that looks like this:</p>
+<figure><img src="fig/pr-bot-comment-warn.png" alt="a comment from github actions (bot) with the heading 'WARNING' flanked by yellow warning symbols. The text reads 'This pull request contains a mix of workflow files and regular files. This could be malicious.' The list of regular files are episodes/introduction.Rmd and episodes/files/malicious-script.sh. The list of workflow files shows .github/workflows/sandpaper-main.yaml" class="figure mx-auto d-block"><figcaption>A warning that something is not quite right</figcaption></figure><p>It is not always the case that changes in lesson files and workflow
+files will be bad, but it is not good practice to mix them.</p>
+</div>
+<div class="section level3">
+<h3 id="transition-from-carpentriesstyles">Transition from carpentries/styles<a class="anchor" aria-label="anchor" href="#transition-from-carpentriesstyles"></a></h3>
+<p>During the migration to The Carpentries Workbench, we are using <a href="https://github.com/carpentries/lesson-transition#readme" class="external-link">the
+lesson transition tool</a> to convert lessons from the former “lesson
+template” to The Workbench. This involved removing commits unrelated to
+lesson content from the git history, which reduces the size of the
+lesson’s git repository and has the benefit of making the contribution
+log more clear. The downside is that forks that were created before the
+lesson was transferred to The Workbench suddenly became invalid.</p>
+<p>If someone attempts to merge a pull request from an old repository,
+the first thing you will notice is hundreds of new commits and the
+second thing you will notice is the results of the automated check</p>
+<figure><img src="fig/pr-bot-comment-danger.png" alt="a comment from github actions (bot) with the heading 'DANGER' flanked by red 'x' symbols. The text reads in bold letters 'DO NOT MERGE THIS PULL REQUEST' and gives information about  the divergent history and the invalid commit. It has extra information for the pull request author to delete their fork and re-fork the repository to  contribute changes." class="figure mx-auto d-block"><figcaption>A warning that something is not quite right</figcaption></figure><div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
 </div>
@@ -536,9 +570,9 @@ the website</li>
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/sandpaper-docs/pull-request.html",
   "identifier": "https://carpentries.github.io/sandpaper-docs/pull-request.html",
-  "dateCreated": "2022-11-02",
-  "dateModified": "2022-11-02",
-  "datePublished": "2022-11-02"
+  "dateCreated": "2022-11-03",
+  "dateModified": "2022-11-03",
+  "datePublished": "2022-11-03"
 }
 
   </script><script>
