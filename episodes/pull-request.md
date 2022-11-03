@@ -105,7 +105,8 @@ adopted into the curriculum.
 
 If the PR is invalid (e.g. the contributor spoofed a separate, valid PR, or
 modified one of the github actions files), then the maintainer is alerted that
-the PR is potentially risky.
+the PR is potentially risky (see the [Being Vigilant](#being-vigilant) section
+for details)
 
 ![The pull request cycle. Ellipse nodes (Pull Request and Maintainer Review)
 are the only places that require maintainer
@@ -143,12 +144,12 @@ Automated Pull Requests].
 
 ### Workflow Updates
 
-When you receive a workflow update pull request, it will state that it is a bot
-and then indicate which version of sandpaper the workflows will be updated to.
+When you receive a workflow update pull request, it will be on a branch called
+`update/workflows`, state that it is a bot and then indicate which version of
+sandpaper the workflows will be updated to.
 
 ![](fig/pr-apprentice-workflow.png){alt="Screen shot of the bot commenting that 
 it is an automated build and that it is updating workflows."}
-
 
 Because this PR contains changed workflow files, it will be marked as invalid
 no preview will be created, rendering a comment that indicates as such.
@@ -163,8 +164,9 @@ trusted source, please inspect the changes for any malicious content.'"}
 
 ### Updating Package Cache
 
-Updates to the package cache are accompanied by a bot comment that indicates the
-package versions that have been updated.
+Updates to the package cache are on the `updates/packages` branch and
+accompanied by a bot comment that indicates the package versions that have been
+updated.
 
 ![A Pull Request from [@carpentries-bot](https://github.com/carpentries-bot)
 giving details of what packages were modified and that they can be merged if you
@@ -225,6 +227,9 @@ could be malicious.' The list of regular files are episodes/introduction.Rmd and
 episodes/files/malicious-script.sh. The list of workflow files shows
 .github/workflows/sandpaper-main.yaml"}
 
+It is not always the case that changes in lesson files and workflow files will
+be bad, but it is not good practice to mix them.
+
 
 ### Transition from carpentries/styles
 
@@ -248,6 +253,8 @@ in bold letters 'DO NOT MERGE THIS PULL REQUEST' and gives information about
 the divergent history and the invalid commit. It has extra information for the
 pull request author to delete their fork and re-fork the repository to 
 contribute changes."}
+
+
 
 :::::::::::::::::::::::::::::: keypoints
 
