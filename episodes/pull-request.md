@@ -21,14 +21,6 @@ exercises: 0
 
 ::::::::::::::::::::::::::::::::::::::::
 
-:::: callout
-
-#### :construction: Under Development
-
-This episode is still actively being developed
-
-::::
-
 ## Introduction
 
 One of the biggest benefits of working on a Carpentries Lesson is that it gives
