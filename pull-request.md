@@ -21,14 +21,6 @@ exercises: 0
 
 ::::::::::::::::::::::::::::::::::::::::
 
-:::: callout
-
-#### :construction: Under Development
-
-This episode is still actively being developed
-
-::::
-
 ## Introduction
 
 One of the biggest benefits of working on a Carpentries Lesson is that it gives
@@ -53,12 +45,14 @@ output](https://github.com/carpentries/sandpaper-docs/pull/60#issuecomment-92320
 To generate this screenshot, use the webshot2 package:
 
 library(webshot2)
-shoot <- function(file = 'bot-comment', repo = "caprentries/sandpaper-docs", pr = 60, comment = "#issuecomment-923204714") {
-   webshot(glue::glue("https://github.com/{repo}/pull/{pr}{comment}"), 
-     file = glue::glue("episodes/fig/pr-{file}.png"), 
-     selector = comment, 
-     expand = c(10, 10, 10, 80)
-   )
+shoot <- function(file = 'bot-comment', url = "https://github.com/carpentries/sandpaper-docs/pull/110#issue-1403830300") {
+   the_url <- xml2::url_parse(url)
+   comment <- glue::glue("#{the_url$fragment}")
+   url <- glue::glue("https://github.com/{the_url$path}")
+   file <- glue::glue("episodes/fig/pr-{file}.png")
+   expand <- c(5, 20, 5, 80)
+   webshot(url = url,  file = file,  selector = comment,  expand = expand, zoom = 1.5)
+   return(list(url = url,  file = file,  selector = comment,  expand = expand, zoom = 1.5))
 }
 -->
 
@@ -103,7 +97,8 @@ adopted into the curriculum.
 
 If the PR is invalid (e.g. the contributor spoofed a separate, valid PR, or
 modified one of the github actions files), then the maintainer is alerted that
-the PR is potentially risky.
+the PR is potentially risky (see the [Being Vigilant](#being-vigilant) section
+for details)
 
 ![The pull request cycle. Ellipse nodes (Pull Request and Maintainer Review)
 are the only places that require maintainer
@@ -141,42 +136,117 @@ Automated Pull Requests].
 
 ### Workflow Updates
 
-When you receive a workflow update pull request, it will state that it is a bot
-and then indicate which version of sandpaper the workflows will be updated to.
+When you receive a workflow update pull request, it will be on a branch called
+`update/workflows`, state that it is a bot and then indicate which version of
+sandpaper the workflows will be updated to.
 
 ![](fig/pr-apprentice-workflow.png){alt="Screen shot of the bot commenting that 
 it is an automated build and that it is updating workflows."}
 
-
 Because this PR contains changed workflow files, it will be marked as invalid
 no preview will be created, rendering a comment that indicates as such.
 
-![](fig/pr-bot-workflow.png){alt="Screen shot of the github-actions bot
-commenting with 'Pull Request contains modified workflows; no preview will be 
-created.'"}
-
+![A Pull Request from [@carpentries-bot](https://github.com/carpentries-bot)
+signalling that workflows are modified and that they can be merged if you trust
+the bot](fig/pr-bot-workflow.png){alt="Screen shot of the github-actions bot
+commenting with the heading 'Modified Workflows' with text 'Pull Request
+contains modified workflows and no preview will be  created.' It lists the
+workflow files modified and then says in bold text: 'If this is not from a
+trusted source, please inspect the changes for any malicious content.'"}
 
 ### Updating Package Cache
 
-Updates to the package cache are accompanied by a bot comment that indicates the
-package versions that have been updated.
+Updates to the package cache are on the `updates/packages` branch and
+accompanied by a bot comment that indicates the package versions that have been
+updated.
 
-![](fig/pr-apprentice-cache.png){alt="Screen shot of the apprentice bot 
-commenting that package versions have been updated in the lesson (e.g. knitr
-version changing from 1.33 to 1.34). It indicates that a comment will appear in
+![A Pull Request from [@carpentries-bot](https://github.com/carpentries-bot)
+giving details of what packages were modified and that they can be merged if you
+trust the bot](fig/pr-apprentice-cache.png){alt="Screen shot of the apprentice
+bot commenting that package versions have been updated in the lesson (e.g. xfun 
+version changing from 0.33 to 0.34). It indicates that a comment will appear in
 a few minutes to show what has changed."}
 
 You will notice at the bottom of the comment there are instructions for how to
 check out a new branch and inspect the changes locally:
 
 ```bash
-git fetch origin update-7-packages-2021-09-11
-git checkout update-7-packages-2021-09-11
+git fetch origin update/packages
+git checkout update/packages
 ```
 
 You are free to push code changes to this branch to update any lesson material
 that has changed due to package updates or you can also pin the versions of the
 packages you do not want updated.
+
+#### Status Updates
+
+When the pull request comes in from [The Carpentries Apprentice], you will see
+this comment immediately:
+
+![A sign that good things will come](fig/pr-bot-comment-ok.png){alt="a comment
+from github actions (bot) that with the heading 'Pre-Flight Checkes Passed' and
+a smiley face. The text reads 'This pull request has been checked and contains
+no modified workflow files, spoofing, or invalid commits. Results of any
+additional workflows will appear here when they are done.'"}
+
+In the next couple of minutes, the R Markdown files will be re-built with the
+updated versions of the packages and the comment will update to reveal changes
+that have been made (if any).
+
+## Being Vigilant
+
+### Preventing Malicious Commits
+
+The pull request previews are designed to allow you to inspect the potential
+changes before they go live. Because our lessons run arbitrary code, it is
+important to inspect the changes to make sure that someone is not trying to
+insert anything malicious into your lesson. A good rule of thumb for maintaining
+your lesson is that if there are changes are changes you do not understand
+coming from someone other than @carpentries-bot, then, it's a good idea to wait
+to merge until you can fully understand the changes that are being proposed.
+
+One risk that might happen is if someone updates lesson content and the github
+workflows at the same time. If this happens, you will see a comment from the
+workflows that looks like this:
+
+
+![A warning that something is not quite
+right](fig/pr-bot-comment-warn.png){alt="a comment from github actions (bot)
+with the heading 'WARNING' flanked by yellow warning symbols. The text reads
+'This pull request contains a mix of workflow files and regular files. This
+could be malicious.' The list of regular files are episodes/introduction.Rmd and
+episodes/files/malicious-script.sh. The list of workflow files shows
+.github/workflows/sandpaper-main.yaml"}
+
+It is not always the case that changes in lesson files and workflow files will
+be bad, but it is not good practice to mix them.
+
+
+### Transition from carpentries/styles
+
+During the migration to The Carpentries Workbench, we are using [the lesson 
+transition tool](https://github.com/carpentries/lesson-transition#readme) to
+convert lessons from the former "lesson template" to The Workbench. This
+involved removing commits unrelated to lesson content from the git history, 
+which reduces the size of the lesson's git repository and has the benefit of
+making the contribution log more clear. The downside is that forks that were
+created before the lesson was transferred to The Workbench suddenly became
+invalid. 
+
+If someone attempts to merge a pull request from an old repository, the first
+thing you will notice is hundreds of new commits and the second thing you will
+notice is the results of the automated check
+
+![A warning that something is not quite
+right](fig/pr-bot-comment-danger.png){alt="a comment from github actions (bot)
+with the heading 'DANGER' flanked by red 'x' symbols. The text reads
+in bold letters 'DO NOT MERGE THIS PULL REQUEST' and gives information about 
+the divergent history and the invalid commit. It has extra information for the
+pull request author to delete their fork and re-fork the repository to 
+contribute changes."}
+
+
 
 :::::::::::::::::::::::::::::: keypoints
 
@@ -185,4 +255,3 @@ packages you do not want updated.
 - Automated pull requests help keep the infrastructure up-to-date
 
 ::::::::::::::::::::::::::::::::::::::::
-
