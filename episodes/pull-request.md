@@ -231,7 +231,23 @@ episodes/files/malicious-script.sh. The list of workflow files shows
 During the migration to The Carpentries Workbench, we are using [the lesson 
 transition tool](https://github.com/carpentries/lesson-transition#readme) to
 convert lessons from the former "lesson template" to The Workbench. This
-involves removing commits unrelated to lesson content from the git history.
+involved removing commits unrelated to lesson content from the git history, 
+which reduces the size of the lesson's git repository and has the benefit of
+making the contribution log more clear. The downside is that forks that were
+created before the lesson was transferred to The Workbench suddenly became
+invalid. 
+
+If someone attempts to merge a pull request from an old repository, the first
+thing you will notice is hundreds of new commits and the second thing you will
+notice is the results of the automated check
+
+![A warning that something is not quite
+right](fig/pr-bot-comment-danger.png){alt="a comment from github actions (bot)
+with the heading 'DANGER' flanked by red 'x' symbols. The text reads
+in bold letters 'DO NOT MERGE THIS PULL REQUEST' and gives information about 
+the divergent history and the invalid commit. It has extra information for the
+pull request author to delete their fork and re-fork the repository to 
+contribute changes."}
 
 :::::::::::::::::::::::::::::: keypoints
 
