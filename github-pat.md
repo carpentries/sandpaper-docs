@@ -62,7 +62,7 @@ If you see errors associated with your GitHub token (see below, e.g. 'Token is
 invalid' or 'Can't retrieve registered email address(es)'), then you should
 create a new one. Dr. Jenny Bryan wrote [an excellent resource for creating and
 caching your GitHub credentials on your computer
-](https://happygitwithr.com/credential-caching.html#how-to-manage-a-pat) that
+](https://happygitwithr.com/https-pat.html) that
 will walk you through the process of generating a PAT, and storing it in a
 secure location. Here are the steps briefly via R:
 
