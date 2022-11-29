@@ -7,6 +7,7 @@ accessible lessons from markdown or RMarkdown sources.
 If you want to try out this lesson, you can create a copy of it on the RStudio
 Cloud: https://rstudio.cloud/project/3507333
 
+Adding a line to test PR workflow
 ## Setup the Workbench
 
 To build this lesson locally, you should follow the [setup instructions for the
