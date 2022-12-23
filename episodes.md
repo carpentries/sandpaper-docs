@@ -1,6 +1,6 @@
 ---
 title: "Episode Structure"
-teaching: 10
+teaching: 15
 exercises: 2
 ---
 
@@ -87,7 +87,7 @@ chunks with controls of how the output and input are rendered in the document.
 For example, this markdown code fence will not produce any output, but it is
 valid for both Markdown and R Markdown. 
 
-````
+````markdown
 ```r
 print("hello world!")
 ```
@@ -100,7 +100,8 @@ print("hello world!")
 But when I open the fence with ```` ```{r} ```` then it becomes an R Markdown
 code fence and will execute the code inside the fence:
 
-````
+
+````markdown
 ```{r}
 print("hello world!")
 ```
@@ -486,6 +487,201 @@ chances are, if you want to highlight a particular language, you can add the
 language name as a label and it will work. A [full list of supported languages
 is here, each language being a separate XML file definition](https://github.com/jgm/skylighting/tree/master/skylighting-core/xml).
 
+## Tables
+
+Tables in The Workbench follow the rules for [pandoc pipe table
+syntax][pipe-table-syntax], which is the most portable form of tables.
+
+Because we use pandoc for rendering, tables also have the following features:
+
+1. You can add a table caption, which is great for accessibility[^tablecap]
+2. You have control over the relative width of oversized table contents
+
+Here is an example of a narrow table with three columns aligned left, center,
+and right, respectively.
+
+[pipe-table-syntax]: https://pandoc.org/MANUAL.html#extension-pipe_tables
+
+:::::::::::::: callout
+
+### Table alignment best practises
+
+The colons on each side of the `-` in the table dictate how the column is
+aligned. By default, columns are aligned left, but if you add colons on either
+side, that forces the alignment to that side.
+
+In general, most table contents should be left-aligned, with a couple of 
+exceptions:
+
+ - numbers should be right aligned
+ - symbols, emojis, and other equal-width items may be center-aligned
+
+These conventions make it easer for folks to scan a table and understand its
+contents at a glance. 
+
+::::::::::::::::::::::
+
+
+```markdown
+Table: Four fruits with color and price in imaginary dollars
+
+| fruit  | color            | price    |
+| ------ | :--------------: | -------: |
+| apple  | :red_square:     | \$2.05   |
+| pear   | :green_square:   | \$1.37   |
+| orange | :orange_square:  | \$3.09   |
+| devil  | :purple_square:  | \$666.00 |
+```
+
+Table: Four fruits with color and price in imaginary dollars
+
+| fruit  | color            | price    |
+| ------ | :--------------: | -------: |
+| apple  | :red_square:     | \$2.05   |
+| pear   | :green_square:   | \$1.37   |
+| orange | :orange_square:  | \$3.09   |
+| devil  | :purple_square:  | \$666.00 |
+
+You can see that we now have a caption associated with The table
+Because it is a narrow table, the columns fit exactly to the contents. If we
+added a fourth, longer column (e.g. a description), then the table looks a bit
+wonky:
+
+```markdown
+Table: Four fruits with color, price in imaginary dollars, and description
+
+| fruit  | color            | price    | description |
+| ------ | :--------------: | -------: | ----------- |
+| apple  | :red_square:     | \$2.05   | a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day |
+| pear   | :green_square:   | \$1.37   | a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon | 
+| orange | :orange_square:  | \$3.09   | a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days |
+| devil  | :purple_square:  | \$666.00 | a round purple fruit with complex swirls along its skin. It is said to taste terrible and give you mysterious powers |
+```
+
+Table: Four fruits with color and price in imaginary dollars
+
+| fruit  | color            | price    | description |
+| ------ | :--------------: | -------: | ----------- |
+| apple  | :red_square:     | \$2.05   | a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day |
+| pear   | :green_square:   | \$1.37   | a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon | 
+| orange | :orange_square:  | \$3.09   | a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days |
+| devil  | :purple_square:  | \$666.00 | a round purple fruit with complex swirls along its skin. It is said to taste terrible and give you mysterious powers |
+
+
+If we want to adjust the size of the columns, we need to change the lengths of
+the number of dashes separating the header from the body (as described in 
+[pandoc's guide for tables][pipe-table-syntax]. 
+
+Notice how the pipe characters (`|`) do not necessarily have to line up to 
+produce a table.
+
+
+```markdown
+Table: Four fruits with color, price in imaginary dollars, and description
+
+| fruit  | color            | price    | description                 |
+| ----   | :-:              | ---:     | --------------------------- |
+| apple  | :red_square:     | \$2.05   | a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day |
+| pear   | :green_square:   | \$1.37   | a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon | 
+| orange | :orange_square:  | \$3.09   | a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days |
+| devil  | :purple_square:  | \$666.00 | a round purple fruit with complex swirls along its skin. It is said to taste terrible and give you mysterious powers |
+```
+
+Table: Four fruits with color, price in imaginary dollars, and description
+
+| fruit  | color            | price    | description                 |
+| ----   | :-:              | ---:     | --------------------------- |
+| apple  | :red_square:     | \$2.05   | a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day |
+| pear   | :green_square:   | \$1.37   | a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon | 
+| orange | :orange_square:  | \$3.09   | a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days |
+| devil  | :purple_square:  | \$666.00 | a round purple fruit with complex swirls along its skin. It is said to taste terrible and give you mysterious powers |
+
+:::::::::::::::::::::::::::: challenge
+
+### Adjust column widths
+
+Adjust the widths of the columns below so that the columns are around a 1:5:1
+ratio with the second column having center-justification:
+
+```markdown
+Table: example table with overflowing text in three columns
+
+| first | second | third |
+| ----- | ------ | ----- |
+| this should be a small, compact column | this should be a wide column | this column should also be small and compact, much like the first column |
+```
+
+Table: example table with overflowing text in three columns
+
+| first | second | third |
+| ----- | ------ | ----- |
+| this should be a small, compact column | this should be a wide column | this column should also be small and compact, much like the first column |
+
+:::::::::::::: solution
+
+To get a rougly 1:5:1 ratio, you can use two separators for the short columns
+and ten separators for the wide column:
+
+```markdown
+Table: example table with overflowing text in three columns
+
+| first | second     | third |
+| --    | :--------: | --    |
+| this should be a small, compact column | this should be a wide column | this column should also be small and compact, much like the first column |
+```
+
+Table: example table with overflowing text in three columns
+
+| first | second     | third |
+| --    | :--------: | --    |
+| this should be a small, compact column | this should be a wide column | this column should also be small and compact, much like the first column |
+
+
+::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::::
+
+
+### R Markdown tables
+
+If you are using R Markdown, then you can generate a table from packages like
+{knitr} or {gt}, but make sure to use `asis = TRUE` in your chunk option:
+
+
+````markdown
+
+```{r fruits-table, results = 'asis'}
+dat <- data.frame(
+  stringsAsFactors = FALSE,
+             fruit = c("apple", "pear", "orange", "devil"),
+             color = c("🟥", "🟩", "🟧", "🟪"),
+             price = c("$2.05", "$1.37", "$3.09", "$666.00"),
+       description = c("a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day",
+                       "a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon",
+                       "a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days",
+                       "a round purple fruit with complex swirls along its skin. It is said to taste terrible and give you mysterious powers")
+)
+knitr::kable(dat, 
+  format = "pipe", 
+  align = "lcrl", 
+  caption = "Four fruits with color, price in imaginary dollars, and description")
+```
+````
+
+
+Table: Four fruits with color, price in imaginary dollars, and description
+
+|fruit  | color |   price|description                                                                                                                        |
+|:------|:-----:|-------:|:----------------------------------------------------------------------------------------------------------------------------------|
+|apple  |  🟥   |   $2.05|a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day                        |
+|pear   |  🟩   |   $1.37|a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon                                              |
+|orange |  🟧   |   $3.09|a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days |
+|devil  |  🟪   | $666.00|a round purple fruit with complex swirls along its skin. It is said to taste terrible and give you mysterious powers               |
+
+
+
+[^tablecap]: Captions allow visually impaired users to choose if they want to skip over the table contents if it is scannable. For more information, you can read 
+[MDN docs: adding a caption to your table](https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Advanced#adding_a_caption_to_your_table_with_caption)
 
 ## Links 
 
