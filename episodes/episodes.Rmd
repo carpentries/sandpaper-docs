@@ -752,12 +752,21 @@ You will rarely have alt text that fits under 100 characters, so you can wrap
 alt text like you would any markdown paragraph:
 
 ```markdown
-![Apologies to William Carlos Williams](fig/freezer.png){alt='This is just an icebox
+![Example of Wrapped Alt Text (with apologies to William Carlos Williams)](fig/freezer.png){alt='This is just an icebox
 with no plums
 which you were probably
 saving
 for breakfast'}
 ```
+
+When missing, the image will appear visually as a broken image icon, but the alt
+text describes what the image was.
+
+![Example of Wrapped Alt Text (with apologies to William Carlos Williams)](fig/freezer.png){alt='This is just an icebox
+with no plums
+which you were probably
+saving
+for breakfast'}
 
 #### Decorative Images
 
