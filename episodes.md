@@ -122,11 +122,11 @@ Note that it is completely optional to use these special code fences!
 
 ## Required Elements
 
-To keep with our active learning principals, we want to be mindful about the 
+To keep with our active learning principles, we want to be mindful about the 
 content we present to the learners. We need to give them a clear title, 
 questions and objectives, and an estimate of how long it will take to navigate
 the episode (though this latter point has shown to be demoralizing). Finally, at
-the end of the episode, we should reinforce the learners progress with a summary
+the end of the episode, we should reinforce the learners' progress with a summary
 of key points.
 
 ### YAML metadata
