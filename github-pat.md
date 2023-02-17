@@ -77,7 +77,7 @@ secure location. Here are the steps briefly via R:
 At this point, you should have things set up properly. If you are still having
 problems, you can try the following two steps (after you have your PAT):
 
-1. in R, use `credentials::git_credentials_forget()` to clear the cache
+1. in R, use `credentials::git_credential_forget()` to clear the cache
 2. use `credentials::set_github_pat()` and paste your token. 
 
 ::::::::: discussion
