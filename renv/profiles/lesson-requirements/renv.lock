@@ -77,7 +77,7 @@
         "R",
         "utils"
       ],
-      "Hash": "3177a5a16c243adc199ba33117bd9657"
+      "Hash": "980be0d23c88a8d922095a0a414f6c5b"
     },
     "digest": {
       "Package": "digest",
@@ -99,7 +99,7 @@
         "R",
         "rlang"
       ],
-      "Hash": "bb0eec2fe32e88d9e2836c2f73ea2077"
+      "Hash": "3c150f6c43dfb5a76b1a69bfdb8ca287"
     },
     "evaluate": {
       "Package": "evaluate",
@@ -110,7 +110,7 @@
         "R",
         "methods"
       ],
-      "Hash": "4b68aa51edd89a0e044a66e75ae3cc6c"
+      "Hash": "6b101790c674172f7d178f2bc686d139"
     },
     "fastmap": {
       "Package": "fastmap",
@@ -139,7 +139,7 @@
         "R",
         "methods"
       ],
-      "Hash": "4f2596dfb05dac67b9dc558e5c6fba2e"
+      "Hash": "2b1a3dfde68e8fdb5c1292474b9d7c63"
     },
     "highr": {
       "Package": "highr",
@@ -150,7 +150,7 @@
         "R",
         "xfun"
       ],
-      "Hash": "06230136b2d2b9ba5805e1963fa6e890"
+      "Hash": "a4c43a88a57355d3e5b2d6e0d0a54a33"
     },
     "htmltools": {
       "Package": "htmltools",
@@ -167,7 +167,7 @@
         "rlang",
         "utils"
       ],
-      "Hash": "9d27e99cc90bd701c0a7a63e5923f9b7"
+      "Hash": "0e4da77c570601acad3ad926b98d5636"
     },
     "jquerylib": {
       "Package": "jquerylib",
@@ -203,7 +203,7 @@
         "xfun",
         "yaml"
       ],
-      "Hash": "8329a9bcc82943c8069104d4be3ee22d"
+      "Hash": "4ad7308fe19fb3e3439fe50675972590"
     },
     "lifecycle": {
       "Package": "lifecycle",
@@ -216,7 +216,7 @@
         "glue",
         "rlang"
       ],
-      "Hash": "001cecbeac1cff9301bdc3775ee46a86"
+      "Hash": "f64421e91f757d0cdc1b3844591e5f34"
     },
     "magrittr": {
       "Package": "magrittr",
@@ -257,31 +257,28 @@
       "Requirements": [
         "R"
       ],
-      "Hash": "5e3c5dc0b071b21fa128676560dbe94d"
+      "Hash": "1c3bb00ca681781e8dacd7378fa17101"
     },
     "renv": {
       "Package": "renv",
-      "Version": "0.17.0-38",
+      "Version": "0.17.1",
       "Source": "Repository",
-      "Repository": "https://carpentries.r-universe.dev",
-      "RemoteUrl": "https://github.com/rstudio/renv",
-      "RemoteRef": "0.17.0-38",
-      "RemoteSha": "fd9181395e13652d2b3dc942ac1bf807e9564c25",
+      "Repository": "CRAN",
       "Requirements": [
         "utils"
       ],
-      "Hash": "4a11fe072b17cd901835053b25821a7f"
+      "Hash": "7a319d4e5743230d48bfd9ad42d02c2e"
     },
     "rlang": {
       "Package": "rlang",
-      "Version": "1.0.6",
+      "Version": "1.1.0",
       "Source": "Repository",
-      "Repository": "RSPM",
+      "Repository": "CRAN",
       "Requirements": [
         "R",
         "utils"
       ],
-      "Hash": "4ed1f8336c8d52c3e750adcdc57228a7"
+      "Hash": "dc079ccd156cde8647360f473c1fa718"
     },
     "rmarkdown": {
       "Package": "rmarkdown",
@@ -304,7 +301,7 @@
         "xfun",
         "yaml"
       ],
-      "Hash": "716fde5382293cc94a71f68c85b78d19"
+      "Hash": "b0b840effa7eeaadc6507217e1c31974"
     },
     "sass": {
       "Package": "sass",
@@ -318,7 +315,7 @@
         "rappdirs",
         "rlang"
       ],
-      "Hash": "2bb4371a4c80115518261866eab6ab11"
+      "Hash": "bd1a537f5352032a8b7282bb95de46e9"
     },
     "stringi": {
       "Package": "stringi",
@@ -335,7 +332,7 @@
         "tools",
         "utils"
       ],
-      "Hash": "832ef2a01603f8f5b4f2af024080d5d9"
+      "Hash": "8d73491be3a533edd2f41a53645d3c13"
     },
     "stringr": {
       "Package": "stringr",
@@ -358,17 +355,17 @@
       "Package": "tinytex",
       "Version": "0.44",
       "Source": "Repository",
-      "Repository": "CRAN",
+      "Repository": "RSPM",
       "Requirements": [
         "xfun"
       ],
-      "Hash": "c0f007e2eeed7722ce13d42b84a22e07"
+      "Hash": "63f7c937fe01ef84e0e1380ae0418481"
     },
     "vctrs": {
       "Package": "vctrs",
-      "Version": "0.5.2",
+      "Version": "0.6.0",
       "Source": "Repository",
-      "Repository": "RSPM",
+      "Repository": "CRAN",
       "Requirements": [
         "R",
         "cli",
@@ -376,7 +373,7 @@
         "lifecycle",
         "rlang"
       ],
-      "Hash": "e4ffa94ceed5f124d429a5a5f0f5b378"
+      "Hash": "7e877404388794361277be95d8445de8"
     },
     "xfun": {
       "Package": "xfun",
@@ -387,14 +384,14 @@
         "stats",
         "tools"
       ],
-      "Hash": "a6860e1400a8fd1ddb6d9b4230cc34ab"
+      "Hash": "d01283c31912415faecb204cb04ac390"
     },
     "yaml": {
       "Package": "yaml",
       "Version": "2.3.7",
       "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "0d0056cc5383fbc240ccd0cb584bf436"
+      "Repository": "RSPM",
+      "Hash": "3f546de74ddebc291c394d54c6b2f424"
     }
   }
 }
