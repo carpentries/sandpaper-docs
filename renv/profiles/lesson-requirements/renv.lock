@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "4.2.2",
+    "Version": "4.2.3",
     "Repositories": [
       {
         "Name": "carpentries",
@@ -70,14 +70,14 @@
     },
     "cli": {
       "Package": "cli",
-      "Version": "3.6.0",
+      "Version": "3.6.1",
       "Source": "Repository",
-      "Repository": "RSPM",
+      "Repository": "CRAN",
       "Requirements": [
         "R",
         "utils"
       ],
-      "Hash": "980be0d23c88a8d922095a0a414f6c5b"
+      "Hash": "89e6d8219950eac806ae0c489052048a"
     },
     "digest": {
       "Package": "digest",
@@ -99,7 +99,7 @@
         "R",
         "rlang"
       ],
-      "Hash": "3c150f6c43dfb5a76b1a69bfdb8ca287"
+      "Hash": "bb0eec2fe32e88d9e2836c2f73ea2077"
     },
     "evaluate": {
       "Package": "evaluate",
@@ -110,7 +110,7 @@
         "R",
         "methods"
       ],
-      "Hash": "6b101790c674172f7d178f2bc686d139"
+      "Hash": "4b68aa51edd89a0e044a66e75ae3cc6c"
     },
     "fastmap": {
       "Package": "fastmap",
@@ -118,6 +118,18 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "f7736a18de97dea803bde0a2daaafb27"
+    },
+    "fontawesome": {
+      "Package": "fontawesome",
+      "Version": "0.5.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Requirements": [
+        "R",
+        "htmltools",
+        "rlang"
+      ],
+      "Hash": "e80750aec5717dedc019ad7ee40e4a7c"
     },
     "fs": {
       "Package": "fs",
@@ -139,7 +151,7 @@
         "R",
         "methods"
       ],
-      "Hash": "2b1a3dfde68e8fdb5c1292474b9d7c63"
+      "Hash": "4f2596dfb05dac67b9dc558e5c6fba2e"
     },
     "highr": {
       "Package": "highr",
@@ -150,13 +162,13 @@
         "R",
         "xfun"
       ],
-      "Hash": "a4c43a88a57355d3e5b2d6e0d0a54a33"
+      "Hash": "06230136b2d2b9ba5805e1963fa6e890"
     },
     "htmltools": {
       "Package": "htmltools",
-      "Version": "0.5.4",
+      "Version": "0.5.5",
       "Source": "Repository",
-      "Repository": "RSPM",
+      "Repository": "CRAN",
       "Requirements": [
         "R",
         "base64enc",
@@ -167,7 +179,7 @@
         "rlang",
         "utils"
       ],
-      "Hash": "0e4da77c570601acad3ad926b98d5636"
+      "Hash": "ba0240784ad50a62165058a27459304a"
     },
     "jquerylib": {
       "Package": "jquerylib",
@@ -203,7 +215,7 @@
         "xfun",
         "yaml"
       ],
-      "Hash": "4ad7308fe19fb3e3439fe50675972590"
+      "Hash": "8329a9bcc82943c8069104d4be3ee22d"
     },
     "lifecycle": {
       "Package": "lifecycle",
@@ -216,7 +228,7 @@
         "glue",
         "rlang"
       ],
-      "Hash": "f64421e91f757d0cdc1b3844591e5f34"
+      "Hash": "001cecbeac1cff9301bdc3775ee46a86"
     },
     "magrittr": {
       "Package": "magrittr",
@@ -257,17 +269,17 @@
       "Requirements": [
         "R"
       ],
-      "Hash": "1c3bb00ca681781e8dacd7378fa17101"
+      "Hash": "5e3c5dc0b071b21fa128676560dbe94d"
     },
     "renv": {
       "Package": "renv",
-      "Version": "0.17.1",
+      "Version": "0.17.2",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
         "utils"
       ],
-      "Hash": "7a319d4e5743230d48bfd9ad42d02c2e"
+      "Hash": "aaf3c7f769695266a2113db67a25148b"
     },
     "rlang": {
       "Package": "rlang",
@@ -282,13 +294,14 @@
     },
     "rmarkdown": {
       "Package": "rmarkdown",
-      "Version": "2.20",
+      "Version": "2.21",
       "Source": "Repository",
-      "Repository": "RSPM",
+      "Repository": "CRAN",
       "Requirements": [
         "R",
         "bslib",
         "evaluate",
+        "fontawesome",
         "htmltools",
         "jquerylib",
         "jsonlite",
@@ -301,7 +314,7 @@
         "xfun",
         "yaml"
       ],
-      "Hash": "b0b840effa7eeaadc6507217e1c31974"
+      "Hash": "493df4ae51e2e984952ea4d5c75786a3"
     },
     "sass": {
       "Package": "sass",
@@ -315,7 +328,7 @@
         "rappdirs",
         "rlang"
       ],
-      "Hash": "bd1a537f5352032a8b7282bb95de46e9"
+      "Hash": "2bb4371a4c80115518261866eab6ab11"
     },
     "stringi": {
       "Package": "stringi",
@@ -332,7 +345,7 @@
         "tools",
         "utils"
       ],
-      "Hash": "8d73491be3a533edd2f41a53645d3c13"
+      "Hash": "832ef2a01603f8f5b4f2af024080d5d9"
     },
     "stringr": {
       "Package": "stringr",
@@ -359,11 +372,11 @@
       "Requirements": [
         "xfun"
       ],
-      "Hash": "63f7c937fe01ef84e0e1380ae0418481"
+      "Hash": "c0f007e2eeed7722ce13d42b84a22e07"
     },
     "vctrs": {
       "Package": "vctrs",
-      "Version": "0.6.0",
+      "Version": "0.6.1",
       "Source": "Repository",
       "Repository": "CRAN",
       "Requirements": [
@@ -373,25 +386,25 @@
         "lifecycle",
         "rlang"
       ],
-      "Hash": "7e877404388794361277be95d8445de8"
+      "Hash": "06eceb3a5d716fd0654cc23ca3d71a99"
     },
     "xfun": {
       "Package": "xfun",
-      "Version": "0.37",
+      "Version": "0.38",
       "Source": "Repository",
-      "Repository": "RSPM",
+      "Repository": "CRAN",
       "Requirements": [
         "stats",
         "tools"
       ],
-      "Hash": "d01283c31912415faecb204cb04ac390"
+      "Hash": "1ed71215d45e85562d3b1b29a068ccec"
     },
     "yaml": {
       "Package": "yaml",
       "Version": "2.3.7",
       "Source": "Repository",
       "Repository": "RSPM",
-      "Hash": "3f546de74ddebc291c394d54c6b2f424"
+      "Hash": "0d0056cc5383fbc240ccd0cb584bf436"
     }
   }
 }
