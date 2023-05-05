@@ -30,7 +30,7 @@ The new infrastructure will have the following features:
 This documentation site is still being constructed---please be patient.
 
 If you are looking to get started using the workbench, head over to the 
-[setup](setup.html) page to get started!
+[setup](learners/setup.md) page to get started!
 
 ::::::::::::::::::
 
