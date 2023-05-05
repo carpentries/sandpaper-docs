@@ -285,18 +285,6 @@ to find an instructor note waiting for you.
 
 :::::::::::::::::::::::::::
 
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: instructor
-
-This is an instructor note. It contains information that can be useful for 
-instructors to know such as
-
- - Useful hints about places that need extra attention
- - setup instructions for live coding
- - reminders of what the learners should already know
- - anything else
-
-These notes are created with a pandoc fenced div that looks like this:
-
 ````markdown
 
 ::::::::::::::::::::::::::::::::::::: instructor
@@ -304,22 +292,36 @@ These notes are created with a pandoc fenced div that looks like this:
 This is an instructor note. It contains information that can be useful for 
 instructors to know such as
 
- - Useful hints about places that need extra attention
- - setup instructions for live coding
- - reminders of what the learners should already know
+ - **Useful hints** about places that need extra attention
+ - **setup instructions** for live coding
+ - **reminders** of what the learners should already know
  - anything else
 
-These notes are created with a pandoc fenced div that looks like this:
-
 ```markdown
-
-... Instructor note markdown placehoder ...
-
+You can also include _any markdown elements_ like `code blocks`
 ```
+
+![Images can also appear in instructor notes](https://placekitten.com/200/200){alt='a random image of a cute kitten'}
 
 :::::::::::::::::::::::::::::::::::::::::::::::::
 
 ````
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: instructor
+
+This is an instructor note. It contains information that can be useful for 
+instructors to know such as
+
+ - **Useful hints** about places that need extra attention
+ - **setup instructions** for live coding
+ - **reminders** of what the learners should already know
+ - anything else
+
+```markdown
+You can also include _any markdown elements_ like `code blocks`
+```
+
+![Images can also appear in instructor notes](https://placekitten.com/200/200){alt='a random image of a cute kitten'}
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
