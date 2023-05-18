@@ -4,7 +4,7 @@ title: Setup
 
 ## Overview
 
-The lesson infrastructure is built on Git, [R], and [pandoc]. It consists of 
+The lesson infrastructure is built on Git, [The R language][R], and [pandoc]. It consists of 
 four components:
 
 1. The source content (plain markdown or RMarkdown files organized into folders
@@ -107,7 +107,7 @@ operable program or batch file.
 
 ### R
 
-You can install the latest [R] for Windows from 
+You can install the [latest version of R][R] for Windows from 
 <https://cran.r-project.org/bin/windows/base/>. There is also a video tutorial
 up on [The Carpentries instructions for workshop
 participants](https://carpentries.github.io/workshop-template/#rstats-windows)
@@ -196,7 +196,7 @@ install.packages(c("sandpaper", "varnish", "pegboard", "tinkr"))
 
 You should have git pre-installed on your macOS, but it is likely that this is
 an old version. We recommend installing [The latest version of Git for MacOS
-from sourceforge](http://sourceforge.net/projects/git-osx-installer/files/) 
+from sourceforge](https://sourceforge.net/projects/git-osx-installer/files/) 
 (**ignore the big green button** and choose the latest version from the list). 
 For a video walkthrough and an explanation of what to expect, you can look at 
 the [instructions for workshop 
@@ -237,7 +237,7 @@ please do not use Homebrew to install R.
 :::
 
 
-You can install the latest [R] release for MacOS from 
+You can install the [latest R release][R] for MacOS from 
 <https://cran.r-project.org/bin/macosx>. There is also a video tutorial
 up on [The Carpentries instructions for workshop
 participants](https://carpentries.github.io/workshop-template/#rstats-macos)
@@ -689,7 +689,7 @@ If you are like me, you may find GitHub's documentation slightly confusing
 and/or lacking. I've found the following resources to be extremely helpful for
 setting up authentication credentials for your account:
 
-[Remotes in GitHub (Software Carpentry)](http://swcarpentry.github.io/git-novice/07-github)
+[Remotes in GitHub (Software Carpentry)](https://swcarpentry.github.io/git-novice/07-github)
 : A walkthrough of creating a repository on GitHub and pushing to it via the 
   command line.
 
