@@ -35,20 +35,20 @@ branch: 'main'
 contact: 'zkamvar@carpentries.org'
 
 # Navigation ------------------------------------------------
-# 
+#
 # Use the following menu items to specify the order of
 # individual pages in each dropdown section. Leave blank to
 # include all pages in the folder.
 #
 # Example -------------
-# 
+#
 # episodes:
 # - introduction.md
 # - first-steps.md
-# 
+#
 # learners:
 # - setup.md
-# 
+#
 # instructors:
 # - instructor-notes.md
 #
@@ -56,8 +56,8 @@ contact: 'zkamvar@carpentries.org'
 # - one-learner.md
 # - another-learner.md
 
-# Order of episodes in your lesson 
-episodes: 
+# Order of episodes in your lesson
+episodes:
 - introduction.md
 - episodes.Rmd
 - editing.md
@@ -67,18 +67,19 @@ episodes:
 - pull-request.md
 
 # Information for Learners
-learners: 
+learners:
 - reference.md
 - setup.md
 - github-pat.md
 - component-guide.md
+- style.md
 
 # Information for Instructors
-instructors: 
+instructors:
 - instructor-notes.md
 
 # Learner Profiles
-profiles: 
+profiles:
 - maintainer.md
 - instructor.md
 
