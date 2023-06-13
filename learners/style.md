@@ -5,9 +5,15 @@ title: 'Style Guide'
 A collection of guidelines to follow when writing
 source (R) Markdown files for use with {sandpaper}.
 
+- [Fenced Divs](#fenced-divs)
+  - [Fence Length](#fence-length)
+  - [Whitespace](#whitespace)
+- [Figures](#figures)
+- [Line Length](#line-length)
+
 ## Fenced Divs
 
-### Fence length
+### Fence Length
 
 For increased legibility, we recommend an opening fence length of at least 20 colons
 (approximately one third of the screen), 
