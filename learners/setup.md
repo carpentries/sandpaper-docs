@@ -407,7 +407,7 @@ recent version and download it to your Downloads folder or install it directly.
 ##### Optional: verify the install
 
 You can optionally verify the download before installing by following the
-instructions at <https://www.rstudio.com/code-signing/>.
+instructions at <https://posit.co/code-signing/>.
 
 :::::::::::::::::::
 
@@ -469,15 +469,16 @@ packages without error.
 
 #### What if I have a different version of Linux?
 
-If you have a different version of linux, you can visit 
-[The RSPM overview page](https://packagemanager.rstudio.com/client/#/repos/1/overview), 
-select your
-system where it says "Use this URL to work with the latest binary packages for
-Ubuntu 20.04 (Focal) **change**", and replace the packagemanager URL below.
 
 For the dependencies above, you can browse the [rstudio/r-system-requirements 
 repository](https://github.com/rstudio/r-system-requirements) to find the
 correct formulation for your computer.
+
+In addition, you should check [the supported operating systems for the Posit
+Package
+Manager](https://packagemanager.posit.co/__docs__/admin/serving-binaries/#supported-operating-systems)
+to see if you will benefit from pre-built binaries.
+
 
 ::::
 
@@ -489,17 +490,50 @@ into the console.
 # Set the default HTTP user agent to get pre-built binary packages
 RV <- getRversion()
 OS <- paste(RV, R.version["platform"], R.version["arch"], R.version["os"])
+codename <- sub("Codename.\t", "", system2("lsb_release", "-c", stdout = TRUE))
 options(HTTPUserAgent = sprintf("R/%s R (%s)", RV, OS))
 
 # register the repositories for The Carpentries and CRAN
 options(repos = c(
   carpentries = "https://carpentries.r-universe.dev/",
-  CRAN = "https://packagemanager.rstudio.com/all/__linux__/focal/latest"
+  CRAN = paste0("https://packagemanager.posit.co/all/__linux__/", codename, "/latest")
 ))
 
 # Install the template packages to your R library
 install.packages(c("sandpaper", "varnish", "pegboard", "tinkr"))
 ```
+
+::::::::::::: discussion
+
+#### Saving these settings for later
+
+Having binary packages for Linux was a game changer when they appeared and it's 
+a good idea to have the above code run every time you start R so that you can
+take advantage of them. Add the code below to your `~/.Rprofile`.
+
+::::::::::::::::::::::::
+
+:::::: solution
+
+#### Add this to `~/.Rprofile`
+
+```r
+local({
+  # Set the default HTTP user agent to get pre-built binary packages
+  RV <- getRversion()
+  OS <- paste(RV, R.version["platform"], R.version["arch"], R.version["os"])
+  codename <- sub("Codename.\t", "", system2("lsb_release", "-c", stdout = TRUE))
+  options(HTTPUserAgent = sprintf("R/%s R (%s)", RV, OS))
+
+  # register the repositories for The Carpentries and CRAN
+  options(repos = c(
+    carpentries = "https://carpentries.r-universe.dev/",
+    CRAN = paste0("https://packagemanager.posit.co/all/__linux__/", codename, "/latest")
+  ))
+})
+```
+:::::::::::::::
+
 
 ::::::::::::: callout
 
@@ -556,7 +590,7 @@ fs::dir_tree(tmp, recurse = 1)
 ```
 
 ```output
-[1] '2.12'
+[1] '2.19.2'
 ℹ Consent for package cache revoked. Use `use_package_cache()` to undo.
 → Creating Lesson in '/tmp/RtmpnRjHyr/file12f34734be05f'...
 ✔ First episode created in '/tmp/RtmpnRjHyr/file12f34734be05f/episodes/01-introduction.Rmd'
