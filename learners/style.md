@@ -4,6 +4,8 @@ title: 'Style Guide'
 
 A collection of guidelines to follow when writing
 source (R) Markdown files for use with {sandpaper}.
+The Carpentries also provides a [general Style Guide](https://docs.carpentries.org/topic_folders/communications/resources/style-guide.html)
+for written content e.g. blog posts, website and lesson content, etc.
 
 - [Fenced Divs](#fenced-divs)
   - [Fence Length](#fence-length)
