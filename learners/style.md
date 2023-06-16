@@ -81,6 +81,7 @@ we recommend a longer fence length (80 colons) for 'instructor' blocks:
 Rememeber to pause and drink some water.
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+```
 
 ### Whitespace
 
