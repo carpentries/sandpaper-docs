@@ -17,6 +17,12 @@ for written content e.g. blog posts, website and lesson content, etc.
 
 ### Fence Length
 
+The following recommendations are made to improve legibility
+and make it easier to distinguish between blocks of content
+in source files.
+
+#### First-level fenced divs
+
 For increased legibility, we recommend an opening fence length of at least 50 colons
 (half to two-thirds of the screen), 
 with a single space between the last colon and the class keyword.
@@ -35,6 +41,8 @@ the last character in the 'callout' keyword.
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ```
 
+#### Nested fenced divs (e.g. challenge solutions)
+
 Where fenced divs are nested,
 e.g. attaching a solution block to a challenge,
 we recommend making the inner fences noticably shorter
@@ -48,37 +56,53 @@ E.g.
 
 This challenge was opened with a fence of 50 colons.
 
-:::::::::::::::::::::::: solution
+::::::::::::::::::::::::: solution
 
 The nested solution block was opened with 25 colons,
 to make it stand out from the challenge.
 
-:::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ```
 
+#### Instructor Notes
+
+Content written into divs with the 'instructor' class will only appear
+in teh Instructor View of the lesson website.
+To help distinguish these blocks from the rest of the page content,
+we recommend a longer fence length (80 colons) for 'instructor' blocks:
+
+```markdown
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: instructor
+
+## Stay Hydrated
+
+Rememeber to pause and drink some water.
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
 ### Whitespace
 
-For legibility and to avoid potential formatting issues,
+For legibility and to avoid 
+[potential formatting issues](https://github.com/carpentries/sandpaper/issues/355),
 empty lines should flank the fences of a fenced div, e.g.
 
 ```markdown
-:::::::::::::::::::: callout
+:::::::::::::::::::::::::::::::::::::::::::::::::: callout
 
 ### Good: whitespace either side of the fences
 
 This will ensure Markdown content renders as intended.
 
-::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::: callout
+:::::::::::::::::::::::::::::::::::::::::::::::::: callout
 ### Not recommended
 Without empty lines flanking the opening and closing fences,
 this callout is more difficult to read
-and some Markdown 
-[content such as lists may not render as intended](https://github.com/carpentries/sandpaper/issues/355).
-::::::::::::::::::::::::::::
+and some Markdown content such as lists may not render as intended.
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ```
 
 ## Figures
