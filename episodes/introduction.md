@@ -219,10 +219,17 @@ choosing `gh-pages` from the dropdown menu as shown in the image below:
 ![](fig/github-pages-none.png){.image-with-shadow alt='screencapture of the
 initial view of the GitHub Pages section of the settings tab'}
 
-Click on the "select branch" button and select "gh-pages":
+Click on the "select branch" button and select "gh-pages", then click "Save":
 
 ![](fig/github-pages-gh-pages.png){.image-with-shadow alt='screencapture of
 expanded "select branch" button with "gh-pages" selected'}
+
+After completing this configuration, 
+the URL for your lesson website will be displayed at the top of the page.
+Site URLs can be customised, but the default URL structure is
+`https://<USERNAME>.github.io/<REPONAME>/`:
+the URL of the `buoyant-barnacle` example used so far would be
+`https://<USERNAME>.github.io/buoyant-barnacle/`.
 
 ::::::::::::: callout
 
