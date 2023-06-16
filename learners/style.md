@@ -69,14 +69,14 @@ to make it stand out from the challenge.
 #### Instructor Notes
 
 Content written into divs with the 'instructor' class will only appear
-in teh Instructor View of the lesson website.
+in the Instructor View of the lesson website.
 To help distinguish these blocks from the rest of the page content,
 we recommend a longer fence length (80 colons) for 'instructor' blocks:
 
 ```markdown
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: instructor
 
-## Stay Hydrated
+## Stay hydrated
 
 Rememeber to pause and drink some water.
 
