@@ -23,22 +23,22 @@ in source files.
 
 #### First-level fenced divs
 
-For increased legibility, we recommend an opening fence length of at least 50 colons
+For increased legibility, we recommend an opening fence length of around 50 characters
 (half to two-thirds of the screen), 
 with a single space between the last colon and the class keyword.
 The length of closing fences should match the length of the opening fence plus keyword,
 for example:
 
 ```markdown
-:::::::::::::::::::::::::::::::::::::::::::::::::: callout
+:::::::::::::::::::::::::::::::::::::::::: callout
 
 ### An example callout
 
-This callout was opened with a fence of 50 colons.
+This callout was opened with a fence of 50 characters.
 The end of the closing fence aligns with
 the last character in the 'callout' keyword.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::
 ```
 
 #### Nested fenced divs (e.g. challenge solutions)
@@ -46,24 +46,24 @@ the last character in the 'callout' keyword.
 Where fenced divs are nested,
 e.g. attaching a solution block to a challenge,
 we recommend making the inner fences noticably shorter
-than the outer fences, e.g. 25 colons (one quarter to one third of the screen).
+than the outer fences, e.g. 25 characters (one quarter to one third of the screen).
 E.g.
 
 ```markdown
-:::::::::::::::::::::::::::::::::::::::::::::::::: challenge
+:::::::::::::::::::::::::::::::::::::::: challenge
 
 ### An example challenge
 
-This challenge was opened with a fence of 50 colons.
+This challenge was opened with a fence of 50 characters.
 
-::::::::::::::::::::::::: solution
+:::::::::::::::: solution
 
-The nested solution block was opened with 25 colons,
+The nested solution block was opened with 25 characters,
 to make it stand out from the challenge.
 
-::::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::
 
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::
 ```
 
 #### Instructor Notes
@@ -71,16 +71,16 @@ to make it stand out from the challenge.
 Content written into divs with the 'instructor' class will only appear
 in the Instructor View of the lesson website.
 To help distinguish these blocks from the rest of the page content,
-we recommend a longer fence length (80 colons) for 'instructor' blocks:
+we recommend a longer fence length (80 characters) for 'instructor' blocks:
 
 ```markdown
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: instructor
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: instructor
 
 ## Stay hydrated
 
 Rememeber to pause and drink some water.
 
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ```
 
 ### Whitespace
@@ -90,20 +90,20 @@ For legibility and to avoid
 empty lines should flank the fences of a fenced div, e.g.
 
 ```markdown
-:::::::::::::::::::::::::::::::::::::::::::::::::: callout
+:::::::::::::::::::::::::::::::::::::::::: callout
 
 ### Good: whitespace either side of the fences
 
 This will ensure Markdown content renders as intended.
 
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:::::::::::::::::::::::::::::::::::::::::::::::::: callout
+:::::::::::::::::::::::::::::::::::::::::: callout
 ### Not recommended
 Without empty lines flanking the opening and closing fences,
 this callout is more difficult to read
 and some Markdown content such as lists may not render as intended.
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::
 ```
 
 ## Figures
