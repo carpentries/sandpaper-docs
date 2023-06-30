@@ -218,7 +218,7 @@ _'fenced-divs'_**][fenced-divs], which are colon-delimited sections similar to
 code fences that can instruct the markdown interpreter how the content should be
 styled. 
 
-For example, to create a `callout` block, we would use *at least three colons*
+For example, to create a `callout` block, we would use *a blank line and at least three colons*
 followed by the `callout` tag (the tag designates an open fence), add our
 content after a new line, and then close the fence with *at least three colons*
 and no tag (which designates a closed fence):
