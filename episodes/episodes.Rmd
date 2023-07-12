@@ -775,7 +775,7 @@ The reasons the others were incorrect is:
    and needs the `Rmd` file extension.
 5. this is ambiguous, but it is similar to number 2, where it's providing a
    relative link to a URL. This _only_ works on GitHub, where the `.html`
-   extension is optimal.
+   extension is optional.
 
 
 :::::::::::::::::::::::
