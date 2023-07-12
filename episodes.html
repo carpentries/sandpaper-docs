@@ -289,7 +289,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Episode Structure</h1>
-        <p> Last updated on 2023-07-11 | 
+        <p> Last updated on 2023-07-12 | 
         
         <a href="https://github.com/carpentries/sandpaper-docs/edit/main/episodes/episodes.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -706,7 +706,7 @@ here’s how I would create a single challenge and a single solution:</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>A: part of the precipitate</p>
 </div>
@@ -740,7 +740,7 @@ text:</p>
   Output
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -771,7 +771,7 @@ challenge blocks?<a class="anchor" aria-label="anchor" href="#challenge-2-how-do
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>You can add a line with at least three colons and a
 <code>solution</code> tag.</p>
@@ -806,7 +806,7 @@ challenge blocks?<a class="anchor" aria-label="anchor" href="#challenge-2-how-do
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>Yes! It is a valid fenced div for the following reasons:</p>
 <ol style="list-style-type: decimal"><li>The opening fence has ≥3 colons</li>
@@ -1066,7 +1066,7 @@ column</td>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <p>To get a rougly 1:5:1 ratio, you can use two separators for the short
 columns and ten separators for the wide column:</p>
@@ -1173,12 +1173,102 @@ place a link inside a separate file at the top of your lesson repository
 called <code>links.md</code>.</p>
 <div class="section level3">
 <h3 id="internal-links">Internal Links<a class="anchor" aria-label="anchor" href="#internal-links"></a></h3>
+<p>When working on a lesson in The Workbench, you do not need to think
+about what link the website will generate once it’s built in order to
+write a link to different elements in the lesson. This is important
+because when you write links releative to your source files, these links
+will be predictable in any context and allow you to easily detect when
+filenames change.</p>
 <p>To reference other markdown files within the same lesson, use
-relative paths. For example, you will commonly want to refer learners to
-<a href="index.html">the setup page</a> from within the episodes. To
-link back to the setup page, you can use:
-<code>[setup page](../index.md)</code> and {sandpaper} will convert that
-link to the appropriate format for the lesson website.</p>
+<em>relative paths from the current file</em>. For example, you will
+commonly want to refer learners to <a href="index.html#setup">the setup
+page</a> from within the episodes. To link back to the setup page, you
+can use: <code>[setup page](../learners/setup.md)</code> and {sandpaper}
+will convert that link to the appropriate format for the lesson
+website.</p>
+<p>By that same rule, here is how you would write the following links in
+this episode:</p>
+<div class="codewrapper sourceCode" id="cb31">
+<h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span><span class="co">[</span><span class="ot">another episode (e.g. introduction)</span><span class="co">](introduction.md)</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span><span class="co">[</span><span class="ot">the home page</span><span class="co">](../index.md)</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span><span class="co">[</span><span class="ot">the setup page</span><span class="co">](../learners/setup.md)</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span><span class="co">[</span><span class="ot">the "line length" section in the style guide</span><span class="co">](../learners/style.md#line-length)</span></span></code></pre>
+</div>
+<ul><li><a href="introduction.html">another episode
+(e.g. introduction)</a></li>
+<li><a href="index.html">the home page</a></li>
+<li><a href="index.html#setup">the setup page</a></li>
+<li><a href="style.html#line-length">the “line length” section in the
+style guide</a></li>
+</ul><div id="but-it-works" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="but-it-works" class="callout-inner">
+<h3 class="callout-title">But It Works!<a class="anchor" aria-label="anchor" href="#but-it-works"></a>
+</h3>
+<div class="callout-content">
+<p>You want to create a link <strong>from <a href="style.html">the style
+guide</a> in the learners folder</strong> to <em>this section</em> on
+links. All of the links below <em>will</em> work with The Carpentries
+Workbench, but which one is <em>guaranteed</em> to work and why?</p>
+<ol style="list-style-type: decimal"><li><code>[internal links](https://carpentries.github.io/sandpaper-docs/episodes.html#internal-links)</code></li>
+<li><code>[internal links](episodes.html#internal-links)</code></li>
+<li><code>[internal links](../episodes/episodes.Rmd#internal-links)</code></li>
+<li><code>[internal links](../episodes/episodes.md#internal-links)</code></li>
+<li><code>[internal links](episodes#internal-links)</code></li>
+</ol></div>
+</div>
+</div>
+<div id="accordionHint1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button hint-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHint1" aria-expanded="false" aria-controls="collapseHint1">
+  <h4 class="accordion-header" id="headingHint1">
+  Give me a hint
+  </h4>
+</button>
+<div id="collapseHint1" class="accordion-collapse collapse" data-bs-parent="#accordionHint1" aria-labelledby="headingHint1">
+<div class="accordion-body">
+<p>Think about which files <em>actually</em> exist before the lesson is
+built.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="accordionSolution6" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
+  <h4 class="accordion-header" id="headingSolution6">
+  Show me the solution
+  </h4>
+</button>
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div class="accordion-body">
+<p>The answer is <strong>3</strong>:
+<code>[internal links](../episodes/episodes.Rmd#internal-links)</code>
+produces <a href="episodes.html#internal-links">internal links</a></p>
+<div class="section level5">
+<h5 id="incorrect-solutions">incorrect solutions<a class="anchor" aria-label="anchor" href="#incorrect-solutions"></a></h5>
+<p>The reasons the others were incorrect is:</p>
+<ol style="list-style-type: decimal"><li>this produces a full static URL, but the URL could easily change
+(for example, when there is a translation or a fork of this
+lesson).</li>
+<li>this produces a relative link to the URL, but this can change if the
+folder structure of the rendered website changes (e.g. it becomes
+<code>episodes/index.html</code>).</li>
+<li>this is the correct choice, see above.</li>
+<li>the file extension is incorrect. <em>This episode</em> is written in
+R Markdown and needs the <code>Rmd</code> file extension.</li>
+<li>this is ambiguous, but it is similar to number 2, where it’s
+providing a relative link to a URL. This <em>only</em> works on GitHub,
+where the <code>.html</code> extension is optimal.</li>
+</ol></div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </section><section id="figures"><h2 class="section-heading">Figures<a class="anchor" aria-label="anchor" href="#figures"></a>
 </h2>
@@ -1187,11 +1277,11 @@ folder and reference them directly like so using standard markdown
 format, with one twist: add an <code>alt</code> attribute at the end to
 make it accessible like this:
 <code>![caption](image){alt='alt text'}</code>.</p>
-<div class="codewrapper sourceCode" id="cb31">
+<div class="codewrapper sourceCode" id="cb32">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Hex sticker for The Carpentries](fig/carpentries-hex-blue.svg)</span>{alt="blue</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>hexagon with The Carpentries logo in white and text: 'The Carpentries'"}</span></code></pre>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Hex sticker for The Carpentries](fig/carpentries-hex-blue.svg)</span>{alt="blue</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>hexagon with The Carpentries logo in white and text: 'The Carpentries'"}</span></code></pre>
 </div>
 <figure><img src="fig/carpentries-hex-blue.svg" alt="blue hexagon with The Carpentries logo in white and text: 'The Carpentries'" class="figure mx-auto d-block"><figcaption>Hex sticker for The Carpentries</figcaption></figure><div id="accessibility-point-alternative-text-aka-alt-text" class="callout discussion">
 <div class="callout-square">
@@ -1222,14 +1312,14 @@ should understand from the figure.</p>
 <h4 id="wrapping-alt-text-lines">Wrapping Alt Text lines<a class="anchor" aria-label="anchor" href="#wrapping-alt-text-lines"></a></h4>
 <p>You will rarely have alt text that fits under 100 characters, so you
 can wrap alt text like you would any markdown paragraph:</p>
-<div class="codewrapper sourceCode" id="cb32">
+<div class="codewrapper sourceCode" id="cb33">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Example of Wrapped Alt Text (with apologies to William Carlos Williams)](fig/freezer.png)</span>{alt='This is just an icebox</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>with no plums</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>which you were probably</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>saving</span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>for breakfast'}</span></code></pre>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Example of Wrapped Alt Text (with apologies to William Carlos Williams)](fig/freezer.png)</span>{alt='This is just an icebox</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>with no plums</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>which you were probably</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>saving</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>for breakfast'}</span></code></pre>
 </div>
 <p>When missing, the image will appear visually as a broken image icon,
 but the alt text describes what the image was.</p>
@@ -1252,7 +1342,7 @@ has more information about including alt text in RMarkdown
 documents</a>. In addition, you can also use <code>fig.cap</code> to
 provide a caption that puts the picture into context (but take care to
 not be redundant; screen readers will read both fields).</p>
-<div class="codewrapper sourceCode" id="cb33">
+<div class="codewrapper sourceCode" id="cb34">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1357,9 +1447,9 @@ docs: adding a caption to your table</a><a href="#fnref3" class="footnote-back">
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/sandpaper-docs/episodes.html",
   "identifier": "https://carpentries.github.io/sandpaper-docs/episodes.html",
-  "dateCreated": "2023-07-07",
-  "dateModified": "2023-07-11",
-  "datePublished": "2023-07-11"
+  "dateCreated": "2023-07-12",
+  "dateModified": "2023-07-12",
+  "datePublished": "2023-07-12"
 }
 
   </script><script>
