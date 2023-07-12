@@ -706,9 +706,81 @@ want to refer to), then you can place a link inside a separate file at the top o
 
 ### Internal Links
 
-To reference other markdown files within the same lesson, use relative paths. For example, you will commonly want to refer
-learners to [the setup page](../index.md) from within the episodes. To link back to the setup page, you can use:
-`[setup page](../index.md)` and {sandpaper} will convert that link to the appropriate format for the lesson website.
+When working on a lesson in The Workbench, you do not need to think about what
+link the website will generate once it's built in order to write a link to
+different elements in the lesson. This is important because when you write
+links releative to your source files, these links will be predictable in any
+context and allow you to easily detect when filenames change. 
+
+To reference other markdown files within the same lesson, use _relative paths
+from the current file_. For example, you will commonly want to refer learners
+to [the setup page](../learners/setup.md) from within the episodes. To link
+back to the setup page, you can use: `[setup page](../learners/setup.md)` and
+{sandpaper} will convert that link to the appropriate format for the lesson
+website. 
+
+
+By that same rule, here is how you would write the following links in this episode:
+
+
+```markdown
+ - [another episode (e.g. introduction)](introduction.md)
+ - [the home page](../index.md)
+ - [the setup page](../learners/setup.md)
+ - [the "line length" section in the style guide](../learners/style.md#line-length)
+```
+
+ - [another episode (e.g. introduction)](introduction.md)
+ - [the home page](../index.md)
+ - [the setup page](../learners/setup.md)
+ - [the "line length" section in the style guide](../learners/style.md#line-length)
+
+:::::::::::::::::::::::::::::::::: challenge
+
+#### But It Works!
+
+You want to create a link **from [the style guide](../learners/style.md) in the
+learners folder** to _this section_ on links. All of the links below _will_
+work with The Carpentries Workbench, but which one is _guaranteed_ to work and
+why?
+
+ 1. `[internal links](https://carpentries.github.io/sandpaper-docs/episodes.html#internal-links)`
+ 2. `[internal links](episodes.html#internal-links)`
+ 3. `[internal links](../episodes/episodes.Rmd#internal-links)`
+ 4. `[internal links](../episodes/episodes.md#internal-links)`
+ 5. `[internal links](episodes#internal-links)`
+
+:::::::::::::: hint
+
+Think about which files _actually_ exist before the lesson is built.
+
+:::::::::::::::::::::::
+:::::::::::::: solution
+
+The answer is **3**: 
+`[internal links](../episodes/episodes.Rmd#internal-links)` 
+produces [internal links](../episodes/episodes.Rmd#internal-links)
+
+##### incorrect solutions
+
+The reasons the others were incorrect is:
+
+1. this produces a full static URL, but the URL could easily change (for
+   example, when there is a translation or a fork of this lesson). 
+2. this produces a relative link to the URL, but this can change if 
+   the folder structure of the rendered website changes 
+   (e.g. it becomes `episodes/index.html`).
+3. this is the correct choice, see above.
+4. the file extension is incorrect. _This episode_ is written in R Markdown
+   and needs the `Rmd` file extension.
+5. this is ambiguous, but it is similar to number 2, where it's providing a
+   relative link to a URL. This _only_ works on GitHub, where the `.html`
+   extension is optimal.
+
+
+:::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::::::::
 
 ## Figures
 
