@@ -1,6 +1,6 @@
 {
   "R": {
-    "Version": "4.3.0",
+    "Version": "4.3.1",
     "Repositories": [
       {
         "Name": "carpentries",
@@ -81,14 +81,8 @@
     },
     "digest": {
       "Package": "digest",
-      "Version": "0.6.32",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Requirements": [
-        "R",
-        "utils"
-      ],
-      "Hash": "011ce1464a4716c488f4fc649c3d4d50"
+      "Version": "0.6.33",
+      "Source": "Repository"
     },
     "ellipsis": {
       "Package": "ellipsis",
@@ -255,7 +249,13 @@
       "Package": "mime",
       "Version": "0.12",
       "Source": "Repository",
-      "Repository": "RSPM",
+      "Repository": "CRAN",
+      "RemoteType": "standard",
+      "RemotePkgRef": "mime",
+      "RemoteRef": "mime",
+      "RemoteRepos": "https://cran.rstudio.com",
+      "RemotePkgPlatform": "source",
+      "RemoteSha": "0.12",
       "Requirements": [
         "tools"
       ],
@@ -334,18 +334,14 @@
       "Package": "stringi",
       "Version": "1.7.12",
       "Source": "Repository",
-      "Repository": "RSPM",
-      "RemoteType": "repository",
-      "RemoteUrl": "https://github.com/gagolews/stringi",
-      "RemoteRef": "v1.7.12",
-      "RemoteSha": "e4cf3176bc3943e6c477885be3445cbbd7d4bab6",
+      "Repository": "CRAN",
       "Requirements": [
         "R",
         "stats",
         "tools",
         "utils"
       ],
-      "Hash": "832ef2a01603f8f5b4f2af024080d5d9"
+      "Hash": "ca8bd84263c77310739d2cf64d84d7c9"
     },
     "stringr": {
       "Package": "stringr",
