@@ -289,7 +289,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Episode Structure</h1>
-        <p> Last updated on 2023-07-12 | 
+        <p> Last updated on 2023-08-02 | 
         
         <a href="https://github.com/carpentries/sandpaper-docs/edit/main/episodes/episodes.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -706,7 +706,7 @@ here’s how I would create a single challenge and a single solution:</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>A: part of the precipitate</p>
 </div>
@@ -740,7 +740,7 @@ text:</p>
   Output
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -771,7 +771,7 @@ challenge blocks?<a class="anchor" aria-label="anchor" href="#challenge-2-how-do
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>You can add a line with at least three colons and a
 <code>solution</code> tag.</p>
@@ -806,7 +806,7 @@ challenge blocks?<a class="anchor" aria-label="anchor" href="#challenge-2-how-do
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>Yes! It is a valid fenced div for the following reasons:</p>
 <ol style="list-style-type: decimal"><li>The opening fence has ≥3 colons</li>
@@ -816,18 +816,81 @@ challenge blocks?<a class="anchor" aria-label="anchor" href="#challenge-2-how-do
 </div>
 </div>
 </div>
+<div id="known-quirk-floating-solution-blocks" class="callout callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="known-quirk-floating-solution-blocks" class="callout-inner">
+<h3 class="callout-title">
+<span class="emoji" data-emoji="beetle">🪲</span> Known Quirk: Floating Solution Blocks<a class="anchor" aria-label="anchor" href="#known-quirk-floating-solution-blocks"></a>
+</h3>
+<div class="callout-content">
+<p><code>solution</code> divs can be added to a lesson without an
+accompanying <code>challenge</code> div e.g. as an expandable block of
+“spoiler” or “details” information, or as the solution to a
+<code>discussion</code> div. When not attached to a
+<code>challenge</code> div, the formatted <code>solution</code> block
+will be displayed with too much “buoyancy” i.e. floating too high and
+obscuring some of the preceding content.</p>
+<p>This issue will be resolved in a future release, but for now a
+workaround is to include an empty div with some margin spacing defined
+at the bottom before the <code>solution</code> fenced div in the lesson
+content. For example:</p>
+<div class="codewrapper sourceCode" id="cb17">
+<h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>Expand the box below for a surprise.</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>:::::::::::::::::::::::::::::::::::::::: {.empty-div style="margin-bottom: 50px"}</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- This div is intentionally empty to allow the solution to float alone--&gt;</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>::::::::::::::::::::::::::::::::::::::::</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>:::::::::::::::::::::::::::::::::::::::::::::: solution</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>![A randomly selected picture of a kitten.</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>](https://placekitten.com/300/300){</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>alt='A random picture of a cute kitten'</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>width='33%'</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>:::::::::::::::::::::::::::::::::::::::::::::::::::::::</span></code></pre>
+</div>
+<p>Expand the box below for a surprise.</p>
+<div class="empty-div" style="margin-bottom: 50px">
+<!-- This div is intentionally empty to allow the solution to float alone-->
+</div>
+<div id="accordionSolution5" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
+  <h4 class="accordion-header" id="headingSolution5">
+  Show me the solution
+  </h4>
+</button>
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div class="accordion-body">
+<figure><img src="https://placekitten.com/300/300" style="width:33.0%" alt="A random picture of a cute kitten" class="figure mx-auto d-block"><figcaption>A randomly selected picture of a kitten.</figcaption></figure></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section><section id="code-blocks-with-syntax-highlighting"><h2 class="section-heading">Code Blocks with Syntax Highlighting<a class="anchor" aria-label="anchor" href="#code-blocks-with-syntax-highlighting"></a>
 </h2>
 <hr class="half-width"><p>To include code examples in your lesson, you can wrap it in three
 backticks like so:</p>
 <p>Input:</p>
-<div class="codewrapper sourceCode" id="cb17">
+<div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="in">thing = "python"</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="in">print("this is a {} code block".format(thing))</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="in">thing = "python"</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="in">print("this is a {} code block".format(thing))</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre>
 </div>
 <p>Output:</p>
 <pre><code>thing = "python"
@@ -835,41 +898,41 @@ print("this is a {} code block".format(thing))</code></pre>
 <p>To include a label and syntax highlighting, you can add a label after
 the first set of backticks:</p>
 <p>Input:</p>
-<div class="codewrapper sourceCode" id="cb19">
+<div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>thing <span class="op">=</span> <span class="st">"python"</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"this is a </span><span class="sc">{}</span><span class="st"> code block"</span>.<span class="bu">format</span>(thing))</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>thing <span class="op">=</span> <span class="st">"python"</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"this is a </span><span class="sc">{}</span><span class="st"> code block"</span>.<span class="bu">format</span>(thing))</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre>
 </div>
 <p>Output:</p>
-<div class="codewrapper sourceCode" id="cb20">
+<div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>thing <span class="op">=</span> <span class="st">"python"</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"this is a </span><span class="sc">{}</span><span class="st"> code block"</span>.<span class="bu">format</span>(thing))</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>thing <span class="op">=</span> <span class="st">"python"</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"this is a </span><span class="sc">{}</span><span class="st"> code block"</span>.<span class="bu">format</span>(thing))</span></code></pre>
 </div>
 <p>To indicate that a code block is an output block, you can use the
 label “output”: Input:</p>
-<div class="codewrapper sourceCode" id="cb21">
+<div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>thing <span class="op">=</span> <span class="st">"python"</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"this is a </span><span class="sc">{}</span><span class="st"> code block"</span>.<span class="bu">format</span>(thing))</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="in">```output</span></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="in">this is a python code block</span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="in">```python</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>thing <span class="op">=</span> <span class="st">"python"</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"this is a </span><span class="sc">{}</span><span class="st"> code block"</span>.<span class="bu">format</span>(thing))</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="in">```output</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="in">this is a python code block</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre>
 </div>
 <p>Output:</p>
-<div class="codewrapper sourceCode" id="cb22">
+<div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>thing <span class="op">=</span> <span class="st">"python"</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"this is a </span><span class="sc">{}</span><span class="st"> code block"</span>.<span class="bu">format</span>(thing))</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>thing <span class="op">=</span> <span class="st">"python"</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"this is a </span><span class="sc">{}</span><span class="st"> code block"</span>.<span class="bu">format</span>(thing))</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -916,17 +979,17 @@ understand its contents at a glance.</p>
 </div>
 </div>
 </div>
-<div class="codewrapper sourceCode" id="cb24">
+<div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="an">Table:</span><span class="co"> Four fruits with color and price in imaginary dollars</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>| fruit  | color            | price    |</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>| ------ | :--------------: | -------: |</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>| apple  | :red_square:     | \$2.05   |</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>| pear   | :green_square:   | \$1.37   |</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>| orange | :orange_square:  | \$3.09   |</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>| devil  | :purple_square:  | \$666.00 |</span></code></pre>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="an">Table:</span><span class="co"> Four fruits with color and price in imaginary dollars</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>| fruit  | color            | price    |</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>| ------ | :--------------: | -------: |</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>| apple  | :red_square:     | \$2.05   |</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>| pear   | :green_square:   | \$1.37   |</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>| orange | :orange_square:  | \$3.09   |</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>| devil  | :purple_square:  | \$666.00 |</span></code></pre>
 </div>
 <table class="table"><caption>Four fruits with color and price in imaginary dollars</caption>
 <thead><tr class="header"><th>fruit</th>
@@ -948,17 +1011,17 @@ understand its contents at a glance.</p>
 Because it is a narrow table, the columns fit exactly to the contents.
 If we added a fourth, longer column (e.g. a description), then the table
 looks a bit wonky:</p>
-<div class="codewrapper sourceCode" id="cb25">
+<div class="codewrapper sourceCode" id="cb26">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="an">Table:</span><span class="co"> Four fruits with color, price in imaginary dollars, and description</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>| fruit  | color            | price    | description |</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>| ------ | :--------------: | -------: | ----------- |</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>| apple  | :red_square:     | \$2.05   | a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day |</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>| pear   | :green_square:   | \$1.37   | a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon | </span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>| orange | :orange_square:  | \$3.09   | a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days |</span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>| devil  | :purple_square:  | \$666.00 | a round purple fruit with complex swirls along its skin. It is said to taste terrible and give you mysterious powers |</span></code></pre>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="an">Table:</span><span class="co"> Four fruits with color, price in imaginary dollars, and description</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>| fruit  | color            | price    | description |</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>| ------ | :--------------: | -------: | ----------- |</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>| apple  | :red_square:     | \$2.05   | a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day |</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>| pear   | :green_square:   | \$1.37   | a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon | </span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>| orange | :orange_square:  | \$3.09   | a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days |</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>| devil  | :purple_square:  | \$666.00 | a round purple fruit with complex swirls along its skin. It is said to taste terrible and give you mysterious powers |</span></code></pre>
 </div>
 <table class="table"><caption>Four fruits with color and price in imaginary dollars</caption>
 <colgroup><col width="14%"><col width="39%"><col width="19%"><col width="26%"></colgroup><thead><tr class="header"><th>fruit</th>
@@ -991,17 +1054,17 @@ described in <a href="https://pandoc.org/MANUAL.html#extension-pipe_tables" clas
 guide for tables</a>.</p>
 <p>Notice how the pipe characters (<code>|</code>) do not necessarily
 have to line up to produce a table.</p>
-<div class="codewrapper sourceCode" id="cb26">
+<div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="an">Table:</span><span class="co"> Four fruits with color, price in imaginary dollars, and description</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>| fruit  | color            | price    | description                 |</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>| ----   | :-:              | ---:     | --------------------------- |</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>| apple  | :red_square:     | \$2.05   | a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day |</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>| pear   | :green_square:   | \$1.37   | a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon | </span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>| orange | :orange_square:  | \$3.09   | a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days |</span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>| devil  | :purple_square:  | \$666.00 | a round purple fruit with complex swirls along its skin. It is said to taste terrible and give you mysterious powers |</span></code></pre>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="an">Table:</span><span class="co"> Four fruits with color, price in imaginary dollars, and description</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>| fruit  | color            | price    | description                 |</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>| ----   | :-:              | ---:     | --------------------------- |</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>| apple  | :red_square:     | \$2.05   | a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day |</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>| pear   | :green_square:   | \$1.37   | a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon | </span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>| orange | :orange_square:  | \$3.09   | a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days |</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>| devil  | :purple_square:  | \$666.00 | a round purple fruit with complex swirls along its skin. It is said to taste terrible and give you mysterious powers |</span></code></pre>
 </div>
 <table class="table"><caption>Four fruits with color, price in imaginary dollars, and
 description</caption>
@@ -1039,14 +1102,14 @@ to taste terrible and give you mysterious powers</td>
 <div class="callout-content">
 <p>Adjust the widths of the columns below so that the columns are around
 a 1:5:1 ratio with the second column having center-justification:</p>
-<div class="codewrapper sourceCode" id="cb27">
+<div class="codewrapper sourceCode" id="cb28">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="an">Table:</span><span class="co"> example table with overflowing text in three columns</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>| first | second | third |</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>| ----- | ------ | ----- |</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>| this should be a small, compact column | this should be a wide column | this column should also be small and compact, much like the first column |</span></code></pre>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="an">Table:</span><span class="co"> example table with overflowing text in three columns</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>| first | second | third |</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>| ----- | ------ | ----- |</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>| this should be a small, compact column | this should be a wide column | this column should also be small and compact, much like the first column |</span></code></pre>
 </div>
 <table class="table"><caption>example table with overflowing text in three columns</caption>
 <colgroup><col width="31%"><col width="37%"><col width="31%"></colgroup><thead><tr class="header"><th>first</th>
@@ -1059,25 +1122,25 @@ column</td>
 </tr></tbody></table></div>
 </div>
 </div>
-<div id="accordionSolution5" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution6" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
-  <h4 class="accordion-header" id="headingSolution5">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
+  <h4 class="accordion-header" id="headingSolution6">
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 <p>To get a rougly 1:5:1 ratio, you can use two separators for the short
 columns and ten separators for the wide column:</p>
-<div class="codewrapper sourceCode" id="cb28">
+<div class="codewrapper sourceCode" id="cb29">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="an">Table:</span><span class="co"> example table with overflowing text in three columns</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>| first | second     | third |</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>| --    | :--------: | --    |</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>| this should be a small, compact column | this should be a wide column | this column should also be small and compact, much like the first column |</span></code></pre>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="an">Table:</span><span class="co"> example table with overflowing text in three columns</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>| first | second     | third |</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>| --    | :--------: | --    |</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>| this should be a small, compact column | this should be a wide column | this column should also be small and compact, much like the first column |</span></code></pre>
 </div>
 <table class="table"><caption>example table with overflowing text in three columns</caption>
 <colgroup><col width="14%"><col width="71%"><col width="14%"></colgroup><thead><tr class="header"><th>first</th>
@@ -1096,26 +1159,26 @@ column</td>
 <p>If you are using R Markdown, then you can generate a table from
 packages like {knitr} or {gt}, but make sure to use
 <code>asis = TRUE</code> in your chunk option:</p>
-<div class="codewrapper sourceCode" id="cb29">
+<div class="codewrapper sourceCode" id="cb30">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fruits-table, results = 'asis'}</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="in">dat &lt;- data.frame(</span></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="in">  stringsAsFactors = FALSE,</span></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="in">             fruit = c("apple", "pear", "orange", "devil"),</span></span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="in">             color = c("🟥", "🟩", "🟧", "🟪"),</span></span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="in">             price = c("$2.05", "$1.37", "$3.09", "$666.00"),</span></span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="in">       description = c("a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day",</span></span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="in">                       "a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon",</span></span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="in">                       "a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days",</span></span>
-<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="in">                       "a round purple fruit with complex swirls along its skin. It is said to taste terrible and give you mysterious powers")</span></span>
-<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
-<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::kable(dat, </span></span>
-<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a><span class="in">  format = "pipe", </span></span>
-<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a><span class="in">  align = "lcrl", </span></span>
-<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a><span class="in">  caption = "Four fruits with color, price in imaginary dollars, and description")</span></span>
-<span id="cb29-17"><a href="#cb29-17" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="in">```{r fruits-table, results = 'asis'}</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="in">dat &lt;- data.frame(</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="in">  stringsAsFactors = FALSE,</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="in">             fruit = c("apple", "pear", "orange", "devil"),</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="in">             color = c("🟥", "🟩", "🟧", "🟪"),</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="in">             price = c("$2.05", "$1.37", "$3.09", "$666.00"),</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="in">       description = c("a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day",</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="in">                       "a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon",</span></span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a><span class="in">                       "a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days",</span></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a><span class="in">                       "a round purple fruit with complex swirls along its skin. It is said to taste terrible and give you mysterious powers")</span></span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::kable(dat, </span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="in">  format = "pipe", </span></span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a><span class="in">  align = "lcrl", </span></span>
+<span id="cb30-16"><a href="#cb30-16" aria-hidden="true" tabindex="-1"></a><span class="in">  caption = "Four fruits with color, price in imaginary dollars, and description")</span></span>
+<span id="cb30-17"><a href="#cb30-17" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre>
 </div>
 <table class="table"><caption>Four fruits with color, price in imaginary dollars, and
 description</caption>
@@ -1156,16 +1219,16 @@ thing to remember when writing links (in markdown or anywhere) is that
 text should make sense out of context</a>. If you find that the link URL
 you are using is long, or you want to reuse it multiple times, you can
 use a link anchor with the following syntax:</p>
-<div class="codewrapper sourceCode" id="cb30">
+<div class="codewrapper sourceCode" id="cb31">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>This is an example of a <span class="co">[</span><span class="ot">link reference</span><span class="co">]</span>.</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>I have a long sentence that also has <span class="co">[</span><span class="ot">a link with a long url</span><span class="co">][long-url-link]</span>, so I will use a link reference.</span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Collect your link references at the bottom of your document --&gt;</span></span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="ot">[link reference]: https://example.com/link-reference</span></span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="ot">[long-url-link]: https://example.com/long-url-is-loooooooooooooooooooooooooong</span></span></code></pre>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>This is an example of a <span class="co">[</span><span class="ot">link reference</span><span class="co">]</span>.</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>I have a long sentence that also has <span class="co">[</span><span class="ot">a link with a long url</span><span class="co">][long-url-link]</span>, so I will use a link reference.</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Collect your link references at the bottom of your document --&gt;</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="ot">[link reference]: https://example.com/link-reference</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="ot">[long-url-link]: https://example.com/long-url-is-loooooooooooooooooooooooooong</span></span></code></pre>
 </div>
 <p>If you have a link that you want to use across your lesson (e.g. you
 have a source for a data set that you want to refer to), then you can
@@ -1188,13 +1251,13 @@ will convert that link to the appropriate format for the lesson
 website.</p>
 <p>By that same rule, here is how you would write the following links in
 this episode:</p>
-<div class="codewrapper sourceCode" id="cb31">
+<div class="codewrapper sourceCode" id="cb32">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span><span class="co">[</span><span class="ot">another episode (e.g. introduction)</span><span class="co">](introduction.md)</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span><span class="co">[</span><span class="ot">the home page</span><span class="co">](../index.md)</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span><span class="co">[</span><span class="ot">the setup page</span><span class="co">](../learners/setup.md)</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span><span class="co">[</span><span class="ot">the "line length" section in the style guide</span><span class="co">](../learners/style.md#line-length)</span></span></code></pre>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span><span class="co">[</span><span class="ot">another episode (e.g. introduction)</span><span class="co">](introduction.md)</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span><span class="co">[</span><span class="ot">the home page</span><span class="co">](../index.md)</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span><span class="co">[</span><span class="ot">the setup page</span><span class="co">](../learners/setup.md)</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="ss"> - </span><span class="co">[</span><span class="ot">the "line length" section in the style guide</span><span class="co">](../learners/style.md#line-length)</span></span></code></pre>
 </div>
 <ul><li><a href="introduction.html">another episode
 (e.g. introduction)</a></li>
@@ -1229,7 +1292,7 @@ Workbench, but which one is <em>guaranteed</em> to work and why?</p>
   Give me a hint
   </h4>
 </button>
-<div id="collapseHint1" class="accordion-collapse collapse" aria-labelledby="headingHint1" data-bs-parent="#accordionHint1">
+<div id="collapseHint1" class="accordion-collapse collapse" data-bs-parent="#accordionHint1" aria-labelledby="headingHint1">
 <div class="accordion-body">
 <p>Think about which files <em>actually</em> exist before the lesson is
 built.</p>
@@ -1237,14 +1300,14 @@ built.</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution6" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution7" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
-  <h4 class="accordion-header" id="headingSolution6">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution7" aria-expanded="false" aria-controls="collapseSolution7">
+  <h4 class="accordion-header" id="headingSolution7">
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
 <div class="accordion-body">
 <p>The answer is <strong>3</strong>:
 <code>[internal links](../episodes/episodes.Rmd#internal-links)</code>
@@ -1277,11 +1340,11 @@ folder and reference them directly like so using standard markdown
 format, with one twist: add an <code>alt</code> attribute at the end to
 make it accessible like this:
 <code>![caption](image){alt='alt text'}</code>.</p>
-<div class="codewrapper sourceCode" id="cb32">
+<div class="codewrapper sourceCode" id="cb33">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Hex sticker for The Carpentries](fig/carpentries-hex-blue.svg)</span>{alt="blue</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>hexagon with The Carpentries logo in white and text: 'The Carpentries'"}</span></code></pre>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Hex sticker for The Carpentries](fig/carpentries-hex-blue.svg)</span>{alt="blue</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>hexagon with The Carpentries logo in white and text: 'The Carpentries'"}</span></code></pre>
 </div>
 <figure><img src="fig/carpentries-hex-blue.svg" alt="blue hexagon with The Carpentries logo in white and text: 'The Carpentries'" class="figure mx-auto d-block"><figcaption>Hex sticker for The Carpentries</figcaption></figure><div id="accessibility-point-alternative-text-aka-alt-text" class="callout discussion">
 <div class="callout-square">
@@ -1312,14 +1375,14 @@ should understand from the figure.</p>
 <h4 id="wrapping-alt-text-lines">Wrapping Alt Text lines<a class="anchor" aria-label="anchor" href="#wrapping-alt-text-lines"></a></h4>
 <p>You will rarely have alt text that fits under 100 characters, so you
 can wrap alt text like you would any markdown paragraph:</p>
-<div class="codewrapper sourceCode" id="cb33">
+<div class="codewrapper sourceCode" id="cb34">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Example of Wrapped Alt Text (with apologies to William Carlos Williams)](fig/freezer.png)</span>{alt='This is just an icebox</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>with no plums</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>which you were probably</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>saving</span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>for breakfast'}</span></code></pre>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="al">![Example of Wrapped Alt Text (with apologies to William Carlos Williams)](fig/freezer.png)</span>{alt='This is just an icebox</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>with no plums</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>which you were probably</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>saving</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>for breakfast'}</span></code></pre>
 </div>
 <p>When missing, the image will appear visually as a broken image icon,
 but the alt text describes what the image was.</p>
@@ -1342,7 +1405,7 @@ has more information about including alt text in RMarkdown
 documents</a>. In addition, you can also use <code>fig.cap</code> to
 provide a caption that puts the picture into context (but take care to
 not be redundant; screen readers will read both fields).</p>
-<div class="codewrapper sourceCode" id="cb34">
+<div class="codewrapper sourceCode" id="cb35">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1447,9 +1510,9 @@ docs: adding a caption to your table</a><a href="#fnref3" class="footnote-back">
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/sandpaper-docs/episodes.html",
   "identifier": "https://carpentries.github.io/sandpaper-docs/episodes.html",
-  "dateCreated": "2023-07-12",
-  "dateModified": "2023-07-12",
-  "datePublished": "2023-08-01"
+  "dateCreated": "2023-08-02",
+  "dateModified": "2023-08-02",
+  "datePublished": "2023-08-02"
 }
 
   </script><script>
