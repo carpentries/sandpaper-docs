@@ -581,6 +581,8 @@ Table: Four fruits with color and price in imaginary dollars
 | orange | :orange_square:  | \$3.09   |
 | devil  | :purple_square:  | \$666.00 |
 
+::::::::::::::::::::::
+
 ### Table alignment best practises
 
 The colons on each side of the `-` in the table dictate how the column is
@@ -595,8 +597,6 @@ exceptions:
 
 These conventions make it easer for folks to scan a table and understand its
 contents at a glance. 
-
-::::::::::::::::::::::
 
 You can see that we now have a caption associated with the table.
 Because it is a narrow table, the columns fit exactly to the contents. If we
