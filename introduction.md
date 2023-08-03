@@ -288,7 +288,7 @@ we have [a walkthrough to set your credentials in the learners section
 
 ## Tools
 
-As described in [the setup document][setup], The Carpentries Workshop only
+As described in [the setup document][setup], The Carpentries Workbench only
 requires R and [pandoc] to be installed. The tooling from the styles lesson
 template has been split up into three R packages:
 
