@@ -559,8 +559,6 @@ and right, respectively.
 
 [pipe-table-syntax]: https://pandoc.org/MANUAL.html#extension-pipe_tables
 
-:::::::::::::: callout
-
 ```markdown
 Table: Four fruits with color and price in imaginary dollars
 
@@ -581,7 +579,9 @@ Table: Four fruits with color and price in imaginary dollars
 | orange | :orange_square:  | \$3.09   |
 | devil  | :purple_square:  | \$666.00 |
 
-::::::::::::::::::::::
+You can see that we now have a caption associated with the table.
+
+:::::::::::::: callout
 
 ### Table alignment best practises
 
@@ -598,7 +598,8 @@ exceptions:
 These conventions make it easer for folks to scan a table and understand its
 contents at a glance. 
 
-You can see that we now have a caption associated with the table.
+::::::::::::::::::::::
+
 Because it is a narrow table, the columns fit exactly to the contents. If we
 added a fourth, longer column (e.g. a description), then the table looks a bit
 wonky:
