@@ -147,7 +147,7 @@ Your new episode needs a title!
 1. Open the new episode in your editor
 2. edit the title
 3. add the episode to the `config.yaml`
-4. preview it with `sandpaper::build_lesson()`/<kbd>ctrl + shift + k</kbd>.
+4. preview it with `sandpaper::build_lesson()` or using the <kbd>ctrl + shift + k</kbd> keyboard shortcut.
 
 Did the new title show up?
 
@@ -266,7 +266,7 @@ View" button at the top right, and then selecting "Instructor View" from the
 dropdown. You can also add `instructor/` after the lesson URL (e.g. in this
 lesson, the URL is `https://carpentries.github.io/sandpaper-docs/episodes.html`;
 to switch to the instructor view manually, you can use 
-`https://carpentries.github.io/sandpaper-docs/instructor/episodes.html`. 
+`https://carpentries.github.io/sandpaper-docs/instructor/episodes.html`). 
 
 
 ::::::::::::::: challenge
@@ -322,7 +322,7 @@ You can also include _any markdown elements_ like `code blocks`
 
 ## Exercises/Challenges
 
-the method of creating callout blocks with fences can help us create solution
+The method of creating callout blocks with fences can help us create solution
 blocks nested within challenge blocks. Much like a [toast
 sandwich](https://en.wikipedia.org/wiki/Toast_sandwich), we can layer blocks
 inside blocks by adding more layers. For example, here's how I would create a
@@ -356,7 +356,7 @@ A: part of the precipitate
 :::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::
 
-To add more solutions, you close the first solution and add more text:
+To add more challenges, you close the first solution and add more text:
 
 ::::::::::::::::::::::::::::::::::::: challenge
 
@@ -514,6 +514,7 @@ print("this is a {} code block".format(thing))
 ```
 
 To indicate that a code block is an output block, you can use the label "output":
+
 Input:
 
 ````markdown
@@ -560,24 +561,6 @@ and right, respectively.
 
 :::::::::::::: callout
 
-### Table alignment best practises
-
-The colons on each side of the `-` in the table dictate how the column is
-aligned. By default, columns are aligned left, but if you add colons on either
-side, that forces the alignment to that side.
-
-In general, most table contents should be left-aligned, with a couple of 
-exceptions:
-
- - numbers should be right aligned
- - symbols, emojis, and other equal-width items may be center-aligned
-
-These conventions make it easer for folks to scan a table and understand its
-contents at a glance. 
-
-::::::::::::::::::::::
-
-
 ```markdown
 Table: Four fruits with color and price in imaginary dollars
 
@@ -598,7 +581,24 @@ Table: Four fruits with color and price in imaginary dollars
 | orange | :orange_square:  | \$3.09   |
 | devil  | :purple_square:  | \$666.00 |
 
-You can see that we now have a caption associated with The table
+### Table alignment best practises
+
+The colons on each side of the `-` in the table dictate how the column is
+aligned. By default, columns are aligned left, but if you add colons on either
+side, that forces the alignment to that side.
+
+In general, most table contents should be left-aligned, with a couple of 
+exceptions:
+
+ - numbers should be right aligned
+ - symbols, emojis, and other equal-width items may be center-aligned
+
+These conventions make it easer for folks to scan a table and understand its
+contents at a glance. 
+
+::::::::::::::::::::::
+
+You can see that we now have a caption associated with the table.
 Because it is a narrow table, the columns fit exactly to the contents. If we
 added a fourth, longer column (e.g. a description), then the table looks a bit
 wonky:
@@ -626,7 +626,7 @@ Table: Four fruits with color and price in imaginary dollars
 
 If we want to adjust the size of the columns, we need to change the lengths of
 the number of dashes separating the header from the body (as described in 
-[pandoc's guide for tables][pipe-table-syntax]. 
+[pandoc's guide for tables][pipe-table-syntax]). 
 
 Notice how the pipe characters (`|`) do not necessarily have to line up to 
 produce a table.
@@ -674,21 +674,21 @@ Table: example table with overflowing text in three columns
 
 :::::::::::::: solution
 
-To get a rougly 1:5:1 ratio, you can use two separators for the short columns
+To get a roughly 1:5:1 ratio, you can use two separators for the short columns
 and ten separators for the wide column:
 
 ```markdown
 Table: example table with overflowing text in three columns
 
 | first | second     | third |
-| --    | :--------: | --    |
+| --    | :----------: | --    |
 | this should be a small, compact column | this should be a wide column | this column should also be small and compact, much like the first column |
 ```
 
 Table: example table with overflowing text in three columns
 
 | first | second     | third |
-| --    | :--------: | --    |
+| --    | :----------: | --    |
 | this should be a small, compact column | this should be a wide column | this column should also be small and compact, much like the first column |
 
 
@@ -700,7 +700,7 @@ Table: example table with overflowing text in three columns
 ### R Markdown tables
 
 If you are using R Markdown, then you can generate a table from packages like
-{knitr} or {gt}, but make sure to use `asis = TRUE` in your chunk option:
+{knitr} or {gt}, but make sure to use `results = 'asis'` in your chunk option:
 
 ````{verbatim, lang = "markdown"}
 
@@ -771,7 +771,7 @@ want to refer to), then you can place a link inside a separate file at the top o
 When working on a lesson in The Workbench, you do not need to think about what
 link the website will generate once it's built in order to write a link to
 different elements in the lesson. This is important because when you write
-links releative to your source files, these links will be predictable in any
+links relative to your source files, these links will be predictable in any
 context and allow you to easily detect when filenames change. 
 
 To reference other markdown files within the same lesson, use _relative paths
