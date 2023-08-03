@@ -356,7 +356,7 @@ A: part of the precipitate
 :::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::
 
-To add more challenges, you close the first solution and add more text:
+To add more content to the challenge, you close the first solution and add more text:
 
 ::::::::::::::::::::::::::::::::::::: challenge
 
