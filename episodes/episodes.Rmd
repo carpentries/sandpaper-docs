@@ -688,7 +688,7 @@ Table: example table with overflowing text in three columns
 Table: example table with overflowing text in three columns
 
 | first | second     | third |
-| --    | :----------: | --    |
+| --    | :--------: | --    |
 | this should be a small, compact column | this should be a wide column | this column should also be small and compact, much like the first column |
 
 
