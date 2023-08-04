@@ -720,7 +720,7 @@ is the engine that puts everything together.</li>
 </div>
 </section></section><section id="aio-episodes"><p>Content from <a href="episodes.html">Episode Structure</a></p>
 <hr>
-<p> Last updated on 2023-08-02 | 
+<p> Last updated on 2023-08-04 | 
         
         <a href="https://github.com/carpentries/sandpaper-docs/edit/main/episodes/episodes.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 17 minutes </p>
@@ -911,8 +911,8 @@ associated with the episode at the very top of the file:</p>
 <li>edit the title</li>
 <li>add the episode to the <code>config.yaml</code>
 </li>
-<li>preview it with <code>sandpaper::build_lesson()</code>/<kbd>ctrl +
-shift + k</kbd>.</li>
+<li>preview it with <code>sandpaper::build_lesson()</code> or using the
+<kbd>ctrl + shift + k</kbd> keyboard shortcut.</li>
 </ol>
 <p>Did the new title show up?</p>
 </div>
@@ -1069,7 +1069,7 @@ also add <code>instructor/</code> after the lesson URL (e.g. in this
 lesson, the URL is
 <code>https://carpentries.github.io/sandpaper-docs/episodes.html</code>;
 to switch to the instructor view manually, you can use
-<code>https://carpentries.github.io/sandpaper-docs/instructor/episodes.html</code>.</p>
+<code>https://carpentries.github.io/sandpaper-docs/instructor/episodes.html</code>).</p>
 <div id="view-the-instructor-note" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
@@ -1114,7 +1114,7 @@ return to this section to find an instructor note waiting for you.</p>
   Instructor Note
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>This is an instructor note. It contains information that can be
 useful for instructors to know such as</p>
@@ -1142,7 +1142,7 @@ know</li>
 </section><section id="exerciseschallenges"><h2 class="section-heading">Exercises/Challenges<a class="anchor" aria-label="anchor" href="#exerciseschallenges"></a>
 </h2>
 <hr class="half-width">
-<p>the method of creating callout blocks with fences can help us create
+<p>The method of creating callout blocks with fences can help us create
 solution blocks nested within challenge blocks. Much like a <a href="https://en.wikipedia.org/wiki/Toast_sandwich" class="external-link">toast sandwich</a>,
 we can layer blocks inside blocks by adding more layers. For example,
 here’s how I would create a single challenge and a single solution:</p>
@@ -1181,15 +1181,15 @@ here’s how I would create a single challenge and a single solution:</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>A: part of the precipitate</p>
 </div>
 </div>
 </div>
 </div>
-<p>To add more solutions, you close the first solution and add more
-text:</p>
+<p>To add more content to the challenge, you close the first solution
+and add more text:</p>
 <div id="challenge-1-can-you-do-it" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -1215,7 +1215,7 @@ text:</p>
   Output
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1246,7 +1246,7 @@ challenge blocks?<a class="anchor" aria-label="anchor" href="#challenge-2-how-do
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>You can add a line with at least three colons and a
 <code>solution</code> tag.</p>
@@ -1281,7 +1281,7 @@ challenge blocks?<a class="anchor" aria-label="anchor" href="#challenge-2-how-do
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>Yes! It is a valid fenced div for the following reasons:</p>
 <ol style="list-style-type: decimal">
@@ -1347,7 +1347,7 @@ content. For example:</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <figure><img src="https://placekitten.com/300/300" style="width:33.0%" alt="A random picture of a cute kitten" class="figure mx-auto d-block"><figcaption>A randomly selected picture of a kitten.</figcaption></figure>
 </div>
@@ -1393,7 +1393,8 @@ the first set of backticks:</p>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"this is a </span><span class="sc">{}</span><span class="st"> code block"</span>.<span class="bu">format</span>(thing))</span></code></pre>
 </div>
 <p>To indicate that a code block is an output block, you can use the
-label “output”: Input:</p>
+label “output”:</p>
+<p>Input:</p>
 <div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1439,30 +1440,6 @@ contents</li>
 </ol>
 <p>Here is an example of a narrow table with three columns aligned left,
 center, and right, respectively.</p>
-<div id="table-alignment-best-practises" class="callout callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<div id="table-alignment-best-practises" class="callout-inner">
-<h3 class="callout-title">Table alignment best practises<a class="anchor" aria-label="anchor" href="#table-alignment-best-practises"></a>
-</h3>
-<div class="callout-content">
-<p>The colons on each side of the <code>-</code> in the table dictate
-how the column is aligned. By default, columns are aligned left, but if
-you add colons on either side, that forces the alignment to that
-side.</p>
-<p>In general, most table contents should be left-aligned, with a couple
-of exceptions:</p>
-<ul>
-<li>numbers should be right aligned</li>
-<li>symbols, emojis, and other equal-width items may be
-center-aligned</li>
-</ul>
-<p>These conventions make it easer for folks to scan a table and
-understand its contents at a glance.</p>
-</div>
-</div>
-</div>
 <div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1505,10 +1482,34 @@ understand its contents at a glance.</p>
 </tr>
 </tbody>
 </table>
-<p>You can see that we now have a caption associated with The table
-Because it is a narrow table, the columns fit exactly to the contents.
-If we added a fourth, longer column (e.g. a description), then the table
-looks a bit wonky:</p>
+<p>You can see that we now have a caption associated with the table.</p>
+<div id="table-alignment-best-practises" class="callout callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="table-alignment-best-practises" class="callout-inner">
+<h3 class="callout-title">Table alignment best practises<a class="anchor" aria-label="anchor" href="#table-alignment-best-practises"></a>
+</h3>
+<div class="callout-content">
+<p>The colons on each side of the <code>-</code> in the table dictate
+how the column is aligned. By default, columns are aligned left, but if
+you add colons on either side, that forces the alignment to that
+side.</p>
+<p>In general, most table contents should be left-aligned, with a couple
+of exceptions:</p>
+<ul>
+<li>numbers should be right aligned</li>
+<li>symbols, emojis, and other equal-width items may be
+center-aligned</li>
+</ul>
+<p>These conventions make it easer for folks to scan a table and
+understand its contents at a glance.</p>
+</div>
+</div>
+</div>
+<p>Because it is a narrow table, the columns fit exactly to the
+contents. If we added a fourth, longer column (e.g. a description), then
+the table looks a bit wonky:</p>
 <div class="codewrapper sourceCode" id="cb26">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1569,7 +1570,7 @@ to taste terrible and give you mysterious powers</td>
 <p>If we want to adjust the size of the columns, we need to change the
 lengths of the number of dashes separating the header from the body (as
 described in <a href="https://pandoc.org/MANUAL.html#extension-pipe_tables" class="external-link">pandoc’s
-guide for tables</a>.</p>
+guide for tables</a>).</p>
 <p>Notice how the pipe characters (<code>|</code>) do not necessarily
 have to line up to produce a table.</p>
 <div class="codewrapper sourceCode" id="cb27">
@@ -1678,10 +1679,10 @@ column</td>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
-<p>To get a rougly 1:5:1 ratio, you can use two separators for the short
-columns and ten separators for the wide column:</p>
+<p>To get a roughly 1:5:1 ratio, you can use two separators for the
+short columns and ten separators for the wide column:</p>
 <div class="codewrapper sourceCode" id="cb29">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1719,7 +1720,7 @@ column</td>
 </h3>
 <p>If you are using R Markdown, then you can generate a table from
 packages like {knitr} or {gt}, but make sure to use
-<code>asis = TRUE</code> in your chunk option:</p>
+<code>results = 'asis'</code> in your chunk option:</p>
 <div class="codewrapper sourceCode" id="cb30">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1822,7 +1823,7 @@ called <code>links.md</code>.</p>
 <p>When working on a lesson in The Workbench, you do not need to think
 about what link the website will generate once it’s built in order to
 write a link to different elements in the lesson. This is important
-because when you write links releative to your source files, these links
+because when you write links relative to your source files, these links
 will be predictable in any context and allow you to easily detect when
 filenames change.</p>
 <p>To reference other markdown files within the same lesson, use
@@ -1879,7 +1880,7 @@ Workbench, but which one is <em>guaranteed</em> to work and why?</p>
   Give me a hint
   </h4>
 </button>
-<div id="collapseHint1" class="accordion-collapse collapse" data-bs-parent="#accordionHint1" aria-labelledby="headingHint1">
+<div id="collapseHint1" class="accordion-collapse collapse" aria-labelledby="headingHint1" data-bs-parent="#accordionHint1">
 <div class="accordion-body">
 <p>Think about which files <em>actually</em> exist before the lesson is
 built.</p>
@@ -1894,7 +1895,7 @@ built.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
 <div class="accordion-body">
 <p>The answer is <strong>3</strong>:
 <code>[internal links](../episodes/episodes.Rmd#internal-links)</code>
@@ -2174,7 +2175,7 @@ preview the lesson again.</li>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>What you should notice is that the only file updated when you
 re-render the lesson is the file you changed
@@ -2331,7 +2332,7 @@ change?</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>The episodes appear in the same order as the configuration file and
 the timings have rearranged themselves to reflect that.</p>
@@ -3423,9 +3424,9 @@ the website</li>
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/sandpaper-docs/instructor/aio.html",
   "identifier": "https://carpentries.github.io/sandpaper-docs/instructor/aio.html",
-  "dateCreated": "2023-08-03",
-  "dateModified": "2023-08-03",
-  "datePublished": "2023-08-03"
+  "dateCreated": "2023-08-04",
+  "dateModified": "2023-08-04",
+  "datePublished": "2023-08-04"
 }
 
   </script><script>
