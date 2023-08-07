@@ -570,22 +570,22 @@ and right, respectively.
 ```markdown
 Table: Four fruits with color and price in imaginary dollars
 
-| fruit  | color            | price    |
-| ------ | :--------------: | -------: |
-| apple  | :red_square:     | \$2.05   |
-| pear   | :green_square:   | \$1.37   |
-| orange | :orange_square:  | \$3.09   |
-| catfruit  | :black_square:  | \$999.99 |
+| fruit     | color                | price    |
+| ------    | :--------------:     | -------: |
+| apple     | :red_square:         | \$2.05   |
+| pear      | :green_square:       | \$1.37   |
+| orange    | :orange_square:      | \$3.09   |
+| catfruit  | :black_large_square: | \$999.99 |
 ```
 
 Table: Four fruits with color and price in imaginary dollars
 
-| fruit  | color            | price    |
-| ------ | :--------------: | -------: |
-| apple  | :red_square:     | \$2.05   |
-| pear   | :green_square:   | \$1.37   |
-| orange | :orange_square:  | \$3.09   |
-| catfruit  | :black_square:  | \$999.99 |
+| fruit     | color                | price    |
+| ------    | :--------------:     | -------: |
+| apple     | :red_square:         | \$2.05   |
+| pear      | :green_square:       | \$1.37   |
+| orange    | :orange_square:      | \$3.09   |
+| catfruit  | :black_large_square: | \$999.99 |
 
 You can see that we now have a caption associated with the table.
 
@@ -615,22 +615,22 @@ wonky:
 ```markdown
 Table: Four fruits with color, price in imaginary dollars, and description
 
-| fruit  | color            | price    | description |
-| ------ | :--------------: | -------: | ----------- |
-| apple  | :red_square:     | \$2.05   | a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day |
-| pear   | :green_square:   | \$1.37   | a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon | 
-| orange | :orange_square:  | \$3.09   | a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days |
-| catfruit  | :black_square:  | \$999.99 | an oblong fruit covered with thick black fuzz. It likes to sit on your keyboard and meow at you when you're trying to work |
+| fruit     | color                | price    | description |
+| ------    | :--------------:     | -------: | ----------- |
+| apple     | :red_square:         | \$2.05   | a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day |
+| pear      | :green_square:       | \$1.37   | a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon    | 
+| orange    | :orange_square:      | \$3.09   | a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days |
+| catfruit  | :black_large_square: | \$999.99 | an oblong fruit covered with thick black fuzz. It likes to sit on your keyboard and meow at you when you're trying to work |
 ```
 
 Table: Four fruits with color and price in imaginary dollars
 
-| fruit  | color            | price    | description |
-| ------ | :--------------: | -------: | ----------- |
-| apple  | :red_square:     | \$2.05   | a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day |
-| pear   | :green_square:   | \$1.37   | a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon | 
-| orange | :orange_square:  | \$3.09   | a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days |
-| catfruit  | :black_square:  | \$999.99 | an oblong fruit covered with thick black fuzz. It likes to sit on your keyboard and meow at you when you're trying to work |
+| fruit     | color                | price    | description |
+| ------    | :--------------:     | -------: | ----------- |
+| apple     | :red_square:         | \$2.05   | a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day |
+| pear      | :green_square:       | \$1.37   | a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon    | 
+| orange    | :orange_square:      | \$3.09   | a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days |
+| catfruit  | :black_large_square: | \$999.99 | an oblong fruit covered with thick black fuzz. It likes to sit on your keyboard and meow at you when you're trying to work |
 
 
 If we want to adjust the size of the columns, we need to change the lengths of
@@ -644,22 +644,22 @@ produce a table.
 ```markdown
 Table: Four fruits with color, price in imaginary dollars, and description
 
-| fruit  | color            | price    | description                 |
-| ----   | :-:              | ---:     | --------------------------- |
-| apple  | :red_square:     | \$2.05   | a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day |
-| pear   | :green_square:   | \$1.37   | a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon | 
-| orange | :orange_square:  | \$3.09   | a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days |
-| catfruit  | :black_square:  | \$999.99 | an oblong fruit covered with thick black fuzz. It likes to sit on your keyboard and meow at you when you're trying to work |
+| fruit     | color                | price    | description                 |
+| ----      | :-:                  | ---:     | --------------------------- |
+| apple     | :red_square:         | \$2.05   | a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day |
+| pear      | :green_square:       | \$1.37   | a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon    | 
+| orange    | :orange_square:      | \$3.09   | a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days |
+| catfruit  | :black_large_square: | \$999.99 | an oblong fruit covered with thick black fuzz. It likes to sit on your keyboard and meow at you when you're trying to work |
 ```
 
 Table: Four fruits with color, price in imaginary dollars, and description
 
-| fruit  | color            | price    | description                 |
-| ----   | :-:              | ---:     | --------------------------- |
-| apple  | :red_square:     | \$2.05   | a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day |
-| pear   | :green_square:   | \$1.37   | a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon | 
-| orange | :orange_square:  | \$3.09   | a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days |
-| catfruit  | :black_square:  | \$999.99 | an oblong fruit covered with thick black fuzz. It likes to sit on your keyboard and meow at you when you're trying to work |
+| fruit     | color                | price    | description                 |
+| ----      | :-:                  | ---:     | --------------------------- |
+| apple     | :red_square:         | \$2.05   | a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day |
+| pear      | :green_square:       | \$1.37   | a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon    | 
+| orange    | :orange_square:      | \$3.09   | a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days |
+| catfruit  | :black_large_square: | \$999.99 | an oblong fruit covered with thick black fuzz. It likes to sit on your keyboard and meow at you when you're trying to work |
 
 :::::::::::::::::::::::::::: challenge
 
