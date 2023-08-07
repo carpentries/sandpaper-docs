@@ -575,7 +575,7 @@ Table: Four fruits with color and price in imaginary dollars
 | apple  | :red_square:     | \$2.05   |
 | pear   | :green_square:   | \$1.37   |
 | orange | :orange_square:  | \$3.09   |
-| devil  | :purple_square:  | \$666.00 |
+| catfruit  | :black_square:  | \$999.99 |
 ```
 
 Table: Four fruits with color and price in imaginary dollars
@@ -585,7 +585,7 @@ Table: Four fruits with color and price in imaginary dollars
 | apple  | :red_square:     | \$2.05   |
 | pear   | :green_square:   | \$1.37   |
 | orange | :orange_square:  | \$3.09   |
-| devil  | :purple_square:  | \$666.00 |
+| catfruit  | :black_square:  | \$999.99 |
 
 You can see that we now have a caption associated with the table.
 
@@ -620,7 +620,7 @@ Table: Four fruits with color, price in imaginary dollars, and description
 | apple  | :red_square:     | \$2.05   | a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day |
 | pear   | :green_square:   | \$1.37   | a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon | 
 | orange | :orange_square:  | \$3.09   | a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days |
-| devil  | :purple_square:  | \$666.00 | a round purple fruit with complex swirls along its skin. It is said to taste terrible and give you mysterious powers |
+| catfruit  | :black_square:  | \$999.99 | an oblong fruit covered with thick black fuzz. It likes to sit on your keyboard and meow at you when you're trying to work |
 ```
 
 Table: Four fruits with color and price in imaginary dollars
@@ -630,7 +630,7 @@ Table: Four fruits with color and price in imaginary dollars
 | apple  | :red_square:     | \$2.05   | a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day |
 | pear   | :green_square:   | \$1.37   | a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon | 
 | orange | :orange_square:  | \$3.09   | a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days |
-| devil  | :purple_square:  | \$666.00 | a round purple fruit with complex swirls along its skin. It is said to taste terrible and give you mysterious powers |
+| catfruit  | :black_square:  | \$999.99 | an oblong fruit covered with thick black fuzz. It likes to sit on your keyboard and meow at you when you're trying to work |
 
 
 If we want to adjust the size of the columns, we need to change the lengths of
@@ -649,7 +649,7 @@ Table: Four fruits with color, price in imaginary dollars, and description
 | apple  | :red_square:     | \$2.05   | a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day |
 | pear   | :green_square:   | \$1.37   | a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon | 
 | orange | :orange_square:  | \$3.09   | a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days |
-| devil  | :purple_square:  | \$666.00 | a round purple fruit with complex swirls along its skin. It is said to taste terrible and give you mysterious powers |
+| catfruit  | :black_square:  | \$999.99 | an oblong fruit covered with thick black fuzz. It likes to sit on your keyboard and meow at you when you're trying to work |
 ```
 
 Table: Four fruits with color, price in imaginary dollars, and description
@@ -659,7 +659,7 @@ Table: Four fruits with color, price in imaginary dollars, and description
 | apple  | :red_square:     | \$2.05   | a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day |
 | pear   | :green_square:   | \$1.37   | a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon | 
 | orange | :orange_square:  | \$3.09   | a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days |
-| devil  | :purple_square:  | \$666.00 | a round purple fruit with complex swirls along its skin. It is said to taste terrible and give you mysterious powers |
+| catfruit  | :black_square:  | \$999.99 | an oblong fruit covered with thick black fuzz. It likes to sit on your keyboard and meow at you when you're trying to work |
 
 :::::::::::::::::::::::::::: challenge
 
@@ -718,13 +718,13 @@ If you are using R Markdown, then you can generate a table from packages like
 ```{r fruits-table, results = 'asis'}
 dat <- data.frame(
   stringsAsFactors = FALSE,
-             fruit = c("apple", "pear", "orange", "devil"),
-             color = c("🟥", "🟩", "🟧", "🟪"),
-             price = c("$2.05", "$1.37", "$3.09", "$666.00"),
+             fruit = c("apple", "pear", "orange", "catfruit"),
+             color = c("🟥", "🟩", "🟧", "⬛"),
+             price = c("$2.05", "$1.37", "$3.09", "$999.99"),
        description = c("a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day",
                        "a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon",
                        "a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days",
-                       "a round purple fruit with complex swirls along its skin. It is said to taste terrible and give you mysterious powers")
+                       "an oblong fruit covered with thick black fuzz. It likes to sit on your keyboard and meow at you when you're trying to work")
 )
 knitr::kable(dat, 
   format = "pipe", 
@@ -736,12 +736,12 @@ knitr::kable(dat,
 
 Table: Four fruits with color, price in imaginary dollars, and description
 
-|fruit  | color |   price|description                                                                                                                        |
-|:------|:-----:|-------:|:----------------------------------------------------------------------------------------------------------------------------------|
-|apple  |  🟥   |   $2.05|a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day                        |
-|pear   |  🟩   |   $1.37|a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon                                              |
-|orange |  🟧   |   $3.09|a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days |
-|devil  |  🟪   | $666.00|a round purple fruit with complex swirls along its skin. It is said to taste terrible and give you mysterious powers               |
+|fruit    | color |   price|description                                                                                                                        |
+|:--------|:-----:|-------:|:----------------------------------------------------------------------------------------------------------------------------------|
+|apple    |  🟥   |   $2.05|a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day                        |
+|pear     |  🟩   |   $1.37|a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon                                              |
+|orange   |  🟧   |   $3.09|a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days |
+|catfruit |  ⬛   | $999.99|an oblong fruit covered with thick black fuzz. It likes to sit on your keyboard and meow at you when you're trying to work         |
 
 
 
