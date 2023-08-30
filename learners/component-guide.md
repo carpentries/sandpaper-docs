@@ -142,3 +142,13 @@ from previous learners or instructors.
 
 :::::::::::::::::::::::::::::
 
+::::::::::::::::: spoiler
+
+### SPOILER (`spoiler`)
+
+SPOILER callouts are created with the `spoiler` tag and
+are a way to provide additional details/content 
+that can be expanded and collapsed on demand.
+
+:::::::::::::::::::::::::
+
