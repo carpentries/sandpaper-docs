@@ -43,7 +43,7 @@
         
       </div>
     </div>
-    <div class="selector-container ">
+    <div class="selector-container">
       
       <div class="beta-alert alert alert-light alert-dismissable fade show" role="alert">
         
@@ -51,8 +51,8 @@
         
         <i aria-hidden="true" class="icon" data-feather="alert-circle" style="color: #5bbad5"></i>
         
-        Workbench Beta | 
-        <a href="https://carpentries.typeform.com/to/KRBl4IZM" class="external-link alert-link" style="text-decoration: wavy overline">Give Feedback</a> | 
+        Workbench Beta |
+        <a href="https://carpentries.typeform.com/to/KRBl4IZM" class="external-link alert-link" style="text-decoration: wavy overline">Give Feedback</a> |
         <a href="https://carpentries.github.io/workbench/beta-phase.html" class="external-link alert-link">Learn More</a>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>
@@ -136,9 +136,11 @@
 </aside><div class="container">
       <div class="row">
         <!-- START: inst/pkgdown/templates/navbar.html -->
-  <div id="sidebar-col" class="col-lg-4">
-    <div id="sidebar" class="sidebar">
-      <nav aria-labelledby="flush-headingEleven"><button role="button" aria-label="close menu" alt="close menu" aria-expanded="true" aria-controls="sidebar" class="collapse-toggle"><i class="search-icon" data-feather="x" role="img"></i></button>
+<div id="sidebar-col" class="col-lg-4">
+  <div id="sidebar" class="sidebar">
+      <nav aria-labelledby="flush-headingEleven"><button role="button" aria-label="close menu" alt="close menu" aria-expanded="true" aria-controls="sidebar" class="collapse-toggle">
+          <i class="search-icon" data-feather="x" role="img"></i>
+        </button>
         <div class="sidebar-inner">
           <div class="row mobile-row">
             <div class="col">
@@ -310,6 +312,7 @@
             </div>
             <hr class="half-width resources">
 <a href="aio.html">See all in one page</a>
+            
 
             <hr class="d-none d-sm-block d-md-none">
 <div class="d-grid gap-1">
@@ -727,7 +730,7 @@ is the engine that puts everything together.</li>
 </div>
 </section></section><section id="aio-episodes"><p>Content from <a href="episodes.html">Episode Structure</a></p>
 <hr>
-<p> Last updated on 2023-09-05 | 
+<p> Last updated on 2023-09-06 | 
         
         <a href="https://github.com/carpentries/sandpaper-docs/edit/main/episodes/episodes.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1267,66 +1270,66 @@ challenge blocks?<a class="anchor" aria-label="anchor" href="#challenge-2-how-do
 </div>
 </div>
 </div>
-<div id="known-quirk-floating-solution-blocks" class="callout callout">
+<div id="use-spoilers-instead-of-floating-solution-blocks" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="known-quirk-floating-solution-blocks" class="callout-inner">
-<h3 class="callout-title">
-<span class="emoji" data-emoji="beetle">🪲</span> Known Quirk: Floating Solution Blocks<a class="anchor" aria-label="anchor" href="#known-quirk-floating-solution-blocks"></a>
+<div id="use-spoilers-instead-of-floating-solution-blocks" class="callout-inner">
+<h3 class="callout-title">Use Spoilers Instead of Floating Solution
+Blocks<a class="anchor" aria-label="anchor" href="#use-spoilers-instead-of-floating-solution-blocks"></a>
 </h3>
 <div class="callout-content">
-<p><code>solution</code> divs can be added to a lesson without an
-accompanying <code>challenge</code> div e.g. as an expandable block of
-“spoiler” or “details” information, or as the solution to a
-<code>discussion</code> div. When not attached to a
-<code>challenge</code> div, the formatted <code>solution</code> block
-will be displayed with too much “buoyancy” i.e. floating too high and
-obscuring some of the preceding content.</p>
-<p>This issue will be resolved in a future release, but for now a
-workaround is to include an empty div with some margin spacing defined
-at the bottom before the <code>solution</code> fenced div in the lesson
-content. For example:</p>
+<p>When not attached to a <code>challenge</code> div, a formatted
+<code>solution</code> block will be displayed with too much “buoyancy”
+i.e. floating too high and obscuring some of the preceding content.</p>
+<p>To avoid this, use the <code>spoiler</code> class of fenced div for
+expandable/collapsible blocks of details instead of a floating
+<code>solution</code>.</p>
+</div>
+</div>
+</div>
+</section><section id="expandable-spoiler-blocks"><h2 class="section-heading">Expandable “Spoiler” Blocks<a class="anchor" aria-label="anchor" href="#expandable-spoiler-blocks"></a>
+</h2>
+<hr class="half-width">
+<p>It can be helpful to provide “accordion” blocks of content that can
+be expanded and collapsed with a mouse click in some circumstances e.g.
+to provide detailed instructions for different operating systems, which
+can be examined by users based on their own system setup.</p>
+<p>Such blocks of content can be added to a page with the
+<code>spoiler</code> class of fenced div:</p>
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>Expand the box below for a surprise.</span>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>:::::::::::::::::::::::::::::::::::::::::: spoiler</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>:::::::::::::::::::::::::::::::::::::::: {.empty-div style="margin-bottom: 50px"}</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### What Else Might We Use A Spoiler For?</span></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- This div is intentionally empty to allow the solution to float alone--&gt;</span></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>::::::::::::::::::::::::::::::::::::::::</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>including a collapsed version of a very long block of output/a large image from a code block,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  which the learner can expand if they want to check their output against the lesson</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>a reminder of some important concept/information required to follow the lesson,</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  that you expect only some learners will need to read</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>wrapping a set of optional exercises for an episode</span>
 <span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>:::::::::::::::::::::::::::::::::::::::::::::: solution</span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>![A randomly selected picture of a kitten.</span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>](https://placekitten.com/300/300){</span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>alt='A random picture of a cute kitten'</span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>width='33%'</span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>:::::::::::::::::::::::::::::::::::::::::::::::::::::::</span></code></pre>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>::::::::::::::::::::::::::::::::::::::::::::::::::</span></code></pre>
 </div>
-<p>Expand the box below for a surprise.</p>
-<div class="empty-div" style="margin-bottom: 50px">
-<!-- This div is intentionally empty to allow the solution to float alone-->
-</div>
-<div id="accordionSolution5" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSpoiler1" class="accordion spoiler-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
-  <h4 class="accordion-header" id="headingSolution5">
-  Show me the solution
-  </h4>
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
+  <h3 class="accordion-header" id="headingSpoiler1">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>
+  What Else Might We Use A Spoiler For?
+  </h3>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
-<figure><img src="https://placekitten.com/300/300" style="width:33.0%" alt="A random picture of a cute kitten" class="figure mx-auto d-block"><figcaption>A randomly selected picture of a kitten.</figcaption></figure>
-</div>
-</div>
-</div>
+<ul>
+<li>including a collapsed version of a very long block of output/a large
+image from a code block, which the learner can expand if they want to
+check their output against the lesson</li>
+<li>a reminder of some important concept/information required to follow
+the lesson, that you expect only some learners will need to read</li>
+<li>wrapping a set of optional exercises for an episode</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1646,14 +1649,14 @@ column</td>
 </div>
 </div>
 </div>
-<div id="accordionSolution6" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution5" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
-  <h4 class="accordion-header" id="headingSolution6">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
+  <h4 class="accordion-header" id="headingSolution5">
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <p>To get a roughly 1:5:1 ratio, you can use two separators for the
 short columns and ten separators for the wide column:</p>
@@ -1862,14 +1865,14 @@ built.</p>
 </div>
 </div>
 </div>
-<div id="accordionSolution7" class="accordion challenge-accordion accordion-flush">
+<div id="accordionSolution6" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution7" aria-expanded="false" aria-controls="collapseSolution7">
-  <h4 class="accordion-header" id="headingSolution7">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
+  <h4 class="accordion-header" id="headingSolution6">
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 <p>The answer is <strong>3</strong>:
 <code>[internal links](../episodes/episodes.Rmd#internal-links)</code>
@@ -3353,9 +3356,9 @@ the website</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.12.4" class="external-link">sandpaper (0.12.4)</a>,
-        <a href="https://github.com/carpentries/pegboard/tree/0.6.0" class="external-link">pegboard (0.6.0)</a>,
-      and <a href="https://github.com/carpentries/varnish/tree/0.2.18" class="external-link">varnish (0.2.18)</a>.</p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.13.0" class="external-link">sandpaper (0.13.0)</a>,
+        <a href="https://github.com/carpentries/pegboard/tree/0.6.1" class="external-link">pegboard (0.6.1)</a>,
+      and <a href="https://github.com/carpentries/varnish/tree/0.3.0" class="external-link">varnish (0.3.0)</a>.</p>
 			</div>
 		</footer>
 </div> <!-- / div.container -->
@@ -3376,9 +3379,9 @@ the website</li>
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/sandpaper-docs/aio.html",
   "identifier": "https://carpentries.github.io/sandpaper-docs/aio.html",
-  "dateCreated": "2023-09-05",
-  "dateModified": "2023-09-05",
-  "datePublished": "2023-09-05"
+  "dateCreated": "2023-09-06",
+  "dateModified": "2023-09-06",
+  "datePublished": "2023-09-06"
 }
 
   </script><script>
