@@ -423,65 +423,54 @@ Yes! It is a valid fenced div for the following reasons:
 
 ::::::::::::::::::::::::::::::::::::::::::::::: callout
 
-## :beetle: Known Quirk: Floating Solution Blocks
+## Use Spoilers Instead of Floating Solution Blocks
 
-`solution` divs can be added to a lesson without an accompanying `challenge` div
-e.g. as an expandable block of "spoiler" or "details" information,
-or as the solution to a `discussion` div.
-When not attached to a `challenge` div, the formatted `solution` block
+When not attached to a `challenge` div, a formatted `solution` block
 will be displayed with too much "buoyancy" 
 i.e. floating too high and obscuring some of the preceding content.
 
-This issue will be resolved in a future release,
-but for now a workaround is to 
-include an empty div with some margin spacing defined at the bottom
-before the `solution` fenced div in the lesson content.
-For example:
+To avoid this, use the `spoiler` class of fenced div
+for expandable/collapsible blocks of details
+instead of a floating `solution`.
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+## Expandable "Spoiler" Blocks
+
+It can be helpful to provide "accordion" blocks of content
+that can be expanded and collapsed with a mouse click
+in some circumstances e.g.
+to provide detailed instructions for different operating systems,
+which can be examined by users based on their own system setup.
+
+Such blocks of content can be added to a page with the `spoiler` class of fenced div:
 
 ```markdown
-Expand the box below for a surprise.
+:::::::::::::::::::::::::::::::::::::::::: spoiler
 
-:::::::::::::::::::::::::::::::::::::::: {.empty-div style="margin-bottom: 50px"}
+### What Else Might We Use A Spoiler For?
 
+- including a collapsed version of a very long block of output/a large image from a code block,
+  which the learner can expand if they want to check their output against the lesson
+- a reminder of some important concept/information required to follow the lesson,
+  that you expect only some learners will need to read
+- wrapping a set of optional exercises for an episode
 
-<!-- This div is intentionally empty to allow the solution to float alone-->
-
-
-::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::::::::: solution
-
-![A randomly selected picture of a kitten.
-](https://placekitten.com/300/300){
-alt='A random picture of a cute kitten'
-width='33%'
-}
-
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::::::::::::::::::::::::::::::::::::::::::::::::::
 ```
 
-Expand the box below for a surprise.
+:::::::::::::::::::::::::::::::::::::::::: spoiler
 
-:::::::::::::::::::::::::::::::::::::::: {.empty-div style="margin-bottom: 50px"}
+### What Else Might We Use A Spoiler For?
 
+- including a collapsed version of a very long block of output/a large image from a code block,
+  which the learner can expand if they want to check their output against the lesson
+- a reminder of some important concept/information required to follow the lesson,
+  that you expect only some learners will need to read
+- wrapping a set of optional exercises for an episode
 
-<!-- This div is intentionally empty to allow the solution to float alone-->
-
-
-::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::::::::: solution
-
-![A randomly selected picture of a kitten.
-](https://placekitten.com/300/300){
-alt='A random picture of a cute kitten'
-width='33%'
-}
-
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Code Blocks with Syntax Highlighting
 
