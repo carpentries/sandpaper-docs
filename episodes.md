@@ -240,9 +240,11 @@ differentiate between these and headers or code fences:
 
 ```markdown
 ::::::::::::::::::::::::::::::::::::::::::::::: testimonial
+
 I'm **really excited** for the _new template_ when it arrives :grin:.
 
 --- Toby Hodges
+
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ```
 
