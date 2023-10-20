@@ -46,7 +46,7 @@ your preference:
 
 ### Step 1: Choose a template
 
- - [Markdown Lessons (no generated content)](https://github.com/carpentries/workbench-template-md/generate)
+ - [Markdown Lessons (no generated content)](https://github.com/carpentries/workbench-template-md/generate) (if your lesson will not include R code examples, use this template)
  - [R Markdown Lessons (generated content via R)](https://github.com/carpentries/workbench-template-rmd/generate) (our tutorial uses this template)
 
 ### Step 2: Choose a name for your lesson repository. 
