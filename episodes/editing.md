@@ -38,7 +38,11 @@ and clone as you normally do. If you would like a reminder, here are the steps:
 2. Go to https://github.com/carpentries/sandpaper-docs/fork/ to fork the repository 
    to your account
 
-3. In the shell and use this command to clone this repository to your working
+3. (recommended) When creating your fork, you should **uncheck** "Copy the
+   `main` branch only" checkbox.
+   ![](fig/fork-dialogue.png){alt="screenshot of the 'create a new fork' page with the 'Copy the main branch only' checkbox highlighted in yellow"}
+
+4. In the shell and use this command to clone this repository to your working
    directory, replacing `<USERNAME>` with your username
    ```bash
    cd ~/Documents/Lessons/
