@@ -52,7 +52,7 @@
     </div>
   </div>
   <hr></header><nav class="navbar navbar-expand-xl navbar-light bg-white bottom-nav carpentries" aria-label="Main Navigation"><div class="container-fluid nav-container">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle Navigation">
       <span class="navbar-toggler-icon"></span>
       <span class="menu-title">Menu</span>
     </button>
@@ -63,7 +63,7 @@
     </div>
     <div class="search-icon-sm">
       <!-- TODO: do not show until we have search
-      <i role="img" aria-label="search button" data-feather="search"></i>
+        <i role="img" aria-label="search button" data-feather="search"></i>
       -->
     </div>
     <div class="desktop-nav">
@@ -110,7 +110,7 @@
         <!-- START: inst/pkgdown/templates/navbar.html -->
 <div id="sidebar-col" class="col-lg-4">
   <div id="sidebar" class="sidebar">
-      <nav aria-labelledby="flush-headingEleven"><button role="button" aria-label="close menu" alt="close menu" aria-expanded="true" aria-controls="sidebar" class="collapse-toggle">
+      <nav aria-labelledby="flush-headingEleven"><button role="button" aria-label="close menu" alt="close menu" aria-expanded="true" aria-controls="sidebar" class="collapse-toggle" data-collapse="Collapse " data-episodes="Episodes ">
           <i class="search-icon" data-feather="x" role="img"></i>
         </button>
         <div class="sidebar-inner">
@@ -147,14 +147,16 @@
               <div id="flush-collapseEleven" class="accordion-collapse show collapse" aria-labelledby="flush-headingEleven" data-bs-parent="#accordionFlush11">
 
                 <div class="accordion-body">
-                  <div class="accordion accordion-flush" id="accordionFlush1">
+                  <?xml version="1.0" encoding="UTF-8"?><div class="accordion accordion-flush" id="accordionFlush1">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading1">
-        <a href="index.html">Summary and Schedule</a>
-    </div><!--/div.accordion-header-->
-        
-  </div><!--/div.accordion-item-->
-</div><!--/div.accordion-flush-->
+      <a href="index.html">Summary and Schedule</a>
+    </div>
+    <!--/div.accordion-header-->
+  </div>
+  <!--/div.accordion-item-->
+</div>
+<!--/div.accordion-flush-->
 
 <div class="accordion accordion-flush" id="accordionFlush2">
   <div class="accordion-item">
@@ -299,16 +301,16 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Episode Structure</h1>
-        <p> Last updated on 2023-12-05 | 
+        <p>Last updated on 2023-12-05 |
         
         <a href="https://github.com/carpentries/sandpaper-docs/edit/main/episodes/episodes.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
         
         
-        <p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 17 minutes </p>
+        <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 17 minutes</p>
         
         <div class="text-end">
-          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
 
         
@@ -403,7 +405,7 @@ episode.</p>
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="what-is-the-.rmd-extension" class="callout-inner">
-<h3 class="callout-title">What is the <code>.Rmd</code> extension?<a class="anchor" aria-label="anchor" href="#what-is-the-.rmd-extension"></a>
+<h3 class="callout-title">What is the .Rmd extension?<code>.Rmd</code> extension?<a class="anchor" aria-label="anchor" href="#what-is-the-.rmd-extension"></a>
 </h3>
 <div class="callout-content">
 <p>You might notice that the new episode has the extension of
@@ -682,11 +684,9 @@ return to this section to find an instructor note waiting for you.</p>
 <div class="accordion-item">
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">
-  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>
-  Instructor Note
-  </h3>
+<div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>Instructor Note</h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>This is an instructor note. It contains information that can be
 useful for instructors to know such as</p>
@@ -745,11 +745,9 @@ here’s how I would create a single challenge and a single solution:</p>
 <div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1">
-  Show me the solution
-  </h4>
+  <h4 class="accordion-header" id="headingSolution1">Show me the solution</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>A: part of the precipitate</p>
 </div>
@@ -779,11 +777,9 @@ and add more text:</p>
 <div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2">
-  Output
-  </h4>
+  <h4 class="accordion-header" id="headingSolution2">Output</h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -810,11 +806,9 @@ challenge blocks?<a class="anchor" aria-label="anchor" href="#challenge-2-how-do
 <div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
-  <h4 class="accordion-header" id="headingSolution3">
-  Show me the solution
-  </h4>
+  <h4 class="accordion-header" id="headingSolution3">Show me the solution</h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>You can add a line with at least three colons and a
 <code>solution</code> tag.</p>
@@ -845,11 +839,9 @@ challenge blocks?<a class="anchor" aria-label="anchor" href="#challenge-2-how-do
 <div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
-  <h4 class="accordion-header" id="headingSolution4">
-  Show me the solution
-  </h4>
+  <h4 class="accordion-header" id="headingSolution4">Show me the solution</h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>Yes! It is a valid fenced div for the following reasons:</p>
 <ol style="list-style-type: decimal"><li>The opening fence has ≥3 colons</li>
@@ -904,11 +896,9 @@ can be examined by users based on their own system setup.</p>
 <div class="accordion-item">
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">
-  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>
-  What Else Might We Use A Spoiler For?
-  </h3>
+<div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>What Else Might We Use A Spoiler For?</h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
 <div class="accordion-body">
 <ul><li>including a collapsed version of a very long block of output/a large
 image from a code block, which the learner can expand if they want to
@@ -1167,11 +1157,9 @@ column</td>
 <div id="accordionSolution5" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
-  <h4 class="accordion-header" id="headingSolution5">
-  Show me the solution
-  </h4>
+  <h4 class="accordion-header" id="headingSolution5">Show me the solution</h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <p>To get a roughly 1:5:1 ratio, you can use two separators for the
 short columns and ten separators for the wide column:</p>
@@ -1330,11 +1318,9 @@ Workbench, but which one is <em>guaranteed</em> to work and why?</p>
 <div id="accordionHint1" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button hint-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHint1" aria-expanded="false" aria-controls="collapseHint1">
-  <h4 class="accordion-header" id="headingHint1">
-  Give me a hint
-  </h4>
+  <h4 class="accordion-header" id="headingHint1">Give me a hint</h4>
 </button>
-<div id="collapseHint1" class="accordion-collapse collapse" data-bs-parent="#accordionHint1" aria-labelledby="headingHint1">
+<div id="collapseHint1" class="accordion-collapse collapse" aria-labelledby="headingHint1" data-bs-parent="#accordionHint1">
 <div class="accordion-body">
 <p>Think about which files <em>actually</em> exist before the lesson is
 built.</p>
@@ -1345,11 +1331,9 @@ built.</p>
 <div id="accordionSolution6" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
-  <h4 class="accordion-header" id="headingSolution6">
-  Show me the solution
-  </h4>
+  <h4 class="accordion-header" id="headingSolution6">Show me the solution</h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <p>The answer is <strong>3</strong>:
 <code>[internal links](../episodes/episodes.Rmd#internal-links)</code>
@@ -1472,7 +1456,7 @@ this:</p>
 <i class="callout-icon" data-feather="key"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Keypoints<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
+<h3 class="callout-title">Key Points<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
 </h3>
 <div class="callout-content">
 <ul><li>Use <code>.Rmd</code> files for lessons even if you don’t need to
@@ -1521,29 +1505,27 @@ docs: adding a caption to your table</a><a href="#fnref3" class="footnote-back">
 
       </div><!--/div.row-->
       		<footer class="row footer mx-md-3"><hr><div class="col-md-6">
-				<p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of Conduct</a></p>
+        <p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of Conduct</a></p>
         <p>
         
         <a href="https://github.com/carpentries/sandpaper-docs/edit/main/episodes/episodes.Rmd" class="external-link">Edit on GitHub</a>
         
 	
-        | <a href="https://github.com/carpentries/sandpaper-docs/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a> 
+        | <a href="https://github.com/carpentries/sandpaper-docs/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
         | <a href="https://github.com/carpentries/sandpaper-docs/" class="external-link">Source</a></p>
 				<p><a href="https://github.com/carpentries/sandpaper-docs/blob/main/CITATION" class="external-link">Cite</a> | <a href="mailto:zkamvar@carpentries.org">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
 			</div>
 			<div class="col-md-6">
         
-        <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
+        <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
-        <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.15.0" class="external-link">sandpaper (0.15.0)</a>,
-        <a href="https://github.com/carpentries/pegboard/tree/0.7.3" class="external-link">pegboard (0.7.3)</a>,
-      and <a href="https://github.com/carpentries/varnish/tree/0.4.0" class="external-link">varnish (0.4.0)</a>.</p>
+        <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.0" class="external-link">sandpaper (0.16.0)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.3" class="external-link">pegboard (0.7.3)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.0" class="external-link">varnish (1.0.0)</a></p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
 		<a href="#top">
-			<i class="search-icon" data-feather="arrow-up" role="img" aria-label="Back to top"></i><br><span class="d-none d-sm-none d-md-none d-lg-none d-xl-block">Back</span> To Top
+      <i class="search-icon" data-feather="arrow-up" role="img" aria-label="Back To Top"></i><br><!-- <span class="d-none d-sm-none d-md-none d-lg-none d-xl-block">Back</span> To Top --><span class="d-none d-sm-none d-md-none d-lg-none d-xl-block">Back</span> To Top
 		</a>
 	</div>
   <script type="application/ld+json">
@@ -1560,7 +1542,7 @@ docs: adding a caption to your table</a><a href="#fnref3" class="footnote-back">
   "identifier": "https://carpentries.github.io/sandpaper-docs/instructor/episodes.html",
   "dateCreated": "2023-12-05",
   "dateModified": "2023-12-05",
-  "datePublished": "2023-12-12"
+  "datePublished": "2023-12-13"
 }
 
   </script><script>
