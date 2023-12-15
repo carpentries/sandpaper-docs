@@ -640,7 +640,7 @@ Table: Four fruits with color, price in imaginary dollars, and description
 | apple     | :red_circle:         | \$2.05   | a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day |
 | pear      | :green_circle:       | \$1.37   | a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon    | 
 | orange    | :orange_circle:      | \$3.09   | a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days |
-| gum gum fruit  | :purple_circle: | \$999.99 | an oblong fruit covered with thick black fuzz. It likes to sit on your keyboard and meow at you when you're trying to work |
+| gum gum fruit  | :purple_circle: | \$999.99 | a round purple fruit with complex swirls along its skin. It is said to taste terrible and give you mysterious powers |
 ```
 
 Table: Four fruits with color, price in imaginary dollars, and description
@@ -650,7 +650,7 @@ Table: Four fruits with color, price in imaginary dollars, and description
 | apple     | :red_circle:         | \$2.05   | a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day |
 | pear      | :green_circle:       | \$1.37   | a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon    | 
 | orange    | :orange_circle:      | \$3.09   | a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days |
-| gum gum fruit  | :purple_circle: | \$999.99 | an oblong fruit covered with thick black fuzz. It likes to sit on your keyboard and meow at you when you're trying to work |
+| gum gum fruit  | :purple_circle: | \$999.99 | a round purple fruit with complex swirls along its skin. It is said to taste terrible and give you mysterious powers |
 
 :::::::::::::::::::::::::::: challenge
 
