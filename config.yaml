@@ -32,7 +32,7 @@ source: 'https://github.com/carpentries/sandpaper-docs/'
 branch: 'main'
 
 # Who to contact if there are any issues
-contact: 'zkamvar@carpentries.org'
+contact: 'tobyhodges@carpentries.org'
 
 # Navigation ------------------------------------------------
 #
