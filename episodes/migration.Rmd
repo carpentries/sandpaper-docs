@@ -23,7 +23,7 @@ exercises: 2
 ## Quick Start
 
 Got a lesson you want to convert? The [{pegboard}] package was built to do that!
-The best way to do this is to **ask Zhian to do it for you** since this is a
+The best way to do this is to **ask [the Curriculum Team](mailto:curriculum@carpentries.org) to do it for you** since this is a
 process that should ideally only be done once. If you really want to, you can
 also try for yourself:
 
@@ -136,7 +136,7 @@ The resulting markdown is then written to convert the following:
 
 ::::::::::::::::::::::::::::: keypoints
 
- - Zhian will help migrate official lessons
+ - The Curriculum Team will help migrate official lessons
  - use [{pegboard}] for migration
 
 :::::::::::::::::::::::::::::::::::::::
