@@ -139,7 +139,8 @@ Try running the process step-by-step:
     ```
 
 #### Build and check your transitioned lesson
-At this stage, the `release/carpentries-incubator/YOUR-LESSON-NAME/` directory should contain a transitioned version of your lesson. To check how things are looking, open R in this directory and run `sandpaper::serve()`.
+At this stage, the `release/carpentries-incubator/YOUR-LESSON-NAME/` directory should contain a transitioned version of your lesson. 
+To check how things are looking, [install the Workbench tools for your system](index.html#installation), then open R in this directory and run `sandpaper::serve()`.
 
 #### Optional: update your lesson's R script to produce a smoother transition
 While previewing this transitioned lesson site, you might see some problems in the content of your lesson site that appeared during the migration (Liquid comments (delineated by `{% comment %}` and `{% endcomment %}` tags) are one commonly-encountered artifact). These can be fixed by editing the lesson after transition, but for a cleaner commit history on your lesson you might wish to delete the transitioned lesson directory (inside the `release` folder), modify the R script for your lesson to handle those issues, and re-run the transition tool. (See [_Create an Rscript for your lesson_](#Rscript) above.)
@@ -148,7 +149,10 @@ While previewing this transitioned lesson site, you might see some problems in t
 
 To go back to the start and try again, delete the directory for your lesson within the `release/` directory, i.e. `rm -rf release/carpentries-incubator/YOUR-LESSON-NAME`.
 
-If something goes wrong, post a message to the `#workbench` channel on The Carpentries Slack workspace, or reach out to the Curriculum Team by email (curriculum@carpentries.org). Try to provide as much information as you can, including any error messages and logging information that were produced when you ran the steps described above. We will do our best to help you but please note that the Core Team's capacity to provide support for transition of community lessons is severely limited.
+If the transition tool ran successfully but your lesson build fails, this is usually due to customisations made to the lesson that fall outside what the transition tool expected to find.
+If you run into problems, we recommend that you try to identify differences between yours and a typical lesson repository (the [Workbench Markdown template](https://github.com/carpentries/workbench-template-md) and [R Markdown template](https://github.com/carpentries/workbench-template-rmd) are good examples) and experiment to see if any of those are causing the site build to fail.
+
+If something goes wrong and you cannot debug the problem on your own, post a message to the `#workbench` channel on The Carpentries Slack workspace, or reach out to the Curriculum Team by email (curriculum@carpentries.org). Try to provide as much information as you can, including any error messages and logging information that were produced when you ran the steps described above. We will do our best to help you but please note that the Core Team's capacity to provide support for transition of community lessons is severely limited.
 
 ### 4. Set up your GitHub repository to receive the transitioned lesson{#github}
 
