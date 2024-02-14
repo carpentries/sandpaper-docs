@@ -143,7 +143,7 @@ At this stage, the `release/carpentries-incubator/YOUR-LESSON-NAME/` directory s
 To check how things are looking, [install the Workbench tools for your system](index.html#installation), then open R in this directory and run `sandpaper::serve()`.
 
 #### Optional: update your lesson's R script to produce a smoother transition
-While previewing this transitioned lesson site, you might see some problems in the content of your lesson site that appeared during the migration (Liquid comments (delineated by `{% comment %}` and `{% endcomment %}` tags) are one commonly-encountered artifact). These can be fixed by editing the lesson after transition, but for a cleaner commit history on your lesson you might wish to delete the transitioned lesson directory (inside the `release` folder), modify the R script for your lesson to handle those issues, and re-run the transition tool. (See [_Create an Rscript for your lesson_](#Rscript) above.)
+While previewing this transitioned lesson site, you might see some problems in the content of your lesson site that appeared during the migration. Liquid comments (delineated by `{% comment %}` and `{% endcomment %}` tags) are one commonly-encountered artifact. Another is broken links to the lesson setup instructions, which are found at `index.html#setup` in a Workbench site. These can be fixed by editing the lesson after transition, but for a cleaner commit history on your lesson you might wish to delete the transitioned lesson directory (inside the `release` folder), modify the R script for your lesson to handle those issues, and re-run the transition tool. (See [_Create an Rscript for your lesson_](#Rscript) above.)
 
 #### If something goes wrong
 
