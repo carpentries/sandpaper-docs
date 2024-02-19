@@ -88,7 +88,7 @@ It is sufficient to create an empty file, named appropriately. This is available
 bash add-lesson.sh carpentries-incubator/YOUR-LESSON-NAME
 ```
 
-But you may wish to populate this script with some function calls to clean up various common artifacts produced by the transition. Look at the `.R` scripts in the [`carpentries-incubator/`](https://github.com/carpentries/lesson-transition/tree/main/carpentries-incubator), [`datacarpentry`](https://github.com/carpentries/lesson-transition/tree/main/datacarpentry), [`librarycarpentry`](https://github.com/carpentries/lesson-transition/tree/main/librarycarpentry), and [`swcarpentry`](https://github.com/carpentries/lesson-transition/tree/main/swcarpentry) directories of the `lesson-transition` repository for inspiration.
+But you may wish to populate this script with some function calls to clean up various common artifacts produced by the transition, or to preserve any [custom workflows](#custom-workflows) you have added to your lesson repository. Look at the `.R` scripts in the [`carpentries-incubator/`](https://github.com/carpentries/lesson-transition/tree/main/carpentries-incubator), [`datacarpentry`](https://github.com/carpentries/lesson-transition/tree/main/datacarpentry), [`librarycarpentry`](https://github.com/carpentries/lesson-transition/tree/main/librarycarpentry), and [`swcarpentry`](https://github.com/carpentries/lesson-transition/tree/main/swcarpentry) directories of the `lesson-transition` repository for inspiration.
 
 ### 3. Run the transition tool{#transition}
 
@@ -125,7 +125,6 @@ Try running the process step-by-step:
     if [ ! -s ../$LESSONNAME-invalid.hash ]; then rm ../$LESSONNAME-invalid.hash;fi
     ```
 2. Adjust lesson config file
-    * record lesson creation date in config.yaml: run `git log` and hit <kbd>Shift+G</kbd> to jump to end of file, note down the date when the first commit was made. Then, using your favourite text editor, open `config.yaml` and modify the `created` field by replacing `~` with this creation date in YYYY-MM-DD format.
     * **Option 1 (manual):** Using your favourite text editor, open the `config.yaml` file and remove the lines setting the `workbench-beta`, `analytics`, `lang`, and `url` parameters.
     * **Option 2 (using regular expressions):** In Bash, run:
 
@@ -138,6 +137,14 @@ Try running the process step-by-step:
     git remote set-url origin ADDRESS-OF-YOUR-REMOTE # replace ADDRESS-OF-YOUR-REMOTE to set origin to the correct address for your lesson repository on GitHub
     ```
 
+::: callout
+
+### Custom workflow files{#custom-workflows}
+The contents of the `.github` folder are not preserved by the transition tool. If you had any custom workflow files in your lesson repository before migrating to the new infrastructure, you will need to add those back into `.github/workflows/` at this point then commit the changes. (You could also modify the Rscript for your lesson transition to do this for you, and repeat the transition process to include it.)
+
+:::
+
+
 #### Build and check your transitioned lesson
 At this stage, the `release/carpentries-incubator/YOUR-LESSON-NAME/` directory should contain a transitioned version of your lesson. 
 To check how things are looking, [install the Workbench tools for your system](index.html#installation), then open R in this directory and run `sandpaper::serve()`.
@@ -146,7 +153,6 @@ To check how things are looking, [install the Workbench tools for your system](i
 While previewing this transitioned lesson site, you might see some problems in the content of your lesson site that appeared during the migration. Liquid comments (delineated by `{% comment %}` and `{% endcomment %}` tags) are one commonly-encountered artifact. Another is broken links to the lesson setup instructions, which are found at `index.html#setup` in a Workbench site. These can be fixed by editing the lesson after transition, but for a cleaner commit history on your lesson you might wish to delete the transitioned lesson directory (inside the `release` folder), modify the R script for your lesson to handle those issues, and re-run the transition tool. (See [_Create an Rscript for your lesson_](#Rscript) above.)
 
 #### If something goes wrong
-
 To go back to the start and try again, delete the directory for your lesson within the `release/` directory, i.e. `rm -rf release/carpentries-incubator/YOUR-LESSON-NAME`.
 
 If the transition tool ran successfully but your lesson build fails, this is usually due to customisations made to the lesson that fall outside what the transition tool expected to find.
@@ -160,17 +166,19 @@ If something goes wrong and you cannot debug the problem on your own, post a mes
 **We recommend that you try these steps out on a fork of your lesson first**, so that you can be certain everything works before making permanent changes to your main lesson repository.
 :::
 
-1. Commit the changes you made to the lesson config file:
+1. Record your lesson creation date in config.yaml: run `git log` and hit <kbd>Shift+G</kbd> to jump to end of file, note down the date when the first commit was made. Then, using your favourite text editor, open `config.yaml` and modify the `created` field by replacing `~` with this creation date in YYYY-MM-DD format.
+
+2. Commit the changes you made to the lesson config file:
 
     ```bash
     git add config.yaml
     git commit -m 'complete configuration of Workbench lesson site'
     ```
 
-2. Rename the branches of your project:
+3. Rename the branches of your project:
     - On your GitHub repository, rename the `gh-pages` branch to `legacy/gh-pages` (if `main` is your default branch, also rename that to `legacy/main`).
         - Branches can be renamed by going to the list of all branches on your repository (add `/branches/all` to the end of the URL for your GitHub repository e.g. <https://github.com/datacarpentry/image-processing/branches/all>) and selecting the pencil icon button next to the relevant branch in that listing.
-3. In Bash on your local system (make sure you are working in the root of the `release/carpentries-incubator/YOUR-LESSON-NAME` directory), run the following commands (please read the comments that annotate these commands and note that **we strongly recommend that you execute these one-at-a-time!**):
+4. In Bash on your local system (make sure you are working in the root of the `release/carpentries-incubator/YOUR-LESSON-NAME` directory), run the following commands (please read the comments that annotate these commands and note that **we strongly recommend that you execute these one-at-a-time!**):
 
     ```bash
     git remote -v # check the names and addresses of your remote repositories: if you are testing on a fork and it is not listed here, add it with 'git remote add' https://git-scm.com/docs/git-remote#Documentation/git-remote.txt-emaddem
@@ -185,14 +193,14 @@ If something goes wrong and you cannot debug the problem on your own, post a mes
     git push --force origin HEAD:gh-pages
     ```
 
-4. If everything has gone well up to this point, it is time to go back to the `main` branch and force push its contents to GitHub:
+5. If everything has gone well up to this point, it is time to go back to the `main` branch and force push its contents to GitHub:
 
     ```bash
     git switch main
     git push --force --set-upstream origin main # force push the transitioned main branch to your GitHub repository
     ```
 
-5. On your GitHub repository:
+6. On your GitHub repository:
     - set the default branch to `main` (in Settings->General, click the button with two arrows next to the name of the default branch)
     - in Settings->Branches, add rules to protect the `main` branch (require pull requests) and lock `legacy/*`
     - make sure that your lesson site is being served with GitHub Pages from the root folder of the gh-pages branch (in Settings->Pages, under _Build and deployment_, ensure that `gh-pages` is selected with the dropdown under _Branch_ and that `/ (root)` is the folder selected, then hit the _Save_ button)
