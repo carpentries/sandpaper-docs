@@ -277,7 +277,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Migrating lessons from the previous infrastructure</h1>
-        <p>Last updated on 2024-02-14 |
+        <p>Last updated on 2024-02-19 |
         
         <a href="https://github.com/carpentries/sandpaper-docs/edit/main/learners/migrating-from-styles.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -440,8 +440,10 @@ about how the data can be transformed.</p>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> add-lesson.sh carpentries-incubator/YOUR-LESSON-NAME</span></code></pre>
 </div>
 <p>But you may wish to populate this script with some function calls to
-clean up various common artifacts produced by the transition. Look at
-the <code>.R</code> scripts in the <a href="https://github.com/carpentries/lesson-transition/tree/main/carpentries-incubator" class="external-link"><code>carpentries-incubator/</code></a>,
+clean up various common artifacts produced by the transition, or to
+preserve any <a href="#custom-workflows">custom workflows</a> you have
+added to your lesson repository. Look at the <code>.R</code> scripts in
+the <a href="https://github.com/carpentries/lesson-transition/tree/main/carpentries-incubator" class="external-link"><code>carpentries-incubator/</code></a>,
 <a href="https://github.com/carpentries/lesson-transition/tree/main/datacarpentry" class="external-link"><code>datacarpentry</code></a>,
 <a href="https://github.com/carpentries/lesson-transition/tree/main/librarycarpentry" class="external-link"><code>librarycarpentry</code></a>,
 and <a href="https://github.com/carpentries/lesson-transition/tree/main/swcarpentry" class="external-link"><code>swcarpentry</code></a>
@@ -499,13 +501,7 @@ the <code>carpentries-incubator</code> folder.</li>
 </li>
 <li>
 <p>Adjust lesson config file</p>
-<ul><li><p>record lesson creation date in config.yaml: run
-<code>git log</code> and hit <kbd>Shift+G</kbd> to jump to end of file,
-note down the date when the first commit was made. Then, using your
-favourite text editor, open <code>config.yaml</code> and modify the
-<code>created</code> field by replacing <code>~</code> with this
-creation date in YYYY-MM-DD format.</p></li>
-<li><p><strong>Option 1 (manual):</strong> Using your favourite text
+<ul><li><p><strong>Option 1 (manual):</strong> Using your favourite text
 editor, open the <code>config.yaml</code> file and remove the lines
 setting the <code>workbench-beta</code>, <code>analytics</code>,
 <code>lang</code>, and <code>url</code> parameters.</p></li>
@@ -528,7 +524,25 @@ Bash, run:</p>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote set-url origin ADDRESS-OF-YOUR-REMOTE <span class="co"># replace ADDRESS-OF-YOUR-REMOTE to set origin to the correct address for your lesson repository on GitHub</span></span></code></pre>
 </div>
 </li>
-</ol></div>
+</ol><div id="custom-workflows" class="callout callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="custom-workflows" class="callout-inner">
+<h3 class="callout-title">Custom workflow files<a class="anchor" aria-label="anchor" href="#custom-workflows"></a>
+</h3>
+<div class="callout-content">
+<p>The contents of the <code>.github</code> folder are not preserved by
+the transition tool. If you had any custom workflow files in your lesson
+repository before migrating to the new infrastructure, you will need to
+add those back into <code>.github/workflows/</code> at this point then
+commit the changes. (You could also modify the Rscript for your lesson
+transition to do this for you, and repeat the transition process to
+include it.)</p>
+</div>
+</div>
+</div>
+</div>
 <div class="section level4">
 <h4 id="build-and-check-your-transitioned-lesson">Build and check your transitioned lesson<a class="anchor" aria-label="anchor" href="#build-and-check-your-transitioned-lesson"></a></h4>
 <p>At this stage, the
@@ -580,12 +594,12 @@ severely limited.</p>
 <div class="section level3">
 <h3 id="github">4. Set up your GitHub repository to receive the transitioned
 lesson<a class="anchor" aria-label="anchor" href="#github"></a></h3>
-<div id="callout4" class="callout callout">
+<div id="callout5" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Callout<a class="anchor" aria-label="anchor" href="#callout4"></a>
+<h3 class="callout-title">Callout<a class="anchor" aria-label="anchor" href="#callout5"></a>
 </h3>
 <div class="callout-content">
 <p><strong>We recommend that you try these steps out on a fork of your
@@ -594,7 +608,13 @@ before making permanent changes to your main lesson repository.</p>
 </div>
 </div>
 </div>
-<ol style="list-style-type: decimal"><li>
+<ol style="list-style-type: decimal"><li><p>Record your lesson creation date in config.yaml: run
+<code>git log</code> and hit <kbd>Shift+G</kbd> to jump to end of file,
+note down the date when the first commit was made. Then, using your
+favourite text editor, open <code>config.yaml</code> and modify the
+<code>created</code> field by replacing <code>~</code> with this
+creation date in YYYY-MM-DD format.</p></li>
+<li>
 <p>Commit the changes you made to the lesson config file:</p>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -763,9 +783,9 @@ review and merge your changes.</li>
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/sandpaper-docs/migrating-from-styles.html",
   "identifier": "https://carpentries.github.io/sandpaper-docs/migrating-from-styles.html",
-  "dateCreated": "2024-02-14",
-  "dateModified": "2024-02-14",
-  "datePublished": "2024-02-14"
+  "dateCreated": "2024-02-19",
+  "dateModified": "2024-02-19",
+  "datePublished": "2024-02-19"
 }
 
   </script><script>
