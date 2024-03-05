@@ -351,8 +351,8 @@ but not evaluated:</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">'47 + 2'</span> <span class="kw">|</span> <span class="fu">bc</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">'47 * 2'</span> <span class="kw">|</span> <span class="fu">bc</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="bu">echo</span> <span class="st">'47 + 2'</span> <span class="kw">|</span> <span class="fu">bc</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="bu">echo</span> <span class="st">'47 * 2'</span> <span class="kw">|</span> <span class="fu">bc</span></span></code></pre>
 </div>
 <p>Code fences written using R Markdown chunk notation will be
 highlighted and executed:</p>
@@ -452,19 +452,21 @@ following syntax:</p>
 <p><code>![optional caption that appears below the figure](figure url){alt='alt text for accessibility purposes'}</code></p>
 <p>For example:</p>
 <p><code>![You belong in The Carpentries!](fig/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.'}</code></p>
-<figure><img src="fig/Badge_Carpentries.svg" alt="Blue Carpentries hex person logo with no text." class="figure mx-auto d-block"><figcaption>You belong in The Carpentries!</figcaption></figure><p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Img#attributes" class="external-link">Additional
+<figure><img src="fig/Badge_Carpentries.svg" alt="Blue Carpentries hex person logo with no text." class="figure mx-auto d-block"><div class="figcaption">You belong in The Carpentries!</div>
+</figure><p><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Img#attributes" class="external-link">Additional
 attributes can be specified for the image</a> alongside the alternative
 text description in the <code>{}</code>. Some, like <code>width</code>
 and <code>height</code>, can be specified directly:</p>
 <p><code>![You belong in The Carpentries!](fig/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.' width='25%'}</code></p>
-<figure><img src="fig/Badge_Carpentries.svg" style="width:25.0%" alt="Blue Carpentries hex person logo with no text." class="figure mx-auto d-block"><figcaption>You belong in The Carpentries!</figcaption></figure><div id="advanced-image-styling" class="callout callout">
+<figure><img src="fig/Badge_Carpentries.svg" style="width:25.0%" alt="Blue Carpentries hex person logo with no text." class="figure mx-auto d-block"><div class="figcaption">You belong in The Carpentries!</div>
+</figure><div id="callout1" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="advanced-image-styling" class="callout-inner">
-<h3 class="callout-title">
-<span class="emoji" data-emoji="art">🎨</span>Advanced Image Styling<a class="anchor" aria-label="anchor" href="#advanced-image-styling"></a>
-</h3>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title" id="advanced-image-styling">
+<span class="emoji" data-emoji="art">🎨</span>
+Advanced Image Styling<a class="anchor" aria-label="anchor" href="#advanced-image-styling"></a></h3>
 <div class="callout-content">
 <p>More complex styling with arbitrary CSS is also possible within the
 Workbench, by providing CSS directives (separated by <code>;</code>) to
@@ -476,7 +478,8 @@ directives <em>within the <code>style</code> attribute</em> when it is
 used.</p>
 <p>For example, to introduce some padding around the resized image:</p>
 <p><code>![You belong in The Carpentries!](fig/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.' style='padding:10px; width:25%'}</code></p>
-<figure><img src="fig/Badge_Carpentries.svg" style="padding:10px; width:25%" alt="Blue Carpentries hex person logo with no text." class="figure mx-auto d-block"><figcaption>You belong in The Carpentries!</figcaption></figure><p>Note the use of <code>:</code> for the key-value pairs of CSS
+<figure><img src="fig/Badge_Carpentries.svg" style="padding:10px; width:25%" alt="Blue Carpentries hex person logo with no text." class="figure mx-auto d-block"><div class="figcaption">You belong in The Carpentries!</div>
+</figure><p>Note the use of <code>:</code> for the key-value pairs of CSS
 directives defined within <code>style</code>.</p>
 </div>
 </div>
@@ -566,7 +569,7 @@ locally</li>
   "identifier": "https://carpentries.github.io/sandpaper-docs/example.html",
   "dateCreated": "2024-02-19",
   "dateModified": "2024-02-27",
-  "datePublished": "2024-02-27"
+  "datePublished": "2024-03-05"
 }
 
   </script><script>

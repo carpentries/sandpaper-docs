@@ -343,8 +343,10 @@ this section.</p>
 <p>The default paradigm for R Markdown is to first generate markdown
 output from the R Markdown document, convert it to HTML, and then
 discard the generated markdown output.</p>
-<figure><img src="https://github.com/rstudio-education/teaching-in-production/raw/master/slides/images/rmd_flowchart.png" alt="A stylized flowchart with 'good ideas', 'code', and 'data' flowing into '.Rmd', transformed to '.md' via 'knitr', and then transformed to 'html', 'pdf', and 'docx' via 'pandoc'. There is an illustration of a hedgehog knitting a sock to the left and a rabbit wearing the other sock on the right." class="figure mx-auto d-block"><figcaption>Source: “Teaching In Production” by Dr. Allison
-Horst, <a href="https://rstd.io/tip" class="external-link uri">https://rstd.io/tip</a></figcaption></figure><p>However, this default behavior for generated content is not conducive
+<figure><img src="https://github.com/rstudio-education/teaching-in-production/raw/master/slides/images/rmd_flowchart.png" alt="A stylized flowchart with 'good ideas', 'code', and 'data' flowing into '.Rmd', transformed to '.md' via 'knitr', and then transformed to 'html', 'pdf', and 'docx' via 'pandoc'. There is an illustration of a hedgehog knitting a sock to the left and a rabbit wearing the other sock on the right." class="figure mx-auto d-block"><div class="figcaption">Source: “Teaching In Production” by Dr. Allison
+Horst, <a href="https://rstd.io/tip" class="external-link uri">https://rstd.io/tip</a>
+</div>
+</figure><p>However, this default behavior for generated content is not conducive
 for collaboration on lessons because the outputs often live in the same
 place as the source files. Moreover, if any changes occur in the
 software used to generate content, inspecting the differences between
@@ -363,7 +365,8 @@ run <code>sandpaper::build_lesson()</code></p>
 staging area ignored by git.</li>
 <li>Apply the HTML style to the markdown files in the staging area to
 create the lesson website.</li>
-</ol><figure><img src="https://zkamvar.github.io/stunning-barnacle/img/local-flow.dot.svg" alt="Diagram showing the process of `build_lesson(rebuild = TRUE)`, starting from R Markdown to Markdown and finally to HTML. R Markdown is highlighted as being the only element tracked by git." class="figure mx-auto d-block"><figcaption>The two-step model of lesson deployment</figcaption></figure><p>All of the generated content lives in the <code>site/</code> folder,
+</ol><figure><img src="https://zkamvar.github.io/stunning-barnacle/img/local-flow.dot.svg" alt="Diagram showing the process of `build_lesson(rebuild = TRUE)`, starting from R Markdown to Markdown and finally to HTML. R Markdown is highlighted as being the only element tracked by git." class="figure mx-auto d-block"><div class="figcaption">The two-step model of lesson deployment</div>
+</figure><p>All of the generated content lives in the <code>site/</code> folder,
 and importantly: it is all cached and ignored by git. Ignoring generated
 content locally means that the source of truth for these files is no
 longer dependent on the maintainer’s local setup.</p>
@@ -372,13 +375,12 @@ markdown output is a lot easier to audit than HTML when something goes
 wrong, rendered markdown can be transferred to other contexts
 (e.g. books or blogposts), and we can swap out the generators without
 needing to rewrite the entire pipeline.</p>
-<div id="did-you-know" class="callout callout">
+<div id="callout1" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="did-you-know" class="callout-inner">
-<h3 class="callout-title">Did you know?<a class="anchor" aria-label="anchor" href="#did-you-know"></a>
-</h3>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title" id="did-you-know">Did you know?<a class="anchor" aria-label="anchor" href="#did-you-know"></a></h3>
 <div class="callout-content">
 <p>When the lesson is pushed to GitHub, all of the generated content IS
 stored in separate branches so that we can provide a way for you to
@@ -484,7 +486,7 @@ to their websites</li>
   "identifier": "https://carpentries.github.io/sandpaper-docs/deployment.html",
   "dateCreated": "2024-02-19",
   "dateModified": "2024-02-27",
-  "datePublished": "2024-02-27"
+  "datePublished": "2024-03-05"
 }
 
   </script><script>

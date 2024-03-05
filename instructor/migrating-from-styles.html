@@ -303,13 +303,12 @@ infrastructure to use the Workbench.</p>
 <p>After following this process you will have replaced the contents of
 your current lesson repository with a Workbench version containing the
 same lesson content.</p>
-<div id="callout1" class="callout callout">
+<div id="callout1" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div class="callout-inner">
-<h3 class="callout-title">Callout<a class="anchor" aria-label="anchor" href="#callout1"></a>
-</h3>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title">Callout</h3>
 <div class="callout-content">
 <p><strong><em>We strongly recommend that you create a backup of your
 lesson repository before you follow this workflow.</em></strong></p>
@@ -353,13 +352,12 @@ of your lesson (usually <code>gh-pages</code>).</li>
 <li><a href="#github">Set up your GitHub repository to receive the
 transitioned lesson</a></li>
 <li><a href="#post-transition">Post-transition steps</a></li>
-</ol><div id="callout2" class="callout callout">
+</ol><div id="callout2" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div class="callout-inner">
-<h3 class="callout-title">Callout<a class="anchor" aria-label="anchor" href="#callout2"></a>
-</h3>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title">Callout</h3>
 <div class="callout-content">
 <p>Note: these steps assume your lesson exists in The Carpentries
 Incubator i.e. under the <code>carpentries-incubator</code> organisation
@@ -375,9 +373,9 @@ names etc below accordingly.</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/carpentries/lesson-transition.git <span class="kw">&amp;&amp;</span> <span class="bu">cd</span> lesson-transition</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch <span class="at">-c</span> YOUR-LESSON-NAME-transition <span class="co"># provide a branch name appropriate for your lesson, e.g. for the carpentries-incubator/docker-introduction lesson, you would call the branch docker-introduction-transition</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> submodule update <span class="at">--init</span> git-filter-repo <span class="co"># this will ensure the git-filter-repo tool is available</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/carpentries/lesson-transition.git <span class="kw">&amp;&amp;</span> <span class="bu">cd</span> lesson-transition</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">git</span> switch <span class="at">-c</span> YOUR-LESSON-NAME-transition <span class="co"># provide a branch name appropriate for your lesson, e.g. for the carpentries-incubator/docker-introduction lesson, you would call the branch docker-introduction-transition</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="fu">git</span> submodule update <span class="at">--init</span> git-filter-repo <span class="co"># this will ensure the git-filter-repo tool is available</span></span></code></pre>
 </div>
 </li>
 <li>
@@ -403,9 +401,9 @@ following:</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> <span class="at">-e</span> <span class="st">"install.packages('renv')"</span> <span class="co"># enter 'y' to complete the installation</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> <span class="at">-e</span> <span class="st">"library('renv')"</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> <span class="at">-e</span> <span class="st">"renv::restore()"</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">Rscript</span> <span class="at">-e</span> <span class="st">"install.packages('renv')"</span> <span class="co"># enter 'y' to complete the installation</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="ex">Rscript</span> <span class="at">-e</span> <span class="st">"library('renv')"</span></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="ex">Rscript</span> <span class="at">-e</span> <span class="st">"renv::restore()"</span></span></code></pre>
 </div>
 </li>
 </ul></li>
@@ -415,8 +413,8 @@ function), run the following:</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Rscript</span> establish-template.R template/</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> submodule add <span class="at">--force</span> <span class="at">-b</span> gh-pages https://github.com/carpentries-incubator/YOUR-LESSON-NAME carpentries-incubator/YOUR-LESSON-NAME <span class="co"># replace YOUR-LESSON-NAME with the name of your lesson, and replace 'gh-pages' with 'main' if main is the default branch for your lesson</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">Rscript</span> establish-template.R template/</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">git</span> submodule add <span class="at">--force</span> <span class="at">-b</span> gh-pages https://github.com/carpentries-incubator/YOUR-LESSON-NAME carpentries-incubator/YOUR-LESSON-NAME <span class="co"># replace YOUR-LESSON-NAME with the name of your lesson, and replace 'gh-pages' with 'main' if main is the default branch for your lesson</span></span></code></pre>
 </div>
 </li>
 </ol></div>
@@ -439,7 +437,7 @@ about how the data can be transformed.</p>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> add-lesson.sh carpentries-incubator/YOUR-LESSON-NAME</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">bash</span> add-lesson.sh carpentries-incubator/YOUR-LESSON-NAME</span></code></pre>
 </div>
 <p>But you may wish to populate this script with some function calls to
 clean up various common artifacts produced by the transition, or to
@@ -461,15 +459,14 @@ yourself some work:</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">make</span> release/carpentries-incubator/YOUR-LESSON-NAME.json</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">make</span> release/carpentries-incubator/YOUR-LESSON-NAME.json</span></code></pre>
 </div>
-<div id="callout3" class="callout callout">
+<div id="callout3" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div class="callout-inner">
-<h3 class="callout-title">Callout<a class="anchor" aria-label="anchor" href="#callout3"></a>
-</h3>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title">Callout</h3>
 <div class="callout-content">
 <p>Notes:</p>
 <ul><li>the <code>YOUR-LESSON-NAME.json</code> file does not need to exist
@@ -490,15 +487,15 @@ the <code>carpentries-incubator</code> folder.</li>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bash</span> filter-and-transform.sh release/carpentries-incubator/YOUR-LESSON-NAME.json carpentries-incubator/YOUR-LESSON-NAME.R <span class="va">$(</span><span class="fu">readlink</span> <span class="at">-f</span> ./filter-list.txt<span class="va">)</span> <span class="st">'return message'</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> release/carpentries-incubator/YOUR-LESSON-NAME</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="va">LESSONNAME</span><span class="op">=</span><span class="kw">`</span><span class="bu">pwd</span> <span class="kw">|</span> <span class="fu">rev</span> <span class="kw">|</span> <span class="fu">cut</span> <span class="at">-d</span>/ <span class="at">-f1</span> <span class="kw">|</span> <span class="fu">rev</span><span class="kw">`</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> FILENAME <span class="kw">in</span> commit-map ref-map suboptimal-issues</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="cf">do</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cp</span> .git/filter-repo/<span class="va">$FILENAME</span> ../<span class="va">$LESSONNAME</span>-<span class="va">$FILENAME</span>.hash</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">egrep</span> <span class="st">' 0{40}$'</span> .git/filter-repo/commit-map <span class="kw">|</span> <span class="fu">cut</span> <span class="at">-d</span><span class="st">' '</span> <span class="at">-f1</span> <span class="kw">|</span> <span class="fu">head</span> <span class="at">-1</span> <span class="op">&gt;</span> ../<span class="va">$LESSONNAME</span>-invalid.hash</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">[</span> <span class="ot">!</span> <span class="ot">-s</span> ../<span class="va">$LESSONNAME</span>-invalid.hash <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span> <span class="fu">rm</span> ../<span class="va">$LESSONNAME</span>-invalid.hash<span class="kw">;</span><span class="cf">fi</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">bash</span> filter-and-transform.sh release/carpentries-incubator/YOUR-LESSON-NAME.json carpentries-incubator/YOUR-LESSON-NAME.R <span class="va">$(</span><span class="fu">readlink</span> <span class="at">-f</span> ./filter-list.txt<span class="va">)</span> <span class="st">'return message'</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="bu">cd</span> release/carpentries-incubator/YOUR-LESSON-NAME</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="va">LESSONNAME</span><span class="op">=</span><span class="kw">`</span><span class="bu">pwd</span> <span class="kw">|</span> <span class="fu">rev</span> <span class="kw">|</span> <span class="fu">cut</span> <span class="at">-d</span>/ <span class="at">-f1</span> <span class="kw">|</span> <span class="fu">rev</span><span class="kw">`</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="cf">for</span> FILENAME <span class="kw">in</span> commit-map ref-map suboptimal-issues</span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="cf">do</span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>    <span class="fu">cp</span> .git/filter-repo/<span class="va">$FILENAME</span> ../<span class="va">$LESSONNAME</span>-<span class="va">$FILENAME</span>.hash</span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="cf">done</span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="fu">egrep</span> <span class="st">' 0{40}$'</span> .git/filter-repo/commit-map <span class="kw">|</span> <span class="fu">cut</span> <span class="at">-d</span><span class="st">' '</span> <span class="at">-f1</span> <span class="kw">|</span> <span class="fu">head</span> <span class="at">-1</span> <span class="op">&gt;</span> ../<span class="va">$LESSONNAME</span>-invalid.hash</span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="cf">if</span> <span class="bu">[</span> <span class="ot">!</span> <span class="ot">-s</span> ../<span class="va">$LESSONNAME</span>-invalid.hash <span class="bu">]</span><span class="kw">;</span> <span class="cf">then</span> <span class="fu">rm</span> ../<span class="va">$LESSONNAME</span>-invalid.hash<span class="kw">;</span><span class="cf">fi</span></span></code></pre>
 </div>
 </li>
 <li>
@@ -513,7 +510,7 @@ run:</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-v</span> <span class="at">-E</span> <span class="st">'^workbench-beta|^analytics|^lang|^url'</span> config.yaml <span class="op">&gt;</span> config-filtered.yaml <span class="kw">&amp;&amp;</span> <span class="fu">mv</span> config-filtered.yaml config.yaml</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-v</span> <span class="at">-E</span> <span class="st">'^workbench-beta|^analytics|^lang|^url'</span> config.yaml <span class="op">&gt;</span> config-filtered.yaml <span class="kw">&amp;&amp;</span> <span class="fu">mv</span> config-filtered.yaml config.yaml</span></code></pre>
 </div>
 </li>
 </ul></li>
@@ -523,16 +520,15 @@ Bash, run:</p>
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote set-url origin ADDRESS-OF-YOUR-REMOTE <span class="co"># replace ADDRESS-OF-YOUR-REMOTE to set origin to the correct address for your lesson repository on GitHub</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">git</span> remote set-url origin ADDRESS-OF-YOUR-REMOTE <span class="co"># replace ADDRESS-OF-YOUR-REMOTE to set origin to the correct address for your lesson repository on GitHub</span></span></code></pre>
 </div>
 </li>
-</ol><div id="custom-workflows" class="callout callout">
+</ol><div id="callout4" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="custom-workflows" class="callout-inner">
-<h3 class="callout-title">Custom workflow files<a class="anchor" aria-label="anchor" href="#custom-workflows"></a>
-</h3>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title" id="custom-workflows">Custom workflow files<a class="anchor" aria-label="anchor" href="#custom-workflows"></a></h3>
 <div class="callout-content">
 <p>The contents of the <code>.github</code> folder are not preserved by
 the transition tool. If you had any custom workflow files in your lesson
@@ -596,13 +592,12 @@ severely limited.</p>
 <div class="section level3">
 <h3 id="github">4. Set up your GitHub repository to receive the transitioned
 lesson<a class="anchor" aria-label="anchor" href="#github"></a></h3>
-<div id="callout5" class="callout callout">
+<div id="callout5" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div class="callout-inner">
-<h3 class="callout-title">Callout<a class="anchor" aria-label="anchor" href="#callout5"></a>
-</h3>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title">Callout</h3>
 <div class="callout-content">
 <p><strong>We recommend that you try these steps out on a fork of your
 lesson first</strong>, so that you can be certain everything works
@@ -621,8 +616,8 @@ creation date in YYYY-MM-DD format.</p></li>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add config.yaml</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">'complete configuration of Workbench lesson site'</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">git</span> add config.yaml</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">'complete configuration of Workbench lesson site'</span></span></code></pre>
 </div>
 </li>
 <li>
@@ -646,16 +641,16 @@ you execute these one-at-a-time!</strong>):</p>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span> <span class="co"># check the names and addresses of your remote repositories: if you are testing on a fork and it is not listed here, add it with 'git remote add' https://git-scm.com/docs/git-remote#Documentation/git-remote.txt-emaddem</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch <span class="at">--prune</span> origin <span class="co"># this assumes your remote is called origin - if you are testing on a fork, use the name of that remote here instead</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">--orphan</span> gh-pages <span class="co"># set up gh-pages branch</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># double-check that you are in the root of your lesson within the lesson-transition/release folder (e.g. if transitioning carpentries-incubator/docker-introduction, you should be in lesson-transition/release/carpentries-incubator/docker-introduction/)</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> rm <span class="at">-rf</span> .</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> .github/workflows/</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-o</span> .github/workflows/close-pr.yaml https://raw.githubusercontent.com/carpentries/lesson-transition/main/close-pr.yaml <span class="co"># download the workflow that will auto-close invalid PRs to gh-pages</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .github/workflows/close-pr.yaml</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">--allow-empty</span> <span class="at">-m</span> <span class="st">'Initialising gh-pages branch'</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">--force</span> origin HEAD:gh-pages</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="fu">git</span> remote <span class="at">-v</span> <span class="co"># check the names and addresses of your remote repositories: if you are testing on a fork and it is not listed here, add it with 'git remote add' https://git-scm.com/docs/git-remote#Documentation/git-remote.txt-emaddem</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="fu">git</span> fetch <span class="at">--prune</span> origin <span class="co"># this assumes your remote is called origin - if you are testing on a fork, use the name of that remote here instead</span></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">--orphan</span> gh-pages <span class="co"># set up gh-pages branch</span></span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="co"># double-check that you are in the root of your lesson within the lesson-transition/release folder (e.g. if transitioning carpentries-incubator/docker-introduction, you should be in lesson-transition/release/carpentries-incubator/docker-introduction/)</span></span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="fu">git</span> rm <span class="at">-rf</span> .</span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> .github/workflows/</span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-o</span> .github/workflows/close-pr.yaml https://raw.githubusercontent.com/carpentries/lesson-transition/main/close-pr.yaml <span class="co"># download the workflow that will auto-close invalid PRs to gh-pages</span></span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a><span class="fu">git</span> add .github/workflows/close-pr.yaml</span>
+<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">--allow-empty</span> <span class="at">-m</span> <span class="st">'Initialising gh-pages branch'</span></span>
+<span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a><span class="fu">git</span> push <span class="at">--force</span> origin HEAD:gh-pages</span></code></pre>
 </div>
 </li>
 <li>
@@ -665,8 +660,8 @@ GitHub:</p>
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> switch main</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="at">--force</span> <span class="at">--set-upstream</span> origin main <span class="co"># force push the transitioned main branch to your GitHub repository</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">git</span> switch main</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="fu">git</span> push <span class="at">--force</span> <span class="at">--set-upstream</span> origin main <span class="co"># force push the transitioned main branch to your GitHub repository</span></span></code></pre>
 </div>
 </li>
 <li>
@@ -787,7 +782,7 @@ review and merge your changes.</li>
   "identifier": "https://carpentries.github.io/sandpaper-docs/instructor/migrating-from-styles.html",
   "dateCreated": "2024-02-19",
   "dateModified": "2024-02-27",
-  "datePublished": "2024-02-27"
+  "datePublished": "2024-03-05"
 }
 
   </script><script>
