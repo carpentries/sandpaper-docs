@@ -318,14 +318,14 @@ RStudio</label></li>
 </ul></div>
 </div>
 </div>
-<div id="callout1" class="callout">
+<div id="under-construction" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div class="section level3 callout-title callout-inner">
-<h3 class="callout-title" id="under-construction">
-<span class="emoji" data-emoji="construction">🚧</span> Under Construction <span class="emoji" data-emoji="construction">🚧</span>
-<a class="anchor" aria-label="anchor" href="#under-construction"></a></h3>
+<div id="under-construction" class="callout-inner">
+<h3 class="callout-title">
+<span class="emoji" data-emoji="construction">🚧</span>Under Construction<span class="emoji" data-emoji="construction">🚧</span><a class="anchor" aria-label="anchor" href="#under-construction"></a>
+</h3>
 <div class="callout-content">
 <p>This documentation site is still being constructed—please be
 patient.</p>
@@ -456,12 +456,13 @@ version of R</a> for Windows from <a href="https://cran.r-project.org/bin/window
 also a video tutorial up on <a href="https://carpentries.github.io/workshop-template/#rstats-windows" class="external-link">The
 Carpentries instructions for workshop participants</a> that can be quite
 helpful for parsing the steps of installing R on Windows.</p>
-<div id="callout1" class="callout">
+<div id="winpath" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div class="section level3 callout-title callout-inner">
-<h3 class="callout-title" id="winpath">Optional: Want to add R to your PATH?<a class="anchor" aria-label="anchor" href="#winpath"></a></h3>
+<div id="winpath" class="callout-inner">
+<h3 class="callout-title">Optional: Want to add R to your PATH?<a class="anchor" aria-label="anchor" href="#winpath"></a>
+</h3>
 <div class="callout-content">
 <p>As we mention above, <a href="#recommend">we recommend using RStudio
 for your lesson</a>, but if you want to be able to integrate the lesson
@@ -765,12 +766,13 @@ the installer from the RStudio website</a>. When installing RStudio for
 Linux, your distribution may not be shown on the landing page
 (e.g. Ubuntu 20.04). In this case, choose the most recent version and
 download it to your Downloads folder or install it directly.</p>
-<div id="callout2" class="callout">
+<div id="optional-verify-the-install" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div class="section level3 callout-title callout-inner">
-<h3 class="callout-title" id="optional-verify-the-install">Optional: verify the install<a class="anchor" aria-label="anchor" href="#optional-verify-the-install"></a></h3>
+<div id="optional-verify-the-install" class="callout-inner">
+<h3 class="callout-title">Optional: verify the install<a class="anchor" aria-label="anchor" href="#optional-verify-the-install"></a>
+</h3>
 <div class="callout-content">
 <p>You can optionally verify the download before installing by following
 the instructions at <a href="https://posit.co/code-signing/" class="external-link uri">https://posit.co/code-signing/</a>.</p>
@@ -800,12 +802,13 @@ take a long time the first time it happens. RStudio provides a package
 manager that pre-compiles Linux binaries. Note that you do not have to
 be using RStudio to take advantage of these binaries. The one we are
 using is set up for Ubuntu 20.04 (focal).</p>
-<div id="callout3" class="callout">
+<div id="dependencies-of-dependencies" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div class="section level3 callout-title callout-inner">
-<h3 class="callout-title" id="dependencies-of-dependencies">Dependencies of Dependencies<a class="anchor" aria-label="anchor" href="#dependencies-of-dependencies"></a></h3>
+<div id="dependencies-of-dependencies" class="callout-inner">
+<h3 class="callout-title">Dependencies of Dependencies<a class="anchor" aria-label="anchor" href="#dependencies-of-dependencies"></a>
+</h3>
 <div class="callout-content">
 <p>If you are not used to installing software on Linux, it can be
 frustrating sometimes because few things ever “just work” when you try
@@ -836,13 +839,14 @@ required R packages without error.</p>
 </div>
 </div>
 </div>
-<div id="callout4" class="callout">
+<div id="what-if-i-have-a-different-version-of-linux" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div class="section level3 callout-title callout-inner">
-<h3 class="callout-title" id="what-if-i-have-a-different-version-of-linux">What if I have a different version of
-Linux?<a class="anchor" aria-label="anchor" href="#what-if-i-have-a-different-version-of-linux"></a></h3>
+<div id="what-if-i-have-a-different-version-of-linux" class="callout-inner">
+<h3 class="callout-title">What if I have a different version of
+Linux?<a class="anchor" aria-label="anchor" href="#what-if-i-have-a-different-version-of-linux"></a>
+</h3>
 <div class="callout-content">
 <p>For the dependencies above, you can browse the <a href="https://github.com/rstudio/r-system-requirements" class="external-link">rstudio/r-system-requirements
 repository</a> to find the correct formulation for your computer.</p>
@@ -894,7 +898,7 @@ your <code>~/.Rprofile</code>.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Add this to ~/.Rprofile</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -918,12 +922,13 @@ your <code>~/.Rprofile</code>.</p>
 </div>
 </div>
 </div>
-<div id="callout5" class="callout">
+<div id="what-if-i-get-errors-installing-packages" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div class="section level3 callout-title callout-inner">
-<h3 class="callout-title" id="what-if-i-get-errors-installing-packages">What if I get errors installing packages?<a class="anchor" aria-label="anchor" href="#what-if-i-get-errors-installing-packages"></a></h3>
+<div id="what-if-i-get-errors-installing-packages" class="callout-inner">
+<h3 class="callout-title">What if I get errors installing packages?<a class="anchor" aria-label="anchor" href="#what-if-i-get-errors-installing-packages"></a>
+</h3>
 <div class="callout-content">
 <p>If you run into errors (non-zero exit status), it probably means that
 you were missing a C library dependency that needs to be installed via
@@ -1103,12 +1108,13 @@ need to worry about setting this up.</p>
 <p>If you do not have this set up, you should <a href="https://docs.github.com/en/github/getting-started-with-github/about-remote-repositories" class="external-link">choose
 a protocol</a> and then set them up according to the instructions from
 GitHub.</p>
-<div id="callout6" class="callout">
+<div id="is-githubs-documentation-confusing" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div class="section level3 callout-title callout-inner">
-<h3 class="callout-title" id="is-githubs-documentation-confusing">Is GitHub’s Documentation Confusing?<a class="anchor" aria-label="anchor" href="#is-githubs-documentation-confusing"></a></h3>
+<div id="is-githubs-documentation-confusing" class="callout-inner">
+<h3 class="callout-title">Is GitHub’s Documentation Confusing?<a class="anchor" aria-label="anchor" href="#is-githubs-documentation-confusing"></a>
+</h3>
 <div class="callout-content">
 <p>If you are like me, you may find GitHub’s documentation slightly
 confusing and/or lacking. I’ve found the following resources to be
@@ -1184,7 +1190,7 @@ a project-based workflow, starting from a clean slate: <a href="https://www.tidy
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.2" class="external-link">sandpaper (0.16.2)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.4" class="external-link">pegboard (0.7.4)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.1" class="external-link">varnish (1.0.1)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.3" class="external-link">sandpaper (0.16.3)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.4" class="external-link">pegboard (0.7.4)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.1" class="external-link">varnish (1.0.1)</a></p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -1206,8 +1212,8 @@ a project-based workflow, starting from a clean slate: <a href="https://www.tidy
   "url": "https://carpentries.github.io/sandpaper-docs/index.html",
   "identifier": "https://carpentries.github.io/sandpaper-docs/index.html",
   "dateCreated": "2024-03-12",
-  "dateModified": "2024-03-12",
-  "datePublished": "2024-03-12"
+  "dateModified": "2024-03-19",
+  "datePublished": "2024-03-19"
 }
 
   </script><script>
