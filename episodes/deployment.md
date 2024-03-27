@@ -101,7 +101,7 @@ These workflows are the source of truth for the lessons and will keep your
 lesson up-to-date with the latest version of the HTML template. Moreover, each
 week, these workflows will check for updates and, if there are any, a pull
 request will be created to ensure you are using the latest versions. You can
-[read more about updating your workflows in the Maitenance chapter](update.Rmd).
+[read more about updating your workflows in the Maintenance chapter](update.Rmd).
 
 If you use R Markdown in your lesson, you will notice that for every pull
 request (PR), a GitHub bot comments on your pull requests informing you about
