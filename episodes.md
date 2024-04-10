@@ -8,7 +8,7 @@ exercises: 2
 
 :::::::::::::::::::::::::::::::::::::: questions
 
-- How do you create a new episode? 
+- How do you create a new episode?
 - What syntax do you need to know to contribute to a lesson with The Carpentries Workbench?
 - How do you write challenge blocks?
 - What syntax do you use to write links?
@@ -17,7 +17,7 @@ exercises: 2
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-::::::::::::::::::::::::::::::::::::: objectives 
+::::::::::::::::::::::::::::::::::::: objectives
 
 - Practise creating a new episode with R
 - Understand the required elements for each episode
@@ -37,10 +37,10 @@ television series.
 
 As we will cover in the [next episode](editing.md), all of the episodes live
 inside the `episodes/` directory at the top of the lesson folder. Their order is
-dictated by the `episodes:` element in the `config.yaml` file (but defaults to 
+dictated by the `episodes:` element in the `config.yaml` file (but defaults to
 alphabetical). The other folders (`learners/`, `instructors/`, and `profiles/`)
 are similarly configured. This episode will briefly explain how to edit markdown
-content in the lessons. 
+content in the lessons.
 
 
 :::::: prereq
@@ -79,13 +79,13 @@ add a title and other elements to your episode.
 
 ### What is the `.Rmd` extension?
 
-You might notice that the new episode has the extension of `.Rmd` instead of 
+You might notice that the new episode has the extension of `.Rmd` instead of
 `.md`. This is R Markdown, an extension of markdown that allows us to insert
 special code fences that can execute R code and automatically produce output
-chunks with controls of how the output and input are rendered in the document. 
+chunks with controls of how the output and input are rendered in the document.
 
 For example, this markdown code fence will not produce any output, but it is
-valid for both Markdown and R Markdown. 
+valid for both Markdown and R Markdown.
 
 ````markdown
 ```r
@@ -116,14 +116,14 @@ print("hello world!")
 [1] "hello world!"
 ```
 
-Note that it is completely optional to use these special code fences! 
+Note that it is completely optional to use these special code fences!
 
 :::::::::::::::::::::::::::::::::::::::::
 
 ## Required Elements
 
-To keep with our active learning principles, we want to be mindful about the 
-content we present to the learners. We need to give them a clear title, 
+To keep with our active learning principles, we want to be mindful about the
+content we present to the learners. We need to give them a clear title,
 questions and objectives, and an estimate of how long it will take to navigate
 the episode (though this latter point has shown to be demoralizing). Finally, at
 the end of the episode, we should reinforce the learners' progress with a summary
@@ -132,7 +132,7 @@ of key points.
 ### YAML metadata
 
 The YAML syntax of an episode contains three elements of metadata associated
-with the episode at the very top of the file: 
+with the episode at the very top of the file:
 
 ```yaml
 ---
@@ -148,7 +148,7 @@ exercises: 10 # exercise time in minutes
 
 ### Create a Title
 
-Your new episode needs a title! 
+Your new episode needs a title!
 
 1. Open the new episode in your editor
 2. edit the title
@@ -161,7 +161,7 @@ Did the new title show up?
 
 ### Questions, Objectives, Keypoints
 
-These are three blocks that live at the top and bottom of the episodes. 
+These are three blocks that live at the top and bottom of the episodes.
 
 1. `questions` are displayed at the beginning of the episode to prime the
 learner for the content
@@ -199,7 +199,21 @@ exercises:
 ```
 
 
-## Editing an episode: Callout blocks {#callout-blocks}
+## Optional Elements
+
+Lessons do not have to contain the following structural elements, but
+they can be useful for highlighting particular content.
+
+### Callout blocks {#callout-blocks}
+
+
+One of the key elements of our lessons are our callout blocks that give learners
+and instructors a **bold visual cue** to stop and consider a caveat or exercise.
+To create these blocks, we use [**pandoc fenced divisions, aka
+_'fenced-divs'_**][fenced-divs], which are colon-delimited sections similar to
+code fences that can instruct the markdown interpreter how the content should be
+styled.
+
 
 ::::: callout
 
@@ -210,13 +224,6 @@ in [The Workbench Component Guide](component-guide.md).
 
 ::::::::::::
 
-
-One of the key elements of our lessons are our callout blocks that give learners
-and instructors a **bold visual cue** to stop and consider a caveat or exercise.
-To create these blocks, we use [**pandoc fenced divisions, aka
-_'fenced-divs'_**][fenced-divs], which are colon-delimited sections similar to 
-code fences that can instruct the markdown interpreter how the content should be
-styled. 
 
 For example, to create a `callout` block, we would use *a blank line and at least three colons*
 followed by the `callout` tag (the tag designates an open fence), add our
@@ -256,7 +263,7 @@ I'm **really excited** for the _new template_ when it arrives :grin:.
 
 Even better, you do not have to worry about counting colons! It doesn't matter
 how many colons you put for the opening and closing fences, all that matters is
-you can visually see that the fences match. 
+you can visually see that the fences match.
 
 ::::::::::::::::::::::::::::::::::::::::::::::: callout
 
@@ -264,17 +271,161 @@ That's right, we can use emojis in The Carpentries Workbench! :100: :tada:
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
+### Tabbed content {#tabbed-content}
+
+Available from varnish v1.0.2, tabs are a great way to present multiple pieces
+of information in a compact and organised way. You can create them in two ways:
+firstly with a `tab` fenced div, and secondly with a `group-tab` fenced div.
+
+Whilst they both show content in the same way, grouped tabs differ from standard tabs
+in that they remember which tab you have selected across page changes. This can be
+useful if you want to use a specific tab throughout the lesson content,
+e.g. for a set of exercises or a set of solutions you want to use the "Windows" tab
+that was initially selected in the Setup episode.
+
+The first tab specified is the default tab.
+
+In both cases, tabs can hold callouts themselves and be specified within callouts
+too!
+
+#### Tab
+
+To create a tab group, create a `tab` fenced div, and
+then add a level 3 markdown heading (`###`) for each tab you want to create:
+
+````markdown
+::: tab
+
+### Windows
+
+Some Windows instructions
+
+### Mac
+
+Maybe some for Mac
+
+### Linux
+
+And more for Linux users, including a code block:
+
+```python
+  print("Yay, tabs!")
+```
+
+:::
+````
+
+::: tab
+
+### Windows
+
+Some Windows instructions
+
+### Mac
+
+Maybe some for Mac
+
+### Linux
+
+And more for Linux users, including a code block:
+
+```python
+  print("Yay, tabs!")
+```
+
+:::
+
+
+#### Grouped tabs
+
+Much like standard `tab`s, to create grouped tabs use a `group-tab` fenced div, and
+then add a level 3 markdown heading (`###`) for each tab you want to create:
+
+
+```markdown
+::: group-tab
+
+### Windows
+
+1
+
+### Mac
+
+2
+
+### Linux
+
+3
+
+:::
+
+::: group-tab
+
+### Windows
+
+4
+
+### Mac
+
+5
+
+### Linux
+
+6
+
+:::
+```
+
+The first tab specified is the default tab.
+
+In the example below, selecting a tab in one tab group changes the tab in
+the other group(s).
+
+::: group-tab
+
+### Windows
+
+1
+
+### Mac
+
+2
+
+### Linux
+
+3
+
+:::
+
+::: group-tab
+
+### Windows
+
+4
+
+### Mac
+
+5
+
+### Linux
+
+6
+
+:::
+
+(Thanks to [@astroDimitrios](https://github.com/astroDimitrios) for this great feature!)
+
 ## Instructor Notes
 
-A new feature in The Carpentries Workbench is separate instructor/learner views,
+The Carpentries Workbench supports separate instructor/learner views,
 which allows for instructor notes to be incorporated into the lesson. The
-default view of a lesson is the learner view, but you can switch to the 
+default view of a lesson is the learner view, but you can switch to the
 instructor view by scrolling to the top of the lesson, clicking on the "Learner
 View" button at the top right, and then selecting "Instructor View" from the
 dropdown. You can also add `instructor/` after the lesson URL (e.g. in this
 lesson, the URL is `https://carpentries.github.io/sandpaper-docs/episodes.html`;
-to switch to the instructor view manually, you can use 
-`https://carpentries.github.io/sandpaper-docs/instructor/episodes.html`). 
+to switch to the instructor view manually, you can use
+`https://carpentries.github.io/sandpaper-docs/instructor/episodes.html`).
 
 
 ::::::::::::::: challenge
@@ -291,7 +442,7 @@ to find an instructor note waiting for you.
 
 ::::::::::::::::::::::::::::::::::::: instructor
 
-This is an instructor note. It contains information that can be useful for 
+This is an instructor note. It contains information that can be useful for
 instructors to know such as
 
  - **Useful hints** about places that need extra attention
@@ -311,7 +462,7 @@ You can also include _any markdown elements_ like `code blocks`
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: instructor
 
-This is an instructor note. It contains information that can be useful for 
+This is an instructor note. It contains information that can be useful for
 instructors to know such as
 
  - **Useful hints** about places that need extra attention
@@ -377,10 +528,10 @@ What is the output of this command?
 paste("This", "new", "template", "looks", "good")
 ```
 
-:::::::::::::::::::::::: solution 
+:::::::::::::::::::::::: solution
 
 ## Output
- 
+
 
 ```{.output}
 [1] "This new template looks good"
@@ -391,7 +542,7 @@ paste("This", "new", "template", "looks", "good")
 
 ## Challenge 2: how do you nest solutions within challenge blocks?
 
-:::::::::::::::::::::::: solution 
+:::::::::::::::::::::::: solution
 
 You can add a line with at least three colons and a `solution` tag.
 
@@ -428,7 +579,7 @@ Yes! It is a valid fenced div for the following reasons:
 ## Use Spoilers Instead of Floating Solution Blocks
 
 When not attached to a `challenge` div, a formatted `solution` block
-will be displayed with too much "buoyancy" 
+will be displayed with too much "buoyancy"
 i.e. floating too high and obscuring some of the preceding content.
 
 To avoid this, use the `spoiler` class of fenced div
@@ -588,14 +739,14 @@ The colons on each side of the `-` in the table dictate how the column is
 aligned. By default, columns are aligned left, but if you add colons on either
 side, that forces the alignment to that side.
 
-In general, most table contents should be left-aligned, with a couple of 
+In general, most table contents should be left-aligned, with a couple of
 exceptions:
 
  - numbers should be right aligned
  - symbols, emojis, and other equal-width items may be center-aligned
 
 These conventions make it easer for folks to scan a table and understand its
-contents at a glance. 
+contents at a glance.
 
 ::::::::::::::::::::::
 
@@ -609,7 +760,7 @@ Table: Four fruits with color, price in imaginary dollars, and description
 | fruit     | color                | price    | description |
 | ------    | :--------------:     | -------: | ----------- |
 | apple     | :red_circle:         | \$2.05   | a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day |
-| pear      | :green_circle:       | \$1.37   | a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon    | 
+| pear      | :green_circle:       | \$1.37   | a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon    |
 | orange    | :orange_circle:      | \$3.09   | a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days |
 | gum gum fruit  | :purple_circle: | \$999.99 | a round purple fruit with complex swirls along its skin. It is said to taste terrible and give you mysterious powers |
 ```
@@ -619,16 +770,16 @@ Table: Four fruits with color and price in imaginary dollars
 | fruit     | color                | price    | description |
 | ------    | :--------------:     | -------: | ----------- |
 | apple     | :red_circle:         | \$2.05   | a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day |
-| pear      | :green_circle:       | \$1.37   | a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon    | 
+| pear      | :green_circle:       | \$1.37   | a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon    |
 | orange    | :orange_circle:      | \$3.09   | a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days |
 | gum gum fruit  | :purple_circle: | \$999.99 | a round purple fruit with complex swirls along its skin. It is said to taste terrible and give you mysterious powers |
 
 
 If we want to adjust the size of the columns, we need to change the lengths of
-the number of dashes separating the header from the body (as described in 
-[pandoc's guide for tables][pipe-table-syntax]). 
+the number of dashes separating the header from the body (as described in
+[pandoc's guide for tables][pipe-table-syntax]).
 
-Notice how the pipe characters (`|`) do not necessarily have to line up to 
+Notice how the pipe characters (`|`) do not necessarily have to line up to
 produce a table.
 
 
@@ -638,7 +789,7 @@ Table: Four fruits with color, price in imaginary dollars, and description
 | fruit     | color                | price    | description                 |
 | ----      | :-:                  | ---:     | --------------------------- |
 | apple     | :red_circle:         | \$2.05   | a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day |
-| pear      | :green_circle:       | \$1.37   | a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon    | 
+| pear      | :green_circle:       | \$1.37   | a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon    |
 | orange    | :orange_circle:      | \$3.09   | a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days |
 | gum gum fruit  | :purple_circle: | \$999.99 | a round purple fruit with complex swirls along its skin. It is said to taste terrible and give you mysterious powers |
 ```
@@ -648,7 +799,7 @@ Table: Four fruits with color, price in imaginary dollars, and description
 | fruit     | color                | price    | description                 |
 | ----      | :-:                  | ---:     | --------------------------- |
 | apple     | :red_circle:         | \$2.05   | a short, round-ish red fruit that is slightly tapered at one end. It tastes sweet and crisp like a fall day |
-| pear      | :green_circle:       | \$1.37   | a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon    | 
+| pear      | :green_circle:       | \$1.37   | a bell-shaped green fruit whose taste is sweet and mealy like a cold winter afternoon    |
 | orange    | :orange_circle:      | \$3.09   | a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days |
 | gum gum fruit  | :purple_circle: | \$999.99 | a round purple fruit with complex swirls along its skin. It is said to taste terrible and give you mysterious powers |
 
@@ -717,9 +868,9 @@ dat <- data.frame(
                        "a round orange fruit with a dimply skin-like peel that you must remove before eating. It tastes of sweet and sour lazy summer days",
                        "a round purple fruit with complex swirls along its skin. It is said to taste terrible and give you mysterious powers")
 )
-knitr::kable(dat, 
-  format = "pipe", 
-  align = "lcrl", 
+knitr::kable(dat,
+  format = "pipe",
+  align = "lcrl",
   caption = "Four fruits with color, price in imaginary dollars, and description")
 ```
 ````
@@ -736,16 +887,16 @@ Table: Four fruits with color, price in imaginary dollars, and description
 
 
 
-[^tablecap]: Captions allow visually impaired users to choose if they want to skip over the table contents if it is scannable. For more information, you can read 
+[^tablecap]: Captions allow visually impaired users to choose if they want to skip over the table contents if it is scannable. For more information, you can read
 [MDN docs: adding a caption to your table](https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Advanced#adding_a_caption_to_your_table_with_caption)
 
-## Links 
+## Links
 
-To include links to outside resources in your lesson, you write them with [standard 
+To include links to outside resources in your lesson, you write them with [standard
 markdown syntax][basic-syntax]: `[descriptive link text](https://example.com/link-url)`.
 One thing to remember when writing links (in markdown or anywhere) is that
 [link text should make sense out of context](https://webaim.org/techniques/hypertext/link_text#uninformative).
-If you find that the link URL you are using is long, or you want to reuse it multiple times, you can use 
+If you find that the link URL you are using is long, or you want to reuse it multiple times, you can use
 a link anchor with the following syntax:
 
 ```markdown
@@ -767,14 +918,14 @@ When working on a lesson in The Workbench, you do not need to think about what
 link the website will generate once it's built in order to write a link to
 different elements in the lesson. This is important because when you write
 links relative to your source files, these links will be predictable in any
-context and allow you to easily detect when filenames change. 
+context and allow you to easily detect when filenames change.
 
 To reference other markdown files within the same lesson, use _relative paths
 from the current file_. For example, you will commonly want to refer learners
 to [the setup page](../learners/setup.md) from within the episodes. To link
 back to the setup page, you can use: `[setup page](../learners/setup.md)` and
 {sandpaper} will convert that link to the appropriate format for the lesson
-website. 
+website.
 
 
 By that same rule, here is how you would write the following links in this episode:
@@ -814,8 +965,8 @@ Think about which files _actually_ exist before the lesson is built.
 :::::::::::::::::::::::
 :::::::::::::: solution
 
-The answer is **3**: 
-`[internal links](../episodes/episodes.Rmd#internal-links)` 
+The answer is **3**:
+`[internal links](../episodes/episodes.Rmd#internal-links)`
 produces [internal links](../episodes/episodes.Rmd#internal-links)
 
 ##### incorrect solutions
@@ -823,9 +974,9 @@ produces [internal links](../episodes/episodes.Rmd#internal-links)
 The reasons the others were incorrect is:
 
 1. this produces a full static URL, but the URL could easily change (for
-   example, when there is a translation or a fork of this lesson). 
-2. this produces a relative link to the URL, but this can change if 
-   the folder structure of the rendered website changes 
+   example, when there is a translation or a fork of this lesson).
+2. this produces a relative link to the URL, but this can change if
+   the folder structure of the rendered website changes
    (e.g. it becomes `episodes/index.html`).
 3. this is the correct choice, see above.
 4. the file extension is incorrect. _This episode_ is written in R Markdown
@@ -841,9 +992,9 @@ The reasons the others were incorrect is:
 
 ## Figures
 
-To include figures, place them in the `episodes/fig` folder and reference them 
+To include figures, place them in the `episodes/fig` folder and reference them
 directly like so using standard markdown format, with one twist: add an `alt`
-attribute at the end to make it accessible like this: 
+attribute at the end to make it accessible like this:
 `![caption](image){alt='alt text'}`.
 
 ```markdown
@@ -909,10 +1060,10 @@ that screen readers will know to skip that image.
 
 If your lesson uses R, some images will be auto-generated from evaluated code
 chunks and linked. You can use `fig.alt` to include alt text. [This blogpost has
-more information about including alt text in RMarkdown 
+more information about including alt text in RMarkdown
 documents](https://blog.rstudio.com/2021/04/20/knitr-fig-alt/). In addition, you
 can also use `fig.cap` to provide a caption that puts the picture into context
-(but take care to not be redundant; screen readers will read both fields). 
+(but take care to not be redundant; screen readers will read both fields).
 
 
 ```r
@@ -950,7 +1101,7 @@ Cool, right?
 [^episodes]: The designation of "episode" will likely change. Throught UX
   testing, it's clear that calling these lesson units "episodes" is confusing,
   even for people who have been in The Carpentries for several years. The
-  current working proposal is to call these "chapters". 
+  current working proposal is to call these "chapters".
 [^worry]: Do not worry if you aren't comfortable yet, that's what we will show
   you in this episode!
 
