@@ -314,6 +314,107 @@ of this page and this will be the first page that anyone sees.
 This page gives information to maintainers about what to expect inside of th
 repository and how to contribute. 
 
+## Making your lesson citable
+You can add information about how people should cite your lesson by adding a citation file to your lesson repository. If the root folder of your lesson project includes a file called `CITATION` or `CITATION.cff`, the _'Cite'_ page footer of your lesson site will link to this file.
+
+We recommend that you add and maintain a `CITATION.cff` file for your lesson, in [Citation File Format](https://citation-file-format.github.io/) (CFF). CFF is a structured text file format that provides machine-readable citation information for projects. It is supported by a growing number of tools, including GitHub: if a project includes a CFF file in its default branch, [GitHub will present citation information for the project](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-citation-files) under a _'Cite this repository'_ button in the _About_ sidebar.
+
+### Creating a CFF for a lesson
+
+You can use the [`cffinit` webtool](https://citation-file-format.github.io/cff-initializer-javascript/) to create a new CFF for your lesson or update an existing file.
+When creating a CFF for a lesson, you should specify `dataset` as the type of work being described ([This discussion includes explanation for why `dataset` is the appropriate type for a lesson](https://github.com/carpentries/sandpaper/issues/508#issuecomment-1699302887).)
+
+::::::::::::::::::::::::::::::::::::::::: spoiler
+
+### Example CFF for this lesson
+
+```
+cff-version: 1.2.0
+title: Introduction to The Carpentries Workbench
+message: >-
+  Please cite this lesson using the information in this file
+  when you refer to it in publications, and/or if you
+  re-use, adapt, or expand on the content in your own
+  training material. To cite the Workbench software itself,
+  please refer to the websites for the individual
+  components:
+  https://carpentries.github.io/sandpaper/authors.html#citation,
+  https://carpentries.github.io/pegboard/authors.html#citation,
+  https://carpentries.github.io/varnish/authors.html#citation
+type: dataset
+authors:
+  - given-names: Zhian
+    family-names: Kamvar
+    name-particle: N.
+    orcid: 'https://orcid.org/0000-0003-1458-7108'
+  - given-names: Toby
+    family-names: Hodges
+    email: tobyhodges@carpentries.org
+    affiliation: The Carpentries
+    orcid: 'https://orcid.org/0000-0003-1766-456X'
+  - given-names: Erin
+    family-names: Becker
+    orcid: 'https://orcid.org/0000-0002-6832-0233'
+  - orcid: 'https://orcid.org/0000-0002-7040-548X'
+    given-names: Sarah
+    family-names: Stevens
+  - given-names: Michael
+    family-names: Culshaw-Maurer
+    orcid: 'https://orcid.org/0000-0003-2205-8679'
+  - given-names: Maneesha
+    family-names: Sane
+  - given-names: Robert
+    family-names: Davey
+    orcid: 'https://orcid.org/0000-0002-5589-7754'
+  - given-names: Amelia
+    family-names: Bertozzi-Villa
+  - given-names: Kaitlin
+    family-names: Newson
+    orcid: 'https://orcid.org/0000-0001-8739-5823'
+  - given-names: Jennifer
+    family-names: Stubbs
+    orcid: 'https://orcid.org/0000-0002-6080-5703'
+  - given-names: Belinda
+    family-names: Weaver
+  - given-names: François
+    family-names: Michonneau
+    orcid: 'https://orcid.org/0000-0002-9092-966X'
+repository-code: 'https://github.com/carpentries/sandpaper-docs'
+url: 'https://carpentries.github.io/sandpaper-docs/'
+abstract: >-
+  Documentation for The Carpentries Workbench, a set of
+  tools that can be used to create accessible lesson
+  websites.
+keywords:
+  - Carpentries
+  - sandpaper
+  - pegboard
+  - varnish
+  - R
+  - pkgdown
+license: CC-BY-4.0
+```
+
+:::::::::::::::::::::::::::::::::::::::::::::::::
+
+### Plain text CITATION file
+
+As an alternative to Citation File Format, you can also use a plain text file, named `CITATION` (i.e. without the `.cff` extension), in which you add guidance for people wanting to cite your lesson in their publications/projects.
+
+::::::::::::::::::::::::::::::::::::::::: spoiler
+
+### Example plain text CITATION file
+
+```
+Please cite this lesson as:
+
+Zhian N. Kamvar et al,
+Introduction to The Carpentries Workbench.
+https://github.com/carpentries/sandpaper-docs
+```
+
+:::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 ::::::::::::::::::::: keypoints
 
