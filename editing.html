@@ -202,6 +202,7 @@
 <li><a href="#profiles"><code>profiles/</code></a></li>
 <li><a href="#index.html"><code>index.md</code></a></li>
 <li><a href="#readme.html"><code>README.md</code></a></li>
+<li><a href="#making-your-lesson-citable">Making your lesson citable</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
         
@@ -302,7 +303,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Editing a {sandpaper} lesson</h1>
-        <p>Last updated on 2024-03-12 |
+        <p>Last updated on 2024-04-11 |
         
         <a href="https://github.com/carpentries/sandpaper-docs/edit/main/episodes/editing.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -695,6 +696,129 @@ sees.</p>
 </h2>
 <hr class="half-width"><p>This page gives information to maintainers about what to expect
 inside of th repository and how to contribute.</p>
+</section><section id="making-your-lesson-citable"><h2 class="section-heading">Making your lesson citable<a class="anchor" aria-label="anchor" href="#making-your-lesson-citable"></a>
+</h2>
+<hr class="half-width"><p>You can add information about how people should cite your lesson by
+adding a citation file to your lesson repository. If the root folder of
+your lesson project includes a file called <code>CITATION</code> or
+<code>CITATION.cff</code>, the <em>‘Cite’</em> page footer of your
+lesson site will link to this file.</p>
+<p>We recommend that you add and maintain a <code>CITATION.cff</code>
+file for your lesson, in <a href="https://citation-file-format.github.io/" class="external-link">Citation File Format</a>
+(CFF). CFF is a structured text file format that provides
+machine-readable citation information for projects. It is supported by a
+growing number of tools, including GitHub: if a project includes a CFF
+file in its default branch, <a href="https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-citation-files" class="external-link">GitHub
+will present citation information for the project</a> under a <em>‘Cite
+this repository’</em> button in the <em>About</em> sidebar.</p>
+<div class="section level3">
+<h3 id="creating-a-cff-for-a-lesson">Creating a CFF for a lesson<a class="anchor" aria-label="anchor" href="#creating-a-cff-for-a-lesson"></a></h3>
+<p>You can use the <a href="https://citation-file-format.github.io/cff-initializer-javascript/" class="external-link"><code>cffinit</code>
+webtool</a> to create a new CFF for your lesson or update an existing
+file. When creating a CFF for a lesson, you should specify
+<code>dataset</code> as the type of work being described (<a href="https://github.com/carpentries/sandpaper/issues/508#issuecomment-1699302887" class="external-link">This
+discussion includes explanation for why <code>dataset</code> is the
+appropriate type for a lesson</a>.)</p>
+<div id="accordionSpoiler1" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
+  <h3 class="accordion-header" id="headingSpoiler1">
+<div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>Example CFF for this lesson</h3>
+</button>
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
+<div class="accordion-body">
+<pre><code>cff-version: 1.2.0
+title: Introduction to The Carpentries Workbench
+message: &gt;-
+  Please cite this lesson using the information in this file
+  when you refer to it in publications, and/or if you
+  re-use, adapt, or expand on the content in your own
+  training material. To cite the Workbench software itself,
+  please refer to the websites for the individual
+  components:
+  https://carpentries.github.io/sandpaper/authors.html#citation,
+  https://carpentries.github.io/pegboard/authors.html#citation,
+  https://carpentries.github.io/varnish/authors.html#citation
+type: dataset
+authors:
+  - given-names: Zhian
+    family-names: Kamvar
+    name-particle: N.
+    orcid: 'https://orcid.org/0000-0003-1458-7108'
+  - given-names: Toby
+    family-names: Hodges
+    email: tobyhodges@carpentries.org
+    affiliation: The Carpentries
+    orcid: 'https://orcid.org/0000-0003-1766-456X'
+  - given-names: Erin
+    family-names: Becker
+    orcid: 'https://orcid.org/0000-0002-6832-0233'
+  - orcid: 'https://orcid.org/0000-0002-7040-548X'
+    given-names: Sarah
+    family-names: Stevens
+  - given-names: Michael
+    family-names: Culshaw-Maurer
+    orcid: 'https://orcid.org/0000-0003-2205-8679'
+  - given-names: Maneesha
+    family-names: Sane
+  - given-names: Robert
+    family-names: Davey
+    orcid: 'https://orcid.org/0000-0002-5589-7754'
+  - given-names: Amelia
+    family-names: Bertozzi-Villa
+  - given-names: Kaitlin
+    family-names: Newson
+    orcid: 'https://orcid.org/0000-0001-8739-5823'
+  - given-names: Jennifer
+    family-names: Stubbs
+    orcid: 'https://orcid.org/0000-0002-6080-5703'
+  - given-names: Belinda
+    family-names: Weaver
+  - given-names: François
+    family-names: Michonneau
+    orcid: 'https://orcid.org/0000-0002-9092-966X'
+repository-code: 'https://github.com/carpentries/sandpaper-docs'
+url: 'https://carpentries.github.io/sandpaper-docs/'
+abstract: &gt;-
+  Documentation for The Carpentries Workbench, a set of
+  tools that can be used to create accessible lesson
+  websites.
+keywords:
+  - Carpentries
+  - sandpaper
+  - pegboard
+  - varnish
+  - R
+  - pkgdown
+license: CC-BY-4.0</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="plain-text-citation-file">Plain text CITATION file<a class="anchor" aria-label="anchor" href="#plain-text-citation-file"></a></h3>
+<p>As an alternative to Citation File Format, you can also use a plain
+text file, named <code>CITATION</code> (i.e. without the
+<code>.cff</code> extension), in which you add guidance for people
+wanting to cite your lesson in their publications/projects.</p>
+<div id="accordionSpoiler2" class="accordion spoiler-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler2" aria-expanded="false" aria-controls="collapseSpoiler2">
+  <h3 class="accordion-header" id="headingSpoiler2">
+<div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div>Example plain text CITATION file</h3>
+</button>
+<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
+<div class="accordion-body">
+<pre><code>Please cite this lesson as:
+
+Zhian N. Kamvar et al,
+Introduction to The Carpentries Workbench.
+https://github.com/carpentries/sandpaper-docs</code></pre>
+</div>
+</div>
+</div>
+</div>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -716,6 +840,7 @@ Markdown</li>
 <code>sandpaper::create_episode()</code>
 </li>
 </ul></div>
+</div>
 </div>
 </div>
 </section></div> <!-- / div.lesson-content -->
@@ -747,7 +872,7 @@ Markdown</li>
 	
         | <a href="https://github.com/carpentries/sandpaper-docs/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
         | <a href="https://github.com/carpentries/sandpaper-docs/" class="external-link">Source</a></p>
-				<p><a href="https://github.com/carpentries/sandpaper-docs/blob/main/CITATION" class="external-link">Cite</a> | <a href="mailto:tobyhodges@carpentries.org">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
+				<p><a href="https://github.com/carpentries/sandpaper-docs/blob/main/CITATION.cff" class="external-link">Cite</a> | <a href="mailto:tobyhodges@carpentries.org">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
 			</div>
 			<div class="col-md-6">
         
@@ -775,8 +900,8 @@ Markdown</li>
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/sandpaper-docs/editing.html",
   "identifier": "https://carpentries.github.io/sandpaper-docs/editing.html",
-  "dateCreated": "2024-04-10",
-  "dateModified": "2024-03-12",
+  "dateCreated": "2024-04-11",
+  "dateModified": "2024-04-11",
   "datePublished": "2024-04-11"
 }
 
