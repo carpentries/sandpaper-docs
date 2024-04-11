@@ -314,6 +314,23 @@ of this page and this will be the first page that anyone sees.
 This page gives information to maintainers about what to expect inside of th
 repository and how to contribute. 
 
+## Making your lesson citable
+You can add information about how people should cite your lesson by adding a citation file to your lesson repository. If the root folder of your lesson project includes a file called `CITATION` or `CITATION.cff`, the _'Cite'_ page footer of your lesson site will link to this file.
+
+We recommend that you add and maintain a `CITATION.cff` file for your lesson, in [Citation File Format](https://citation-file-format.github.io/) (CFF). CFF is a structured text file format that provides machine-readable citation information for projects. It is supported by a growing number of tools, including GitHub: if a project includes a CFF file in its default branch, [GitHub will present citation information for the project](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-citation-files) under a _'Cite this repository'_ button in the _About_ sidebar.
+
+### Creating a CFF for a lesson
+
+You can use the [`cffinit` webtool](https://citation-file-format.github.io/cff-initializer-javascript/) to create a new CFF for your lesson or update an existing file.
+When creating a CFF for a lesson, you should specify `dataset` as the type of work being described ([This discussion includes explanation for why `dataset` is the appropriate type for a lesson](https://github.com/carpentries/sandpaper/issues/508#issuecomment-1699302887).)
+The repository for the Collaborative Lesson Development Training curriculum includes [a CFF file that may be a helpful example for other lessons](https://github.com/carpentries/lesson-development-training/blob/main/CITATION.cff)
+
+### Plain text CITATION file
+
+As an alternative to Citation File Format, you can also use a plain text file, named `CITATION` (i.e. without the `.cff` extension), in which you add guidance for people wanting to cite your lesson in their publications/projects.
+
+
+
 
 ::::::::::::::::::::: keypoints
 
