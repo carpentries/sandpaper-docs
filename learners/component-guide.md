@@ -8,7 +8,7 @@ title: "Workbench Component Guide"
 
 This is the component guide for the workbench. For details on how to create 
 components from [fenced divs][fenced-divs], read the [Callout Blocks section of
-"Episode Structure"](episodes.Rmd#callout-blocks).
+"Episode Structure"](episodes.html#callout-blocks).
 
 ::::::::::::::::::::::::::
 
@@ -151,4 +151,64 @@ are a way to provide additional details/content
 that can be expanded and collapsed on demand.
 
 :::::::::::::::::::::::::
+
+
+### Tabbed Callouts
+
+::::::::::::::::: tab
+
+### Windows
+
+Some Windows instructions
+
+### Mac
+
+Maybe some for Mac
+
+### Linux
+
+And more for Linux users, including a code block:
+
+```python
+  print("Yay, tabs!")
+```
+
+:::::::::::::::::::::::::
+
+### Grouped Tabs
+
+The first tab specified is the default tab. Selecting a tab in one tab group changes the tab in
+the other group(s).
+
+::::::::::::::::::::: group-tab
+
+### Windows
+
+1
+
+### Mac
+
+2
+
+### Linux
+
+3
+
+:::::::::::::::::::::::::::::::
+
+::::::::::::::::::::: group-tab
+
+### Windows
+
+4
+
+### Mac
+
+5
+
+### Linux
+
+6
+
+:::::::::::::::::::::::::::::::
 
