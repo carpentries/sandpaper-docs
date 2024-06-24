@@ -146,7 +146,7 @@ carpentry
 
 ### Adding a custom logo
 
-The `carpentry` variable works with the `varnish` package to control the logo displayed on your lesson. You can display your organisation's logo by
+The "carpentry" variable works with the {varnish} package to control the logo displayed on your lesson. You can display your own logo by
 
 1. Adding your organisation's logo file (e.g. 'ice-cream-logo.svg') to your fork of `varnish` in the `inst/pkgdown/assets/assets/images` folder. 
 1. Setting `carpentry` to match the name of your logo file. (e.g. 'ice-cream')
