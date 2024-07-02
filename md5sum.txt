@@ -20,4 +20,4 @@
 "learners/style.md" "59a4d847201ced45d9b78b8ec9b05993" "site/built/style.md" "2024-07-02"
 "profiles/maintainer.md" "2a2b790c0aa8da5fb72e323e4fafabd9" "site/built/maintainer.md" "2024-07-02"
 "profiles/instructor.md" "ff8c586028a5e1c7ef0be4178b40417c" "site/built/instructor.md" "2024-07-02"
-"renv/profiles/lesson-requirements/renv.lock" "0abb52632bff723426d880a0ecabec98" "site/built/renv.lock" "2024-07-02"
+"renv/profiles/lesson-requirements/renv.lock" "c128567ec7b5e6d1310336d98ae8f5dd" "site/built/renv.lock" "2024-07-02"
