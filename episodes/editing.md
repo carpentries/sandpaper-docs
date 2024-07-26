@@ -140,10 +140,10 @@ and organization
 These fields will be simple key-pair values of information used throughout the episode
 
 carpentry
-: The code for the specific carpentry that the lesson belongs to (swc, dc, lc, cp)
+: The code for the specific carpentry that the lesson belongs to (swc, dc, lc, cp, incubator, lab)
 
 carpentry_description
-: (Optional) Full organisation name. Not needed when carpentry is swc, dc, lc, or cp. 
+: (Optional) Full organisation name. Not needed when carpentry is swc, dc, lc, cp, incubator, or lab. 
 
 ::::::::::: callout
 
