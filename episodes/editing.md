@@ -140,7 +140,25 @@ and organization
 These fields will be simple key-pair values of information used throughout the episode
 
 carpentry
-: The code for the specific carpentry that the lesson belongs to (swc, dc, lc, cp)
+: The code for the specific carpentry that the lesson belongs to (swc, dc, lc, cp, incubator, lab)
+
+carpentry_description
+: (Optional) Full organisation name. Not needed when carpentry is swc, dc, lc, cp, incubator, or lab. 
+
+::::::::::: callout
+
+### Adding a custom logo
+
+The "carpentry" variable works with the {varnish} package to control the logo displayed on your lesson. You can display your own logo by
+
+1. Adding the logo file as SVG (e.g. 'ice-cream-logo.svg') to your fork of {varnish} in the `inst/pkgdown/assets/assets/images` folder. 
+1. Setting "carpentry" to match the beginning of the name of your logo file. E.g. to use the `ice-cream-logo.svg` file given above, "carpentry" should be set to 'ice-cream'.
+1. Adding 'varnish: [YOUR-GITHUB-USERNAME]/varnish' to the Customization section of your lessons `config.yaml` file.
+
+The rendered lesson will display your logo file with alternative text that matches the value of "carpentry". For more informative alternative text, you can set "carpentry_description" to your organisation's full name. E.g. "Ice Cream Carpentry" instead of "ice-cream". 
+
+:::::::::::::::::::
+
 
 title
 : The main title of the lesson
