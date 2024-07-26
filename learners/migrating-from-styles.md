@@ -166,19 +166,21 @@ If something goes wrong and you cannot debug the problem on your own, post a mes
 **We recommend that you try these steps out on a fork of your lesson first**, so that you can be certain everything works before making permanent changes to your main lesson repository.
 :::
 
-1. Record your lesson creation date in config.yaml: run `git log` and hit <kbd>Shift+G</kbd> to jump to end of file, note down the date when the first commit was made. Then, using your favourite text editor, open `config.yaml` and modify the `created` field by replacing `~` with this creation date in YYYY-MM-DD format.
+1. Adjust the `config.yaml`:
+    - Record your lesson creation date in config.yaml: run `git log` and hit <kbd>Shift+G</kbd> to jump to end of file, note down the date when the first commit was made. Then, using your favourite text editor, open `config.yaml` and modify the `created` field by replacing `~` with this creation date in YYYY-MM-DD format.
+    - Check the `source` URL specified in `config.yaml`: this may be set incorrectly during the transition process. Adjust it to the correct URL for your lesson source repository on GitHub.
 
-2. Commit the changes you made to the lesson config file:
+3. Commit the changes you made to the lesson config file:
 
     ```bash
     git add config.yaml
     git commit -m 'complete configuration of Workbench lesson site'
     ```
 
-3. Rename the branches of your project:
+4. Rename the branches of your project:
     - On your GitHub repository, rename the `gh-pages` branch to `legacy/gh-pages` (if `main` is your default branch, also rename that to `legacy/main`).
         - Branches can be renamed by going to the list of all branches on your repository (add `/branches/all` to the end of the URL for your GitHub repository e.g. <https://github.com/datacarpentry/image-processing/branches/all>) and selecting the pencil icon button next to the relevant branch in that listing.
-4. In Bash on your local system (make sure you are working in the root of the `release/carpentries-incubator/YOUR-LESSON-NAME` directory), run the following commands (please read the comments that annotate these commands and note that **we strongly recommend that you execute these one-at-a-time!**):
+5. In Bash on your local system (make sure you are working in the root of the `release/carpentries-incubator/YOUR-LESSON-NAME` directory), run the following commands (please read the comments that annotate these commands and note that **we strongly recommend that you execute these one-at-a-time!**):
 
     ```bash
     git remote -v # check the names and addresses of your remote repositories: if you are testing on a fork and it is not listed here, add it with 'git remote add' https://git-scm.com/docs/git-remote#Documentation/git-remote.txt-emaddem
@@ -193,14 +195,14 @@ If something goes wrong and you cannot debug the problem on your own, post a mes
     git push --force origin HEAD:gh-pages
     ```
 
-5. If everything has gone well up to this point, it is time to go back to the `main` branch and force push its contents to GitHub:
+6. If everything has gone well up to this point, it is time to go back to the `main` branch and force push its contents to GitHub:
 
     ```bash
     git switch main
     git push --force --set-upstream origin main # force push the transitioned main branch to your GitHub repository
     ```
 
-6. On your GitHub repository:
+7. On your GitHub repository:
     - set the default branch to `main` (in Settings->General, click the button with two arrows next to the name of the default branch)
     - in Settings->Branches, add rules to protect the `main` branch (require pull requests) and lock `legacy/*`
     - make sure that your lesson site is being served with GitHub Pages from the root folder of the gh-pages branch (in Settings->Pages, under _Build and deployment_, ensure that `gh-pages` is selected with the dropdown under _Branch_ and that `/ (root)` is the folder selected, then hit the _Save_ button)
