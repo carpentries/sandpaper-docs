@@ -344,7 +344,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Editing a {sandpaper} lesson</h1>
-        <p>Last updated on 2024-07-02 |
+        <p>Last updated on 2024-07-26 |
 
         <a href="https://github.com/carpentries/sandpaper-docs/edit/main/episodes/editing.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -526,9 +526,40 @@ throughout the episode</p>
 <dl><dt>carpentry</dt>
 <dd>
 The code for the specific carpentry that the lesson belongs to (swc, dc,
-lc, cp)
+lc, cp, incubator, lab)
 </dd>
-<dt>title</dt>
+<dt>carpentry_description</dt>
+<dd>
+(Optional) Full organisation name. Not needed when carpentry is swc, dc,
+lc, cp, incubator, or lab.
+</dd>
+</dl><div id="adding-a-custom-logo" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="adding-a-custom-logo" class="callout-inner">
+<h3 class="callout-title">Adding a custom logo<a class="anchor" aria-label="anchor" href="#adding-a-custom-logo"></a>
+</h3>
+<div class="callout-content">
+<p>The “carpentry” variable works with the {varnish} package to control
+the logo displayed on your lesson. You can display your own logo by</p>
+<ol style="list-style-type: decimal"><li>Adding the logo file as SVG (e.g. ‘ice-cream-logo.svg’) to your fork
+of {varnish} in the <code>inst/pkgdown/assets/assets/images</code>
+folder.</li>
+<li>Setting “carpentry” to match the beginning of the name of your logo
+file. E.g. to use the <code>ice-cream-logo.svg</code> file given above,
+“carpentry” should be set to ‘ice-cream’.</li>
+<li>Adding ‘varnish: [YOUR-GITHUB-USERNAME]/varnish’ to the
+Customization section of your lessons <code>config.yaml</code>
+file.</li>
+</ol><p>The rendered lesson will display your logo file with alternative text
+that matches the value of “carpentry”. For more informative alternative
+text, you can set “carpentry_description” to your organisation’s full
+name. E.g. “Ice Cream Carpentry” instead of “ice-cream”.</p>
+</div>
+</div>
+</div>
+<dl><dt>title</dt>
 <dd>
 The main title of the lesson
 </dd>
@@ -941,7 +972,7 @@ Markdown</li>
   "url": "https://carpentries.github.io/sandpaper-docs/instructor/editing.html",
   "identifier": "https://carpentries.github.io/sandpaper-docs/instructor/editing.html",
   "dateCreated": "2024-07-26",
-  "dateModified": "2024-07-02",
+  "dateModified": "2024-07-26",
   "datePublished": "2024-07-26"
 }
 
