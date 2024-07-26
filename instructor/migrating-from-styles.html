@@ -324,7 +324,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Migrating lessons from the previous infrastructure</h1>
-        <p>Last updated on 2024-07-02 |
+        <p>Last updated on 2024-07-26 |
 
         <a href="https://github.com/carpentries/sandpaper-docs/edit/main/learners/migrating-from-styles.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -657,12 +657,19 @@ before making permanent changes to your main lesson repository.</p>
 </div>
 </div>
 </div>
-<ol style="list-style-type: decimal"><li><p>Record your lesson creation date in config.yaml: run
+<ol style="list-style-type: decimal"><li>
+<p>Adjust the <code>config.yaml</code>:</p>
+<ul><li>Record your lesson creation date in config.yaml: run
 <code>git log</code> and hit <kbd>Shift+G</kbd> to jump to end of file,
 note down the date when the first commit was made. Then, using your
 favourite text editor, open <code>config.yaml</code> and modify the
 <code>created</code> field by replacing <code>~</code> with this
-creation date in YYYY-MM-DD format.</p></li>
+creation date in YYYY-MM-DD format.</li>
+<li>Check the <code>source</code> URL specified in
+<code>config.yaml</code>: this may be set incorrectly during the
+transition process. Adjust it to the correct URL for your lesson source
+repository on GitHub.</li>
+</ul></li>
 <li>
 <p>Commit the changes you made to the lesson config file:</p>
 <div class="codewrapper sourceCode" id="cb10">
@@ -832,9 +839,9 @@ review and merge your changes.</li>
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/sandpaper-docs/instructor/migrating-from-styles.html",
   "identifier": "https://carpentries.github.io/sandpaper-docs/instructor/migrating-from-styles.html",
-  "dateCreated": "2024-06-25",
-  "dateModified": "2024-07-02",
-  "datePublished": "2024-07-23"
+  "dateCreated": "2024-07-26",
+  "dateModified": "2024-07-26",
+  "datePublished": "2024-07-26"
 }
 
   </script><script>
