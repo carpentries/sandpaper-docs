@@ -56,12 +56,12 @@ Code fences written using R Markdown chunk notation will be highlighted and
 executed:
 
 
-```r
+``` r
 magic <- sprintf("47 plus 2 equals %d\n47 times 2 equals %d", 47 + 2, 47 * 2) 
 cat(magic)
 ```
 
-```{.output}
+``` output
 47 plus 2 equals 49
 47 times 2 equals 94
 ```
@@ -103,7 +103,7 @@ You can add a line with at least three colons and a `solution` tag.
 You can also include figures generated from R Markdown:
 
 
-```r
+``` r
 pie(
   c(Sky = 78, "Sunny side of pyramid" = 17, "Shady side of pyramid" = 5), 
   init.angle = 315, 

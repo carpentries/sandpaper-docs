@@ -101,18 +101,18 @@ But when I open the fence with ```` ```{r} ```` then it becomes an R Markdown
 code fence and will execute the code inside the fence:
 
 
-````markdown
+```` markdown
 ```{r}
 print("hello world!")
 ```
 ````
 
 
-```r
+``` r
 print("hello world!")
 ```
 
-```{.output}
+``` output
 [1] "hello world!"
 ```
 
@@ -524,7 +524,7 @@ To add more content to the challenge, you close the first solution and add more 
 What is the output of this command?
 
 
-```r
+``` r
 paste("This", "new", "template", "looks", "good")
 ```
 
@@ -533,7 +533,7 @@ paste("This", "new", "template", "looks", "good")
 ## Output
 
 
-```{.output}
+``` output
 [1] "This new template looks good"
 ```
 
@@ -783,7 +783,7 @@ Notice how the pipe characters (`|`) do not necessarily have to line up to
 produce a table.
 
 
-```markdown
+``` markdown
 Table: Four fruits with color, price in imaginary dollars, and description
 
 | fruit     | color                | price    | description                 |
@@ -855,7 +855,7 @@ If you are using R Markdown, then you can generate a table from packages like
 {knitr} or {gt}, but make sure to use `results = 'asis'` in your chunk option:
 
 
-````markdown
+```` markdown
 
 ```{r fruits-table, results = 'asis'}
 dat <- data.frame(
@@ -1066,7 +1066,7 @@ can also use `fig.cap` to provide a caption that puts the picture into context
 (but take care to not be redundant; screen readers will read both fields).
 
 
-```r
+``` r
 pie(
   c(Sky = 78, "Sunny side of pyramid" = 17, "Shady side of pyramid" = 5),
   init.angle = 315,
