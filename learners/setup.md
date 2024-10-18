@@ -4,7 +4,7 @@ title: Setup
 
 ## Overview
 
-The lesson infrastructure is built on Git, [The R language][R], and [pandoc]. It consists of 
+The lesson infrastructure is built on Git, the R language, and pandoc. It consists of 
 four components:
 
 1. The source content (plain markdown or RMarkdown files organized into folders
@@ -12,12 +12,12 @@ four components:
 2. The engine (R package [{sandpaper}])to orchestrate building the content from
    markdown to HTML
 3. The validator (R package [{pegboard}]) to parse the source files and
-   highlight common errors[^tinkr]
+   highlight common errors
 4. The style (R package [{varnish}]) HTML, CSS, and JavaScript styling elements
    for the final website
 
-[Details of how these tools work together are explained in the Lesson 
-Deployment](../episodes/deployment.md) chapter. In short, you can expect to
+Details of how these tools work together are explained in the [Lesson 
+Deployment chapter](../episodes/deployment.md). In short, you can expect to
 interact with the source content and {sandpaper} to author and preview your
 lesson.
 
@@ -26,19 +26,19 @@ lesson.
 This setup document will walk you through the process of installing or upgrading
 the required software in the following order.
 
-1. **Git** (&ge; 2.28 recommended)
-2. **R** (&ge; 3.6)
-3. **pandoc** (&ge; 2.11)
+1. **[Git]** (&ge; 2.28 recommended)
+2. **[R]** (&ge; 4.x)
+3. **[pandoc]** (&ge; 3.x)
 4. The lesson infrastructure R packages
    i. **[{sandpaper}]** (development version)
    ii. **[{varnish}]** (development version)
    iii. **[{pegboard}]** (development version)
-   iiii. **[{tinkr}]** (markdown parser required by {pegboard}, development version)
+   iiii. **[{tinkr}]** (markdown parser required by {pegboard})
 
    Once you have Git, R, and Pandoc installed, these packages can be installed
    and updated via:
    ```r
-   install.packages(c("sandpaper", "varnish", "pegboard", "tinkr"),
+   install.packages(c("sandpaper", "varnish", "pegboard"),
      repos = c("https://carpentries.r-universe.dev/", getOption("repos")))
    ```
 
@@ -48,10 +48,10 @@ If you are using R or pandoc for the first time, we recommend using [the RStudio
 IDE][RStudio] for the following reasons:
 
 1. It comes with [pandoc] pre-installed.
-2. Works consistently across all major platforms.
-3. A dedicated BASH console so you can easily switch between R and Git
+2. It works consistently across all major platforms.
+3. It provides a dedicated BASH console so you can easily switch between R and Git
    operations.
-4. Convenient keyboard shortcuts to preview lessons.
+4. There are convenient keyboard shortcuts to preview lessons.
 5. On Windows, it will automatically detect your R installation without you
    needing to edit your `PATH`.
 
@@ -66,9 +66,9 @@ should install R and pandoc separately and make sure that they are in your path.
 This will guide you through installing the foundational software and 
 infrastructure packages on your computer. If you already have software
 installed and are curious if you should update it to a newer version, the answer
-is almost always, yes, update to a newer version, because often the [newer
+is almost always, yes, update to a newer version, because often the newer
 versions will contain important bug fixes that are important to the secruity of
-your computer](https://github.com/git/git/security/advisories/GHSA-8prw-h3cq-mghm).
+your computer.
 
 Jump to the installation instructions for your system: [Windows](#windows),
 [MacOS](#mac), or [Linux](#linux)
@@ -77,15 +77,14 @@ Jump to the installation instructions for your system: [Windows](#windows),
 
 ### Git
 
-We recommend installing git via the Git for Windows installer at 
-<https://gitforwindows.org/>. The installer is going to ask a lot of questions,
-so we recommend [using The Carpentries checklist for workshop
-participants](https://carpentries.github.io/workshop-template/#shell-windows).
+We recommend installing git via the [Git for Windows installer](https://gitforwindows.org/). The installer is going to ask a lot of questions,
+so we recommend [using The Carpentries instructions for workshop
+participants](https://carpentries.github.io/workshop-template/#the-bash-shell).
 
 #### Test your installation
 
-To test that you have git installed, you can go to your taskbar at the bottom 
-of your screen and type `cmd` to bring up the command prompt. From there, you
+To test that you have git installed, open your command line by pressing <kbd>Windows</kbd>+<kbd>R</kbd>
+and type `cmd` to bring up the command prompt. From there, you
 can type `git --version` to see the version of your git installation. You might
 see something like this:
 
@@ -107,10 +106,9 @@ operable program or batch file.
 
 ### R
 
-You can install the [latest version of R][R] for Windows from 
-<https://cran.r-project.org/bin/windows/base/>. There is also a video tutorial
+Install the [latest version of R for Windows](https://cran.r-project.org/bin/windows/base/). There is also a video tutorial
 up on [The Carpentries instructions for workshop
-participants](https://carpentries.github.io/workshop-template/#rstats-windows)
+participants](https://carpentries.github.io/workshop-template/#r-1)
 that can be quite helpful for parsing the steps of installing R on Windows.
 
 ::::::::::::::::::::: callout
@@ -128,10 +126,11 @@ that R will normally install at something like
 `c:\Program Files\R\R-4.1.0\bin\x64`, but if you are not admin, it will install
 in your Documents folder. 
 
-To verify that R is installed in your `PATH`, you can go to your taskbar at the
-bottom of your screen and type `cmd` to bring up the command prompt. From there,
+To verify that R is installed in your `PATH`, open your command line by pressing
+<kbd>Windows</kbd>+<kbd>R</kbd>
+and type `cmd` to bring up the command prompt. From there,
 you can type `R --version` at the prompt. Your output should be similar to below,
-with a version ≥ 3.6.
+with a version ≥ 4.x.
 
 ```bash
 R --version
@@ -185,7 +184,7 @@ options(repos = c(
 ))
 
 # Install the template packages to your R library
-install.packages(c("sandpaper", "varnish", "pegboard", "tinkr"))
+install.packages(c("sandpaper", "varnish", "pegboard"))
 ```
 
 ## Installing on MacOS {#mac}
@@ -195,12 +194,10 @@ install.packages(c("sandpaper", "varnish", "pegboard", "tinkr"))
 ### Git
 
 You should have git pre-installed on your macOS, but it is likely that this is
-an old version. We recommend installing [The latest version of Git for MacOS
-from sourceforge](https://sourceforge.net/projects/git-osx-installer/files/) 
-(**ignore the big green button** and choose the latest version from the list). 
-For a video walkthrough and an explanation of what to expect, you can look at 
+an old version. We recommend installing [The latest version of Git for MacOS](https://git-scm.com/downloads/mac). 
+For a video guide, you can look at 
 the [instructions for workshop 
-participants](https://carpentries.github.io/workshop-template/#git-macos).
+participants](https://carpentries.github.io/workshop-template/#git-1).
 
 #### Test your installation
 
@@ -247,7 +244,7 @@ that can be quite helpful for parsing the steps of installing R on MacOS.
 
 You can test your installation of R by opening **Terminal.app** and typing `R
 --version` into the prompt.  Your output should be similar to below,
-with a version ≥ 3.6.
+with a version ≥ 4.x.
 
 ```bash
 R --version
@@ -272,7 +269,7 @@ There are two ways to install pandoc:
 
 Since pandoc comes bundled with RStudio, you can install it by installing the
 latest version of RStudio. You can [download the installer from the RStudio 
-website][RStudio]. RStudio will be a `*.dmg` (disk image) that you will open
+website][RStudio]. RStudio will be a `*.dmg` (disk image) that you will
 double click to open a window that will look something like this:
 
 ![](fig/rstudio-mac-install.png){alt="Installation window for RStudio on mac
@@ -284,9 +281,9 @@ to install RStudio on your computer.
 
 #### Via the pandoc website
 
-If are more comfortable using R from the command line, then you can install
-pandoc by clicking the "Download the latest installer for macOS" button at
-<https://pandoc.org/installing.html>. This will save a file called 
+If are more comfortable using R from the command line, then you can [install
+pandoc](https://pandoc.org/installing.html) by clicking the "Download the latest 
+installer for macOS" button. This will save a file called 
 `pandoc-X.XX-macOS.pkg` installer to your computer. Open the installer and
 follow the instructions to install pandoc on your computer.
 
@@ -309,7 +306,7 @@ options(repos = c(
 ))
 
 # Install the template packages to your R library
-install.packages(c("sandpaper", "varnish", "pegboard", "tinkr"))
+install.packages(c("sandpaper", "varnish", "pegboard"))
 ```
 
 ## Installing on Linux {#linux}
@@ -371,7 +368,7 @@ sudo apt install --no-install-recommends r-base
 
 Test your R installation by opening your terminal and running  
 `R --version` into the prompt.  Your output should be similar to below,
-with a version ≥ 3.6.
+with a version ≥ 4.x.
 
 ```bash
 R --version
@@ -500,7 +497,7 @@ options(repos = c(
 ))
 
 # Install the template packages to your R library
-install.packages(c("sandpaper", "varnish", "pegboard", "tinkr"))
+install.packages(c("sandpaper", "varnish", "pegboard"))
 ```
 
 ::::::::::::: discussion
@@ -741,7 +738,9 @@ setting up authentication credentials for your account:
 
 ::::::::::::::::::::::::
 
+[Git]: https://git-scm.com/
 [R]: https://cran.rstudio.org/
+[pandoc]: https://pandoc.org/
 [{tinkr}]: https://docs.ropensci.org/tinkr/
 [RStudio]: https://rstudio.com/products/rstudio/download/#download
 [^workspace]: By default, R will ask if you want to save your workspace to a
@@ -751,6 +750,3 @@ setting up authentication credentials for your account:
   packages very very difficult. In 2017 Jenny Bryan wrote a very good article
   about the benefits of having a project-based workflow, starting from a clean
   slate: <https://www.tidyverse.org/blog/2017/12/workflow-vs-script/>
-
-[^tinkr]: Note: {pegboard} requires the [{tinkr}] package from rOpenSci. It 
-  is still in development, so we will install this package explicitly. 
