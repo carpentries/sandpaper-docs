@@ -453,28 +453,29 @@ Finish
       The actual schedule may vary slightly depending on the topics and exercises chosen by the instructor.
       </p>
       </section><section id="setup"><section><h2 class="section-heading" id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a></h2>
-<hr class="half-width"><p>The lesson infrastructure is built on Git, <a href="https://cran.rstudio.org/" class="external-link">The R language</a>, and <a href="https://pandoc.org/" class="external-link">pandoc</a>. It consists of four
-components:</p>
+<hr class="half-width"><p>The lesson infrastructure is built on Git, the R language, and
+pandoc. It consists of four components:</p>
 <ol style="list-style-type: decimal"><li>The source content (plain markdown or RMarkdown files organized into
 folders with a configuration yaml file)</li>
 <li>The engine (R package <a href="https://carpentries.github.io/sandpaper/" class="external-link">{sandpaper}</a>)to
 orchestrate building the content from markdown to HTML</li>
 <li>The validator (R package <a href="https://carpentries.github.io/pegboard/" class="external-link">{pegboard}</a>) to parse
-the source files and highlight common errors<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>
-</li>
+the source files and highlight common errors</li>
 <li>The style (R package <a href="https://github.com/carpentries/varnish/" class="external-link">{varnish}</a>) HTML, CSS,
 and JavaScript styling elements for the final website</li>
-</ol><p><a href="deployment.html">Details of how these tools work together
-are explained in the Lesson Deployment</a> chapter. In short, you can
+</ol><p>Details of how these tools work together are explained in the <a href="deployment.html">Lesson Deployment chapter</a>. In short, you can
 expect to interact with the source content and {sandpaper} to author and
 preview your lesson.</p>
 <div class="section level3">
 <h3 id="required">Required Software<a class="anchor" aria-label="anchor" href="#required"></a></h3>
 <p>This setup document will walk you through the process of installing
 or upgrading the required software in the following order.</p>
-<ol style="list-style-type: decimal"><li><p><strong>Git</strong> (≥ 2.28 recommended)</p></li>
-<li><p><strong>R</strong> (≥ 3.6)</p></li>
-<li><p><strong>pandoc</strong> (≥ 2.11)</p></li>
+<ol style="list-style-type: decimal"><li><p><strong><a href="https://git-scm.com/" class="external-link">Git</a></strong> (≥ 2.28
+recommended)</p></li>
+<li><p><strong><a href="https://cran.rstudio.org/" class="external-link">R</a></strong> (≥
+4.x)</p></li>
+<li><p><strong><a href="https://pandoc.org/" class="external-link">pandoc</a></strong> (≥
+3.x)</p></li>
 <li>
 <p>The lesson infrastructure R packages</p>
 <ol style="list-style-type: lower-roman"><li>
@@ -488,14 +489,14 @@ or upgrading the required software in the following order.</p>
 (development version)</li>
 <li>
 <strong><a href="https://docs.ropensci.org/tinkr/" class="external-link">{tinkr}</a></strong> (markdown
-parser required by {pegboard}, development version)</li>
+parser required by {pegboard})</li>
 </ol><p>Once you have Git, R, and Pandoc installed, these packages can be
 installed and updated via:</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">install.packages</span><span class="op">(</span><span class="fu">c</span><span class="op">(</span><span class="st">"sandpaper"</span>, <span class="st">"varnish"</span>, <span class="st">"pegboard"</span>, <span class="st">"tinkr"</span><span class="op">)</span>,</span>
+<code class="sourceCode R"><span><span class="fu">install.packages</span><span class="op">(</span><span class="fu">c</span><span class="op">(</span><span class="st">"sandpaper"</span>, <span class="st">"varnish"</span>, <span class="st">"pegboard"</span><span class="op">)</span>,</span>
 <span>  repos <span class="op">=</span> <span class="fu">c</span><span class="op">(</span><span class="st">"https://carpentries.r-universe.dev/"</span>, <span class="fu">getOption</span><span class="op">(</span><span class="st">"repos"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
 </li>
@@ -507,10 +508,10 @@ installed and updated via:</p>
 RStudio IDE</a> for the following reasons:</p>
 <ol style="list-style-type: decimal"><li>It comes with <a href="https://pandoc.org/" class="external-link">pandoc</a>
 pre-installed.</li>
-<li>Works consistently across all major platforms.</li>
-<li>A dedicated BASH console so you can easily switch between R and Git
-operations.</li>
-<li>Convenient keyboard shortcuts to preview lessons.</li>
+<li>It works consistently across all major platforms.</li>
+<li>It provides a dedicated BASH console so you can easily switch
+between R and Git operations.</li>
+<li>There are convenient keyboard shortcuts to preview lessons.</li>
 <li>On Windows, it will automatically detect your R installation without
 you needing to edit your <code>PATH</code>.</li>
 </ol><p>If you do not want to use RStudio, that’s perfectly okay and
@@ -525,24 +526,23 @@ and make sure that they are in your path.</p>
 infrastructure packages on your computer. If you already have software
 installed and are curious if you should update it to a newer version,
 the answer is almost always, yes, update to a newer version, because
-often the <a href="https://github.com/git/git/security/advisories/GHSA-8prw-h3cq-mghm" class="external-link">newer
-versions will contain important bug fixes that are important to the
-secruity of your computer</a>.</p>
+often the newer versions will contain important bug fixes that are
+important to the secruity of your computer.</p>
 <p>Jump to the installation instructions for your system: <a href="#windows">Windows</a>, <a href="#mac">MacOS</a>, or <a href="#linux">Linux</a></p>
 </div>
 </section><section><h2 class="section-heading" id="windows">Installing on Windows<a class="anchor" aria-label="anchor" href="#windows"></a></h2>
 <hr class="half-width"><div class="section level3">
 <h3 id="git">Git<a class="anchor" aria-label="anchor" href="#git"></a></h3>
-<p>We recommend installing git via the Git for Windows installer at <a href="https://gitforwindows.org/" class="external-link uri">https://gitforwindows.org/</a>. The installer is going to
-ask a lot of questions, so we recommend <a href="https://carpentries.github.io/workshop-template/#shell-windows" class="external-link">using
-The Carpentries checklist for workshop participants</a>.</p>
+<p>We recommend installing git via the <a href="https://gitforwindows.org/" class="external-link">Git for Windows installer</a>. The
+installer is going to ask a lot of questions, so we recommend <a href="https://carpentries.github.io/workshop-template/#the-bash-shell" class="external-link">using
+The Carpentries instructions for workshop participants</a>.</p>
 <div class="section level4">
 <h4 id="test-your-installation">Test your installation<a class="anchor" aria-label="anchor" href="#test-your-installation"></a></h4>
-<p>To test that you have git installed, you can go to your taskbar at
-the bottom of your screen and type <code>cmd</code> to bring up the
-command prompt. From there, you can type <code>git --version</code> to
-see the version of your git installation. You might see something like
-this:</p>
+<p>To test that you have git installed, open your command line by
+pressing <kbd>Windows</kbd>+<kbd>R</kbd> and type <code>cmd</code> to
+bring up the command prompt. From there, you can type
+<code>git --version</code> to see the version of your git installation.
+You might see something like this:</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -565,9 +565,8 @@ operable program or batch file.</code></pre>
 </div>
 <div class="section level3">
 <h3 id="r">R<a class="anchor" aria-label="anchor" href="#r"></a></h3>
-<p>You can install the <a href="https://cran.rstudio.org/" class="external-link">latest
-version of R</a> for Windows from <a href="https://cran.r-project.org/bin/windows/base/" class="external-link uri">https://cran.r-project.org/bin/windows/base/</a>. There is
-also a video tutorial up on <a href="https://carpentries.github.io/workshop-template/#rstats-windows" class="external-link">The
+<p>Install the <a href="https://cran.r-project.org/bin/windows/base/" class="external-link">latest version of R
+for Windows</a>. There is also a video tutorial up on <a href="https://carpentries.github.io/workshop-template/#r-1" class="external-link">The
 Carpentries instructions for workshop participants</a> that can be quite
 helpful for parsing the steps of installing R on Windows.</p>
 <div id="winpath" class="callout">
@@ -587,11 +586,11 @@ some instructions on setting up your PATH on Windows using both the GUI
 and CLI</a>. Note that R will normally install at something like
 <code>c:\Program Files\R\R-4.1.0\bin\x64</code>, but if you are not
 admin, it will install in your Documents folder.</p>
-<p>To verify that R is installed in your <code>PATH</code>, you can go
-to your taskbar at the bottom of your screen and type <code>cmd</code>
-to bring up the command prompt. From there, you can type
-<code>R --version</code> at the prompt. Your output should be similar to
-below, with a version ≥ 3.6.</p>
+<p>To verify that R is installed in your <code>PATH</code>, open your
+command line by pressing <kbd>Windows</kbd>+<kbd>R</kbd> and type
+<code>cmd</code> to bring up the command prompt. From there, you can
+type <code>R --version</code> at the prompt. Your output should be
+similar to below, with a version ≥ 4.x.</p>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -650,18 +649,15 @@ install RStudio) and enter the following lines into the console.</p>
 <span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Install the template packages to your R library</span></span>
-<span><span class="fu">install.packages</span><span class="op">(</span><span class="fu">c</span><span class="op">(</span><span class="st">"sandpaper"</span>, <span class="st">"varnish"</span>, <span class="st">"pegboard"</span>, <span class="st">"tinkr"</span><span class="op">)</span><span class="op">)</span></span></code></pre>
+<span><span class="fu">install.packages</span><span class="op">(</span><span class="fu">c</span><span class="op">(</span><span class="st">"sandpaper"</span>, <span class="st">"varnish"</span>, <span class="st">"pegboard"</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
 </div>
 </section><section><h2 class="section-heading" id="mac">Installing on MacOS<a class="anchor" aria-label="anchor" href="#mac"></a></h2>
 <hr class="half-width"><div class="section level3">
 <h3 id="git-1">Git<a class="anchor" aria-label="anchor" href="#git-1"></a></h3>
 <p>You should have git pre-installed on your macOS, but it is likely
-that this is an old version. We recommend installing <a href="https://sourceforge.net/projects/git-osx-installer/files/" class="external-link">The
-latest version of Git for MacOS from sourceforge</a> (<strong>ignore the
-big green button</strong> and choose the latest version from the list).
-For a video walkthrough and an explanation of what to expect, you can
-look at the <a href="https://carpentries.github.io/workshop-template/#git-macos" class="external-link">instructions
+that this is an old version. We recommend installing <a href="https://git-scm.com/downloads/mac" class="external-link">The latest version of Git for
+MacOS</a>. For a video guide, you can look at the <a href="https://carpentries.github.io/workshop-template/#git-1" class="external-link">instructions
 for workshop participants</a>.</p>
 <div class="section level4">
 <h4 id="test-your-installation-2">Test your installation<a class="anchor" aria-label="anchor" href="#test-your-installation-2"></a></h4>
@@ -714,7 +710,7 @@ helpful for parsing the steps of installing R on MacOS.</p>
 <p>You can test your installation of R by opening
 <strong>Terminal.app</strong> and typing <code>R --version</code> into
 the prompt. Your output should be similar to below, with a version ≥
-3.6.</p>
+4.x.</p>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -743,8 +739,8 @@ https://www.gnu.org/licenses/.</code></pre>
 <p>Since pandoc comes bundled with RStudio, you can install it by
 installing the latest version of RStudio. You can <a href="https://rstudio.com/products/rstudio/download/#download" class="external-link">download
 the installer from the RStudio website</a>. RStudio will be a
-<code>*.dmg</code> (disk image) that you will open double click to open
-a window that will look something like this:</p>
+<code>*.dmg</code> (disk image) that you will double click to open a
+window that will look something like this:</p>
 <figure><img src="../fig/rstudio-mac-install.png" alt="Installation window for RStudio on mac showing two items on a plain background: the Applications folder on the left and the RStudio icon on the right." class="figure mx-auto d-block"></figure><p>You should <em>drag the RStudio icon to the left,
 <strong>into</strong> the Applications folder</em> to install RStudio on
 your computer.</p>
@@ -752,9 +748,9 @@ your computer.</p>
 <div class="section level4">
 <h4 id="via-the-pandoc-website-1">Via the pandoc website<a class="anchor" aria-label="anchor" href="#via-the-pandoc-website-1"></a></h4>
 <p>If are more comfortable using R from the command line, then you can
-install pandoc by clicking the “Download the latest installer for macOS”
-button at <a href="https://pandoc.org/installing.html" class="external-link uri">https://pandoc.org/installing.html</a>. This will save a
-file called <code>pandoc-X.XX-macOS.pkg</code> installer to your
+<a href="https://pandoc.org/installing.html" class="external-link">install pandoc</a> by
+clicking the “Download the latest installer for macOS” button. This will
+save a file called <code>pandoc-X.XX-macOS.pkg</code> installer to your
 computer. Open the installer and follow the instructions to install
 pandoc on your computer.</p>
 </div>
@@ -780,7 +776,7 @@ install RStudio) and enter the following lines into the console.</p>
 <span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Install the template packages to your R library</span></span>
-<span><span class="fu">install.packages</span><span class="op">(</span><span class="fu">c</span><span class="op">(</span><span class="st">"sandpaper"</span>, <span class="st">"varnish"</span>, <span class="st">"pegboard"</span>, <span class="st">"tinkr"</span><span class="op">)</span><span class="op">)</span></span></code></pre>
+<span><span class="fu">install.packages</span><span class="op">(</span><span class="fu">c</span><span class="op">(</span><span class="st">"sandpaper"</span>, <span class="st">"varnish"</span>, <span class="st">"pegboard"</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
 </div>
 </section><section><h2 class="section-heading" id="linux">Installing on Linux<a class="anchor" aria-label="anchor" href="#linux"></a></h2>
@@ -843,7 +839,7 @@ the commands to register the PPA on your machine and then install R:</p>
 <div class="section level4">
 <h4 id="test-your-installation-6">Test your installation<a class="anchor" aria-label="anchor" href="#test-your-installation-6"></a></h4>
 <p>Test your R installation by opening your terminal and running<br><code>R --version</code> into the prompt. Your output should be similar
-to below, with a version ≥ 3.6.</p>
+to below, with a version ≥ 4.x.</p>
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -983,7 +979,7 @@ install RStudio) and enter the following lines into the console.</p>
 <span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Install the template packages to your R library</span></span>
-<span><span class="fu">install.packages</span><span class="op">(</span><span class="fu">c</span><span class="op">(</span><span class="st">"sandpaper"</span>, <span class="st">"varnish"</span>, <span class="st">"pegboard"</span>, <span class="st">"tinkr"</span><span class="op">)</span><span class="op">)</span></span></code></pre>
+<span><span class="fu">install.packages</span><span class="op">(</span><span class="fu">c</span><span class="op">(</span><span class="st">"sandpaper"</span>, <span class="st">"varnish"</span>, <span class="st">"pegboard"</span><span class="op">)</span><span class="op">)</span></span></code></pre>
 </div>
 <div id="saving-these-settings-for-later" class="callout discussion">
 <div class="callout-square">
@@ -1006,7 +1002,7 @@ your <code>~/.Rprofile</code>.</p>
   Add this to ~/.Rprofile
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1176,7 +1172,7 @@ console.</p>
 <h3 class="callout-title">Setting up your R workspace</h3>
 <div class="callout-content">
 <p>When you set up R, it’s important to make sure you set it up to
-always start R with a clean slate<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>: never save your workspace on exit and
+always start R with a clean slate<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>: never save your workspace on exit and
 never load a previously saved workspace on startup.</p>
 <div class="section level4">
 <h4 id="via-rstudio">Via RStudio<a class="anchor" aria-label="anchor" href="#via-rstudio"></a></h4>
@@ -1251,16 +1247,13 @@ and RStudio.
 </div>
 </div>
 </section><div class="footnotes footnotes-end-of-document">
-<hr><ol><li id="fn1"><p>Note: {pegboard} requires the <a href="https://docs.ropensci.org/tinkr/" class="external-link">{tinkr}</a> package from
-rOpenSci. It is still in development, so we will install this package
-explicitly.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>By default, R will ask if you want to save your
+<hr><ol><li id="fn1"><p>By default, R will ask if you want to save your
 workspace to a hidden file called <code>.RData</code>. This is loaded
 when you start R, restoring your environment with all of the packages
 and objects you had previously loaded. This default behavior is not good
 for reproducibility and makes updating packages very very difficult. In
 2017 Jenny Bryan wrote a very good article about the benefits of having
-a project-based workflow, starting from a clean slate: <a href="https://www.tidyverse.org/blog/2017/12/workflow-vs-script/" class="external-link uri">https://www.tidyverse.org/blog/2017/12/workflow-vs-script/</a><a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+a project-based workflow, starting from a clean slate: <a href="https://www.tidyverse.org/blog/2017/12/workflow-vs-script/" class="external-link uri">https://www.tidyverse.org/blog/2017/12/workflow-vs-script/</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
 </ol></div>
 
 
@@ -1312,9 +1305,9 @@ a project-based workflow, starting from a clean slate: <a href="https://www.tidy
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/sandpaper-docs/instructor/index.html",
   "identifier": "https://carpentries.github.io/sandpaper-docs/instructor/index.html",
-  "dateCreated": "2024-10-18",
-  "dateModified": "2024-10-18",
-  "datePublished": "2024-10-18"
+  "dateCreated": "2024-10-21",
+  "dateModified": "2024-10-21",
+  "datePublished": "2024-10-21"
 }
 
   </script><script>
