@@ -420,32 +420,31 @@ infrastructure packages, to make sure it's discoverable by R.
 
 ### Infrastructure R packages
 
-Linux packages normally need to be compiled by your system, which can take a 
+Linux packages normally need to be compiled into binaries by your system, which can take a 
 long time the first time it happens. RStudio provides a package manager that
 pre-compiles Linux binaries. Note that you do not have to be using RStudio to
 take advantage of these binaries. The one we are using is set up for Ubuntu 
-20.04 (focal).
+22.04 (jammy).
 
 ::::: callout
 
 #### Dependencies of Dependencies
 
 If you are not used to installing software on Linux, it can be frustrating 
-sometimes because few things ever "just work" when you try to install them. The
+sometimes because things can go wrong and it’s not always immediately clear why. The
 same is true for some R packages with compiled code.
 
 Some packages require underlying C libraries (e.g. the xml2 library), which are
 catalogued for Ubuntu in [The Carpentries R
 Universe](https://carpentries.r-universe.dev/ui#builds) and [available via the
-API](https://carpentries.r-universe.dev/ui#api). If you want to view the
-packages that are required (some of which may already be on your system), you
-can use `curl` and `jq` to produce a list:
+API](https://carpentries.r-universe.dev/apis). To produce a list 
+(you may need to `sudo apt install jq` if it is not already on your system):
 
 ```bash
 curl https://carpentries.r-universe.dev/stats/sysdeps 2> /dev/null | jq -r '.headers[0] | select(. != null)'
 ```
 
-This list can be sent to `apt-get install` to install everything:
+This list can be sent to `apt install` to install everything:
 
 ```bash
 sudo apt-get install -y \
@@ -500,9 +499,8 @@ install.packages(c("sandpaper", "varnish", "pegboard"))
 
 #### Saving these settings for later
 
-Having binary packages for Linux was a game changer when they appeared and it's 
-a good idea to have the above code run every time you start R so that you can
-take advantage of them. Add the code below to your `~/.Rprofile`.
+To not have to run this block of code every time you want to update, 
+add the following code into your `~/.Rprofile` to run it every time you open your terminal:
 
 ::::::::::::::::::::::::
 
@@ -563,6 +561,7 @@ compilation terminated.
 
 Use the instructions in these logs to install the correct package from your
 terminal and then open R or RStudio and retry installing the packages. 
+For example, for the error above, use `sudo apt install libxslt1-dev`.
 
 :::::::::::::::::::::
 
@@ -616,27 +615,14 @@ fs::dir_tree(tmp, recurse = 1)
 ```
 
 If the installation did not work, please [raise an issue on
-GitHub](https://github.com/carpentries/sandpaper-docs/issues/new) and I can help
-troubleshoot. 
+GitHub](https://github.com/carpentries/sandpaper-docs/issues/new). 
 
 ## Installation FAQ
 
 ### Why does it take 5 lines of code to install the infrastructure?
 
-In the future, this will be ONE line of code!
-
-Since we are currently in the alpha phase of testing, the infrastructure can
-update at any moment. Normally, packages will come from 
-[CRAN](https://glosario.carpentries.org/en/#cran), but our development packages
-are not yet on CRAN, so the are stored in The Carpentries and rOpenSci
-development repositories. 
-
-### Do I really need to use RStudio?
-
-No. We recommend using RStudio for [several reasons that pertain to ease of
-use and standardisation across systems](#recommend), but we do not absolutely
-require it. If you are able to get Git, R, and pandoc installed on your system,
-then you do not need to use RStudio.
+As the Workbench packages are in The Carpentries R-Universe and not CRAN, 
+we need to tell R to get the packages from R-Universe.
 
 ### What is an R Library?
 
@@ -649,17 +635,25 @@ Installing packages into ‘c:/Users/USER/Documents/R/win-library/4.0’
 (as ‘lib’ is unspecified)
 ```
 
+On Ubuntu, this may look like: 
+
+```
+Installing packages into ‘/home/<user>/R/x86_64-pc-linux-gnu-library/4.4’
+```
+
 This folder is where all of the R packages you install via `install.packages()`
 will live. If you ever need to look this up, you can use the `.libPaths()`
-function.
+function. 
+
+### Using a personal library
 
 Sometimes, your R session will issue a warning that says a folder is not
 writeable and asks if you would like to use a personal library instead. In this
 case, select "yes".
 
-## Using the lesson engine
+## Opening your R environment
 
-Throughout the lesson, I will ask you to **open R or RStudio**. If you are using
+If you are using
 RStudio, you can open it by double-clicking on the RStudio icon in your
 application launcher; you do not have to open R separately to use RStudio. 
 
@@ -707,6 +701,9 @@ setting this up.
 If you do not have this set up, you should [choose a protocol
 ](https://docs.github.com/en/github/getting-started-with-github/about-remote-repositories) 
 and then set them up according to the instructions from GitHub. 
+
+It’s recommended to use the SSH protocol, unless you explicitly cannot, 
+e.g. behind an institutional firewall or proxy.
 
 :::::::::::::::: callout
 
