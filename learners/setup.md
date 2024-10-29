@@ -167,7 +167,7 @@ its website at <https://pandoc.org/installing.html>
 
 #### Test your installation
 
-We will wait to test the pandoc installation after we install the
+We will wait to test the pandoc installation after we have installed the
 infrastructure packages, to make sure it's discoverable by R. 
 
 ### Infrastructure R packages
@@ -289,7 +289,7 @@ follow the instructions to install pandoc on your computer.
 
 #### Test your installation
 
-We will wait to test the pandoc installation after we install the
+We will wait to test the pandoc installation after we have installed the
 infrastructure packages, to make sure it's discoverable by R. 
 
 ### Infrastructure R packages
@@ -311,20 +311,18 @@ install.packages(c("sandpaper", "varnish", "pegboard"))
 
 ## Installing on Linux {#linux}
 
-A lot of the documentation for Linux is nuanced because it assumes that if you
-use Linux, then you automatically know how to install things by the command
-line. I will be providing instructions as best I can for Ubuntu Linux and point
-to resourced for other distributions. For Ubuntu/Debian, the default `apt`
-repository is often out of date, so you will need to use a 
+Instructions for installing on Linux are nuanced due to the variety and availability of 
+libraries and dependencies for each distribution, e.g. Ubuntu is Debian based whereas 
+Fedora is Red Hat based. These instructions will use Ubuntu as the preferred distribution. 
+The default `apt` repository is often out of date, so you will need to use a 
 [Personal Package Archive aka PPA](https://itsfoss.com/ppa-guide/) to install
-the latest version of a particular software, which I will include in these
+the latest version of a particular software, which will be included in these
 instructions. 
 
 ### Git
 
-You should have git pre-installed on your computer, but it will likely be 
-outdated. It's okay if this is the case, but if you want to update via `apt`,
-you can add the git-core ppa:
+Many distributions include git by default, but it is often outdated. 
+It is useful to try to update in case a newer version is available:
 
 ```bash
 sudo add-apt-repository ppa:git-core/ppa
@@ -345,9 +343,9 @@ git version 2.31.1
 
 ### R
 
-To install R, you can visit <https://cran.r-project.org/bin/linux/> to check if
-your platform is supported. For Ubuntu, there are detailed instructions at:
-<https://cran.r-project.org/bin/linux/ubuntu/>. Here are the commands to register
+To install R, you can visit [CRAN's Linux page](https://cran.r-project.org/bin/linux/) to check if
+your platform is supported. Detailed instructions exist [for Ubuntu](https://cran.r-project.org/bin/linux/ubuntu/). 
+Here are the commands to register
 the PPA on your machine and then install R:
 
 ```bash
@@ -393,11 +391,11 @@ There are two ways to install pandoc:
 
 #### Via RStudio (recommended)
 
-Since pandoc comes bundled with RStudio, you can install it by installing the
-latest version of RStudio. You can [download the installer from the RStudio
+Pandoc comes bundled with RStudio. You can [download the installer from the RStudio
 website][RStudio]. When installing RStudio for Linux, your distribution may not
-be shown on the landing page (e.g. Ubuntu 20.04). In this case, choose the most
-recent version and download it to your Downloads folder or install it directly.
+be shown on the landing page. If your Ubuntu version is not listed, check the 
+[RStudio Previous Versions](https://docs.posit.co/previous-versions/rstudio.html) page
+to see if there are builds available.
 
 ::::::::::: callout
 
@@ -411,15 +409,13 @@ instructions at <https://posit.co/code-signing/>.
 
 #### Via the pandoc website
 
-If are more comfortable using R from the command line, then you can install
-pandoc by clicking the "Download the latest installer" button at
-<https://pandoc.org/installing.html>. This will bring you to the release page 
-on GitHub with a list of installers, and you should choose one of the ones that
-says "linux" according to what chip architecture you have (AMD vs ARM).
+If you are more comfortable using R from the command line, then you can install
+pandoc from the [releases page](https://pandoc.org/installing.html). From the list on the GitHub page,
+for Ubuntu, choose the appropriate `.deb` file for your chip architecture (i.e. AMD64 or ARM64).
 
 #### Test your installation
 
-We will wait to test the pandoc installation after we install the
+We will wait to test the pandoc installation after we have installed the
 infrastructure packages, to make sure it's discoverable by R. 
 
 ### Infrastructure R packages
