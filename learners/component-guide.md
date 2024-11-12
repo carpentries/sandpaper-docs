@@ -74,6 +74,15 @@ CALLOUT callouts are created with the `callout` tag and are an aside or comment.
 
 :::::::::::::::::::::::::
 
+::::::::::::::::: caution
+
+### CAUTION (`caution`)
+
+CAUTION callouts are created with the `caution` tag and raise awareness of potential
+issues or problems that a learner might experience.
+
+:::::::::::::::::::::::::
+
 ::::::::::::::::: prereq
 
 ### PREREQUISITES (`prereq`)
