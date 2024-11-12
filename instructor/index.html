@@ -629,8 +629,8 @@ using the binary provided on its website at <a href="https://pandoc.org/installi
 </div>
 <div class="section level4">
 <h4 id="test-your-installation-1">Test your installation<a class="anchor" aria-label="anchor" href="#test-your-installation-1"></a></h4>
-<p>We will wait to test the pandoc installation after we install the
-infrastructure packages, to make sure it’s discoverable by R.</p>
+<p>We will wait to test the pandoc installation after we have installed
+the infrastructure packages, to make sure it’s discoverable by R.</p>
 </div>
 </div>
 <div class="section level3">
@@ -756,8 +756,8 @@ pandoc on your computer.</p>
 </div>
 <div class="section level4">
 <h4 id="test-your-installation-4">Test your installation<a class="anchor" aria-label="anchor" href="#test-your-installation-4"></a></h4>
-<p>We will wait to test the pandoc installation after we install the
-infrastructure packages, to make sure it’s discoverable by R.</p>
+<p>We will wait to test the pandoc installation after we have installed
+the infrastructure packages, to make sure it’s discoverable by R.</p>
 </div>
 </div>
 <div class="section level3">
@@ -780,19 +780,18 @@ install RStudio) and enter the following lines into the console.</p>
 </div>
 </div>
 </section><section><h2 class="section-heading" id="linux">Installing on Linux<a class="anchor" aria-label="anchor" href="#linux"></a></h2>
-<hr class="half-width"><p>A lot of the documentation for Linux is nuanced because it assumes
-that if you use Linux, then you automatically know how to install things
-by the command line. I will be providing instructions as best I can for
-Ubuntu Linux and point to resourced for other distributions. For
-Ubuntu/Debian, the default <code>apt</code> repository is often out of
-date, so you will need to use a <a href="https://itsfoss.com/ppa-guide/" class="external-link">Personal Package Archive aka
-PPA</a> to install the latest version of a particular software, which I
-will include in these instructions.</p>
+<hr class="half-width"><p>Instructions for installing on Linux are nuanced due to the variety
+and availability of libraries and dependencies for each distribution,
+e.g. Ubuntu is Debian based whereas Fedora is Red Hat based. These
+instructions will use Ubuntu as the preferred distribution. The default
+<code>apt</code> repository is often out of date, so you will need to
+use a <a href="https://itsfoss.com/ppa-guide/" class="external-link">Personal Package Archive
+aka PPA</a> to install the latest version of a particular software,
+which will be included in these instructions.</p>
 <div class="section level3">
 <h3 id="git-2">Git<a class="anchor" aria-label="anchor" href="#git-2"></a></h3>
-<p>You should have git pre-installed on your computer, but it will
-likely be outdated. It’s okay if this is the case, but if you want to
-update via <code>apt</code>, you can add the git-core ppa:</p>
+<p>Many distributions include git by default, but it is often outdated.
+It is useful to try to update in case a newer version is available:</p>
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -817,10 +816,10 @@ update via <code>apt</code>, you can add the git-core ppa:</p>
 </div>
 <div class="section level3">
 <h3 id="r-2">R<a class="anchor" aria-label="anchor" href="#r-2"></a></h3>
-<p>To install R, you can visit <a href="https://cran.r-project.org/bin/linux/" class="external-link uri">https://cran.r-project.org/bin/linux/</a> to check if your
-platform is supported. For Ubuntu, there are detailed instructions at:
-<a href="https://cran.r-project.org/bin/linux/ubuntu/" class="external-link uri">https://cran.r-project.org/bin/linux/ubuntu/</a>. Here are
-the commands to register the PPA on your machine and then install R:</p>
+<p>To install R, you can visit <a href="https://cran.r-project.org/bin/linux/" class="external-link">CRAN’s Linux page</a> to
+check if your platform is supported. Detailed instructions exist <a href="https://cran.r-project.org/bin/linux/ubuntu/" class="external-link">for Ubuntu</a>. Here
+are the commands to register the PPA on your machine and then install
+R:</p>
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -866,12 +865,11 @@ https://www.gnu.org/licenses/.
 <p>There are two ways to install pandoc:</p>
 <div class="section level4">
 <h4 id="via-rstudio-recommended-2">Via RStudio (recommended)<a class="anchor" aria-label="anchor" href="#via-rstudio-recommended-2"></a></h4>
-<p>Since pandoc comes bundled with RStudio, you can install it by
-installing the latest version of RStudio. You can <a href="https://rstudio.com/products/rstudio/download/#download" class="external-link">download
+<p>Pandoc comes bundled with RStudio. You can <a href="https://rstudio.com/products/rstudio/download/#download" class="external-link">download
 the installer from the RStudio website</a>. When installing RStudio for
-Linux, your distribution may not be shown on the landing page
-(e.g. Ubuntu 20.04). In this case, choose the most recent version and
-download it to your Downloads folder or install it directly.</p>
+Linux, your distribution may not be shown on the landing page. If your
+Ubuntu version is not listed, check the <a href="https://docs.posit.co/previous-versions/rstudio.html" class="external-link">RStudio
+Previous Versions</a> page to see if there are builds available.</p>
 <div id="optional-verify-the-install" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -887,26 +885,25 @@ the instructions at <a href="https://posit.co/code-signing/" class="external-lin
 </div>
 <div class="section level4">
 <h4 id="via-the-pandoc-website-2">Via the pandoc website<a class="anchor" aria-label="anchor" href="#via-the-pandoc-website-2"></a></h4>
-<p>If are more comfortable using R from the command line, then you can
-install pandoc by clicking the “Download the latest installer” button at
-<a href="https://pandoc.org/installing.html" class="external-link uri">https://pandoc.org/installing.html</a>. This will bring you
-to the release page on GitHub with a list of installers, and you should
-choose one of the ones that says “linux” according to what chip
-architecture you have (AMD vs ARM).</p>
+<p>If you are more comfortable using R from the command line, then you
+can install pandoc from the <a href="https://pandoc.org/installing.html" class="external-link">releases page</a>. From the
+list on the GitHub page, for Ubuntu, choose the appropriate
+<code>.deb</code> file for your chip architecture (i.e. AMD64 or
+ARM64).</p>
 </div>
 <div class="section level4">
 <h4 id="test-your-installation-7">Test your installation<a class="anchor" aria-label="anchor" href="#test-your-installation-7"></a></h4>
-<p>We will wait to test the pandoc installation after we install the
-infrastructure packages, to make sure it’s discoverable by R.</p>
+<p>We will wait to test the pandoc installation after we have installed
+the infrastructure packages, to make sure it’s discoverable by R.</p>
 </div>
 </div>
 <div class="section level3">
 <h3 id="infrastructure-r-packages-2">Infrastructure R packages<a class="anchor" aria-label="anchor" href="#infrastructure-r-packages-2"></a></h3>
-<p>Linux packages normally need to be compiled by your system, which can
-take a long time the first time it happens. RStudio provides a package
-manager that pre-compiles Linux binaries. Note that you do not have to
-be using RStudio to take advantage of these binaries. The one we are
-using is set up for Ubuntu 20.04 (focal).</p>
+<p>Linux packages normally need to be compiled into binaries by your
+system, which can take a long time the first time it happens. RStudio
+provides a package manager that pre-compiles Linux binaries. Note that
+you do not have to be using RStudio to take advantage of these binaries.
+The one we are using is set up for Ubuntu 22.04 (jammy).</p>
 <div id="dependencies-of-dependencies" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -915,21 +912,21 @@ using is set up for Ubuntu 20.04 (focal).</p>
 <h3 class="callout-title">Dependencies of Dependencies</h3>
 <div class="callout-content">
 <p>If you are not used to installing software on Linux, it can be
-frustrating sometimes because few things ever “just work” when you try
-to install them. The same is true for some R packages with compiled
-code.</p>
+frustrating sometimes because things can go wrong and it’s not always
+immediately clear why. The same is true for some R packages with
+compiled code.</p>
 <p>Some packages require underlying C libraries (e.g. the xml2 library),
 which are catalogued for Ubuntu in <a href="https://carpentries.r-universe.dev/ui#builds" class="external-link">The Carpentries R
-Universe</a> and <a href="https://carpentries.r-universe.dev/ui#api" class="external-link">available via the
-API</a>. If you want to view the packages that are required (some of
-which may already be on your system), you can use <code>curl</code> and
-<code>jq</code> to produce a list:</p>
+Universe</a> and <a href="https://carpentries.r-universe.dev/apis" class="external-link">available via the
+API</a>. To produce a list (you may need to
+<code>sudo apt install jq</code> if it is not already on your
+system):</p>
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="ex">curl</span> https://carpentries.r-universe.dev/stats/sysdeps <span class="dv">2</span><span class="op">&gt;</span> /dev/null <span class="kw">|</span> <span class="ex">jq</span> <span class="at">-r</span> <span class="st">'.headers[0] | select(. != null)'</span></span></code></pre>
 </div>
-<p>This list can be sent to <code>apt-get install</code> to install
+<p>This list can be sent to <code>apt install</code> to install
 everything:</p>
 <div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -988,10 +985,9 @@ install RStudio) and enter the following lines into the console.</p>
 <div id="saving-these-settings-for-later" class="callout-inner">
 <h3 class="callout-title">Saving these settings for later</h3>
 <div class="callout-content">
-<p>Having binary packages for Linux was a game changer when they
-appeared and it’s a good idea to have the above code run every time you
-start R so that you can take advantage of them. Add the code below to
-your <code>~/.Rprofile</code>.</p>
+<p>To not have to run this block of code every time you want to update,
+add the following code into your <code>~/.Rprofile</code> to run it
+every time you open your terminal:</p>
 </div>
 </div>
 </div>
@@ -1002,7 +998,7 @@ your <code>~/.Rprofile</code>.</p>
   Add this to ~/.Rprofile
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1064,7 +1060,8 @@ compilation terminated.
 </div>
 <p>Use the instructions in these logs to install the correct package
 from your terminal and then open R or RStudio and retry installing the
-packages.</p>
+packages. For example, for the error above, use
+<code>sudo apt install libxslt1-dev</code>.</p>
 </div>
 </div>
 </div>
@@ -1121,24 +1118,12 @@ everything works</p>
     └── docs</code></pre>
 </div>
 <p>If the installation did not work, please <a href="https://github.com/carpentries/sandpaper-docs/issues/new" class="external-link">raise an
-issue on GitHub</a> and I can help troubleshoot.</p>
+issue on GitHub</a>.</p>
 </section><section><h2 class="section-heading" id="installation-faq">Installation FAQ<a class="anchor" aria-label="anchor" href="#installation-faq"></a></h2>
 <hr class="half-width"><div class="section level3">
 <h3 id="why-does-it-take-5-lines-of-code-to-install-the-infrastructure">Why does it take 5 lines of code to install the infrastructure?<a class="anchor" aria-label="anchor" href="#why-does-it-take-5-lines-of-code-to-install-the-infrastructure"></a></h3>
-<p>In the future, this will be ONE line of code!</p>
-<p>Since we are currently in the alpha phase of testing, the
-infrastructure can update at any moment. Normally, packages will come
-from <a href="https://glosario.carpentries.org/en/#cran" class="external-link">CRAN</a>, but
-our development packages are not yet on CRAN, so the are stored in The
-Carpentries and rOpenSci development repositories.</p>
-</div>
-<div class="section level3">
-<h3 id="do-i-really-need-to-use-rstudio">Do I really need to use RStudio?<a class="anchor" aria-label="anchor" href="#do-i-really-need-to-use-rstudio"></a></h3>
-<p>No. We recommend using RStudio for <a href="#recommend">several
-reasons that pertain to ease of use and standardisation across
-systems</a>, but we do not absolutely require it. If you are able to get
-Git, R, and pandoc installed on your system, then you do not need to use
-RStudio.</p>
+<p>As the Workbench packages are in The Carpentries R-Universe and not
+CRAN, we need to tell R to get the packages from R-Universe.</p>
 </div>
 <div class="section level3">
 <h3 id="what-is-an-r-library">What is an R Library?<a class="anchor" aria-label="anchor" href="#what-is-an-r-library"></a></h3>
@@ -1147,18 +1132,22 @@ When you install R packages, the first message you will see will
 probably be something like (on Windows):</p>
 <pre><code>Installing packages into ‘c:/Users/USER/Documents/R/win-library/4.0’
 (as ‘lib’ is unspecified)</code></pre>
+<p>On Ubuntu, this may look like:</p>
+<pre><code>Installing packages into ‘/home/&lt;user&gt;/R/x86_64-pc-linux-gnu-library/4.4’</code></pre>
 <p>This folder is where all of the R packages you install via
 <code>install.packages()</code> will live. If you ever need to look this
 up, you can use the <code>.libPaths()</code> function.</p>
+</div>
+<div class="section level3">
+<h3 id="using-a-personal-library">Using a personal library<a class="anchor" aria-label="anchor" href="#using-a-personal-library"></a></h3>
 <p>Sometimes, your R session will issue a warning that says a folder is
 not writeable and asks if you would like to use a personal library
 instead. In this case, select “yes”.</p>
 </div>
-</section><section><h2 class="section-heading" id="using-the-lesson-engine">Using the lesson engine<a class="anchor" aria-label="anchor" href="#using-the-lesson-engine"></a></h2>
-<hr class="half-width"><p>Throughout the lesson, I will ask you to <strong>open R or
-RStudio</strong>. If you are using RStudio, you can open it by
-double-clicking on the RStudio icon in your application launcher; you do
-not have to open R separately to use RStudio.</p>
+</section><section><h2 class="section-heading" id="opening-your-r-environment">Opening your R environment<a class="anchor" aria-label="anchor" href="#opening-your-r-environment"></a></h2>
+<hr class="half-width"><p>If you are using RStudio, you can open it by double-clicking on the
+RStudio icon in your application launcher; you do not have to open R
+separately to use RStudio.</p>
 <p>If you are using R, you can open it in your terminal application by
 typing <code>R</code>. Your prompt will be replaced by a
 <code>&gt;</code>, which indicates that you are in R’s interactive <a href="https://glosario.carpentries.org/en/#repl" class="external-link">REPL</a>.</p>
@@ -1189,10 +1178,10 @@ into workspace at startup” and set “Save workspace to .RData on exit” to
 <p>The flags <code>--no-restore</code> and <code>--no-save</code> will
 set these defaults, so you can create an alias for R in the
 <code>.bashrc</code> file in your home directory:</p>
-<div class="codewrapper sourceCode" id="cb28">
+<div class="codewrapper sourceCode" id="cb29">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a><span class="bu">alias</span> R=<span class="st">'R --no-restore --no-save'</span></span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="bu">alias</span> R=<span class="st">'R --no-restore --no-save'</span></span></code></pre>
 </div>
 </div>
 </div>
@@ -1206,6 +1195,8 @@ need to worry about setting this up.</p>
 <p>If you do not have this set up, you should <a href="https://docs.github.com/en/github/getting-started-with-github/about-remote-repositories" class="external-link">choose
 a protocol</a> and then set them up according to the instructions from
 GitHub.</p>
+<p>It’s recommended to use the SSH protocol, unless you explicitly
+cannot, e.g. behind an institutional firewall or proxy.</p>
 <div id="is-githubs-documentation-confusing" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
