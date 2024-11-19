@@ -225,6 +225,33 @@ have rearranged themselves to reflect that.
 ::::::::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::::::::
 
+### Configuring web analytics
+The optional `analytics` field can be used to configure web analytics, e.g. with [Matomo](https://matomo.org/) or Google Analytics.
+There are currently three options for `analytics`:
+
+1. `NULL`: disables tracking for that lesson. This is the default behviour, and is equivalent to omitting the `analytics` field from `config.yaml` altogether.
+2. `carpentries`: adds the tracking script needed for the lesson to be tracked by The Carpentries self-hosted Matomo system. 
+    This option works only for The Carpentries lessons: community-owned lessons cannot be tracked in the same way.
+3. `<user_string>`: allows the user to define their own tracker script string. 
+   For legibility, use the `|` symbol to indicate that the value of the YAML field will be split across multiple indented lines ([known as a 'literal block' in YAML](https://stackoverflow.com/a/21699210)). 
+   For example, to configure for Google Analytics:
+
+```yaml
+analytics: |
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src='https://www.googletagmanager.com/gtag/js?id={YOUR TRACKING ID}#' ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '{YOUR TRACKING ID}');
+  </script>
+```
+
+Tracking scripts configured with the `analytics` option are added to the footer element of the lesson website HTML.
+
+
 ## `episodes/`
 
 This is the folder where all the action is. It contains all of the episodes, 
