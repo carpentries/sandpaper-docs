@@ -169,6 +169,19 @@ life_cycle
 license
 : The license the lesson is registered under (defaults to CC-BY 4.0)
 
+::::::::::: callout
+
+### Changing the default license
+
+The default license for a lesson created with {sandpaper} is CC-BY 4.0. 
+To use a different license
+
+1. Change the "license" variable to the name of your desired license.
+1. Replace the contents of 'LICENSE.md' with the text of your license *or* add a new variable called "license_url" and set to the url for your license.
+
+:::::::::::::::::::
+
+
 source
 : The github source of the lesson
 
@@ -356,8 +369,7 @@ of this page and this will be the first page that anyone sees.
 
 ## `README.md`
 
-This page gives information to maintainers about what to expect inside of th
-repository and how to contribute. 
+This page gives information to maintainers about what to expect inside of the repository and how to contribute. 
 
 ## Making your lesson citable
 You can add information about how people should cite your lesson by adding a citation file to your lesson repository. If the root folder of your lesson project includes a file called `CITATION` or `CITATION.cff`, the _'Cite'_ page footer of your lesson site will link to this file.
