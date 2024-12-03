@@ -84,6 +84,13 @@ The script is run on the version of the Workbench lesson created by the transiti
 
 It is sufficient to create an empty file, named appropriately. This is available in the add-lesson.sh file, which will also provide hints about how the data can be transformed. 
 
+::::::::::::::::::::::::::::::::::::::: caution
+
+It is essential that you do not include a trailing `/` after YOUR-LESSON-NAME below.)
+
+:::::::::::::::::::::::::::::::::::::::::::::::
+
+
 ```bash
 bash add-lesson.sh carpentries-incubator/YOUR-LESSON-NAME
 ```
@@ -215,7 +222,19 @@ After you have transitioned your lesson, you should:
 
 1. **Delete and re-create any forks and local clones** of your lesson project, to minimise the likelihood that you will accidentally push the old project history back to the GitHub repository. If you have any collaborators and fellow lesson developers/maintainers, ask them to do the same.
 2. If your lesson is in The Carpentries Incubator, [**tell the Curriculum Team**](mailto:curriculum@carpentries.org) that you have completed the transition so that we can activate the automated creation of pull requests to update the Workbench infrastructure when new versions of the packages are released.
-3. (Optional, but highly recommended) Open a pull request to https://github.com/carpentries/reactables/ to **add the invalid commit hash** (in the `invalid.hash` file created for your lesson during the transition (step 3 above)) to [the `workbench/invalid-hashes.json` file](https://github.com/carpentries/reactables/blob/main/workbench/invalid-hashes.json). This will include the hash in the data feed used by our infrastructure to support the GitHub Actions workflow that will automatically close any pull requests opened to your repository from a branch containing the old project history. To do this:
+3. If your lesson is _not_ in the Incubator, **enable automated pull requests to keep your infrastructure updated** by adding a SANDPAPER_WORKFLOW token to your repository:
+    * Navigate to <https://github.com/settings/tokens/new> and give your new token a name (e.g. "Sandpaper Token (YOUR-ORG-OR-USER-NAME/YOUR-LESSON-NAME)").
+    * Check the box next to _workflow_.
+    * Set an expiry date for the token.
+    * Select _Generate token_.
+    * Copy the token displayed on the screen.
+    * On your GitHub repository:
+        * Navigate to Settings->Secrets and variables->Actions->New repository secret
+        * Set _Name_ to SANDPAPER_WORKFLOW, and paste your new token into the _Secret_ box.
+        * Select Add secret
+  
+  The maintenance workflows that use this token are scheduled to run weekly. When The Carpentries releases new versions of the workflow files used to build and maintain lessons, a pull request will be opened automatically on any repository with the SANDPAPER_WORKFLOW token set to incorporate the relevant updates. If your lesson uses R Markdown source files, the same token will be used to keep the package dependencies for your lesson updated.
+5. (Optional, but highly recommended) Open a pull request to https://github.com/carpentries/reactables/ to **add the invalid commit hash** (in the `invalid.hash` file created for your lesson during the transition (step 3 above)) to [the `workbench/invalid-hashes.json` file](https://github.com/carpentries/reactables/blob/main/workbench/invalid-hashes.json). This will include the hash in the data feed used by our infrastructure to support the GitHub Actions workflow that will automatically close any pull requests opened to your repository from a branch containing the old project history. To do this:
     * Make a fork of [the `carpentries/reactables` GitHub repository](https://github.com/carpentries/reactables/)
     * On a new branch of that fork, edit the `workbench/invalid-hashes.json` file, adding a new line before the final `}` line matching the format of the other lines containing hashes, i.e. 
       `"carpentries-incubator/YOUR-LESSON-NAME": "HASHASHASHASHASHASHASH"`
