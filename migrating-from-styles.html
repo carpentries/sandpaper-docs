@@ -478,6 +478,18 @@ avoiding additional commits in your project history associated with
 <p>It is sufficient to create an empty file, named appropriately. This
 is available in the add-lesson.sh file, which will also provide hints
 about how the data can be transformed.</p>
+<div id="caution1" class="callout caution">
+<div class="callout-square">
+<i class="callout-icon" data-feather="alert-triangle"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Caution</h3>
+<div class="callout-content">
+<p>It is essential that you do not include a trailing <code>/</code>
+after YOUR-LESSON-NAME below.)</p>
+</div>
+</div>
+</div>
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -746,7 +758,32 @@ ask them to do the same.</li>
 Team</strong></a> that you have completed the transition so that we can
 activate the automated creation of pull requests to update the Workbench
 infrastructure when new versions of the packages are released.</li>
-<li>(Optional, but highly recommended) Open a pull request to <a href="https://github.com/carpentries/reactables/" class="external-link uri">https://github.com/carpentries/reactables/</a> to
+<li>If your lesson is <em>not</em> in the Incubator, <strong>enable
+automated pull requests to keep your infrastructure updated</strong> by
+adding a SANDPAPER_WORKFLOW token to your repository:
+<ul><li>Navigate to <a href="https://github.com/settings/tokens/new" class="external-link uri">https://github.com/settings/tokens/new</a> and give your new
+token a name (e.g. “Sandpaper Token
+(YOUR-ORG-OR-USER-NAME/YOUR-LESSON-NAME)”).</li>
+<li>Check the box next to <em>workflow</em>.</li>
+<li>Set an expiry date for the token.</li>
+<li>Select <em>Generate token</em>.</li>
+<li>Copy the token displayed on the screen.</li>
+<li>On your GitHub repository:
+<ul><li>Navigate to Settings-&gt;Secrets and variables-&gt;Actions-&gt;New
+repository secret</li>
+<li>Set <em>Name</em> to SANDPAPER_WORKFLOW, and paste your new token
+into the <em>Secret</em> box.</li>
+<li>Select Add secret</li>
+</ul></li>
+</ul></li>
+</ol><p>The maintenance workflows that use this token are scheduled to run
+weekly. When The Carpentries releases new versions of the workflow files
+used to build and maintain lessons, a pull request will be opened
+automatically on any repository with the SANDPAPER_WORKFLOW token set to
+incorporate the relevant updates. If your lesson uses R Markdown source
+files, the same token will be used to keep the package dependencies for
+your lesson updated. 5. (Optional, but highly recommended) Open a pull
+request to <a href="https://github.com/carpentries/reactables/" class="external-link uri">https://github.com/carpentries/reactables/</a> to
 <strong>add the invalid commit hash</strong> (in the
 <code>invalid.hash</code> file created for your lesson during the
 transition (step 3 above)) to <a href="https://github.com/carpentries/reactables/blob/main/workbench/invalid-hashes.json" class="external-link">the
@@ -754,26 +791,21 @@ transition (step 3 above)) to <a href="https://github.com/carpentries/reactables
 the hash in the data feed used by our infrastructure to support the
 GitHub Actions workflow that will automatically close any pull requests
 opened to your repository from a branch containing the old project
-history. To do this:
-<ul><li>Make a fork of <a href="https://github.com/carpentries/reactables/" class="external-link">the
-<code>carpentries/reactables</code> GitHub repository</a>
-</li>
-<li>On a new branch of that fork, edit the
-<code>workbench/invalid-hashes.json</code> file, adding a new line
-before the final <code>}</code> line matching the format of the other
-lines containing hashes, i.e. 
+history. To do this: * Make a fork of <a href="https://github.com/carpentries/reactables/" class="external-link">the
+<code>carpentries/reactables</code> GitHub repository</a> * On a new
+branch of that fork, edit the <code>workbench/invalid-hashes.json</code>
+file, adding a new line before the final <code>}</code> line matching
+the format of the other lines containing hashes, i.e. 
 <code>"carpentries-incubator/YOUR-LESSON-NAME": "HASHASHASHASHASHASHASH"</code>
 where <code>HASHASHASHASHASHASHASH</code> is the hash contained in the
 <code>release/carpentries-incubator/YOUR-LESSON-NAME-invalid.hash</code>
 file created during the infrastructure transition. Make sure to add a
 comma <code>,</code> to the end of the preceding line to ensure the
-validity of the JSON file.</li>
-<li>commit the change, then open a pull request back to
-<code>carpentries/reactables</code> to suggest that we merge your
-invalid hash into our data feed. A member of the Curriculum Team will
-review and merge your changes.</li>
-</ul></li>
-</ol></div>
+validity of the JSON file. * commit the change, then open a pull request
+back to <code>carpentries/reactables</code> to suggest that we merge
+your invalid hash into our data feed. A member of the Curriculum Team
+will review and merge your changes.</p>
+</div>
 </section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="index.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
