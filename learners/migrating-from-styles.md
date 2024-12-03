@@ -84,6 +84,13 @@ The script is run on the version of the Workbench lesson created by the transiti
 
 It is sufficient to create an empty file, named appropriately. This is available in the add-lesson.sh file, which will also provide hints about how the data can be transformed. 
 
+::::::::::::::::::::::::::::::::::::::: caution
+
+It is essential that you do not include a trailing `/` after YOUR-LESSON-NAME below.)
+
+:::::::::::::::::::::::::::::::::::::::::::::::
+
+
 ```bash
 bash add-lesson.sh carpentries-incubator/YOUR-LESSON-NAME
 ```
