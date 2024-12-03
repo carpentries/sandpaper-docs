@@ -83,7 +83,13 @@ The transition tool requires an R script to exist for any lesson it migrates to 
 The script is run on the version of the Workbench lesson created by the transition tool, as a kind of post-processing step before the changes made by the transition are committed. Any changes made by the script will appear as if carried out by the transition tool, thereby avoiding additional commits in your project history associated with "cleaning up" after the migration.
 
 It is sufficient to create an empty file, named appropriately. This is available in the add-lesson.sh file, which will also provide hints about how the data can be transformed. 
-(Note: it is essential that you do not include a trailing `/` after YOUR-LESSON-NAME below.)
+
+::::::::::::::::::::::::::::::::::::::: caution
+
+It is essential that you do not include a trailing `/` after YOUR-LESSON-NAME below.)
+
+:::::::::::::::::::::::::::::::::::::::::::::::
+
 
 ```bash
 bash add-lesson.sh carpentries-incubator/YOUR-LESSON-NAME
