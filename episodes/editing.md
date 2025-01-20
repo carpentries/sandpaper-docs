@@ -210,6 +210,17 @@ profiles
 : Learner profile pages 
 
 
+::::::::::::::::::::::::::::::: callout
+
+### Remove Episode Numbering
+
+By default, the lesson sidebar will display numbers next to each episode title. To remove these
+numbers, add the following line to your `config.yaml` file. 
+
+`disable_sidebar_numbering: true`
+
+::::::::::::::::::::::::::::::::::::::::::
+
 ::::::::::::::::::::::::::::::: challenge
 
 ### Configuring Episode Order
@@ -224,6 +235,7 @@ have rearranged themselves to reflect that.
 
 ::::::::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::::::::
+
 
 ### Configuring web analytics
 The optional `analytics` field can be used to configure web analytics, e.g. with [Matomo](https://matomo.org/) or Google Analytics.
