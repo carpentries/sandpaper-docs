@@ -4,22 +4,240 @@ title: Setup
 
 ## Overview
 
-The lesson infrastructure is built on Git, the R language, and pandoc. It consists of 
-four components:
+The lesson infrastructure is built on Git, the R language, and pandoc.
+
+It consists of four components:
 
 1. The source content (plain markdown or RMarkdown files organized into folders
    with a configuration yaml file)
-2. The engine (R package [{sandpaper}])to orchestrate building the content from
+2. The engine (R package [{sandpaper}]) to orchestrate building the content from
    markdown to HTML
 3. The validator (R package [{pegboard}]) to parse the source files and
    highlight common errors
 4. The style (R package [{varnish}]) HTML, CSS, and JavaScript styling elements
    for the final website
 
-Details of how these tools work together are explained in the [Lesson 
-Deployment chapter](../episodes/deployment.md). In short, you can expect to
-interact with the source content and {sandpaper} to author and preview your
-lesson.
+Details of how these tools work together are explained in the [Lesson Deployment chapter](../episodes/deployment.md).
+
+In short, you can expect to interact with the source content and {sandpaper} to author and preview your lesson.
+
+To access the Workbench software, you are able to use a typical manual installation process, or a Docker based environment.
+
+Docker has some advantages for users who want to develop and build lessons in a convenient, reproducible and isolated environment.
+
+Docker also is advantageous for Windows and Mac users who may not have a lot of command line experience.
+
+## Docker vs Manual installation
+
+If you are comfortable with R and the command line, and are happy to manually manage any R package dependencies and associated system libraries, then the manual installation steps would be suitable for you.
+
+For new Workbench users on Windows or Mac or those that are comfortable with using the docker ecosystem of tools, we recommend the Docker installation route. 
+
+### Docker jargon
+
+Images are a pre-built template of an operating system and dependencies.
+They tend to be Linux or Mac based, and act as a blueprint with which to run containers.
+
+Containers are running versions of images, separated in isolation from your host operating system.
+For example, you can run an Ubuntu image as a container within a Windows host operating system.
+
+Volumes act as directories that can be provided by and/or shared between a host operating system and a running container.
+This means files and folders can be either copied inside a running container, keeping information distinct from a host operating system, or shared in real time where changes within the container will be evident on the host operating system and vice versa.
+
+## Docker Desktop GUI setup
+
+Docker Desktop makes it convenient for Windows and Mac users to manage volumes, images and containers.
+
+### Create a named volume for your lesson
+
+:::::::::::::::: caution
+Note that importing a lesson folder as a TAR archive in this way will overwrite all existing content within the named volume
+::::::::::::::::::::::::
+
+In Docker Desktop, select the Volumes link in the left hand navigation pane.
+
+Click Create, and give the volume the name of the lesson you wish to work on, e.g. git-novice
+
+Produce a TAR archive of your lesson:
+
+- in File Explorer, go to the folder where you store your lessons, e.g. C:\\Users\\your_username\\lessons, select a folder, right click, select Compress To, and select TAR File 
+- in git bash, `tar cvf git-novice.tar ~/lessons/git-novice`
+- in Finder ...
+
+Back in Docker Desktop, go to Volumes and:
+
+- select the volume you created in step 2, e.g. git-novice
+- click Import
+- make sure `Local file` is selected, and click Browse
+- navigate to where you created your TAR file, select it, and click Open in the file browser dialog box
+
+### Start the main Workbench container
+
+1. start the carpentries-workbench container
+  - Click on Images in the left hand navigation in Docker Desktop
+  - In the table in the right hand window, there should be an entry called `carpentries/workbench-docker`
+  - Click this entry to show the information about the image
+  - In the top left, click the Run button
+  - In the "Run a new container" popup, expand the "Optional Settings" dropdown, and enter the following information:
+    - Container Name: `carpentries-workbench`
+    - Ports:
+      - Host ports: `8787`
+    - Volumes:
+      - Host Path: the name of your named volume create above, e.g. `git-novice`
+      - Container Path: `/home/rstudio/lessons`
+    - Environment variables:
+      - Variable: `DISABLE_AUTH`
+      - Value: `true`
+  - Click the Run button in the popup
+
+### Use the RStudio Server to edit lessons
+
+1. access the RStudio Server instance
+  - Click on Containers in the left hand navigation in Docker Desktop
+  - In the table in the right hand window, there should be a running container called `carpentries-workbench`
+  - There will be a link on this row under the `Port(s)` column, e.g. `8787:8787`
+  - Click this link to open a browser which will take you to the RStudio Server instance
+2. change ownership of named volume lesson files
+  - In the RStudio Server instance, go to the Terminal tab
+  - Use `chown` to change the permissions of the lessons folder:
+    - `sudo chown -R rstudio:rstudio ~/lessons`
+3. Go to the Console tab in Rstudio Server and run sandpaper on your lesson, e.g. git-novice:
+
+```r
+sandpaper::serve("lessons/git-novice")
+```
+
+## Docker Desktop with WSL2/Git Bash setup
+
+When running Docker Desktop, Windows Subsystem for Linux (WSL) or Git Bash can call Docker commands to run the Workbench container.
+
+### Clone the workbench-docker repository
+
+Open a terminal (WSL, Git Bash) and use git clone:
+
+```bash
+git clone git@github.com:carpentries/workbench-docker.git`
+
+## OR
+
+git clone https://github.com/carpentries/workbench-docker.git
+```
+
+As follows:
+
+```bash
+# go home
+cd ~
+
+# make a `workbench` folder in your home directory and clone in the workbench-docker repo
+mkdir ~/workbench
+cd ~/workbench
+git clone git@github.com:carpentries/workbench-docker.git
+```
+
+### Clone a lesson repository
+
+If you do not have any existing lessons on your machine, use git to clone a lesson:
+
+```bash
+# go home
+cd ~
+
+# make a `lessons` folder in your home directory and clone in a lesson
+mkdir ~/lessons
+cd ~/lessons
+git clone git@github.com:swcarpentry/shell-novice.git
+```
+
+You will use the path to your lesson (either just cloned or previously cloned) in the next step to create a named volume.
+
+### Create a named volume for your lesson
+
+We use named volumes to store copies of lessons so we have a clean reproducible environment.
+
+```bash
+# go home
+cd ~
+
+# make a `lessons` folder in your home directory and clone in a lesson
+mkdir ~/lessons
+cd ~/lessons
+git clone git@github.com:swcarpentry/shell-novice.git
+
+# enter the `workbench-docker` folder, create the workbench-lessons named volume, and copy in the shell-novice content
+cd workbench-docker
+./scripts/setup_named_volume.sh ~/lessons/shell-novice
+```
+
+### Run the Docker container
+
+```bash
+# start the workbench container
+./scripts/run_workbench.sh shell-novice
+```
+
+## Linux with docker engine setup
+
+Linux supports the docker engine natively within the shell (or alongside Docker Desktop).
+
+If you are using a Linux distribution with native docker engine support, use the following quick start comprising the commands above:
+
+```bash
+# go home
+cd ~
+
+# get the latest workbench docker image
+docker pull carpentries/workbench-docker:latest
+
+# make a `lessons` folder in your home directory and clone in a lesson
+mkdir ~/lessons
+cd ~/lessons
+git clone git@github.com:swcarpentry/shell-novice.git
+
+# make a `workbench` folder in your home directory and clone in the workbench-docker repo
+mkdir ~/workbench
+cd ~/workbench
+git clone git@github.com:carpentries/workbench-docker.git
+
+# enter the `workbench-docker` folder, create the workbench-lessons named volume, and copy in the shell-novice content
+cd workbench-docker
+./scripts/setup_named_volume.sh ~/lessons/shell-novice
+
+# start the workbench container
+./scripts/run_workbench.sh shell-novice
+```
+
+### Accessing the RStudio Server
+
+The Workbench image contains the RStudio Server, so you can use a browser to access it by following the setup instructions above and calling `run_workbench.sh`.
+
+This starts the container, which runs the RStudio Server on your local machine, `localhost` over port 8787. 
+
+Therefore, open your browser and go to `localhost:8787` and you should be able to start using RStudio!
+
+### Accessing an R console
+
+Whilst the Workbench container is running via the `run_workbench.sh` script, you can run docker commands to connect to the running container and start using the R console.
+
+Get the name of the running Workbench container:
+
+```bash
+docker ps -l
+
+CONTAINER ID   IMAGE                                 COMMAND   CREATED          STATUS          PORTS      NAMES
+63f1fd51f925   carpentries/workbench-docker:latest   "/init"   21 seconds ago   Up 20 seconds   8787/tcp   carpentries-workbench
+```
+
+Then use this name to execute a bash shell within the container:
+
+```bash
+docker exec --user rstudio -it carpentries-workbench bash
+```
+
+You can then use the container as you would a normal linux instance.
+
+
+## Manual setup
 
 ### Required Software {#required}
 

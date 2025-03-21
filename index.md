@@ -3,10 +3,11 @@ site: sandpaper::sandpaper_site
 ---
 
 
-Welcome to the documentation for The Carpentries Workbench. This is a
-complete redesign of our lesson infrastructure (formerly known as the lesson template) 
-that follows the philosophy of keeping content and tools separate. 
-The new infrastructure will have the following features:
+Welcome to the documentation for The Carpentries Workbench.
+
+The Workbench is the infrastructure and tooling used to build lesson materials in a reproducible way.
+
+
 
 :::::::::::::::::: checklist
 
@@ -19,18 +20,17 @@ The new infrastructure will have the following features:
 - [x] Non-invasive package management with {renv}
 - [x] Pull Request audits for rendered files
 - [x] Compatible with RStudio
+- [x] Docker or manual installation
 
 ::::::::::::::::::::::::::::
 
 
 :::::: callout
 
-### :construction: Under Construction :construction:
+### Getting Started
 
-This documentation site is still being constructed---please be patient.
+If you are completely new to the Workbench, we recommend using the Docker installation as this relieves much of the manual installation steps.
 
-If you are looking to get started using the workbench, head over to the 
-[setup](learners/setup.md) page to get started!
+If you have installed the Workbench and are looking to get started using it, head over to the [setup](learners/setup.md) page to get started!
 
 ::::::::::::::::::
-
