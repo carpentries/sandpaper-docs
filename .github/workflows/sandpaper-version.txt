@@ -1,1 +1,1 @@
-https://github.com/froggleston/sandpaper/archive/refs/tags/docker-release-0.16.13.9000.tar.gz
+0.16.13.9000
