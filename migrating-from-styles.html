@@ -324,7 +324,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Migrating lessons from the previous infrastructure</h1>
-        <p>Last updated on 2025-07-15 |
+        <p>Last updated on 2025-07-22 |
 
         <a href="https://github.com/carpentries/sandpaper-docs/edit/main/learners/migrating-from-styles.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -782,7 +782,7 @@ used to build and maintain lessons, a pull request will be opened
 automatically on any repository with the SANDPAPER_WORKFLOW token set to
 incorporate the relevant updates. If your lesson uses R Markdown source
 files, the same token will be used to keep the package dependencies for
-your lesson updated. 5. (Optional, but highly recommended) Open a pull
+your lesson updated. 4. (Optional, but highly recommended) Open a pull
 request to <a href="https://github.com/carpentries/reactables/" class="external-link uri">https://github.com/carpentries/reactables/</a> to
 <strong>add the invalid commit hash</strong> (in the
 <code>invalid.hash</code> file created for your lesson during the
@@ -791,20 +791,16 @@ transition (step 3 above)) to <a href="https://github.com/carpentries/reactables
 the hash in the data feed used by our infrastructure to support the
 GitHub Actions workflow that will automatically close any pull requests
 opened to your repository from a branch containing the old project
-history. To do this: * Make a fork of <a href="https://github.com/carpentries/reactables/" class="external-link">the
-<code>carpentries/reactables</code> GitHub repository</a> * On a new
-branch of that fork, edit the <code>workbench/invalid-hashes.json</code>
-file, adding a new line before the final <code>}</code> line matching
-the format of the other lines containing hashes, i.e. 
-<code>"carpentries-incubator/YOUR-LESSON-NAME": "HASHASHASHASHASHASHASH"</code>
-where <code>HASHASHASHASHASHASHASH</code> is the hash contained in the
-<code>release/carpentries-incubator/YOUR-LESSON-NAME-invalid.hash</code>
-file created during the infrastructure transition. Make sure to add a
-comma <code>,</code> to the end of the preceding line to ensure the
-validity of the JSON file. * commit the change, then open a pull request
-back to <code>carpentries/reactables</code> to suggest that we merge
-your invalid hash into our data feed. A member of the Curriculum Team
-will review and merge your changes.</p>
+history. To do this:</p>
+<div class="codewrapper sourceCode" id="cb13">
+<h3 class="code-label">SH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode sh" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="ex">*</span> Make a fork of [the <span class="kw">`</span><span class="ex">carpentries/reactables</span><span class="kw">`</span> GitHub repository]<span class="er">(</span><span class="ex">https://github.com/carpentries/reactables/</span><span class="kw">)</span></span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="ex">*</span> On a new branch of that fork, edit the <span class="kw">`</span><span class="ex">workbench/invalid-hashes.json</span><span class="kw">`</span> file, adding a new line before the final <span class="kw">`</span><span class="er">}</span><span class="kw">`</span> line matching the format of the other lines containing hashes, i.e. </span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a>  <span class="kw">`</span><span class="st">"carpentries-incubator/YOUR-LESSON-NAME"</span><span class="ex">:</span> <span class="st">"HASHASHASHASHASHASHASH"</span><span class="kw">`</span></span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a>  <span class="ex">where</span> <span class="kw">`</span><span class="ex">HASHASHASHASHASHASHASH</span><span class="kw">`</span> is the hash contained in the <span class="kw">`</span><span class="ex">release/carpentries-incubator/YOUR-LESSON-NAME-invalid.hash</span><span class="kw">`</span> file created during the infrastructure transition. Make sure to add a comma <span class="kw">`</span><span class="ex">,</span><span class="kw">`</span> to the end of the preceding line to ensure the validity of the JSON file.</span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a><span class="ex">*</span> commit the change, then open a pull request back to <span class="kw">`</span><span class="ex">carpentries/reactables</span><span class="kw">`</span> to suggest that we merge your invalid hash into our data feed. A member of the Curriculum Team will review and merge your changes.</span></code></pre>
+</div>
 </div>
 </section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
@@ -863,8 +859,8 @@ will review and merge your changes.</p>
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/sandpaper-docs/migrating-from-styles.html",
   "identifier": "https://carpentries.github.io/sandpaper-docs/migrating-from-styles.html",
-  "dateCreated": "2025-07-15",
-  "dateModified": "2025-07-15",
+  "dateCreated": "2025-07-22",
+  "dateModified": "2025-07-22",
   "datePublished": "2025-07-22"
 }
 
