@@ -486,7 +486,26 @@ environments:</p>
 <li><a href="https://stackoverflow.com/questions/36950231/auto-wrap-lines-in-vim-without-inserting-newlines" class="external-link">Vim</a></li>
 <li><a href="https://stackoverflow.com/questions/31025502/how-can-i-switch-word-wrap-on-and-off-in-visual-studio-code" class="external-link">VS
 Code</a></li>
-</ul></section></div> <!-- / div.lesson-content -->
+</ul><div class="section level3">
+<h3 id="a-note-about-line-breaks">A note about line breaks<a class="anchor" aria-label="anchor" href="#a-note-about-line-breaks"></a></h3>
+<p>In Markdown, two spaces at the end of a line is interpreted as a line
+break (i.e. converted to <code>&lt;br/&gt;</code> in the output HTML).
+When ending a sentence in your source files, make sure to avoid leaving
+two spaces at the end of the line unless you want a line break to appear
+after it in your HTML output. See the example below.</p>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>This sentence is followed by two space characters in the source Markdown.  </span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>But this sentence is not.</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>Look where this sentence appears in the rendered output below.</span></code></pre>
+</div>
+<p>This sentence is followed by two space characters in the source
+Markdown.<br>
+But this sentence is not. Look where this sentence appears in the
+rendered output below.</p>
+</div>
+</section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="index.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
         <a class="chapter-link float-end" href="index.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
