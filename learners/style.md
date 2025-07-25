@@ -140,11 +140,16 @@ For comparison, here is the one-line equivalent to the example above:
 
 ## Line Length
 
-We recommend the use of [_Semantic Line Breaks_][sembr]
-with a maximum line length of 100 characters.
-As detailed in the Semantic Line Breaks specification,
+We recommend writing one complete sentence per line in source (R) Markdown files.
+Although this can result in some long lines, keeping complete sentences in a single line makes it easier to internationalise lessons via machine-assisted translation.
 
-> A line MAY exceed the maximum line length if necessary, 
-> such as to accommodate hyperlinks, code elements, or other markup.
+Most text editors can be configured to display long lines "wrapped" to the width of the screen, or to a maximum length specified by the user.
+This is sometimes referred to as "word wrap", "soft wrap", or "visual wrap", and can aid readability when working on lessons in your local environment.
+Below are links to guidance for activating line wrapping in several popular text editors/integrated development environments:
 
-[sembr]: https://sembr.org/
+* [Emacs](https://www.gnu.org/software/emacs/manual/html_node/emacs/Visual-Line-Mode.html)
+* [Notepad++](https://www.technipages.com/how-to-enable-word-wrap-in-notepad/)
+* [RStudio](https://support.posit.co/hc/en-us/articles/200549016-Customizing-the-RStudio-IDE#editing)
+* [Vim](https://stackoverflow.com/questions/36950231/auto-wrap-lines-in-vim-without-inserting-newlines)
+* [VS Code](https://stackoverflow.com/questions/31025502/how-can-i-switch-word-wrap-on-and-off-in-visual-studio-code)
+
