@@ -153,3 +153,18 @@ Below are links to guidance for activating line wrapping in several popular text
 * [Vim](https://stackoverflow.com/questions/36950231/auto-wrap-lines-in-vim-without-inserting-newlines)
 * [VS Code](https://stackoverflow.com/questions/31025502/how-can-i-switch-word-wrap-on-and-off-in-visual-studio-code)
 
+### A note about line breaks
+In Markdown, two spaces at the end of a line is interpreted as a line break (i.e. converted to `<br/>` in the output HTML).
+When ending a sentence in your source files, make sure to avoid leaving two spaces at the end of the line unless you want a line break to appear after it in your HTML output.
+See the example below.
+
+```markdown
+This sentence is followed by two space characters in the source Markdown.  
+But this sentence is not.
+Look where this sentence appears in the rendered output below.
+```
+
+This sentence is followed by two space characters in the source Markdown.  
+But this sentence is not.
+Look where this sentence appears in the rendered output below.
+
