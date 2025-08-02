@@ -54,6 +54,12 @@ echo '47 * 2' | bc
 
 Code fences written using R Markdown chunk notation will be highlighted and 
 executed:
+````r
+```{r}
+magic <- sprintf("47 plus 2 equals %d\n47 times 2 equals %d", 47 + 2, 47 * 2) 
+cat(magic)
+```
+````
 
 ```{r}
 magic <- sprintf("47 plus 2 equals %d\n47 times 2 equals %d", 47 + 2, 47 * 2) 
