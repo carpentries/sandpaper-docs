@@ -1097,7 +1097,7 @@ For automatic retrieval of the latest `glossary.yml` from Glosario's GitHub repo
 glosario: true
 ```
 
-For manual retrieval from a local (e.g. if you are working on your lesson offline) or remote location (e.g. providing a specific Glosario version), supply a string relative/absolute path or URL to the config:
+For manual retrieval from a local (e.g. working on your lesson offline) or remote location (e.g. providing a specific Glosario version), supply a string relative/absolute path or URL to the config:
 
 ```yaml
 # load a glossary from a local file using an absolute path
