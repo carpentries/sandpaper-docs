@@ -1147,7 +1147,7 @@ will be replaced with:
 
 `[data_structure](https://glosario.carpentries.org/de/#data_structure)`
 
-If the term is not available in that language, a warning will be printed when the lesson builds, and it will fall back to English.
+If the term is not available in that language, a warning will be printed when the lesson builds, and it will default back to English.
 
 ::::::::::::::::::::::
 
