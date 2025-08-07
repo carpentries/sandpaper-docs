@@ -1179,7 +1179,7 @@ In the first example, `{{ glosario.data_structure }}` adds a `data_structure` li
 
 In the second example, a typical markdown link will be inserted.
 
-In either case, sandpaper will find these links and add them to the global `reference.md` page in your lesson, built as `reference.html`, and linked in the top lesson menu as `Glosarry`:
+In either case, sandpaper will find these links and add them to the global `reference.md` page in your lesson, built as `reference.html`, and linked in the top lesson menu as `Glossary`:
 
 ![Example of automatic inclusion of Glosario links in the Glossary page](fig/glosario-glossary-page.png){alt='Screenshot of a lesson with Glosario links in the Glossary reference page.'}
 
