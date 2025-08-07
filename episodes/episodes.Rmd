@@ -1091,7 +1091,7 @@ Cool, right?
 
 Firstly, to enable this behaviour, the `glosario` key needs to be added to a lesson's `config.yaml`.
 
-For automatic retrieval of the latest `glossary.yml` from Glosario's GitHub repository, simply set:
+For automatic retrieval of the latest `glossary.yml` from Glosario's GitHub repository, set:
 
 ```yaml
 glosario: true
