@@ -1112,18 +1112,6 @@ glosario: "https://foo.com/glossary.yml"
 
 ### Lesson content
 
-For example, the [datacarpentry/spreadsheet-ecology-lesson](https://github.com/datacarpentry/spreadsheet-ecology-lesson/blob/main/episodes/01-format-data.md) contains the following markdown:
-
-```
-The most common mistake made is treating spreadsheet programs like lab notebooks, that is, relying on context,
-notes in the margin, spatial layout of data and fields to convey information. As humans, we can (usually) interpret
-these things, but computers don't view information the same way, and unless we explain to the computer what
-every single thing means (and that can be hard!), it will not be able to see how our data fits together.
-
-Using the power of computers, we can manage and analyze data in much more effective and faster ways, but to
-use that power, we have to set up our data for the computer to be able to understand it (and computers are very literal).
-```
-
 A lesson maintainer/contributor can add placeholders into the main content of lessons that sandpaper will subsequently process.
 
 Sandpaper understands links to Glosario terms in two ways, either a template-style term, or a hard link to the term page, i.e.:
@@ -1153,7 +1141,9 @@ If the term is not available in that language, a warning will be printed when th
 
 ### Example output
 
-In the first example, to add a glosario link to the term `data structure` at the URL `https://glosario.carpentries.org/en/#data_structure`, the markdown becomes:
+To look at a specific example, the [datacarpentry/spreadsheet-ecology-lesson](https://github.com/datacarpentry/spreadsheet-ecology-lesson/blob/main/episodes/01-format-data.md) can be edited to include Glosario links.
+
+To add a glosario link to the term `data structure` at the URL `https://glosario.carpentries.org/en/#data_structure`, the markdown becomes:
 
 ```
 The most common mistake made is treating spreadsheet programs like lab notebooks, that is, relying on context,
