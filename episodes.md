@@ -14,6 +14,7 @@ exercises: 2
 - What syntax do you use to write links?
 - How do you include images?
 - How do you include math?
+- How do you include Glosario terms?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -1082,12 +1083,109 @@ pie(
 
 ## Math
 
-One of our episodes contains $\LaTeX$ equations when describing how to create
-dynamic reports with {knitr}, so we now use mathjax to describe this:
+One of our episodes contains $\LaTeX$ equations when describing how to create dynamic reports with {knitr}, so we now use mathjax to describe this:
 
 `$\alpha = \dfrac{1}{(1 - \beta)^2}$` becomes: $\alpha = \dfrac{1}{(1 - \beta)^2}$
 
 Cool, right?
+
+
+## Glosario Terms
+
+[Glosario](https://glosario.carpentries.org) is the Carpentries data science glossary that is developed by the international community, providing terms, definitions and translations to make lessons more accessible.
+
+{sandpaper} can automatically generate glossary links in lessons from links to Glosario terms in lesson content markdown.
+
+### Configuration
+
+Firstly, to enable this behaviour, the `glosario` key needs to be added to a lesson's `config.yaml`.
+
+For automatic retrieval of the latest `glossary.yml` from Glosario's GitHub repository, set:
+
+```yaml
+glosario: true
+```
+
+For manual retrieval from a local (e.g. working on your lesson offline) or remote location (e.g. providing a specific Glosario version), supply a string relative/absolute path or URL to the config:
+
+```yaml
+# load a glossary from a local file using an absolute path
+glosario: "/path/to/your/glossary.yml"
+
+# load a glossary from a local file using path relative to the lesson
+glosario: "../glossary.yml"
+
+# load a glossary from a remote location
+glosario: "https://foo.com/glossary.yml"
+```
+
+### Lesson content
+
+A lesson maintainer/contributor can add placeholders into the main content of lessons that sandpaper will subsequently process.
+
+Sandpaper understands links to Glosario terms in two ways, either a template-style term, or a hard link to the term page, i.e.:
+
+- `{{ glosario.<term> }}`
+- `[<term>](https://glosario.carpentries.org/en/#<term>)`
+
+:::::::::::::: callout
+
+## Automatic language selection
+
+When using the template-style term, sandpaper will automatically generate the URL link using the language specified in the `config.yaml` `lang` setting.
+
+When using the markdown link style, sandpaper will automatically replace the `en/` in the link with the language specified in the `config.yaml` `lang` setting.
+
+For example, if the `config.yaml` language is set to `lang: de`:
+
+`[data_structure](https://glosario.carpentries.org/en/#data_structure)`
+
+will be replaced with:
+
+`[data_structure](https://glosario.carpentries.org/de/#data_structure)`
+
+If the term is not available in that language, a warning will be printed when the lesson builds, and it will default back to English.
+
+::::::::::::::::::::::
+
+### Example output
+
+To look at a specific example, the [datacarpentry/spreadsheet-ecology-lesson](https://github.com/datacarpentry/spreadsheet-ecology-lesson/blob/main/episodes/01-format-data.md) can be edited to include Glosario links.
+
+To add a glosario link to the term `data structure` at the URL `https://glosario.carpentries.org/en/#data_structure`, the markdown becomes:
+
+```
+The most common mistake made is treating spreadsheet programs like lab notebooks, that is, relying on context,
+notes in the margin, spatial layout of data and fields to convey information. As humans, we can (usually) interpret
+these things, but computers don't view information the same way, and unless we explain to the computer what
+every single thing means (and that can be hard!), it will not be able to see how our data fits together. This is called
+the data structure {{ glosario.data_structure }}.
+```
+
+Similarly, to add a link using the inline markdown link syntax, the markdown becomes:
+
+```
+Using the power of computers, we can manage and analyze data in much more effective and faster ways, but to
+use that power, we have to set up our data for the computer to be able to understand it
+(and computers are very [literal](https://glosario.carpentries.org/en/#literal)).
+```
+
+Once the lesson is built, this will produce the following output:
+
+![Example of superscript and inline Glosario link generation](fig/glosario-link-example.png){alt='Screenshot of a lesson with a Glosario link as a superscript and an inline link.'}
+
+In the first example, `{{ glosario.data_structure }}` adds a `data_structure` link as a superscript inline.
+
+In the second example, a typical markdown link will be inserted.
+
+In either case, sandpaper will find these links and add them to the global `reference.md` page in your lesson, built as `reference.html`, and linked in the top lesson menu as `Glossary`:
+
+![Example of automatic inclusion of Glosario links in the Glossary page](fig/glosario-glossary-page.png){alt='Screenshot of a lesson with Glosario links in the Glossary reference page.'}
+
+### Unavailable terms
+
+Users will receive a warning when using terms that are not in the currently selected config.yaml language for the lesson:
+
 
 :::::::::::::::: keypoints :::::::::::::::::::::
 
@@ -1104,4 +1202,3 @@ Cool, right?
   current working proposal is to call these "chapters".
 [^worry]: Do not worry if you aren't comfortable yet, that's what we will show
   you in this episode!
-
