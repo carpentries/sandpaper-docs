@@ -178,7 +178,7 @@ jobs:
 
       - name: "Validate Current Org and Workflow"
         id: validate-org-workflow
-        uses: carpentries/actions/validate-org-workflow@main
+        uses: carpentries/actions/validate-org-workflow@frog-s3-test-1
         with:
           repo: ${{ github.repository }}
           workflow: ${{ github.workflow }}
