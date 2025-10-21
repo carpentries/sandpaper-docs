@@ -47,6 +47,7 @@ jobs:
         with:
           role-to-assume: ${{ secrets.AWS_GH_OIDC_ARN }}
           aws-region: ${{ secrets.AWS_GH_OIDC_REGION }}
+          WORKBENCH_TAG: ${{ vars.WORKBENCH_TAG || 'latest' }}
 
   no-renv-cache-used:
     name: "No renv cache used"
@@ -131,17 +132,9 @@ jobs:
 
       - name: Get Container Version Used
         id: wb-vers
-        uses: carpentries/actions/container-version@main
+        uses: carpentries/actions/container-version@frog-s3-test-1
         with:
           WORKBENCH_TAG: ${{ vars.WORKBENCH_TAG }}
-
-      # - name: Cache renv Directory
-      #   uses: actions/cache@v4
-      #   with:
-      #     path: /home/rstudio/lesson/renv
-      #     key: ${{ github.repository }}-${{ steps.wb-vers.outputs.container-version }}-renv-${{ needs.check-renv.outputs.renv-cache-hashsum }}
-      #     restore-keys:
-      #       ${{ github.repository }}-${{ steps.wb-vers.outputs.container-version }}-renv-
 
       - name: "Validate Current Org and Workflow"
         id: validate-org-workflow
@@ -160,7 +153,7 @@ jobs:
           output-credentials: true
 
       - name: Upload cache object to S3
-        uses: tespkg/actions-cache@v1.9.0
+        uses: carpentries/actions-cache@frog-matchedkey-1
         with:
           # insecure: false # optional, use http instead of https. default false
           accessKey: ${{ steps.aws-creds.outputs.aws-access-key-id }}
@@ -170,9 +163,9 @@ jobs:
           path: |
             /home/rstudio/lesson/renv
             /usr/local/lib/R/site-library
-          key: ${{ github.repository }}-${{ steps.wb-vers.outputs.container-version }}-renv-${{ needs.check-renv.outputs.renv-cache-hashsum }}
+          key: ${{ github.repository }}/${{ steps.wb-vers.outputs.container-version }}_renv-${{ needs.check-renv.outputs.renv-cache-hashsum }}
           restore-keys:
-            ${{ github.repository }}-${{ steps.wb-vers.outputs.container-version }}-renv-
+            ${{ github.repository }}/${{ steps.wb-vers.outputs.container-version }}_renv-
 
   # trigger the build deploy workflow if update-renv-cache was successful
   trigger-build-deploy:
