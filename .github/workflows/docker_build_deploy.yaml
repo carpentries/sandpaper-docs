@@ -77,6 +77,12 @@ jobs:
         run: |
           # Compare current and last workbench versions #
           if [[ ${{ needs.preflight.outputs.renv-needed }} == 'true' && ${{ needs.preflight.outputs.wb-vers != needs.preflight.outputs.last-wb-vers }} ]]; then
+            echo "## ⚠️ INFO: New Workbench version detected" >> $GITHUB_STEP_SUMMARY
+            echo "A new Docker version of the Workbench has been detected since the last build." >> $GITHUB_STEP_SUMMARY
+            echo "Previous Workbench version: ${{ needs.preflight.outputs.last-wb-vers }}" >> $GITHUB_STEP_SUMMARY
+            echo "Current Workbench version:  ${{ needs.preflight.outputs.wb-vers }}" >> $GITHUB_STEP_SUMMARY
+            echo "Requested renv cache not available for this new Workbench version, so the 02 Maintain: Check for Updated Packages workflow has been triggered." >> $GITHUB_STEP_SUMMARY
+
             echo "workbench-update=true" >> "$GITHUB_OUTPUT"
             gh workflow run update-cache.yaml
           else
@@ -155,3 +161,4 @@ jobs:
         uses: carpentries/actions/record-container-version@frog-s3-test-1
         with:
           CONTAINER_VER: ${{ needs.preflight.outputs.wb-vers }}
+          token: ${{ secrets.GITHUB_TOKEN }}
