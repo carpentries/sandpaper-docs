@@ -37,8 +37,8 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       do-build: ${{ steps.build-check.outputs.do-build }}
-      renv-needed: ${{ steps.build-check.outputs.renv-needed }}
-      renv-cache-hashsum: ${{ steps.build-check.outputs.renv-cache-hashsum || '' }}
+      renv-needed: ${{ steps.renv-check.outputs.renv-needed }}
+      renv-cache-hashsum: ${{ steps.renv-check.outputs.renv-cache-hashsum || '' }}
       workbench-container-file-exists: ${{ steps.wb-vers.outputs.workbench-container-file-exists }}
       wb-vers: ${{ steps.wb-vers.outputs.container-version }}
       last-wb-vers: ${{ steps.wb-vers.outputs.last-container-version }}
@@ -50,8 +50,15 @@ jobs:
         id: build-check
         uses: carpentries/actions/build-preflight@frog-s3-test-1
         with:
-          CACHE_VERSION: ${{ secrets.CACHE_VERSION || vars.CACHE_VERSION || github.event.inputs.CACHE_VERSION || '' }}
           WORKBENCH_TAG: ${{ vars.WORKBENCH_TAG || 'latest' }}
+
+      - name: "Is renv required?"
+        id: renv-check
+        if: ${{ steps.build-check.outputs.do-build == 'true' }}
+        uses: carpentries/actions/renv-checks@frog-s3-test-1
+        with:
+          CACHE_VERSION: ${{ secrets.CACHE_VERSION || vars.CACHE_VERSION || github.event.inputs.CACHE_VERSION || '' }}
+          skip-cache-check: true
 
       - name: Get container version used
         id: wb-vers
@@ -98,8 +105,8 @@ jobs:
     needs: [preflight, verify-wb]
     if: always() && ${{ needs.preflight.outputs.do-build == 'true' && needs.verify-wb.outputs.workbench-update != 'true' }}
     env:
-        RENV_EXISTS: ${{ needs.preflight.outputs.renv-needed }}
-        RENV_HASH: ${{ needs.preflight.outputs.renv-cache-hashsum }}
+      RENV_EXISTS: ${{ needs.preflight.outputs.renv-needed }}
+      RENV_HASH: ${{ needs.preflight.outputs.renv-cache-hashsum }}
     permissions:
       checks: write
       contents: write
