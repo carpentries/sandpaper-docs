@@ -76,7 +76,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Compare current and last workbench versions #
-          if [[ ${{ needs.preflight.outputs.renv-needed }} == 'true' && ${{ needs.preflight.outputs.wb-vers != needs.preflight.outputs.last-wb-vers }} ]]; then
+          if [[ ${{ needs.preflight.outputs.renv-needed }} == 'true' && ${{ needs.preflight.outputs.wb-vers != needs.preflight.outputs.last-wb-vers }} == 'true' ]]; then
             echo "## ⚠️ INFO: New Workbench version detected" >> $GITHUB_STEP_SUMMARY
             echo "A new Docker version of the Workbench has been detected since the last build." >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
