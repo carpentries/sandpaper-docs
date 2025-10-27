@@ -169,3 +169,5 @@ jobs:
         with:
           CONTAINER_VER: ${{ needs.preflight.outputs.wb-vers }}
           token: ${{ secrets.GITHUB_TOKEN }}
+          role-to-assume: ${{ secrets.AWS_GH_OIDC_ARN }}
+          aws-region: ${{ secrets.AWS_GH_OIDC_REGION }}
