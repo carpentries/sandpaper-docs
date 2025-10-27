@@ -37,6 +37,8 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       do-build: ${{ steps.build-check.outputs.do-build }}
+      renv-needed: ${{ steps.build-check.outputs.renv-needed }}
+      renv-cache-hashsum: ${{ steps.build-check.outputs.renv-cache-hashsum }}
       workbench-container-file-exists: ${{ steps.wb-vers.outputs.workbench-container-file-exists }}
       wb-vers: ${{ steps.wb-vers.outputs.container-version }}
       last-wb-vers: ${{ steps.wb-vers.outputs.last-container-version }}
@@ -47,8 +49,6 @@ jobs:
       - name: "Should we run build and deploy?"
         id: build-check
         uses: carpentries/actions/build-preflight@frog-s3-test-1
-        with:
-          WORKBENCH_TAG: ${{ vars.WORKBENCH_TAG || 'latest' }}
 
       - name: Get container version used
         id: wb-vers
@@ -57,41 +57,12 @@ jobs:
         with:
           WORKBENCH_TAG: ${{ vars.WORKBENCH_TAG }}
 
-  prepare-renv:
-    name: "Prepare R environment"
-    runs-on: ubuntu-latest
-    needs: preflight
-    outputs:
-      renv-needed: ${{ steps.renv-check.outputs.renv-needed }}
-      renv-cache-hashsum: ${{ steps.set-hash.outputs.renv-cache-hashsum || '' }}
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: "Is renv required?"
-        id: renv-check
-        if: ${{ needs.preflight.outputs.do-build == 'true' }}
-        uses: carpentries/actions/renv-checks@frog-s3-test-1
-        with:
-          CACHE_VERSION: ${{ vars.CACHE_VERSION || github.event.inputs.CACHE_VERSION || '' }}
-          skip-cache-check: true
-
-      - name: Calculate renv hash
-        id: set-hash
-        if: ${{ steps.renv-check.outputs.renv-needed == 'true' }}
-        run: |
-          CACHE_VERSION_INPUT="${{ vars.CACHE_VERSION || github.event.inputs.CACHE_VERSION }}"
-          if [ -z "$CACHE_VERSION_INPUT" ]; then
-            echo "renv-cache-hashsum=${{ hashFiles('renv/profiles/lesson-requirements/renv.lock') }}" >> $GITHUB_OUTPUT
-          else
-            echo "renv-cache-hashsum=$CACHE_VERSION_INPUT" >> $GITHUB_OUTPUT
-          fi
-
   verify-wb:
     name: "Verify Workbench Version"
     runs-on: ubuntu-latest
     outputs:
       workbench-update: ${{ steps.trigger-cache-update.outputs.workbench-update }}
-    needs: [preflight, prepare-renv]
+    needs: preflight
     steps:
       - uses: actions/checkout@v4
 
@@ -101,7 +72,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # Compare current and last workbench versions #
-          if [[ ${{ needs.prepare-renv.outputs.renv-needed }} == 'true' && ${{ needs.preflight.outputs.wb-vers != needs.preflight.outputs.last-wb-vers }} == 'true' ]]; then
+          if [[ ${{ needs.preflight.outputs.renv-needed }} == 'true' && ${{ needs.preflight.outputs.wb-vers != needs.preflight.outputs.last-wb-vers }} == 'true' ]]; then
             echo "## ⚠️ INFO: New Workbench version detected" >> $GITHUB_STEP_SUMMARY
             echo "A new Docker version of the Workbench has been detected since the last build." >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
@@ -120,11 +91,11 @@ jobs:
   full-build:
     name: "Build Full Site"
     runs-on: ubuntu-latest
-    needs: [preflight, prepare-renv, verify-wb]
+    needs: [preflight, verify-wb]
     if: always() && ${{ needs.preflight.outputs.do-build == 'true' && needs.verify-wb.outputs.workbench-update != 'true' }}
     env:
       RENV_EXISTS: ${{ needs.preflight.outputs.renv-needed }}
-      RENV_HASH: ${{ needs.prepare-renv.outputs.renv-cache-hashsum }}
+      RENV_HASH: ${{ needs.preflight.outputs.renv-cache-hashsum }}
     permissions:
       checks: write
       contents: write
@@ -142,8 +113,7 @@ jobs:
         - ${{ github.workspace }}:/home/rstudio/lesson
       options: --cpus 1
     steps:
-      - name: "Checkout Lesson"
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: "Debugging Info"
         run: |
@@ -162,7 +132,7 @@ jobs:
         id: build-container-deps
         uses: carpentries/actions/build-container-deps@frog-s3-test-1
         with:
-          CACHE_VERSION: ${{ secrets.CACHE_VERSION || vars.CACHE_VERSION || github.event.inputs.CACHE_VERSION || '' }}
+          CACHE_VERSION: ${{ vars.CACHE_VERSION || github.event.inputs.CACHE_VERSION || '' }}
           WORKBENCH_TAG: ${{ vars.WORKBENCH_TAG || 'latest' }}
           LESSON_PATH: ${{ vars.LESSON_PATH || '/home/rstudio/lesson' }}
           role-to-assume: ${{ secrets.AWS_GH_OIDC_ARN }}

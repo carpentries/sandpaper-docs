@@ -104,8 +104,7 @@ jobs:
         - ${{ github.workspace }}:/home/rstudio/lesson
       options: --cpus 2
     steps:
-      - name: "Checkout Lesson"
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Debugging Info
         run: |
