@@ -162,6 +162,7 @@ jobs:
       actions: write
       checks: write
       pull-requests: write
+      id-token: write # OIDC permission required
     if: always() && ${{ needs.preflight.outputs.workbench-container-file-exists == 'false' || (needs.full-build.build-and-deploy.outcome == 'success' && needs.preflight.outputs.wb-vers != needs.preflight.outputs.last-wb-vers) }}
     steps:
       - name: Record container version used
