@@ -43,6 +43,8 @@ jobs:
       wb-vers: ${{ steps.wb-vers.outputs.container-version }}
       last-wb-vers: ${{ steps.wb-vers.outputs.last-container-version }}
       workbench-update: ${{ steps.wb-vers.outputs.workbench-update }}
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: "Should we run build and deploy?"
         id: build-check
@@ -55,7 +57,6 @@ jobs:
         with:
           WORKBENCH_TAG: ${{ vars.WORKBENCH_TAG }}
           renv-needed: ${{ steps.build-check.outputs.renv-needed }}
-          token: ${{ secrets.GITHUB_TOKEN }}
 
   full-build:
     name: "Build Full Site"
