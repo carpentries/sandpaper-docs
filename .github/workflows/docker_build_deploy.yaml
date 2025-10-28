@@ -42,57 +42,26 @@ jobs:
       workbench-container-file-exists: ${{ steps.wb-vers.outputs.workbench-container-file-exists }}
       wb-vers: ${{ steps.wb-vers.outputs.container-version }}
       last-wb-vers: ${{ steps.wb-vers.outputs.last-container-version }}
-    env:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+      workbench-update: ${{ steps.wb-vers.outputs.workbench-update }}
     steps:
       - name: "Should we run build and deploy?"
         id: build-check
         uses: carpentries/actions/build-preflight@frog-s3-test-1
 
-      - name: Get container version used
+      - name: Get container version info
         id: wb-vers
         if: ${{ steps.build-check.outputs.do-build == 'true' }}
         uses: carpentries/actions/container-version@frog-s3-test-1
         with:
           WORKBENCH_TAG: ${{ vars.WORKBENCH_TAG }}
-
-  verify-wb:
-    name: "Verify Workbench Version"
-    runs-on: ubuntu-latest
-    outputs:
-      workbench-update: ${{ steps.trigger-cache-update.outputs.workbench-update }}
-    needs: preflight
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: "Trigger Update Cache Workflow?"
-        id: trigger-cache-update
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # Compare current and last workbench versions #
-          if [[ ${{ needs.preflight.outputs.renv-needed }} == 'true' && ${{ needs.preflight.outputs.wb-vers != needs.preflight.outputs.last-wb-vers }} == 'true' ]]; then
-            echo "## ⚠️ INFO: New Workbench version detected" >> $GITHUB_STEP_SUMMARY
-            echo "A new Docker version of the Workbench has been detected since the last build." >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
-            echo "Previous Workbench version: ${{ needs.preflight.outputs.last-wb-vers }}" >> $GITHUB_STEP_SUMMARY
-            echo "Current Workbench version:  ${{ needs.preflight.outputs.wb-vers }}" >> $GITHUB_STEP_SUMMARY
-            echo "" >> $GITHUB_STEP_SUMMARY
-            echo "Requested renv cache not available for this new Workbench version, so the 02 Maintain: Check for Updated Packages workflow has been triggered." >> $GITHUB_STEP_SUMMARY
-
-            echo "workbench-update=true" >> "$GITHUB_OUTPUT"
-            gh workflow run update-cache.yaml
-          else
-            echo "workbench-update=false" >> "$GITHUB_OUTPUT"
-          fi
-        shell: bash
+          renv-needed: ${{ steps.build-check.outputs.renv-needed }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
   full-build:
     name: "Build Full Site"
     runs-on: ubuntu-latest
-    needs: [preflight, verify-wb]
-    if: always() && ${{ needs.preflight.outputs.do-build == 'true' && needs.verify-wb.outputs.workbench-update != 'true' }}
+    needs: preflight
+    if: always() && ${{ needs.preflight.outputs.do-build == 'true' && needs.preflight.outputs.workbench-update != 'true' }}
     env:
       RENV_EXISTS: ${{ needs.preflight.outputs.renv-needed }}
       RENV_HASH: ${{ needs.preflight.outputs.renv-cache-hashsum }}
