@@ -21,7 +21,7 @@ on:
         required: false
         default: false
         type: boolean
-      skip_manage_deps:
+      skip-manage-deps:
         description: 'Skip build-time dependency management'
         required: false
         default: true
@@ -110,13 +110,10 @@ jobs:
 
       - name: Run Container and Build Site
         id: build-and-deploy
-        run: |
-          library(sandpaper)
-          reset <- "${{ github.event.inputs.reset }}" == "true"
-          skip_manage_deps <- "${{ github.event.inputs.skip_manage_deps }}" == "true"
-          sandpaper::package_cache_trigger(TRUE)
-          sandpaper:::ci_deploy(reset = reset, skip_manage_deps = skip_manage_deps)
-        shell: Rscript {0}
+        uses: carpentries/actions/build-and-deploy@frog-s3-test-1
+        with:
+          reset: ${{ github.event.inputs.reset }}
+          skip-manage-deps: ${{ github.event.inputs.skip-manage-deps }}
 
   update-container-version:
     name: "Update container version used"
