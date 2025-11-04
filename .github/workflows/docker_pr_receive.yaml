@@ -57,7 +57,6 @@ jobs:
           echo ${{ github.event.number }} > ${{ github.workspace }}/NR
           echo "NR=${{ github.event.number }}" >> $GITHUB_ENV
           echo "PR_BRANCH=$(gh -R ${{ github.repository }} pr view ${{ github.event.number }} --json headRefName --jq '.headRefName')" >> $GITHUB_ENV
-          echo "gh -R ${{ github.repository }} pr view ${{ github.event.number }} --json headRefName --jq '.headRefName' -> '${{ env.PR_BRANCH }}'"
 
       - name: "Manual: Grab PR"
         if: ${{ github.event_name == 'workflow_dispatch' }}
