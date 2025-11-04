@@ -149,7 +149,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: md-outputs
-          path: ${{ env.GHWMD }}
+          # path: ${{ env.GHWMD }}
+          path: /home/rstudio/lesson/site/built
 
       - name: Mark Repository as Safe
         run: |
