@@ -142,15 +142,14 @@ jobs:
     steps:
       - name: "Check Out PR Branch"
         uses: actions/checkout@v4
-        with:
-          ref: ${{ env.PR_BRANCH }}
+        # with:
+        #   ref: ${{ env.PR_BRANCH }}
 
       - name: "Check Out Staging Branch"
         uses: actions/checkout@v4
         with:
           ref: md-outputs
-          # path: ${{ env.GHWMD }}
-          path: /home/rstudio/lesson/site/built
+          path: ${{ env.GHWMD }}
 
       - name: Mark Repository as Safe
         run: |
