@@ -34,7 +34,6 @@ jobs:
       number: ${{ steps.get-pr.outputs.NUM }}
       msg: ${{ steps.check-pr.outputs.MSG }}
     steps:
-
       - name: 'Download PR artifact'
         id: dl
         uses: carpentries/actions/download-workflow-artifact@main
@@ -55,6 +54,9 @@ jobs:
         run: |
           echo '::error::A pull request number was not recorded. The pull request that triggered this workflow is likely malicious.'
           exit 1
+
+      - name: "Checkout Lesson"
+        uses: actions/checkout@v4
 
       - name: Verify committed files
         id: changed-files
