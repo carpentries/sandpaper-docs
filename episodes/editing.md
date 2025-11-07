@@ -163,6 +163,38 @@ The rendered lesson will display your logo file with alternative text that match
 title
 : The main title of the lesson
 
+lang
+: Two letter code for the language used for headers, callouts and other workbench elements. Defaults to `en` for English.
+
+languages
+: If the lesson is available in more than one language you can use this setting to provide a drop-down menu to navigate between languages. This option can also be used to link between different flavors of the same material (e.g. Python vs R, GitHub vs GitLab)
+
+::::::::::: callout
+
+### Offering 4 languages, English, Spanish, German and Italian
+
+The default language is English and is indicated by the `lang` attribute.
+The `languages` attribute specifies the names in the drop-down menu and links to access the alternative content.
+
+1. Add `lang: en` to indicate that the current lesson is in English
+1. Indicate the `default` language to be English, shown as the default option in the drop-down.
+1. Provide `other` languages, their description and a link to the corresponding location.
+
+```yaml
+languages:
+  default: English
+  other:
+    - lang: "Español"
+      url: https://swcarpentry.github.io/shell-novice-es/
+    - lang: Deutsch
+      url: https://swcarpentry.github.io/shell-novice-de/
+    - lang: Italiano
+      url: https://swcarpentry.github.io/shell-novice-it/
+```
+
+:::::::::::::::::::
+
+
 life_cycle
 : What life cycle is the lesson in? (pre-alpha, alpha, beta, stable)
 
