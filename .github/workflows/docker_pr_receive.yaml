@@ -52,7 +52,7 @@ jobs:
       - name: "Auto: Grab PR"
         if: ${{ github.event_name == 'pull_request' }}
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo ${{ github.event.number }} > ${{ github.workspace }}/NR
           echo "NR=${{ github.event.number }}" >> $GITHUB_ENV
@@ -61,7 +61,7 @@ jobs:
       - name: "Manual: Grab PR"
         if: ${{ github.event_name == 'workflow_dispatch' }}
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo ${{ inputs.pr_number }} > ${{ github.workspace }}/NR
           echo "NR=${{ inputs.pr_number }}" >> $GITHUB_ENV
@@ -123,6 +123,7 @@ jobs:
       GHWMD: ${{ github.workspace }}/site/built
       PR_BRANCH: ${{ needs.test-pr.outputs.pr_branch }}
       PR_NUMBER: ${{ needs.test-pr.outputs.pr_number }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     permissions:
       checks: write
       contents: write
@@ -133,17 +134,17 @@ jobs:
       env:
         WORKBENCH_PROFILE: "ci"
         GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         RENV_PATHS_ROOT: /home/rstudio/lesson/renv
         RENV_PROFILE: "lesson-requirements"
         RENV_CONFIG_EXTERNAL_LIBRARIES: "/usr/local/lib/R/site-library"
       volumes:
         - ${{ github.workspace }}:/home/rstudio/lesson
       options: --cpus 2
+    outputs:
+      workbench-update: ${{ steps.wb-vers.outputs.workbench-update }}
     steps:
-      - name: "Check Out PR Branch"
-        uses: actions/checkout@v4
-        # with:
-        #   ref: ${{ env.PR_BRANCH }}
+      - uses: actions/checkout@v4
 
       - name: "Check Out Staging Branch"
         uses: actions/checkout@v4
@@ -260,24 +261,40 @@ jobs:
         shell: Rscript {0}
 
   pr-checks:
-    name: "Trigger PR Checks"
+    name: "Trigger PR Checks?"
     needs:
       - test-pr
       - build-md-source
     runs-on: ubuntu-latest
     if: ${{ needs.test-pr.outputs.is_valid == 'true' }}
     permissions:
-      contents: read
       actions: write
       checks: write
-      pull-requests: write
     steps:
       - name: "Checkout Lesson"
         uses: actions/checkout@v4
 
       - name: "Trigger PR Checks"
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh workflow run pr-comment.yaml --field workflow_id=${{ github.run_id }}
+          gh workflow run pr-comment.yaml --ref main --field workflow_id=${{ github.run_id }}
+        shell: bash
+
+  cache-update:
+    name: "Trigger Update Cache Workflow?"
+    needs:
+      - check-renv
+      - build-md-source
+    runs-on: ubuntu-latest
+    if: ${{ needs.check-renv.outputs.renv-needed == 'true' && needs.build-md-source.outputs.workbench-update == 'true' && needs.build-md-source.build-site.outcome == 'success' }}
+    permissions:
+      actions: write
+      checks: write
+    steps:
+      - name: "Trigger renv rebuild"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh workflow run update-cache.yaml
         shell: bash

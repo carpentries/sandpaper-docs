@@ -85,6 +85,7 @@ jobs:
     if: ${{ needs.check-renv.outputs.renv-needed == 'true' }}
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       RENV_PATHS_ROOT: ~/.local/share/renv/
     steps:
       - name: "Checkout Lesson"
@@ -187,8 +188,6 @@ jobs:
 
       - name: "Trigger Apply Cache Workflow"
         if: ${{ steps.update.outputs.n == 0 }}
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh workflow run docker_apply_cache.yaml
         shell: bash
@@ -197,8 +196,6 @@ jobs:
       # only trigger checks manually if the validate-token step had no valid AWS or SANDPAPER_WORKFLOW token
       - name: "Trigger checks"
         if: ${{ steps.cpr.outputs.pull-request-number != '' && steps.validate-token.outputs.wf != 'true'}}
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh workflow run docker_pr_receive.yaml --field pr_number=${{ steps.cpr.outputs.pull-request-number }}
         shell: bash
