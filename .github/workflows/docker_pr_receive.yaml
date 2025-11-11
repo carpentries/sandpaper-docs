@@ -50,7 +50,7 @@ jobs:
       pr_branch: ${{ env.PR_BRANCH }}
     steps:
       - name: "Auto: Grab PR"
-        if: ${{ github.event_name == 'pull_request' }}
+        if: github.event_name == 'pull_request'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -116,7 +116,7 @@ jobs:
       - test-pr
       - check-renv
     runs-on: ubuntu-latest
-    if: ${{ needs.test-pr.outputs.is_valid == 'true' }}
+    if: needs.test-pr.outputs.is_valid == 'true'
     env:
       CHIVE: ${{ github.workspace }}/site/chive
       PR: ${{ github.workspace }}/site/pr
@@ -169,7 +169,7 @@ jobs:
 
       - name: Get Container Version Used
         id: wb-vers
-        if: ${{ needs.check-renv.outputs.renv-needed == 'true' }}
+        if: needs.check-renv.outputs.renv-needed == 'true'
         uses: carpentries/actions/container-version@frog-s3-test-1
         with:
           WORKBENCH_TAG: ${{ vars.WORKBENCH_TAG }}
@@ -177,7 +177,7 @@ jobs:
 
       - name: "Validate Current Org and Workflow"
         id: validate-org-workflow
-        if: ${{ needs.check-renv.outputs.renv-needed == 'true' }}
+        if: needs.check-renv.outputs.renv-needed == 'true'
         uses: carpentries/actions/validate-org-workflow@frog-s3-test-1
         with:
           repo: ${{ github.repository }}
@@ -185,7 +185,9 @@ jobs:
 
       - name: Configure AWS credentials via OIDC
         id: aws-creds
-        if: ${{ steps.validate-org-workflow.outputs.is_valid == 'true' && needs.check-renv.outputs.renv-needed == 'true' }}
+        if: |
+          steps.validate-org-workflow.outputs.is_valid == 'true'
+          needs.check-renv.outputs.renv-needed == 'true'
         uses: aws-actions/configure-aws-credentials@v5.0.0
         with:
           role-to-assume: ${{ secrets.AWS_GH_OIDC_ARN }}
@@ -195,7 +197,7 @@ jobs:
       - name: Get cache object from S3
         id: s3-cache
         uses: carpentries/actions-cache@frog-matchedkey-1
-        if: ${{ needs.check-renv.outputs.renv-needed == 'true' }}
+        if: needs.check-renv.outputs.renv-needed == 'true'
         with:
           # insecure: false # optional, use http instead of https. default false
           accessKey: ${{ steps.aws-creds.outputs.aws-access-key-id }}
@@ -210,7 +212,9 @@ jobs:
             ${{ github.repository }}/${{ steps.wb-vers.outputs.container-version }}_renv-
 
       - name: "Fortify renv Cache"
-        if: ${{ needs.check-renv.outputs.renv-needed == 'true' && steps.s3-cache.outputs.cache-hit != 'true'}}
+        if: |
+          needs.check-renv.outputs.renv-needed == 'true' &&
+          steps.s3-cache.outputs.cache-hit != 'true'
         run: |
           Rscript /home/rstudio/.workbench/fortify_renv_cache.R
 
@@ -266,7 +270,7 @@ jobs:
       - test-pr
       - build-md-source
     runs-on: ubuntu-latest
-    if: ${{ needs.test-pr.outputs.is_valid == 'true' }}
+    if: needs.test-pr.outputs.is_valid == 'true'
     permissions:
       actions: write
       checks: write
@@ -287,7 +291,10 @@ jobs:
       - check-renv
       - build-md-source
     runs-on: ubuntu-latest
-    if: ${{ needs.check-renv.outputs.renv-needed == 'true' && needs.build-md-source.outputs.workbench-update == 'true' && needs.build-md-source.build-site.outcome == 'success' }}
+    if: |
+      needs.check-renv.outputs.renv-needed == 'true' &&
+      needs.build-md-source.outputs.workbench-update == 'true' &&
+      needs.build-md-source.build-site.outcome == 'success'
     permissions:
       actions: write
       checks: write
