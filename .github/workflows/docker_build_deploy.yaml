@@ -46,7 +46,7 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - name: "Should we run build and deploy?""
+      - name: "Should we run build and deploy?"
         id: build-check
         uses: carpentries/actions/build-preflight@frog-s3-test-1
 
