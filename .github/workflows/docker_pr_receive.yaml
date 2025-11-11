@@ -186,7 +186,7 @@ jobs:
       - name: Configure AWS credentials via OIDC
         id: aws-creds
         if: |
-          steps.validate-org-workflow.outputs.is_valid == 'true'
+          steps.validate-org-workflow.outputs.is_valid == 'true' &&
           needs.check-renv.outputs.renv-needed == 'true'
         uses: aws-actions/configure-aws-credentials@v5.0.0
         with:
