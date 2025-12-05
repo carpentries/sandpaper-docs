@@ -164,15 +164,16 @@ title
 : The main title of the lesson
 
 lang
-: Two letter code for the language used for headers, callouts and other workbench elements. Defaults to `en` for English.
+: Two letter code for the language used for headers, callouts and other Workbench elements. Defaults to `en` for English.
 
 languages
 : If the lesson is available in more than one language you can use this setting to provide a drop-down menu to navigate between languages. This option can also be used to link between different flavors of the same material (e.g. Python vs R, GitHub vs GitLab)
 
 ::::::::::: callout
 
-### Offering 4 languages, English, Spanish, German and Italian
+### Offering 4 languages: English, Spanish, German and Italian
 
+An example to illustrate the usage of `lang` and `languages` in a lesson `config.yaml`.
 The default language is English and is indicated by the `lang` attribute.
 The `languages` attribute specifies the names in the drop-down menu and links to access the alternative content.
 
