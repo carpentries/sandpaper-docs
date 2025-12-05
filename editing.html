@@ -344,7 +344,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Editing a {sandpaper} lesson</h1>
-        <p>Last updated on 2025-10-21 |
+        <p>Last updated on 2025-12-05 |
 
         <a href="https://github.com/carpentries/sandpaper-docs/edit/main/episodes/editing.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -457,7 +457,7 @@ preview the lesson again.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>What you should notice is that the only file updated when you
 re-render the lesson is the file you changed
@@ -558,7 +558,55 @@ name. E.g. “Ice Cream Carpentry” instead of “ice-cream”.</p>
 <dd>
 The main title of the lesson
 </dd>
-<dt>life_cycle</dt>
+<dt>lang</dt>
+<dd>
+Two letter code for the language used for headers, callouts and other
+Workbench elements. Defaults to <code>en</code> for English.
+</dd>
+<dt>languages</dt>
+<dd>
+If the lesson is available in more than one language you can use this
+setting to provide a drop-down menu to navigate between languages. This
+option can also be used to link between different flavors of the same
+material (e.g. Python vs R, GitHub vs GitLab)
+</dd>
+</dl><div id="offering-4-languages-english-spanish-german-and-italian" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="offering-4-languages-english-spanish-german-and-italian" class="callout-inner">
+<h3 class="callout-title">Offering 4 languages: English, Spanish, German
+and Italian</h3>
+<div class="callout-content">
+<p>An example to illustrate the usage of <code>lang</code> and
+<code>languages</code> in a lesson <code>config.yaml</code>. The default
+language is English and is indicated by the <code>lang</code> attribute.
+The <code>languages</code> attribute specifies the names in the
+drop-down menu and links to access the alternative content.</p>
+<ol style="list-style-type: decimal"><li>Add <code>lang: en</code> to indicate that the current lesson is in
+English</li>
+<li>Indicate the <code>default</code> language to be English, shown as
+the default option in the drop-down.</li>
+<li>Provide <code>other</code> languages, their description and a link
+to the corresponding location.</li>
+</ol><div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">languages</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="at">  </span><span class="fu">default</span><span class="kw">:</span><span class="at"> English</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="at">  </span><span class="fu">other</span><span class="kw">:</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">lang</span><span class="kw">:</span><span class="at"> </span><span class="st">"Español"</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="at">      </span><span class="fu">url</span><span class="kw">:</span><span class="at"> https://swcarpentry.github.io/shell-novice-es/</span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">lang</span><span class="kw">:</span><span class="at"> Deutsch</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="at">      </span><span class="fu">url</span><span class="kw">:</span><span class="at"> https://swcarpentry.github.io/shell-novice-de/</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">lang</span><span class="kw">:</span><span class="at"> Italiano</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="at">      </span><span class="fu">url</span><span class="kw">:</span><span class="at"> https://swcarpentry.github.io/shell-novice-it/</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<dl><dt>life_cycle</dt>
 <dd>
 What life cycle is the lesson in? (pre-alpha, alpha, beta, stable)
 </dd>
@@ -606,14 +654,14 @@ alphabetical order is used. To list items, add a new line with a hyphen
 and a space preceding the item name (<code>-</code>). For example, if I
 wanted to have the episodes called “one.md”, “two.Rmd”, “three.md”, and
 “four.md” in numerical order, I would use:</p>
-<div class="codewrapper sourceCode" id="cb4">
+<div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">episodes</span><span class="kw">:</span></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="kw">-</span><span class="at"> one.md</span></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="kw">-</span><span class="at"> two.Rmd</span></span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="kw">-</span><span class="at"> three.md</span></span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="kw">-</span><span class="at"> four.md</span></span></code></pre>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">episodes</span><span class="kw">:</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="kw">-</span><span class="at"> one.md</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="kw">-</span><span class="at"> two.Rmd</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="kw">-</span><span class="at"> three.md</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="kw">-</span><span class="at"> four.md</span></span></code></pre>
 </div>
 <p>Below are the four possible fields {sandpaper} will recognize:</p>
 <dl><dt>episodes</dt>
@@ -666,7 +714,7 @@ change?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>The episodes appear in the same order as the configuration file and
 the timings have rearranged themselves to reflect that.</p>
@@ -697,19 +745,19 @@ own tracker script string. For legibility, use the <code>|</code> symbol
 to indicate that the value of the YAML field will be split across
 multiple indented lines (<a href="https://stackoverflow.com/a/21699210" class="external-link">known as a ‘literal block’
 in YAML</a>). For example, to configure for Google Analytics:</li>
-</ol><div class="codewrapper sourceCode" id="cb5">
+</ol><div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">analytics</span><span class="kw">: </span><span class="ch">|</span></span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>  &lt;!-- Global site tag (gtag.js) - Google Analytics --&gt;</span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a>  &lt;script async src='https://www.googletagmanager.com/gtag/js?id={YOUR TRACKING ID}#' &gt;&lt;/script&gt;</span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>  &lt;script&gt;</span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>    window.dataLayer = window.dataLayer || [];</span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>    function gtag(){dataLayer.push(arguments);}</span>
-<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a>    gtag('js', new Date());</span>
-<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>    gtag('config', '{YOUR TRACKING ID}');</span>
-<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a>  &lt;/script&gt;</span></code></pre>
+<pre class="sourceCode yaml" tabindex="0"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">analytics</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>  &lt;!-- Global site tag (gtag.js) - Google Analytics --&gt;</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>  &lt;script async src='https://www.googletagmanager.com/gtag/js?id={YOUR TRACKING ID}#' &gt;&lt;/script&gt;</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>  &lt;script&gt;</span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>    window.dataLayer = window.dataLayer || [];</span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>    function gtag(){dataLayer.push(arguments);}</span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>    gtag('js', new Date());</span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>    gtag('config', '{YOUR TRACKING ID}');</span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>  &lt;/script&gt;</span></code></pre>
 </div>
 <p>Tracking scripts configured with the <code>analytics</code> option
 are added to the footer element of the lesson website HTML.</p>
@@ -720,7 +768,7 @@ episodes, figures, and data files needed for the lesson. By default, it
 will contain an episode called introduction.Rmd. You can edit this file
 to use as your introduction. To create a new Markdown episode, use the
 folowing function:</p>
-<div class="codewrapper sourceCode" id="cb6">
+<div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -734,7 +782,7 @@ in <code>config.yaml</code>, which serves as the table of contents.</p>
 <p>If you want to create an episode, but are not yet ready to render or
 publish it, you can create a draft using the <code>draft_episode</code>
 family of functions:</p>
-<div class="codewrapper sourceCode" id="cb7">
+<div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -748,7 +796,7 @@ without the need to publish it.</p>
 <p>When you are ready to publish an episode or want to move an existing
 episode to a new place, you can use <code>move_episode()</code> to pull
 up an interactive menu for moving the episode.</p>
-<div class="codewrapper sourceCode" id="cb8">
+<div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -805,11 +853,11 @@ file in this folder. The format of the glossary section of the
 list</a>. Definition lists are formatted as two lines for each term, the
 first includes the term to be defined and then the second line starts
 with a “:” and a space then the definition. i.e.</p>
-<div class="codewrapper sourceCode" id="cb10">
+<div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">MARKDOWN<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a>term</span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>: definition</span></code></pre>
+<pre class="sourceCode markdown" tabindex="0"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>term</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>: definition</span></code></pre>
 </div>
 <dl><dt>term</dt>
 <dd>
@@ -852,7 +900,7 @@ appropriate type for a lesson</a>.)</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Example CFF for this lesson </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
 <pre><code>cff-version: 1.2.0
 title: Introduction to The Carpentries Workbench
@@ -934,7 +982,7 @@ wanting to cite your lesson in their publications/projects.</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler2" aria-expanded="false" aria-controls="collapseSpoiler2">
   <h3 class="accordion-header" id="headingSpoiler2">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Example plain text CITATION file </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
 <div class="accordion-body">
 <pre><code>Please cite this lesson as:
 
@@ -1025,9 +1073,9 @@ Markdown</li>
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/sandpaper-docs/editing.html",
   "identifier": "https://carpentries.github.io/sandpaper-docs/editing.html",
-  "dateCreated": "2025-11-20",
-  "dateModified": "2025-10-21",
-  "datePublished": "2025-12-02"
+  "dateCreated": "2025-12-05",
+  "dateModified": "2025-12-05",
+  "datePublished": "2025-12-05"
 }
 
   </script><script>
