@@ -1,6 +1,8 @@
 name: "02 Maintain: Check for Updated Packages"
 description: "Check for updated R packages and create a pull request to update the lesson's renv lockfile and package cache"
 on:
+  schedule:
+    - cron: '0 0 * * 2'
   workflow_dispatch:
     inputs:
       name:
@@ -22,9 +24,6 @@ on:
         required: false
         default: false
         type: boolean
-  schedule:
-    # Run every tuesday
-    - cron: '0 0 * * 2'
 
 env:
   LOCKFILE_CACHE_GEN: ${{ vars.LOCKFILE_CACHE_GEN || github.event.inputs.generate-cache || 'false' }}
@@ -82,7 +81,7 @@ jobs:
       pull-requests: write
       actions: write
       issues: write
-      id-token: write # OIDC permission required
+      id-token: write
     if: needs.check-renv.outputs.renv-needed == 'true'
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -188,12 +187,6 @@ jobs:
         if: steps.update.outputs.n == 0
         run: |
           echo "No updates needed, skipping PR creation"
-        shell: bash
-
-      - name: "Trigger Apply Cache Workflow"
-        if: steps.update.outputs.n == 0
-        run: |
-          gh workflow run docker_apply_cache.yaml
         shell: bash
 
       # thanks @Bisaloo! - https://github.com/carpentries/sandpaper/issues/646#issuecomment-2829578435

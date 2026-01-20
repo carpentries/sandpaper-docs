@@ -3,7 +3,10 @@ description: "Build and deploy the lesson site using the carpentries/workbench-d
 on:
   push:
     branches:
-      - main
+      - 'main'
+    paths-ignore:
+      - '.github/workflows/**.yaml'
+      - '.github/workbench-docker-version.txt'
   schedule:
     - cron: '0 0 * * 2'
   workflow_dispatch:
@@ -26,10 +29,6 @@ on:
         required: true
         default: false
         type: boolean
-  # workflow_run:
-  #   workflows: ["03 Maintain: Apply Package Cache"]
-  #   types:
-  #     - completed
 
 # only one build/deploy at a time
 concurrency:
@@ -83,9 +82,9 @@ jobs:
       checks: write
       contents: write
       pages: write
-      id-token: write # OIDC permission required
+      id-token: write
     container:
-      image: carpentries/workbench-docker:${{ vars.WORKBENCH_TAG || 'latest' }}
+      image: ghcr.io/carpentries/workbench-docker:${{ vars.WORKBENCH_TAG || 'latest' }}
       env:
         WORKBENCH_PROFILE: "ci"
         GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -139,7 +138,7 @@ jobs:
       actions: write
       contents: write
       pull-requests: write
-      id-token: write # OIDC permission required
+      id-token: write
     if: |
       needs.preflight.outputs.do-build == 'true' &&
       (
