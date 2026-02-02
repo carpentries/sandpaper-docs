@@ -124,7 +124,7 @@ width='33%'
 ![
 The text in these square brackets provides a caption to images in 
 [the Markdown syntax of The Carpentries Workbench](https://carpentries.github.io/sandpaper-docs/example.html#figures).
-](https://placekitten.com/300/300){
+](https://placecats.com/300/300){
 alt='A random picture of a cute kitten'
 width='33%'
 }
