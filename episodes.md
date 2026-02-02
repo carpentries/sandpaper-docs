@@ -455,7 +455,7 @@ instructors to know such as
 You can also include _any markdown elements_ like `code blocks`
 ```
 
-![Images can also appear in instructor notes](https://placekitten.com/200/200){alt='a random image of a cute kitten'}
+![Images can also appear in instructor notes](https://placecats.com/200/200){alt='a random image of a cute kitten'}
 
 :::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -475,7 +475,7 @@ instructors to know such as
 You can also include _any markdown elements_ like `code blocks`
 ```
 
-![Images can also appear in instructor notes](https://placekitten.com/200/200){alt='a random image of a cute kitten'}
+![Images can also appear in instructor notes](https://placecats.com/200/200){alt='a random image of a cute kitten'}
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
