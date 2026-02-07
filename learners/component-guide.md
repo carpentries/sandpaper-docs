@@ -70,7 +70,9 @@ Sections to pause the narrative flow of an episode for learners to reflect.
 
 ### CALLOUT (`callout`)
 
-CALLOUT callouts are created with the `callout` tag and are an aside or comment.
+CALLOUT callouts are created with the `callout` tag.
+We recommend that you use them to draw attention to a particularly important point, but some lesson developers use them for asides or non-essential comments.
+Since the `spoiler` callout was created, we recommend you use that for optional content.
 
 :::::::::::::::::::::::::
 
