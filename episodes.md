@@ -993,6 +993,8 @@ The reasons the others were incorrect is:
 
 ## Figures
 
+### Standard Markdown Figures
+
 To include figures, place them in the `episodes/fig` folder and reference them
 directly like so using standard markdown format, with one twist: add an `alt`
 attribute at the end to make it accessible like this:
@@ -1080,6 +1082,54 @@ pie(
 <img src="fig/episodes-rendered-pyramid-1.png" alt="pie chart illusion of a pyramid"  />
 <p class="caption">Sun arise each and every morning</p>
 </div>
+
+### Mermaid Diagrams
+
+[Mermaid diagrams](https://mermaid-js.github.io/mermaid/#/) can be included in lessons by using the `mermaid` fenced div and a code fragment the mermaid syntax.
+
+The following example creates a simple flowchart:
+```
+    flowchart LR
+        accTitle: {A short figure title}
+        accDescr: {A longer description of the figure, highlighting important elements}
+        A(1. Step A)
+        A --> B(2. Step B)
+        C("`3. Step C
+        - A thing
+        - Another thing
+        - Something else`")
+        B --> C
+        C --> D(4. Step D)
+```
+
+The resulting mermaid diagram will be rendered as:
+
+```mermaid
+    flowchart LR
+        accTitle: {A short figure title}
+        accDescr: {A longer description of the figure, highlighting important elements}
+        A(1. Step A)
+        A --> B(2. Step B)
+        C("`3. Step C
+        - A thing
+        - Another thing
+        - Something else`")
+        B --> C
+        C --> D(4. Step D)
+```
+
+::::::::::::::::::::: callout
+
+### Accessibility of Mermaid Diagrams
+
+Note that both the `accTitle` and `accDescr` fields in the mermaid code block need to be supplied to produce an accessible figure caption!
+
+`accTitle` provides a short title for the figure, and `accDescr` provides a longer form description of the figure that highlights important elements.
+
+Both of these fields are read by screen readers to provide an accessible description of the figure.
+
+:::::::::::::::::::::::::::::
+
 
 ## Math
 
