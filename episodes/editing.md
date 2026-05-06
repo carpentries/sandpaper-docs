@@ -417,7 +417,9 @@ of this page and this will be the first page that anyone sees.
 This page gives information to maintainers about what to expect inside of the repository and how to contribute. 
 
 ## Making your lesson citable
-You can add information about how people should cite your lesson by adding a citation file to your lesson repository. If the root folder of your lesson project includes a file called `CITATION` or `CITATION.cff`, the _'Cite'_ page footer of your lesson site will link to this file.
+You can add information about how people should cite your lesson by adding a citation file to your lesson repository. 
+If the root folder of your lesson repository contains a `CITATION.cff` in Citation File Format (more details below), the lesson website will include a Lesson Citation page linked from _Cite_ in the page footer.
+If the root folder includes a file called `CITATION`, the _'Cite'_ page footer of your lesson site will link to this file.
 
 We recommend that you add and maintain a `CITATION.cff` file for your lesson, in [Citation File Format](https://citation-file-format.github.io/) (CFF). CFF is a structured text file format that provides machine-readable citation information for projects. It is supported by a growing number of tools, including GitHub: if a project includes a CFF file in its default branch, [GitHub will present citation information for the project](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/creating-a-repository-on-github/about-citation-files) under a _'Cite this repository'_ button in the _About_ sidebar.
 
