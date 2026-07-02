@@ -441,14 +441,14 @@ API](https://carpentries.r-universe.dev/apis). To produce a list
 (you may need to `sudo apt install jq` if it is not already on your system):
 
 ```bash
-curl https://carpentries.r-universe.dev/stats/sysdeps 2> /dev/null | jq -r '.headers[0] | select(. != null)'
+curl -L https://carpentries.r-universe.dev/stats/sysdeps 2> /dev/null | jq -r '.headers[0] | select(. != null)'
 ```
 
 This list can be sent to `apt install` to install everything:
 
 ```bash
 sudo apt-get install -y \
-  $(curl https://carpentries.r-universe.dev/stats/sysdeps 2> /dev/null | jq -r '.headers[0] | select(. != null)') 2> /dev/null \
+  $(curl -L https://carpentries.r-universe.dev/stats/sysdeps 2> /dev/null | jq -r '.headers[0] | select(. != null)') 2> /dev/null \
   || echo "Not on Ubuntu"
 ```
 
