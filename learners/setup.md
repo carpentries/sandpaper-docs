@@ -721,7 +721,7 @@ setting up authentication credentials for your account:
 : A walkthrough of creating a throwaway repository that gives you a good idea 
   for the mechanics of working with GitHub. 
 
-[Cache credentials for HTTPS (Happy Git With R)](https://happygitwithr.com/credential-caching.html)
+[Personal access token for HTTPS (Happy Git With R)](https://happygitwithr.com/https-pat)
 : Clear explanation on how to set up a Personal Access Token and the benefits of
   using HTTPS. This explains how to do this in both the shell and R.
 
